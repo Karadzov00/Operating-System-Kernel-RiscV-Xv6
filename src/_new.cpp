@@ -4,11 +4,12 @@
 
 #include "../lib/mem.h"
 #include "../h/MemoryAllocator.hpp"
+
 using size_t = decltype(sizeof(0));
 
+class MemoryAllocator;
 
 void* operator new(size_t n){
-
     MemoryAllocator* memAlc = &MemoryAllocator::getInstance();
     return memAlc->mem_alloc(n);
 }
