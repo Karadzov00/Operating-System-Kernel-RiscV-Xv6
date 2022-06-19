@@ -4,6 +4,10 @@
 
 #include "../h/Riscv.hpp"
 
+void Riscv::handleSupervisorTrap(){
+    uint scause = r_scause();
+
+}
 
 void Riscv::popSppSpie()
 {
