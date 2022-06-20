@@ -3,6 +3,7 @@
 //
 
 #include "../h/Riscv.hpp"
+#include "../h/MemoryAllocator.hpp"
 
 void Riscv::handleSupervisorTrap(){
     uint scause = r_scause();
@@ -47,6 +48,20 @@ void Riscv::handleSupervisorTrap(){
 
 void Riscv::syscallHandler() {
     //read syscall code from register a0
+
+    uint64 arg0;
+    uint64 arg1;
+    uint64 arg2;
+    uint64 arg3;
+    uint64 arg4;
+    uint64 arg5;
+    __asm__ volatile("mv %0, a0" : "=r" (arg0));
+    if(arg0== 0x01 ){
+        //mem_alloc
+        __asm__ volatile("mv %0, a1" : "=r" (arg1));    //read size from a1 and move it to arg1
+        MemoryAllocator::mem_alloc(arg1);
+
+    }
 
 }
 
