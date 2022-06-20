@@ -45,7 +45,7 @@ void* mem_alloc (size_t size){
     syscall(arg);
 }
 
-int mem_free (void*);
+int mem_free (void* p);
 
 
 

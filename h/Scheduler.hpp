@@ -13,11 +13,20 @@ class Scheduler {
 private:
     static List<TCB> readyThreadQueue;
 
+    Scheduler(){}
+
 public:
     static TCB *get();
 
     static void put(TCB *ccb);
 
+    static Scheduler& getInstance(){
+        static Scheduler instance;
+        return instance;
+    }
+
+    Scheduler(Scheduler const&)=delete;
+    void operator=(Scheduler const&)=delete;
 };
 
 

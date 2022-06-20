@@ -3,27 +3,25 @@
 //
 
 
-#include "../h/MemoryAllocator.hpp"
+
+
+#include "../lib/mem.h"
 
 using size_t = decltype(sizeof(0));
 
 
 void* operator new(size_t n){
-    MemoryAllocator* memAlc = &MemoryAllocator::getInstance();
-    return memAlc->mem_alloc(n);
+    return __mem_alloc(n);
 }
 
 void* operator new[](size_t n){
-    MemoryAllocator* memAlc = &MemoryAllocator::getInstance();
-    return memAlc->mem_alloc(n);
+    return __mem_alloc(n);
 }
 
 void operator delete(void* p) noexcept{
-    MemoryAllocator* memAlc = &MemoryAllocator::getInstance();
-    memAlc->mem_free(p);
+    __mem_free(p);
 }
 
 void operator delete[] (void* p)noexcept{
-    MemoryAllocator* memAlc = &MemoryAllocator::getInstance();
-    memAlc->mem_free(p);
+    __mem_free(p);
 }
