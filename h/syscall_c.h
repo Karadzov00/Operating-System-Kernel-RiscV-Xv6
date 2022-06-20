@@ -22,8 +22,8 @@ struct args{
 };
 
 void syscall(void* args){
-    //treba da pripremi argumente u registre?
-    //treba da pozove prekidnu rutinu sa ecall
+    //should prepare arguments in registers
+    //should call interrupt routine with ecall
 
 
     Riscv::w_stvec((uint64)&supervisorTrap);
@@ -34,8 +34,8 @@ void syscall(void* args){
 }
 
 void* mem_alloc (size_t size){
-    //priprema parametre u odgovarajuce argumente
-    //i izvrsava instrukciju sistemskog poziva
+    //prepares parameters to arguments
+    //executes system call instruction
     args* arg = new args();
     arg->a0=0x01;
 

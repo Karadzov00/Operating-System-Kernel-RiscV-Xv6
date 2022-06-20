@@ -15,8 +15,8 @@ public:
         return instance;
     }
 
-    static void* mem_alloc(size_t size);
-    static int mem_free(void* arg);
+    void* mem_alloc(size_t size);
+    int mem_free(void* arg);
 
 private:
     MemoryAllocator(){}
