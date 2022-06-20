@@ -1,0 +1,184 @@
+GAS LISTING /tmp/ccLQRBfl.s 			page 1
+
+
+   1              		.file	"MemoryAllocator.cpp"
+   2              		.option pic
+   3              		.option norelax
+   4              		.text
+   5              	.Ltext0:
+   6              		.align	2
+   7              		.globl	_ZN15MemoryAllocator9mem_allocEm
+   9              	_ZN15MemoryAllocator9mem_allocEm:
+  10              	.LFB4:
+  11              		.file 1 "src/MemoryAllocator.cpp"
+   1:src/MemoryAllocator.cpp **** //
+   2:src/MemoryAllocator.cpp **** // Created by os on 6/20/22.
+   3:src/MemoryAllocator.cpp **** //
+   4:src/MemoryAllocator.cpp **** 
+   5:src/MemoryAllocator.cpp **** #include "../h/MemoryAllocator.hpp"
+   6:src/MemoryAllocator.cpp **** 
+   7:src/MemoryAllocator.cpp **** 
+   8:src/MemoryAllocator.cpp **** void* MemoryAllocator::mem_alloc(size_t size){
+  12              		.loc 1 8 46
+  13              		.cfi_startproc
+  14              	.LVL0:
+  15 0000 130101FF 		addi	sp,sp,-16
+  16              		.cfi_def_cfa_offset 16
+  17 0004 23341100 		sd	ra,8(sp)
+  18 0008 23308100 		sd	s0,0(sp)
+  19              		.cfi_offset 1, -8
+  20              		.cfi_offset 8, -16
+  21 000c 13040101 		addi	s0,sp,16
+  22              		.cfi_def_cfa 8, 0
+   9:src/MemoryAllocator.cpp ****     return __mem_alloc(size);
+  23              		.loc 1 9 5
+  24              		.loc 1 9 23 is_stmt 0
+  25 0010 97000000 		call	__mem_alloc@plt
+  25      E7800000 
+  26              	.LVL1:
+  10:src/MemoryAllocator.cpp **** }
+  27              		.loc 1 10 1
+  28 0018 83308100 		ld	ra,8(sp)
+  29              		.cfi_restore 1
+  30 001c 03340100 		ld	s0,0(sp)
+  31              		.cfi_restore 8
+  32              		.cfi_def_cfa 2, 16
+  33 0020 13010101 		addi	sp,sp,16
+  34              		.cfi_def_cfa_offset 0
+  35 0024 67800000 		jr	ra
+  36              		.cfi_endproc
+  37              	.LFE4:
+  39              		.align	2
+  40              		.globl	_ZN15MemoryAllocator8mem_freeEPv
+  42              	_ZN15MemoryAllocator8mem_freeEPv:
+  43              	.LFB5:
+  11:src/MemoryAllocator.cpp **** 
+  12:src/MemoryAllocator.cpp **** int MemoryAllocator::mem_free(void* arg){
+  44              		.loc 1 12 41 is_stmt 1
+  45              		.cfi_startproc
+  46              	.LVL2:
+  47 0028 130101FF 		addi	sp,sp,-16
+GAS LISTING /tmp/ccLQRBfl.s 			page 2
+
+
+  48              		.cfi_def_cfa_offset 16
+  49 002c 23341100 		sd	ra,8(sp)
+  50 0030 23308100 		sd	s0,0(sp)
+  51              		.cfi_offset 1, -8
+  52              		.cfi_offset 8, -16
+  53 0034 13040101 		addi	s0,sp,16
+  54              		.cfi_def_cfa 8, 0
+  13:src/MemoryAllocator.cpp ****     return __mem_free(arg);
+  55              		.loc 1 13 5
+  56              		.loc 1 13 22 is_stmt 0
+  57 0038 97000000 		call	__mem_free@plt
+  57      E7800000 
+  58              	.LVL3:
+  14:src/MemoryAllocator.cpp **** }...
+  59              		.loc 1 14 1
+  60 0040 83308100 		ld	ra,8(sp)
+  61              		.cfi_restore 1
+  62 0044 03340100 		ld	s0,0(sp)
+  63              		.cfi_restore 8
+  64              		.cfi_def_cfa 2, 16
+  65 0048 13010101 		addi	sp,sp,16
+  66              		.cfi_def_cfa_offset 0
+  67 004c 67800000 		jr	ra
+  68              		.cfi_endproc
+  69              	.LFE5:
+  71              	.Letext0:
+  72              		.file 2 "src/../h/../lib/hw.h"
+  73              		.file 3 "src/../h/MemoryAllocator.hpp"
+  74              		.file 4 "src/../h/../lib/mem.h"
+GAS LISTING /tmp/ccLQRBfl.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 MemoryAllocator.cpp
+     /tmp/ccLQRBfl.s:9      .text:0000000000000000 _ZN15MemoryAllocator9mem_allocEm
+     /tmp/ccLQRBfl.s:13     .text:0000000000000000 .L0 
+     /tmp/ccLQRBfl.s:15     .text:0000000000000000 .L0 
+     /tmp/ccLQRBfl.s:16     .text:0000000000000004 .L0 
+     /tmp/ccLQRBfl.s:19     .text:000000000000000c .L0 
+     /tmp/ccLQRBfl.s:20     .text:000000000000000c .L0 
+     /tmp/ccLQRBfl.s:22     .text:0000000000000010 .L0 
+     /tmp/ccLQRBfl.s:24     .text:0000000000000010 .L0 
+     /tmp/ccLQRBfl.s:25     .text:0000000000000010 .L0 
+     /tmp/ccLQRBfl.s:28     .text:0000000000000018 .L0 
+     /tmp/ccLQRBfl.s:29     .text:000000000000001c .L0 
+     /tmp/ccLQRBfl.s:31     .text:0000000000000020 .L0 
+     /tmp/ccLQRBfl.s:32     .text:0000000000000020 .L0 
+     /tmp/ccLQRBfl.s:34     .text:0000000000000024 .L0 
+     /tmp/ccLQRBfl.s:36     .text:0000000000000028 .L0 
+     /tmp/ccLQRBfl.s:42     .text:0000000000000028 _ZN15MemoryAllocator8mem_freeEPv
+     /tmp/ccLQRBfl.s:45     .text:0000000000000028 .L0 
+     /tmp/ccLQRBfl.s:47     .text:0000000000000028 .L0 
+     /tmp/ccLQRBfl.s:48     .text:000000000000002c .L0 
+     /tmp/ccLQRBfl.s:51     .text:0000000000000034 .L0 
+     /tmp/ccLQRBfl.s:52     .text:0000000000000034 .L0 
+     /tmp/ccLQRBfl.s:54     .text:0000000000000038 .L0 
+     /tmp/ccLQRBfl.s:56     .text:0000000000000038 .L0 
+     /tmp/ccLQRBfl.s:57     .text:0000000000000038 .L0 
+     /tmp/ccLQRBfl.s:60     .text:0000000000000040 .L0 
+     /tmp/ccLQRBfl.s:61     .text:0000000000000044 .L0 
+     /tmp/ccLQRBfl.s:63     .text:0000000000000048 .L0 
+     /tmp/ccLQRBfl.s:64     .text:0000000000000048 .L0 
+     /tmp/ccLQRBfl.s:66     .text:000000000000004c .L0 
+     /tmp/ccLQRBfl.s:68     .text:0000000000000050 .L0 
+     /tmp/ccLQRBfl.s:75     .text:0000000000000050 .L0 
+     /tmp/ccLQRBfl.s:365    .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+     /tmp/ccLQRBfl.s:856    .debug_str:00000000000001aa .LASF28
+     /tmp/ccLQRBfl.s:848    .debug_str:000000000000014b .LASF29
+     /tmp/ccLQRBfl.s:860    .debug_str:000000000000027d .LASF30
+     /tmp/ccLQRBfl.s:5      .text:0000000000000000 .Ltext0
+     /tmp/ccLQRBfl.s:71     .text:0000000000000050 .Letext0
+     /tmp/ccLQRBfl.s:804    .debug_line:0000000000000000 .Ldebug_line0
+     /tmp/ccLQRBfl.s:810    .debug_str:0000000000000017 .LASF0
+     /tmp/ccLQRBfl.s:854    .debug_str:0000000000000197 .LASF1
+     /tmp/ccLQRBfl.s:840    .debug_str:000000000000010c .LASF2
+     /tmp/ccLQRBfl.s:834    .debug_str:00000000000000e9 .LASF4
+     /tmp/ccLQRBfl.s:826    .debug_str:0000000000000099 .LASF3
+     /tmp/ccLQRBfl.s:820    .debug_str:0000000000000066 .LASF5
+     /tmp/ccLQRBfl.s:832    .debug_str:00000000000000d6 .LASF6
+     /tmp/ccLQRBfl.s:852    .debug_str:0000000000000184 .LASF7
+     /tmp/ccLQRBfl.s:866    .debug_str:00000000000002ed .LASF8
+     /tmp/ccLQRBfl.s:816    .debug_str:0000000000000049 .LASF9
+     /tmp/ccLQRBfl.s:818    .debug_str:0000000000000057 .LASF10
+     /tmp/ccLQRBfl.s:858    .debug_str:000000000000026e .LASF11
+     /tmp/ccLQRBfl.s:822    .debug_str:000000000000006d .LASF12
+     /tmp/ccLQRBfl.s:870    .debug_str:0000000000000307 .LASF13
+     /tmp/ccLQRBfl.s:838    .debug_str:0000000000000100 .LASF14
+     /tmp/ccLQRBfl.s:846    .debug_str:0000000000000135 .LASF15
+     /tmp/ccLQRBfl.s:844    .debug_str:000000000000011f .LASF16
+GAS LISTING /tmp/ccLQRBfl.s 			page 4
+
+
+     /tmp/ccLQRBfl.s:836    .debug_str:00000000000000f0 .LASF21
+     /tmp/ccLQRBfl.s:814    .debug_str:000000000000003d .LASF31
+     /tmp/ccLQRBfl.s:862    .debug_str:00000000000002ad .LASF32
+     /tmp/ccLQRBfl.s:868    .debug_str:00000000000002fd .LASF17
+     /tmp/ccLQRBfl.s:850    .debug_str:0000000000000163 .LASF19
+     /tmp/ccLQRBfl.s:872    .debug_str:0000000000000317 .LASF18
+     /tmp/ccLQRBfl.s:830    .debug_str:00000000000000b5 .LASF20
+     /tmp/ccLQRBfl.s:824    .debug_str:000000000000007d .LASF23
+     /tmp/ccLQRBfl.s:828    .debug_str:00000000000000ab .LASF22
+     /tmp/ccLQRBfl.s:864    .debug_str:00000000000002d1 .LASF24
+     /tmp/ccLQRBfl.s:812    .debug_str:0000000000000024 .LASF33
+     /tmp/ccLQRBfl.s:43     .text:0000000000000028 .LFB5
+     /tmp/ccLQRBfl.s:69     .text:0000000000000050 .LFE5
+     /tmp/ccLQRBfl.s:763    .debug_loc:0000000000000000 .LLST1
+     /tmp/ccLQRBfl.s:58     .text:0000000000000040 .LVL3
+     /tmp/ccLQRBfl.s:10     .text:0000000000000000 .LFB4
+     /tmp/ccLQRBfl.s:37     .text:0000000000000028 .LFE4
+     /tmp/ccLQRBfl.s:842    .debug_str:000000000000011a .LASF25
+     /tmp/ccLQRBfl.s:777    .debug_loc:0000000000000039 .LLST0
+     /tmp/ccLQRBfl.s:26     .text:0000000000000018 .LVL1
+     /tmp/ccLQRBfl.s:806    .debug_str:0000000000000000 .LASF26
+     /tmp/ccLQRBfl.s:808    .debug_str:000000000000000b .LASF27
+     /tmp/ccLQRBfl.s:46     .text:0000000000000028 .LVL2
+     /tmp/ccLQRBfl.s:14     .text:0000000000000000 .LVL0
+     /tmp/ccLQRBfl.s:76     .debug_info:0000000000000000 .Ldebug_info0
+
+UNDEFINED SYMBOLS
+__mem_alloc
+__mem_free

@@ -1,0 +1,41 @@
+GAS LISTING /tmp/cc97FrS5.s 			page 1
+
+
+   1              		.file	"TCB.cpp"
+   2              		.option pic
+   3              		.option norelax
+   4              		.text
+   5              	.Ltext0:
+   6              	.Letext0:
+   7              		.file 1 "src/../h/../lib/hw.h"
+GAS LISTING /tmp/cc97FrS5.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 TCB.cpp
+     /tmp/cc97FrS5.s:138    .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+     /tmp/cc97FrS5.s:307    .debug_str:00000000000000e7 .LASF18
+     /tmp/cc97FrS5.s:293    .debug_str:000000000000007a .LASF19
+     /tmp/cc97FrS5.s:283    .debug_str:000000000000001a .LASF20
+     /tmp/cc97FrS5.s:277    .debug_line:0000000000000000 .Ldebug_line0
+     /tmp/cc97FrS5.s:309    .debug_str:00000000000001ab .LASF0
+     /tmp/cc97FrS5.s:303    .debug_str:00000000000000c8 .LASF1
+     /tmp/cc97FrS5.s:299    .debug_str:00000000000000a8 .LASF2
+     /tmp/cc97FrS5.s:287    .debug_str:0000000000000058 .LASF4
+     /tmp/cc97FrS5.s:301    .debug_str:00000000000000b6 .LASF3
+     /tmp/cc97FrS5.s:281    .debug_str:0000000000000013 .LASF5
+     /tmp/cc97FrS5.s:279    .debug_str:0000000000000000 .LASF6
+     /tmp/cc97FrS5.s:295    .debug_str:0000000000000086 .LASF7
+     /tmp/cc97FrS5.s:311    .debug_str:00000000000001b8 .LASF8
+     /tmp/cc97FrS5.s:285    .debug_str:000000000000004a .LASF9
+     /tmp/cc97FrS5.s:319    .debug_str:00000000000001fe .LASF10
+     /tmp/cc97FrS5.s:297    .debug_str:0000000000000099 .LASF11
+     /tmp/cc97FrS5.s:317    .debug_str:00000000000001ee .LASF12
+     /tmp/cc97FrS5.s:315    .debug_str:00000000000001de .LASF13
+     /tmp/cc97FrS5.s:305    .debug_str:00000000000000db .LASF14
+     /tmp/cc97FrS5.s:291    .debug_str:0000000000000064 .LASF15
+     /tmp/cc97FrS5.s:313    .debug_str:00000000000001c8 .LASF16
+     /tmp/cc97FrS5.s:289    .debug_str:000000000000005f .LASF17
+     /tmp/cc97FrS5.s:9      .debug_info:0000000000000000 .Ldebug_info0
+
+NO UNDEFINED SYMBOLS

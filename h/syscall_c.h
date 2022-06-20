@@ -6,6 +6,7 @@
 #define PROJECT_BASE_V1_1_SYSCALL_C_H
 
 #include "Riscv.hpp"
+#include "Print.hpp"
 
 
 extern "C" void supervisorTrap();
@@ -60,9 +61,12 @@ void* mem_alloc (size_t size){
     size_t blocks = size/MEM_BLOCK_SIZE;
     if(size%MEM_BLOCK_SIZE!=0)blocks++;
     arg->a1=blocks;
+
     syscall(arg);
+
     uint64 ret;
     __asm__ volatile("mv %0, a0" : "=r" (ret));
+    printInteger(ret);
     return (void*)ret;
 }
 

@@ -6,7 +6,7 @@
 #include "../h/List.hpp"
 #include "../h/syscall_c.h"
 
-extern "C" void supervisorTrap();
+
 
 int main(){
 
