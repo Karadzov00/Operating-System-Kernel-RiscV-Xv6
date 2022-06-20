@@ -6,7 +6,7 @@
 #define PROJECT_BASE_V1_1_SYSCALL_C_H
 
 #include "Riscv.hpp"
-#include "../src/_new.cpp"
+
 
 extern "C" void supervisorTrap();
 
