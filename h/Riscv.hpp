@@ -85,6 +85,8 @@ private:
     // supervisor trap handler
     static void handleSupervisorTrap();
 
+    static void syscallHandler();
+
 };
 
 inline uint64 Riscv::r_scause()
