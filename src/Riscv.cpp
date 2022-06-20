@@ -51,10 +51,10 @@ void Riscv::syscallHandler() {
 
     uint64 arg0;
     uint64 arg1;
-    uint64 arg2;
-    uint64 arg3;
-    uint64 arg4;
-    uint64 arg5;
+//    uint64 arg2;
+//    uint64 arg3;
+//    uint64 arg4;
+//    uint64 arg5;
     __asm__ volatile("mv %0, a0" : "=r" (arg0));    //read system call code
     if(arg0== 0x01 ){
         //mem_alloc

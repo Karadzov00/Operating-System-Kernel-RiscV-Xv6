@@ -14,7 +14,7 @@ int main(){
 //    Riscv::ms_sstatus(Riscv::SSTATUS_SIE);
 //    __asm__ volatile ("ecall");
 
-    uint64* ptr =(uint64*) mem_alloc(10);
+    mem_alloc(10);
 
     return 0;
 }
