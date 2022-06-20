@@ -55,12 +55,14 @@ void Riscv::syscallHandler() {
     uint64 arg3;
     uint64 arg4;
     uint64 arg5;
-    __asm__ volatile("mv %0, a0" : "=r" (arg0));
+    __asm__ volatile("mv %0, a0" : "=r" (arg0));    //read system call code
     if(arg0== 0x01 ){
         //mem_alloc
-        __asm__ volatile("mv %0, a1" : "=r" (arg1));    //read size from a1 and move it to arg1
-        MemoryAllocator::mem_alloc(arg1);
+        __asm__ volatile("mv %0, a1" : "=r" (arg1));    //read size from a1 and move it to arg1 local variable
+        uint64 ptr= (uint64)MemoryAllocator::mem_alloc(arg1);
 
+        //write return value to a0 register
+        asm volatile("mv %0, a0" : "=r" (ptr));
     }
 
 }

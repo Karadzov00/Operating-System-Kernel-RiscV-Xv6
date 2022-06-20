@@ -36,6 +36,13 @@ void syscall(void* arg){
     uint64 arg7 = ar->a7;
 
     asm volatile("mv a0, %0" : : "r" (arg0));
+    asm volatile("mv a1, %0" : : "r" (arg1));
+    asm volatile("mv a2, %0" : : "r" (arg2));
+    asm volatile("mv a3, %0" : : "r" (arg3));
+    asm volatile("mv a4, %0" : : "r" (arg4));
+    asm volatile("mv a5, %0" : : "r" (arg5));
+    asm volatile("mv a6, %0" : : "r" (arg6));
+    asm volatile("mv a7, %0" : : "r" (arg7));
 
     Riscv::w_stvec((uint64)&supervisorTrap);
 //    Riscv::ms_sstatus(Riscv::SSTATUS_SIE);
@@ -51,9 +58,12 @@ void* mem_alloc (size_t size){
     arg->a0=0x01;
 
     size_t blocks = size/MEM_BLOCK_SIZE;
-    if(size%MEM_BLOCK_SIZE!=0)blocks+1;
+    if(size%MEM_BLOCK_SIZE!=0)blocks++;
     arg->a1=blocks;
     syscall(arg);
+    uint64 ret;
+    __asm__ volatile("mv %0, a0" : "=r" (ret));
+    return (void*)ret;
 }
 
 int mem_free (void* p);
