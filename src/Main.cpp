@@ -13,8 +13,8 @@ int main(){
 //    Riscv::w_stvec((uint64)&supervisorTrap);
 //    Riscv::ms_sstatus(Riscv::SSTATUS_SIE);
 //    __asm__ volatile ("ecall");
-    Riscv::w_stvec((uint64)&supervisorTrap);
-    printString("Hello");
+    Riscv::w_stvec((uint64)&Riscv::supervisorTrap);
+
     mem_alloc(300);
 
     return 0;

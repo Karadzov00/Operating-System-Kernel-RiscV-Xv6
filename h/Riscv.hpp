@@ -78,7 +78,7 @@ public:
     static void w_sstatus(uint64 sstatus);
 
     // supervisor trap
-    //static void supervisorTrap();
+    static void supervisorTrap();
 
 private:
 

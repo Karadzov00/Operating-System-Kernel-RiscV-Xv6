@@ -38,10 +38,12 @@ void Riscv::handleSupervisorTrap(){
 
     if (scause == 0x0000000000000008UL || scause==0x0000000000000009UL){
         // interrupt: no; cause code: environment call from U-mode(8) or S-mode(9)
+        uint64 sepc = r_sepc() + 4;
 
         //jump to syscall handler
         syscallHandler();
 
+        w_sepc(sepc);
 
     }
     else if (scause == 0x8000000000000001UL){
