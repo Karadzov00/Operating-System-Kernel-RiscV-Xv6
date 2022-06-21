@@ -24,6 +24,11 @@ void Riscv::syscallHandler() {
         //write return value to a0 register
         __asm__ volatile("mv a0, %0" : : "r" (ptr));
     }
+    else if(arg0==0x02){
+        __asm__ volatile("mv %0, a1" : "=r" (arg1));    //read pointer to free from a1 and move it to arg1 local variable
+        int ret = MemoryAllocator::mem_free((void*)arg1);
+        __asm__ volatile("mv a0, %0" : : "r" (ret));
+    }
 
 }
 

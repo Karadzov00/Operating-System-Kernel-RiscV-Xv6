@@ -58,7 +58,16 @@ void* mem_alloc (size_t size){
     return (void*)ret;
 }
 
-int mem_free (void* p);
+int mem_free (void* p){
+    args* arg = new args();
+    arg->a0=0x02;
+    arg->a1=(uint64)p;
+
+    syscall(arg);
+    uint64 ret;
+    __asm__ volatile("mv %0, a0" : "=r" (ret));
+    return (int)ret;
+}
 
 
 

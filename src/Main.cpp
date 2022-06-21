@@ -21,6 +21,11 @@ int main(){
     if(ptr!=nullptr){
         printString("allocated \n");
     }
-
+    if(!mem_free(ptr)){
+        printString("successfully freed \n");
+    }
+    else{
+        printString("not freed \n");
+    }
     return 0;
 }
