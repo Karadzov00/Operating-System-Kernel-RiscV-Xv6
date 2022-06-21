@@ -16,37 +16,24 @@ struct args{
     uint64 a1;
     uint64 a2;
     uint64 a3;
-    uint64 a4;
-    uint64 a5;
-    uint64 a6;
-    uint64 a7;
+
 };
 
-void syscall(void* arg){
+void syscall(args* arg){
     //should prepare arguments in registers
     //should call interrupt routine with ecall
     printString("uso u syscall");
-    args* ar = (args*)arg;
-    uint64 arg0 = ar->a0;
-    uint64 arg1 = ar->a1;
-    uint64 arg2 = ar->a2;
-    uint64 arg3 = ar->a3;
-    uint64 arg4 = ar->a4;
-    uint64 arg5 = ar->a5;
-    uint64 arg6 = ar->a6;
-    uint64 arg7 = ar->a7;
+
+    uint64 arg0 = arg->a0;
+    uint64 arg1 = arg->a1;
+
+
 
     //lock this section?
     __asm__ volatile("mv a0, %0" : : "r" (arg0));
     __asm__ volatile("mv a1, %0" : : "r" (arg1));
-    __asm__ volatile("mv a2, %0" : : "r" (arg2));
-    __asm__ volatile("mv a3, %0" : : "r" (arg3));
-    __asm__ volatile("mv a4, %0" : : "r" (arg4));
-    __asm__ volatile("mv a5, %0" : : "r" (arg5));
-    __asm__ volatile("mv a6, %0" : : "r" (arg6));
-    __asm__ volatile("mv a7, %0" : : "r" (arg7));
 
-    Riscv::w_stvec((uint64)&supervisorTrap);
+
 //    Riscv::ms_sstatus(Riscv::SSTATUS_SIE);
     __asm__ volatile ("ecall");
 
