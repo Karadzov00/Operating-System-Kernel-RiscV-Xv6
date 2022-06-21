@@ -4,11 +4,11 @@
 
 #include "../h/Riscv.hpp"
 #include "../h/MemoryAllocator.hpp"
-#include "../h/Print.hpp"
+
 
 void Riscv::syscallHandler() {
     //read syscall code from register a0
-    printString("uso u syscallhandler");
+
     uint64 arg0;
     uint64 arg1;
 //    uint64 arg2;
@@ -22,7 +22,7 @@ void Riscv::syscallHandler() {
         uint64 ptr= (uint64)MemoryAllocator::mem_alloc(arg1);
 
         //write return value to a0 register
-        asm volatile("mv %0, a0" : "=r" (ptr));
+        __asm__ volatile("mv a0, %0" : : "r" (ptr));
     }
 
 }
@@ -35,17 +35,14 @@ void Riscv::popSppSpie()
 
 void Riscv::handleSupervisorTrap(){
     uint scause = r_scause();
+
     if (scause == 0x0000000000000008UL || scause==0x0000000000000009UL){
         // interrupt: no; cause code: environment call from U-mode(8) or S-mode(9)
-        printString("uso u handleTrap");
-        uint64  sepc = r_sepc() + 4;
-        uint64  sstatus = r_sstatus();
 
         //jump to syscall handler
         syscallHandler();
 
-        w_sstatus(sstatus);
-        w_sepc(sepc);
+
     }
     else if (scause == 0x8000000000000001UL){
         // interrupt: yes; cause code: supervisor software interrupt (CLINT; machine timer interrupt)

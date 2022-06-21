@@ -15,7 +15,7 @@ int main(){
 //    __asm__ volatile ("ecall");
     Riscv::w_stvec((uint64)&supervisorTrap);
     printString("Hello");
-    mem_alloc(10);
+    mem_alloc(300);
 
     return 0;
 }

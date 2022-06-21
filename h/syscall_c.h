@@ -6,7 +6,7 @@
 #define PROJECT_BASE_V1_1_SYSCALL_C_H
 
 #include "Riscv.hpp"
-#include "Print.hpp"
+
 
 
 extern "C" void supervisorTrap();
@@ -22,7 +22,7 @@ struct args{
 void syscall(args* arg){
     //should prepare arguments in registers
     //should call interrupt routine with ecall
-    printString("uso u syscall");
+
 
     uint64 arg0 = arg->a0;
     uint64 arg1 = arg->a1;
@@ -54,7 +54,7 @@ void* mem_alloc (size_t size){
 
     uint64 ret;
     __asm__ volatile("mv %0, a0" : "=r" (ret));
-    printInteger(ret);
+
     return (void*)ret;
 }
 
