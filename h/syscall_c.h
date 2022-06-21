@@ -37,14 +37,14 @@ void syscall(void* arg){
     uint64 arg7 = ar->a7;
 
     //lock this section?
-    asm volatile("mv a0, %0" : : "r" (arg0));
-    asm volatile("mv a1, %0" : : "r" (arg1));
-    asm volatile("mv a2, %0" : : "r" (arg2));
-    asm volatile("mv a3, %0" : : "r" (arg3));
-    asm volatile("mv a4, %0" : : "r" (arg4));
-    asm volatile("mv a5, %0" : : "r" (arg5));
-    asm volatile("mv a6, %0" : : "r" (arg6));
-    asm volatile("mv a7, %0" : : "r" (arg7));
+    __asm__ volatile("mv a0, %0" : : "r" (arg0));
+    __asm__ volatile("mv a1, %0" : : "r" (arg1));
+    __asm__ volatile("mv a2, %0" : : "r" (arg2));
+    __asm__ volatile("mv a3, %0" : : "r" (arg3));
+    __asm__ volatile("mv a4, %0" : : "r" (arg4));
+    __asm__ volatile("mv a5, %0" : : "r" (arg5));
+    __asm__ volatile("mv a6, %0" : : "r" (arg6));
+    __asm__ volatile("mv a7, %0" : : "r" (arg7));
 
     Riscv::w_stvec((uint64)&supervisorTrap);
 //    Riscv::ms_sstatus(Riscv::SSTATUS_SIE);

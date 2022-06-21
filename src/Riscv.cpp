@@ -35,22 +35,14 @@ void Riscv::popSppSpie()
 
 void Riscv::handleSupervisorTrap(){
     uint scause = r_scause();
-    if (scause == 0x0000000000000008UL ){
-        // interrupt: no; cause code: environment call from U-mode(8)
+    if (scause == 0x0000000000000008UL || scause==0x0000000000000009UL){
+        // interrupt: no; cause code: environment call from U-mode(8) or S-mode(9)
         printString("uso u handleTrap");
         uint64  sepc = r_sepc() + 4;
         uint64  sstatus = r_sstatus();
 
         //jump to syscall handler
         syscallHandler();
-
-        w_sstatus(sstatus);
-        w_sepc(sepc);
-    }
-    else if(scause == 0x0000000000000009UL){
-        // interrupt: no; cause code: environment call from S-mode(9)
-        uint64  sepc = r_sepc() + 4;
-        uint64  sstatus = r_sstatus();
 
         w_sstatus(sstatus);
         w_sepc(sepc);
