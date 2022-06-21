@@ -25,7 +25,7 @@ struct args{
 void syscall(void* arg){
     //should prepare arguments in registers
     //should call interrupt routine with ecall
-
+    printString("uso u syscall");
     args* ar = (args*)arg;
     uint64 arg0 = ar->a0;
     uint64 arg1 = ar->a1;
@@ -36,6 +36,7 @@ void syscall(void* arg){
     uint64 arg6 = ar->a6;
     uint64 arg7 = ar->a7;
 
+    //lock this section?
     asm volatile("mv a0, %0" : : "r" (arg0));
     asm volatile("mv a1, %0" : : "r" (arg1));
     asm volatile("mv a2, %0" : : "r" (arg2));

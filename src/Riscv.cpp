@@ -4,12 +4,40 @@
 
 #include "../h/Riscv.hpp"
 #include "../h/MemoryAllocator.hpp"
+#include "../h/Print.hpp"
+
+void Riscv::syscallHandler() {
+    //read syscall code from register a0
+    printString("uso u syscallhandler");
+    uint64 arg0;
+    uint64 arg1;
+//    uint64 arg2;
+//    uint64 arg3;
+//    uint64 arg4;
+//    uint64 arg5;
+    __asm__ volatile("mv %0, a0" : "=r" (arg0));    //read system call code
+    if(arg0== 0x01 ){
+        //mem_alloc
+        __asm__ volatile("mv %0, a1" : "=r" (arg1));    //read size from a1 and move it to arg1 local variable
+        uint64 ptr= (uint64)MemoryAllocator::mem_alloc(arg1);
+
+        //write return value to a0 register
+        asm volatile("mv %0, a0" : "=r" (ptr));
+    }
+
+}
+
+void Riscv::popSppSpie()
+{
+    __asm__ volatile ("csrw sepc, ra");
+    __asm__ volatile ("sret");
+}
 
 void Riscv::handleSupervisorTrap(){
     uint scause = r_scause();
     if (scause == 0x0000000000000008UL ){
         // interrupt: no; cause code: environment call from U-mode(8)
-
+        printString("uso u handleTrap");
         uint64  sepc = r_sepc() + 4;
         uint64  sstatus = r_sstatus();
 
@@ -46,29 +74,3 @@ void Riscv::handleSupervisorTrap(){
 
 }
 
-void Riscv::syscallHandler() {
-    //read syscall code from register a0
-
-    uint64 arg0;
-    uint64 arg1;
-//    uint64 arg2;
-//    uint64 arg3;
-//    uint64 arg4;
-//    uint64 arg5;
-    __asm__ volatile("mv %0, a0" : "=r" (arg0));    //read system call code
-    if(arg0== 0x01 ){
-        //mem_alloc
-        __asm__ volatile("mv %0, a1" : "=r" (arg1));    //read size from a1 and move it to arg1 local variable
-        uint64 ptr= (uint64)MemoryAllocator::mem_alloc(arg1);
-
-        //write return value to a0 register
-        asm volatile("mv %0, a0" : "=r" (ptr));
-    }
-
-}
-
-void Riscv::popSppSpie()
-{
-    __asm__ volatile ("csrw sepc, ra");
-    __asm__ volatile ("sret");
-}

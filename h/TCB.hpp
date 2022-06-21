@@ -6,18 +6,19 @@
 #define PROJECT_BASE_V1_1_TCB_HPP
 
 #include "../lib/hw.h"
+#include "Scheduler.hpp"
 
 class TCB {
 public:
-    ~TCB(){delete[] stack;}
+    ~TCB() { delete[] stack; }
 
-    bool isFinished() const{ return finished;}
+    bool isFinished() const { return finished; }
 
-    void setFinished(bool value){finished=value;}
+    void setFinished(bool value) { finished = value; }
 
     uint64 getTimeSlice() const { return timeSlice; }
 
-    using Body = void(*)();
+    using Body = void (*)();
 
     static TCB *createThread(Body body);
 
@@ -26,15 +27,25 @@ public:
     static TCB *running;
 
 private:
-    TCB(Body body, uint64 timeSlice){}
+    TCB(Body body, uint64 timeSlice):
+    body(body),
+    stack(body!= nullptr ? new uint64[DEFAULT_STACK_SIZE]: nullptr),
+    context({(uint64)&threadWrapper,
+             stack != nullptr ? (uint64)&stack[DEFAULT_STACK_SIZE]:0
+    }),
+    timeSlice(timeSlice),
+    finished(false)
+    {
+        if(body != nullptr) {Scheduler::put(this);}
+    }
 
-    struct Context{
+    struct Context {
         uint64 ra;
         uint64 sp;
     };
 
     Body body;
-    uint64* stack;
+    uint64 *stack;
     Context context;
     uint64 timeSlice;
     bool finished;
@@ -43,12 +54,11 @@ private:
 
     static void threadWrapper();
 
-    static void contextSwitch(Context* oldContext, Context* newContext);
+    static void contextSwitch(Context *oldContext, Context *newContext);
 
     static void dispatch();
 
     static uint64 timeSliceCounter;
-
 
 
 };
