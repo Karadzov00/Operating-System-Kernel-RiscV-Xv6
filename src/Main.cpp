@@ -5,6 +5,7 @@
 #include "../h/Riscv.hpp"
 #include "../h/List.hpp"
 #include "../h/syscall_c.h"
+#include "../h/Print.hpp"
 
 
 
@@ -15,7 +16,11 @@ int main(){
 //    __asm__ volatile ("ecall");
     Riscv::w_stvec((uint64)&Riscv::supervisorTrap);
 
-    mem_alloc(300);
+    void* ptr;
+    ptr = mem_alloc(300);
+    if(ptr!=nullptr){
+        printString("allocated \n");
+    }
 
     return 0;
 }
