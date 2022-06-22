@@ -47,14 +47,14 @@ void syscall(args* arg){
 void* mem_alloc (size_t size){
     //prepares parameters to arguments
     //executes system call instruction
-    args* arg = (args*)MemoryAllocator::kmem_alloc(sizeof(args));
-    arg->a0=0x01;
+    args arg;
+    arg.a0=0x01;
 
     size_t blocks = size/MEM_BLOCK_SIZE;
     if(size%MEM_BLOCK_SIZE!=0)blocks++;
-    arg->a1=blocks;
+    arg.a1=blocks;
 
-    syscall(arg);
+    syscall(&arg);
 
     uint64 ret;
     __asm__ volatile("mv %0, a0" : "=r" (ret));
@@ -63,11 +63,11 @@ void* mem_alloc (size_t size){
 }
 
 int mem_free (void* p){
-    args* arg = (args*)MemoryAllocator::kmem_alloc(sizeof(args));
-    arg->a0=0x02;
-    arg->a1=(uint64)p;
+    args arg;
+    arg.a0=0x02;
+    arg.a1=(uint64)p;
 
-    syscall(arg);
+    syscall(&arg);
     uint64 ret;
     __asm__ volatile("mv %0, a0" : "=r" (ret));
     return (int)ret;
