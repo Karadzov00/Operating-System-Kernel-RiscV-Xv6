@@ -7,18 +7,18 @@
 
 #include "List.hpp"
 
-class TCB;
+class _thread;
 
 class Scheduler {
 private:
-    static List<TCB> readyThreadQueue;
+    static List<_thread> readyThreadQueue;
 
     Scheduler(){}
 
 public:
-    static TCB *get();
+    static _thread *get();
 
-    static void put(TCB *ccb);
+    static void put(_thread *ccb);
 
     static Scheduler& getInstance(){
         static Scheduler instance;

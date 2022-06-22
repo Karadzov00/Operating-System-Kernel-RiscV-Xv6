@@ -5,10 +5,10 @@
 #include "../h/MemoryAllocator.hpp"
 
 
-void* MemoryAllocator::mem_alloc(size_t size){
+void* MemoryAllocator::kmem_alloc(size_t size){
     return __mem_alloc(size);
 }
 
-int MemoryAllocator::mem_free(void* arg){
+int MemoryAllocator::kmem_free(void* arg){
     return __mem_free(arg);
 }

@@ -26,12 +26,15 @@ void syscall(args* arg){
 
     uint64 arg0 = arg->a0;
     uint64 arg1 = arg->a1;
-
-
+    uint64 arg2 = arg->a2;
+    uint64 arg3 = arg->a3;
 
     //lock this section?
     __asm__ volatile("mv a0, %0" : : "r" (arg0));
     __asm__ volatile("mv a1, %0" : : "r" (arg1));
+    __asm__ volatile("mv a2, %0" : : "r" (arg2));
+    __asm__ volatile("mv a3, %0" : : "r" (arg3));
+
 
 
 //    Riscv::ms_sstatus(Riscv::SSTATUS_SIE);
@@ -70,11 +73,23 @@ int mem_free (void* p){
 }
 
 class _thread;
-typedef _thread* thread_t;
+typedef _thread* thread_t;  //thread_t je pokazivac, a handle je pokazivac na pokazivac
 int thread_create (
         thread_t* handle,
-        void(*start_routine)(void*),void* arg
-);
+        void(*start_routine)(void*),
+        void* arg
+){
+    args* myArgs = new args();
+    myArgs->a0=0x11;
+    myArgs->a1=(uint64)handle;
+    myArgs->a2=(uint64)start_routine;
+    myArgs->a3=(uint64)arg;
+
+    syscall(myArgs);
+    uint64 ret;
+    __asm__ volatile("mv %0, a0" : "=r" (ret));
+    return (int)ret;
+}
 
 class _sem;
 typedef _sem* sem_t;

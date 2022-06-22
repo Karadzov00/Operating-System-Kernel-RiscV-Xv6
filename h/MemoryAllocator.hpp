@@ -14,8 +14,8 @@ public:
         return instance;
     }
 
-    static void* mem_alloc(size_t size);
-    static int mem_free(void* arg);
+    static void* kmem_alloc(size_t size);
+    static int kmem_free(void* arg);
     MemoryAllocator(MemoryAllocator const&)=delete;
     void operator=(MemoryAllocator const&)=delete;
 

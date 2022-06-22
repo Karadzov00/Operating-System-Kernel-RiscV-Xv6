@@ -4,13 +4,13 @@
 
 #include "../h/Scheduler.hpp"
 
-List<TCB> Scheduler::readyThreadQueue;
+List<_thread> Scheduler::readyThreadQueue;
 
-TCB* Scheduler::get() {
+_thread* Scheduler::get() {
     return readyThreadQueue.removeFirst();
 }
 
-void Scheduler::put(TCB *tcb)
+void Scheduler::put(_thread *tcb)
 {
     readyThreadQueue.addLast(tcb);
 }

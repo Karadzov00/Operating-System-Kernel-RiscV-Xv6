@@ -4,7 +4,7 @@
 
 #include "../h/Riscv.hpp"
 #include "../h/MemoryAllocator.hpp"
-#include "../h/TCB.hpp"
+#include "../h/_thread.hpp"
 
 
 void Riscv::syscallHandler() {
@@ -12,23 +12,30 @@ void Riscv::syscallHandler() {
 
     uint64 arg0;
     uint64 arg1;
-//    uint64 arg2;
-//    uint64 arg3;
+    uint64 arg2;
+    uint64 arg3;
 //    uint64 arg4;
 //    uint64 arg5;
     __asm__ volatile("mv %0, a0" : "=r" (arg0));    //read system call code
     if(arg0== 0x01 ){
-        //mem_alloc
+        //kmem_alloc
         __asm__ volatile("mv %0, a1" : "=r" (arg1));    //read size from a1 and move it to arg1 local variable
-        uint64 ptr= (uint64)MemoryAllocator::mem_alloc(arg1);
+        uint64 ptr= (uint64) MemoryAllocator::kmem_alloc(arg1);
 
         //write return value to a0 register
         __asm__ volatile("mv a0, %0" : : "r" (ptr));
     }
     else if(arg0==0x02){
         __asm__ volatile("mv %0, a1" : "=r" (arg1));    //read pointer to free from a1 and move it to arg1 local variable
-        int ret = MemoryAllocator::mem_free((void*)arg1);
+        int ret = MemoryAllocator::kmem_free((void *) arg1);
         __asm__ volatile("mv a0, %0" : : "r" (ret));
+    }
+    else if(arg0==0x11){
+        __asm__ volatile("mv %0, a1" : "=r" (arg1));    //read pointer to free from a1 and move it to arg1 local variable
+        __asm__ volatile("mv %0, a1" : "=r" (arg2));    //read pointer to free from a1 and move it to arg1 local variable
+        __asm__ volatile("mv %0, a1" : "=r" (arg3));    //read pointer to free from a1 and move it to arg1 local variable
+
+
     }
 
 }
@@ -50,8 +57,8 @@ void Riscv::handleSupervisorTrap(){
         uint64 sstatus = r_sstatus();
 
         if(a0reg==0x04){
-            TCB::timeSliceCounter = 0;
-            TCB::dispatch();
+            _thread::timeSliceCounter = 0;
+            _thread::dispatch();
         }
         else {
             //jump to syscall handler
