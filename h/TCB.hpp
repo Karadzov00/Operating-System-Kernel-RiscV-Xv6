@@ -62,7 +62,7 @@ private:
     static uint64 globalId;
     Status status; //stats of this thread
 
-
+    friend class Riscv;
 };
 
 

@@ -4,6 +4,7 @@
 
 #include "../h/Riscv.hpp"
 #include "../h/MemoryAllocator.hpp"
+#include "../h/TCB.hpp"
 
 
 void Riscv::syscallHandler() {
@@ -32,22 +33,32 @@ void Riscv::syscallHandler() {
 
 }
 
-void Riscv::popSppSpie()
+void Riscv::popSppSpie()    //pop supervisor previous privilege, supervisor previous interrupt enable
 {
     __asm__ volatile ("csrw sepc, ra");
-    __asm__ volatile ("sret");
+    __asm__ volatile ("sret");  //exit privileged regime
 }
 
 void Riscv::handleSupervisorTrap(){
     uint scause = r_scause();
+    uint64 a0reg;
+    __asm__ volatile("mv %0, a0" : "=r" (a0reg));
 
     if (scause == 0x0000000000000008UL || scause==0x0000000000000009UL){
         // interrupt: no; cause code: environment call from U-mode(8) or S-mode(9)
         uint64 sepc = r_sepc() + 4;
+        uint64 sstatus = r_sstatus();
 
-        //jump to syscall handler
-        syscallHandler();
+        if(a0reg==0x04){
+            TCB::timeSliceCounter = 0;
+            TCB::dispatch();
+        }
+        else {
+            //jump to syscall handler
+            syscallHandler();
+        }
 
+        w_sstatus(sstatus);
         w_sepc(sepc);
 
     }
