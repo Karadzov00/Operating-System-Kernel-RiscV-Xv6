@@ -32,8 +32,9 @@ public:
     static uint64 getRunningId(){return running->id; }
 
     void* operator new(size_t n);
-
-
+    void* operator new[](size_t n);
+    void operator delete(void *p) noexcept;
+    void operator delete[](void *p) noexcept;
 
 private:
     _thread(Body body, uint64 timeSlice);

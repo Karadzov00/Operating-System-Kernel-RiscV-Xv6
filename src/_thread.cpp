@@ -4,6 +4,7 @@
 
 #include "../h/_thread.hpp"
 #include "../h/Scheduler.hpp"
+#include "../h/MemoryAllocator.hpp"
 
 _thread* _thread::running = nullptr;
 
@@ -62,3 +63,20 @@ void _thread::dispatch() {
 void _thread::threadWrapper() {
 
 }
+
+void* _thread::operator new(size_t n) {
+    return MemoryAllocator::kmem_alloc(n);
+}
+
+void* _thread::operator new[](size_t n) {
+    return MemoryAllocator::kmem_alloc(n);
+}
+
+void _thread::operator delete(void *p) noexcept {
+    MemoryAllocator::kmem_free(p);
+}
+
+void _thread::operator delete[](void *p) noexcept {
+    MemoryAllocator::kmem_free(p);
+}
+

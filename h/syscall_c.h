@@ -5,11 +5,12 @@
 #ifndef PROJECT_BASE_V1_1_SYSCALL_C_H
 #define PROJECT_BASE_V1_1_SYSCALL_C_H
 
-#include "Riscv.hpp"
+
+#include "../h/MemoryAllocator.hpp"
 
 
 
-extern "C" void supervisorTrap();
+//extern "C" void supervisorTrap();
 
 struct args{
     uint64 a0;
@@ -46,7 +47,7 @@ void syscall(args* arg){
 void* mem_alloc (size_t size){
     //prepares parameters to arguments
     //executes system call instruction
-    args* arg = new args();
+    args* arg = (args*)MemoryAllocator::kmem_alloc(sizeof(args));
     arg->a0=0x01;
 
     size_t blocks = size/MEM_BLOCK_SIZE;
@@ -62,7 +63,7 @@ void* mem_alloc (size_t size){
 }
 
 int mem_free (void* p){
-    args* arg = new args();
+    args* arg = (args*)MemoryAllocator::kmem_alloc(sizeof(args));
     arg->a0=0x02;
     arg->a1=(uint64)p;
 
@@ -79,7 +80,7 @@ int thread_create (
         void(*start_routine)(void*),
         void* arg
 ){
-    args* myArgs = new args();
+    args* myArgs = (args*)MemoryAllocator::kmem_alloc(sizeof(args));
     myArgs->a0=0x11;
     myArgs->a1=(uint64)handle;
     myArgs->a2=(uint64)start_routine;
