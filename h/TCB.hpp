@@ -26,18 +26,15 @@ public:
 
     static TCB *running;
 
+    enum Status{READY, NEW, FINISHED, BLOCKED};
+
+    uint64 getId(){return id; }
+    static uint64 getRunningId(){return running->id; }
+
+
+
 private:
-    TCB(Body body, uint64 timeSlice):
-    body(body),
-    stack(body!= nullptr ? new uint64[DEFAULT_STACK_SIZE]: nullptr),
-    context({(uint64)&threadWrapper,
-             stack != nullptr ? (uint64)&stack[DEFAULT_STACK_SIZE]:0
-    }),
-    timeSlice(timeSlice),
-    finished(false)
-    {
-        if(body != nullptr) {Scheduler::put(this);}
-    }
+    TCB(Body body, uint64 timeSlice);
 
     struct Context {
         uint64 ra;
@@ -58,7 +55,12 @@ private:
 
     static void dispatch();
 
+    void start();
+
     static uint64 timeSliceCounter;
+    uint64 id;
+    static uint64 globalId;
+    Status status; //stats of this thread
 
 
 };
