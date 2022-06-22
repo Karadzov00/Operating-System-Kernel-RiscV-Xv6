@@ -20,7 +20,7 @@ public:
 
     using Body = void (*)();
 
-    static _thread *createThread(Body body);
+    static _thread *createThread(Body body, void* arg);
 
     static void yield();
 
@@ -37,7 +37,7 @@ public:
     void operator delete[](void *p) noexcept;
 
 private:
-    _thread(Body body, uint64 timeSlice);
+    _thread(Body body, uint64 timeSlice, void* arg);
 
     struct Context {
         uint64 ra;
@@ -49,6 +49,7 @@ private:
     Context context;
     uint64 timeSlice;
     bool finished;
+    void* arg; //argument for body function
 
     friend class Riscv;
 

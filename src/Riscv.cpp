@@ -31,13 +31,14 @@ void Riscv::syscallHandler() {
         __asm__ volatile("mv a0, %0" : : "r" (ret));
     }
     else if(arg0==0x11){
-        __asm__ volatile("mv %0, a1" : "=r" (arg1));    //read pointer to free from a1 and move it to arg1 local variable
-        __asm__ volatile("mv %0, a1" : "=r" (arg2));    //read pointer to free from a1 and move it to arg1 local variable
-        __asm__ volatile("mv %0, a1" : "=r" (arg3));    //read pointer to free from a1 and move it to arg1 local variable
+        __asm__ volatile("mv %0, a1" : "=r" (arg1));    //handle
+        __asm__ volatile("mv %0, a1" : "=r" (arg2));    //start routine
+        __asm__ volatile("mv %0, a1" : "=r" (arg3));    //argument of start routine
 
         //make new thread object using overloaded new operator for that function
 //        _thread* t = new _thread((void (*)())arg2, DEFAULT_TIME_SLICE);
 //        _thread** handle = &t;
+
 
 
     }

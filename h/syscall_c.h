@@ -74,19 +74,19 @@ int mem_free (void* p){
 }
 
 class _thread;
-typedef _thread* thread_t;  //thread_t je pokazivac, a handle je pokazivac na pokazivac
+typedef _thread* thread_t;  //thread_t je pokazivac, a handle je pokazivac na pokazivac tipa _thread
 int thread_create (
         thread_t* handle,
         void(*start_routine)(void*),
         void* arg
 ){
-    args* myArgs = (args*)MemoryAllocator::kmem_alloc(sizeof(args));
-    myArgs->a0=0x11;
-    myArgs->a1=(uint64)handle;
-    myArgs->a2=(uint64)start_routine;
-    myArgs->a3=(uint64)arg;
+    args myArgs;
+    myArgs.a0=0x11;
+    myArgs.a1=(uint64)handle;
+    myArgs.a2=(uint64)start_routine;
+    myArgs.a3=(uint64)arg;
 
-    syscall(myArgs);
+    syscall(&myArgs);
     uint64 ret;
     __asm__ volatile("mv %0, a0" : "=r" (ret));
     return (int)ret;

@@ -5,17 +5,18 @@
 #include "../h/_thread.hpp"
 #include "../h/Scheduler.hpp"
 #include "../h/MemoryAllocator.hpp"
+#include "../h/Riscv.hpp"
 
 _thread* _thread::running = nullptr;
 
 uint64 _thread::timeSliceCounter = 0;
 uint64 _thread::globalId=0;
 
-_thread* _thread::createThread(Body body) {
-    return new _thread(body, DEFAULT_TIME_SLICE);
+_thread* _thread::createThread(Body body, void* arg) {
+    return new _thread(body, DEFAULT_TIME_SLICE, arg);
 }
 
-_thread::_thread(Body body, uint64 timeSlice):
+_thread::_thread(Body body, uint64 timeSlice, void* arg):
         body(body),
         stack(body!= nullptr ? new uint64[DEFAULT_STACK_SIZE]: nullptr),
         context({(uint64)&threadWrapper,
@@ -26,6 +27,7 @@ _thread::_thread(Body body, uint64 timeSlice):
 {
     status = Status::NEW;
     id = globalId++;
+    this->arg=arg;
 }
 
 void _thread::start() {
@@ -61,7 +63,10 @@ void _thread::dispatch() {
 }
 
 void _thread::threadWrapper() {
-
+    Riscv::popSppSpie();    //pop privileges, go back to user mode and allow interrupts
+    running->body();
+    running->setFinished(true);
+    _thread::yield();   //after the thread finished, explicitly call yield
 }
 
 void* _thread::operator new(size_t n) {
