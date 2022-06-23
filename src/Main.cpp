@@ -54,5 +54,11 @@ int main(){
         _thread::yield();
     }
 
+//    delete main;
+//    delete t1;
+//    delete t2;
+
+    printString("finished \n");
+
     return 0;
 }
