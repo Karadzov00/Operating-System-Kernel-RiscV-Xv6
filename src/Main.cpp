@@ -28,44 +28,16 @@ int main(){
 //        printString("not freed \n");
 //    }
 
-    _thread* threads[3];
-    _thread* ptr;
-    if(!thread_create(&ptr, nullptr, nullptr)){
-        printString("main created \n");
 
+    _thread* ptr = _thread::createThread(workerBodyA, nullptr);
+    if(ptr!= nullptr){
+        printString("thread created");
     } else{
-        printString("error main\n");
-
+        printString("error");
     }
-    int x=2;
-    printInteger(x);
-
     _thread::running=ptr;
+
     ptr->start();
-    //doesnt load thread adress to handle!!!
-
-    if(!thread_create(&threads[1], reinterpret_cast<void (*)(void *)>(workerBodyA), nullptr)){
-        printString("thread created \n");
-
-    } else{
-        printString("error worker a\n");
-    }
-
-    threads[1]->start();
-
-    if(!thread_create(&threads[2], reinterpret_cast<void (*)(void *)>(workerBodyB), nullptr)){
-        printString("thread created \n");
-
-    } else{
-        printString("error worker a\n");
-
-    }
-    threads[2]->start();
-
-    while (true)
-    {
-        _thread::yield();   //u uposlenom cekanju radimo yield
-    }
 
     return 0;
 }

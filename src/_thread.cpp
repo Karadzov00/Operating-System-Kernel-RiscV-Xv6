@@ -21,7 +21,7 @@ _thread::_thread(Body body, uint64 timeSlice, void* arg):
         timeSlice(timeSlice),
         finished(false)
 {
-    stack = (body!= nullptr ? (uint64*)MemoryAllocator::kmem_alloc(DEFAULT_STACK_SIZE): nullptr);
+    stack = (body!= nullptr ? (uint64*)MemoryAllocator::kmem_alloc(DEFAULT_STACK_SIZE*sizeof(uint64)): nullptr);
     context = {(uint64)&threadWrapper,
             stack != nullptr ? (uint64)&stack[DEFAULT_STACK_SIZE]:0
     };
