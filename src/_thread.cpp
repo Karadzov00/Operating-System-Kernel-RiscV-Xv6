@@ -31,11 +31,11 @@ _thread::_thread(Body body, uint64 timeSlice, void* arg):
 }
 
 void _thread::start() {
-    if(running->status==Status::FINISHED)return;
-    if(running->status==Status::READY)return;
+//    if(status==Status::FINISHED)return;
+//    if(status==Status::READY)return;
 
     //set thread to ready and put it to scheduler
-    running->status=Status::READY;
+//    status=Status::READY;
     Scheduler::put(this);
 }
 

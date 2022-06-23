@@ -88,15 +88,15 @@ int thread_create (
 
     syscall(&myArgs);
     uint64 ret;
-    __asm__ volatile("mv %0, a0" : "=r" (ret));
-    if((thread_t*)ret != nullptr){
+    __asm__ volatile("mv %0, a0" : "=r" (ret)); //the ret value is future handle
+    if((void*)ret != nullptr){
         handle = (thread_t*)&ret;
         return 0;
     }
     else{
         return -1;
     }
-    return (int)ret;
+
 }
 
 class _sem;

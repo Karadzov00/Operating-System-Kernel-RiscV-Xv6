@@ -29,16 +29,20 @@ int main(){
 //    }
 
     _thread* threads[3];
-    if(!thread_create(&threads[0], nullptr, nullptr)){
+    _thread* ptr;
+    if(!thread_create(&ptr, nullptr, nullptr)){
         printString("main created \n");
 
     } else{
         printString("error main\n");
 
     }
-    threads[0]->start();
-    _thread::running=threads[0];
+    int x=2;
+    printInteger(x);
 
+    _thread::running=ptr;
+    ptr->start();
+    //doesnt load thread adress to handle!!!
 
     if(!thread_create(&threads[1], reinterpret_cast<void (*)(void *)>(workerBodyA), nullptr)){
         printString("thread created \n");
