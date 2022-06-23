@@ -24,6 +24,8 @@ public:
 
     static void yield();
 
+    void start();
+
     static _thread *running;
 
     enum Status{READY, NEW, FINISHED, BLOCKED};
@@ -59,7 +61,6 @@ private:
 
     static void dispatch();
 
-    void start();
 
     static uint64 timeSliceCounter;
     uint64 id;

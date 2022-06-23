@@ -29,12 +29,38 @@ int main(){
 //    }
 
     _thread* threads[3];
-    if(!thread_create(&threads[0], reinterpret_cast<void (*)(void *)>(workerBodyA), nullptr)){
+    if(!thread_create(&threads[0], nullptr, nullptr)){
+        printString("main created \n");
+
+    } else{
+        printString("error main\n");
+
+    }
+    threads[0]->start();
+    _thread::running=threads[0];
+
+
+    if(!thread_create(&threads[1], reinterpret_cast<void (*)(void *)>(workerBodyA), nullptr)){
         printString("thread created \n");
 
     } else{
-        printString("error \n");
+        printString("error worker a\n");
+    }
 
+    threads[1]->start();
+
+    if(!thread_create(&threads[2], reinterpret_cast<void (*)(void *)>(workerBodyB), nullptr)){
+        printString("thread created \n");
+
+    } else{
+        printString("error worker a\n");
+
+    }
+    threads[2]->start();
+
+    while (true)
+    {
+        _thread::yield();   //u uposlenom cekanju radimo yield
     }
 
     return 0;
