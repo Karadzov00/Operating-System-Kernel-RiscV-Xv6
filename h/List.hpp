@@ -5,6 +5,8 @@
 #ifndef PROJECT_BASE_V1_1_LIST_HPP
 #define PROJECT_BASE_V1_1_LIST_HPP
 
+#include "MemoryAllocator.hpp"
+
 template<typename T>
 class List
 {
@@ -15,6 +17,12 @@ private:
         Elem *next;
 
         Elem(T *data, Elem *next) : data(data), next(next) {}
+        void* operator new(size_t n){
+            return MemoryAllocator::kmem_alloc(n);
+        }
+        void operator delete(void* p) noexcept{
+            MemoryAllocator::kmem_free(p);
+        }
     };
 
     Elem *head, *tail;

@@ -63,20 +63,30 @@ void Riscv::handleSupervisorTrap(){
 
     if (scause == 0x0000000000000008UL || scause==0x0000000000000009UL){
         // interrupt: no; cause code: environment call from U-mode(8) or S-mode(9)
-        uint64 sepc = r_sepc() + 4;
-        uint64 sstatus = r_sstatus();
 
+        //call from yield
         if(a0reg==0x04){
+            uint64 sepc = r_sepc() + 4;
+            uint64 sstatus = r_sstatus();
+
             _thread::timeSliceCounter = 0;
             _thread::dispatch();
+
+            w_sstatus(sstatus);
+            w_sepc(sepc);
         }
         else {
+            uint64 sepc = r_sepc() + 4;
+            uint64 sstatus = r_sstatus();
+
             //jump to syscall handler
             syscallHandler();
+
+            w_sstatus(sstatus);
+            w_sepc(sepc);
         }
 
-        w_sstatus(sstatus);
-        w_sepc(sepc);
+
 
     }
     else if (scause == 0x8000000000000001UL){

@@ -16,12 +16,12 @@ int main(){
 //    __asm__ volatile ("ecall");
     Riscv::w_stvec((uint64)&Riscv::supervisorTrap);
 
-//    void* ptr;
-//    ptr = mem_alloc(300);
-//    if(ptr!=nullptr){
+//    void* t1;
+//    t1 = mem_alloc(300);
+//    if(t1!=nullptr){
 //        printString("allocated \n");
 //    }
-//    if(!mem_free(ptr)){
+//    if(!mem_free(t1)){
 //        printString("successfully freed \n");
 //    }
 //    else{
@@ -32,17 +32,25 @@ int main(){
     main->start();
     _thread::running=main;
 
-    _thread* ptr = _thread::createThread(workerBodyA, nullptr);
-    if(ptr!= nullptr){
+    _thread* t1 = _thread::createThread(workerBodyA, nullptr);
+    if(t1 != nullptr){
         printString("thread created");
     } else{
         printString("error");
     }
-    _thread::running=ptr;
 
-    ptr->start();
 
-    while(!ptr->isFinished()){
+    t1->start();
+
+    _thread* t2 = _thread::createThread(workerBodyB, nullptr);
+    if(t2 != nullptr){
+        printString("thread created");
+    } else{
+        printString("error");
+    }
+    t2->start();
+
+    while(!(t1->isFinished() && t2->isFinished())){
         _thread::yield();
     }
 
