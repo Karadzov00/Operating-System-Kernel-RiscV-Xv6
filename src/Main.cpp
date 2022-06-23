@@ -34,9 +34,9 @@ int main(){
 
     _thread* t1 = _thread::createThread(workerBodyA, nullptr);
     if(t1 != nullptr){
-        printString("thread created");
+        printString("thread created \n");
     } else{
-        printString("error");
+        printString("error \n");
     }
 
 
@@ -44,9 +44,9 @@ int main(){
 
     _thread* t2 = _thread::createThread(workerBodyB, nullptr);
     if(t2 != nullptr){
-        printString("thread created");
+        printString("thread created \n");
     } else{
-        printString("error");
+        printString("error \n");
     }
     t2->start();
 

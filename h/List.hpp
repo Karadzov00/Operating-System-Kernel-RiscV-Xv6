@@ -17,12 +17,7 @@ private:
         Elem *next;
 
         Elem(T *data, Elem *next) : data(data), next(next) {}
-        void* operator new(size_t n){
-            return MemoryAllocator::kmem_alloc(n);
-        }
-        void operator delete(void* p) noexcept{
-            MemoryAllocator::kmem_free(p);
-        }
+
     };
 
     Elem *head, *tail;
@@ -36,14 +31,18 @@ public:
 
     void addFirst(T *data)
     {
-        Elem *elem = new Elem(data, head);
+        Elem *elem = MemoryAllocator::kmem_alloc(sizeof (Elem));
+        elem->data=data;
+        elem->next=head;
         head = elem;
         if (!tail) { tail = head; }
     }
 
     void addLast(T *data)
     {
-        Elem *elem = new Elem(data, 0);
+        Elem *elem = MemoryAllocator::kmem_alloc(sizeof (Elem));
+        elem->data=data;
+        elem->next=0;
         if (tail)
         {
             tail->next = elem;
@@ -63,7 +62,7 @@ public:
         if (!head) { tail = 0; }
 
         T *ret = elem->data;
-        delete elem;
+        MemoryAllocator::kmem_free(elem);
         return ret;
     }
 
@@ -89,7 +88,7 @@ public:
         tail = prev;
 
         T *ret = elem->data;
-        delete elem;
+        MemoryAllocator::kmem_free(elem);
         return ret;
     }
 
