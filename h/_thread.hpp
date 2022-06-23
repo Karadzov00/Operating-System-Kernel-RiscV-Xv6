@@ -18,7 +18,7 @@ public:
 
     uint64 getTimeSlice() const { return timeSlice; }
 
-    using Body = void (*)();
+    using Body = void (*)(void*);   //Body is a pointer to a funtion that takes one argument
 
     static _thread *createThread(Body body, void* arg);
 

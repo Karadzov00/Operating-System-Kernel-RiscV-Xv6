@@ -82,13 +82,20 @@ int thread_create (
 ){
     args myArgs;
     myArgs.a0=0x11;
-    myArgs.a1=(uint64)handle;
+    myArgs.a1=(uint64)handle;   //on address handle there is thread_t adress
     myArgs.a2=(uint64)start_routine;
     myArgs.a3=(uint64)arg;
 
     syscall(&myArgs);
     uint64 ret;
     __asm__ volatile("mv %0, a0" : "=r" (ret));
+    if((thread_t*)ret != nullptr){
+        handle = (thread_t*)&ret;
+        return 0;
+    }
+    else{
+        return -1;
+    }
     return (int)ret;
 }
 
