@@ -18,13 +18,13 @@ _thread* _thread::createThread(Body body, void* arg) {
 
 _thread::_thread(Body body, uint64 timeSlice, void* arg):
         body(body),
-        stack(body!= nullptr ? new uint64[DEFAULT_STACK_SIZE]: nullptr),
-        context({(uint64)&threadWrapper,
-                 stack != nullptr ? (uint64)&stack[DEFAULT_STACK_SIZE]:0
-                }),
         timeSlice(timeSlice),
         finished(false)
 {
+    stack = (body!= nullptr ? (uint64*)MemoryAllocator::kmem_alloc(DEFAULT_STACK_SIZE): nullptr);
+    context = {(uint64)&threadWrapper,
+            stack != nullptr ? (uint64)&stack[DEFAULT_STACK_SIZE]:0
+    };
     status = Status::NEW;
     id = globalId++;
     this->arg=arg;
@@ -36,7 +36,8 @@ void _thread::start() {
 
     //set thread to ready and put it to scheduler
 //    status=Status::READY;
-    Scheduler::put(this);
+    if(body!= nullptr)
+        Scheduler::put(this);
 }
 
 void _thread::yield() {

@@ -7,10 +7,11 @@
 
 #include "../lib/hw.h"
 #include "Scheduler.hpp"
+#include "MemoryAllocator.hpp"
 
 class _thread {
 public:
-    ~_thread() { delete[] stack; }
+    ~_thread() { MemoryAllocator::kmem_free(stack); }
 
     bool isFinished() const { return finished; }
 

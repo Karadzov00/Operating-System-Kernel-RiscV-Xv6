@@ -129,88 +129,86 @@ _thread* _thread::createThread(Body body, void* arg) {
 }
 
 _thread::_thread(Body body, uint64 timeSlice, void* arg):
-    80001124:	fd010113          	addi	sp,sp,-48
-    80001128:	02113423          	sd	ra,40(sp)
-    8000112c:	02813023          	sd	s0,32(sp)
-    80001130:	00913c23          	sd	s1,24(sp)
-    80001134:	01213823          	sd	s2,16(sp)
-    80001138:	01313423          	sd	s3,8(sp)
-    8000113c:	03010413          	addi	s0,sp,48
-    80001140:	00050493          	mv	s1,a0
-    80001144:	00060993          	mv	s3,a2
-    80001148:	00068913          	mv	s2,a3
-        stack(body!= nullptr ? new uint64[DEFAULT_STACK_SIZE]: nullptr),
-        context({(uint64)&threadWrapper,
-                 stack != nullptr ? (uint64)&stack[DEFAULT_STACK_SIZE]:0
-                }),
+    80001124:	fe010113          	addi	sp,sp,-32
+    80001128:	00113c23          	sd	ra,24(sp)
+    8000112c:	00813823          	sd	s0,16(sp)
+    80001130:	00913423          	sd	s1,8(sp)
+    80001134:	01213023          	sd	s2,0(sp)
+    80001138:	02010413          	addi	s0,sp,32
+    8000113c:	00050493          	mv	s1,a0
+    80001140:	00068913          	mv	s2,a3
+        body(body),
         timeSlice(timeSlice),
         finished(false)
-    8000114c:	00b53023          	sd	a1,0(a0)
-        stack(body!= nullptr ? new uint64[DEFAULT_STACK_SIZE]: nullptr),
-    80001150:	06058c63          	beqz	a1,800011c8 <_ZN7_threadC1EPFvPvEmS0_+0xa4>
-    80001154:	00008537          	lui	a0,0x8
-    80001158:	00000097          	auipc	ra,0x0
-    8000115c:	66c080e7          	jalr	1644(ra) # 800017c4 <_Znam>
-        finished(false)
-    80001160:	00a4b423          	sd	a0,8(s1)
-    80001164:	00000797          	auipc	a5,0x0
-    80001168:	0c878793          	addi	a5,a5,200 # 8000122c <_ZN7_thread13threadWrapperEv>
-    8000116c:	00f4b823          	sd	a5,16(s1)
-                 stack != nullptr ? (uint64)&stack[DEFAULT_STACK_SIZE]:0
-    80001170:	06050063          	beqz	a0,800011d0 <_ZN7_threadC1EPFvPvEmS0_+0xac>
-    80001174:	000087b7          	lui	a5,0x8
-    80001178:	00f50533          	add	a0,a0,a5
-        finished(false)
-    8000117c:	00a4bc23          	sd	a0,24(s1)
-    80001180:	0334b023          	sd	s3,32(s1)
-    80001184:	02048423          	sb	zero,40(s1)
+    80001144:	00b53023          	sd	a1,0(a0)
+    80001148:	02c53023          	sd	a2,32(a0)
+    8000114c:	02050423          	sb	zero,40(a0)
 {
+    stack = (body!= nullptr ? (uint64*)MemoryAllocator::kmem_alloc(DEFAULT_STACK_SIZE): nullptr);
+    80001150:	06058663          	beqz	a1,800011bc <_ZN7_threadC1EPFvPvEmS0_+0x98>
+    80001154:	00001537          	lui	a0,0x1
+    80001158:	00001097          	auipc	ra,0x1
+    8000115c:	b14080e7          	jalr	-1260(ra) # 80001c6c <_ZN15MemoryAllocator10kmem_allocEm>
+    80001160:	00a4b423          	sd	a0,8(s1)
+    context = {(uint64)&threadWrapper,
+            stack != nullptr ? (uint64)&stack[DEFAULT_STACK_SIZE]:0
+    80001164:	06050063          	beqz	a0,800011c4 <_ZN7_threadC1EPFvPvEmS0_+0xa0>
+    80001168:	000087b7          	lui	a5,0x8
+    8000116c:	00f50533          	add	a0,a0,a5
+    context = {(uint64)&threadWrapper,
+    80001170:	00000797          	auipc	a5,0x0
+    80001174:	0bc78793          	addi	a5,a5,188 # 8000122c <_ZN7_thread13threadWrapperEv>
+    80001178:	00f4b823          	sd	a5,16(s1)
+    8000117c:	00a4bc23          	sd	a0,24(s1)
+    };
     status = Status::NEW;
-    80001188:	00100793          	li	a5,1
-    8000118c:	04f4a023          	sw	a5,64(s1)
+    80001180:	00100793          	li	a5,1
+    80001184:	04f4a023          	sw	a5,64(s1)
     id = globalId++;
-    80001190:	00004717          	auipc	a4,0x4
-    80001194:	7b070713          	addi	a4,a4,1968 # 80005940 <_ZN7_thread8globalIdE>
-    80001198:	00073783          	ld	a5,0(a4)
-    8000119c:	00178693          	addi	a3,a5,1 # 8001 <_entry-0x7fff7fff>
-    800011a0:	00d73023          	sd	a3,0(a4)
-    800011a4:	02f4bc23          	sd	a5,56(s1)
+    80001188:	00004717          	auipc	a4,0x4
+    8000118c:	7b870713          	addi	a4,a4,1976 # 80005940 <_ZN7_thread8globalIdE>
+    80001190:	00073783          	ld	a5,0(a4)
+    80001194:	00178693          	addi	a3,a5,1
+    80001198:	00d73023          	sd	a3,0(a4)
+    8000119c:	02f4bc23          	sd	a5,56(s1)
     this->arg=arg;
-    800011a8:	0324b823          	sd	s2,48(s1)
+    800011a0:	0324b823          	sd	s2,48(s1)
 }
-    800011ac:	02813083          	ld	ra,40(sp)
-    800011b0:	02013403          	ld	s0,32(sp)
-    800011b4:	01813483          	ld	s1,24(sp)
-    800011b8:	01013903          	ld	s2,16(sp)
-    800011bc:	00813983          	ld	s3,8(sp)
-    800011c0:	03010113          	addi	sp,sp,48
-    800011c4:	00008067          	ret
-        stack(body!= nullptr ? new uint64[DEFAULT_STACK_SIZE]: nullptr),
-    800011c8:	00000513          	li	a0,0
-    800011cc:	f95ff06f          	j	80001160 <_ZN7_threadC1EPFvPvEmS0_+0x3c>
-                 stack != nullptr ? (uint64)&stack[DEFAULT_STACK_SIZE]:0
-    800011d0:	00000513          	li	a0,0
-    800011d4:	fa9ff06f          	j	8000117c <_ZN7_threadC1EPFvPvEmS0_+0x58>
+    800011a4:	01813083          	ld	ra,24(sp)
+    800011a8:	01013403          	ld	s0,16(sp)
+    800011ac:	00813483          	ld	s1,8(sp)
+    800011b0:	00013903          	ld	s2,0(sp)
+    800011b4:	02010113          	addi	sp,sp,32
+    800011b8:	00008067          	ret
+    stack = (body!= nullptr ? (uint64*)MemoryAllocator::kmem_alloc(DEFAULT_STACK_SIZE): nullptr);
+    800011bc:	00000513          	li	a0,0
+    800011c0:	fa1ff06f          	j	80001160 <_ZN7_threadC1EPFvPvEmS0_+0x3c>
+            stack != nullptr ? (uint64)&stack[DEFAULT_STACK_SIZE]:0
+    800011c4:	00000513          	li	a0,0
+    800011c8:	fa9ff06f          	j	80001170 <_ZN7_threadC1EPFvPvEmS0_+0x4c>
 
-00000000800011d8 <_ZN7_thread5startEv>:
-
-void _thread::start() {
-    800011d8:	ff010113          	addi	sp,sp,-16
-    800011dc:	00113423          	sd	ra,8(sp)
-    800011e0:	00813023          	sd	s0,0(sp)
-    800011e4:	01010413          	addi	s0,sp,16
+00000000800011cc <_ZN7_thread5startEv>:
 //    if(status==Status::FINISHED)return;
 //    if(status==Status::READY)return;
 
     //set thread to ready and put it to scheduler
 //    status=Status::READY;
-    Scheduler::put(this);
-    800011e8:	00000097          	auipc	ra,0x0
-    800011ec:	514080e7          	jalr	1300(ra) # 800016fc <_ZN9Scheduler3putEP7_thread>
+    if(body!= nullptr)
+    800011cc:	00053783          	ld	a5,0(a0) # 1000 <_entry-0x7ffff000>
+    800011d0:	02078663          	beqz	a5,800011fc <_ZN7_thread5startEv+0x30>
+void _thread::start() {
+    800011d4:	ff010113          	addi	sp,sp,-16
+    800011d8:	00113423          	sd	ra,8(sp)
+    800011dc:	00813023          	sd	s0,0(sp)
+    800011e0:	01010413          	addi	s0,sp,16
+        Scheduler::put(this);
+    800011e4:	00000097          	auipc	ra,0x0
+    800011e8:	518080e7          	jalr	1304(ra) # 800016fc <_ZN9Scheduler3putEP7_thread>
 }
-    800011f0:	00813083          	ld	ra,8(sp)
-    800011f4:	00013403          	ld	s0,0(sp)
-    800011f8:	01010113          	addi	sp,sp,16
+    800011ec:	00813083          	ld	ra,8(sp)
+    800011f0:	00013403          	ld	s0,0(sp)
+    800011f4:	01010113          	addi	sp,sp,16
+    800011f8:	00008067          	ret
     800011fc:	00008067          	ret
 
 0000000080001200 <_ZN7_thread5yieldEv>:
@@ -260,13 +258,13 @@ void _thread::threadWrapper() {
     80001248:	00004497          	auipc	s1,0x4
     8000124c:	6f848493          	addi	s1,s1,1784 # 80005940 <_ZN7_thread8globalIdE>
     80001250:	0084b503          	ld	a0,8(s1)
-    80001254:	00053783          	ld	a5,0(a0) # 8000 <_entry-0x7fff8000>
+    80001254:	00053783          	ld	a5,0(a0)
     80001258:	03050513          	addi	a0,a0,48
     8000125c:	000780e7          	jalr	a5
     running->setFinished(true);
     80001260:	0084b783          	ld	a5,8(s1)
 public:
-    ~_thread() { delete[] stack; }
+    ~_thread() { MemoryAllocator::kmem_free(stack); }
 
     bool isFinished() const { return finished; }
 
@@ -562,9 +560,9 @@ int thread_create (
     80001508:	00000097          	auipc	ra,0x0
     8000150c:	f10080e7          	jalr	-240(ra) # 80001418 <_Z7syscallP4args>
     uint64 ret;
-    __asm__ volatile("mv %0, a0" : "=r" (ret));
+    __asm__ volatile("mv %0, a0" : "=r" (ret)); //the ret value is future handle
     80001510:	00050793          	mv	a5,a0
-    if((thread_t*)ret != nullptr){
+    if((void*)ret != nullptr){
     80001514:	00078c63          	beqz	a5,8000152c <_Z13thread_createPP7_threadPFvPvES2_+0x4c>
         handle = (thread_t*)&ret;
         return 0;
@@ -573,7 +571,7 @@ int thread_create (
     else{
         return -1;
     }
-    return (int)ret;
+
 }
     8000151c:	02813083          	ld	ra,40(sp)
     80001520:	02013403          	ld	s0,32(sp)
@@ -642,7 +640,7 @@ inline void Riscv::w_stvec(uint64 stvec)
     80001590:	00a7b023          	sd	a0,0(a5)
     ptr->start();
     80001594:	00000097          	auipc	ra,0x0
-    80001598:	c44080e7          	jalr	-956(ra) # 800011d8 <_ZN7_thread5startEv>
+    80001598:	c38080e7          	jalr	-968(ra) # 800011cc <_ZN7_thread5startEv>
     //doesnt load thread adress to handle!!!
 
     if(!thread_create(&threads[1], reinterpret_cast<void (*)(void *)>(workerBodyA), nullptr)){
@@ -666,7 +664,7 @@ inline void Riscv::w_stvec(uint64 stvec)
     threads[1]->start();
     800015c8:	fe043503          	ld	a0,-32(s0)
     800015cc:	00000097          	auipc	ra,0x0
-    800015d0:	c0c080e7          	jalr	-1012(ra) # 800011d8 <_ZN7_thread5startEv>
+    800015d0:	c00080e7          	jalr	-1024(ra) # 800011cc <_ZN7_thread5startEv>
 
     if(!thread_create(&threads[2], reinterpret_cast<void (*)(void *)>(workerBodyB), nullptr)){
     800015d4:	00000613          	li	a2,0
@@ -689,7 +687,7 @@ inline void Riscv::w_stvec(uint64 stvec)
     threads[2]->start();
     80001600:	fe843503          	ld	a0,-24(s0)
     80001604:	00000097          	auipc	ra,0x0
-    80001608:	bd4080e7          	jalr	-1068(ra) # 800011d8 <_ZN7_thread5startEv>
+    80001608:	bc8080e7          	jalr	-1080(ra) # 800011cc <_ZN7_thread5startEv>
 
     while (true)
     {
@@ -1068,7 +1066,7 @@ void workerBodyA()
     800019d0:	00004797          	auipc	a5,0x4
     800019d4:	ef07b783          	ld	a5,-272(a5) # 800058c0 <_GLOBAL_OFFSET_TABLE_+0x8>
     800019d8:	0007b783          	ld	a5,0(a5)
-    void setFinished(bool value) { finished = value; }
+
     800019dc:	00100713          	li	a4,1
     800019e0:	02e78423          	sb	a4,40(a5)
     _thread::yield();
