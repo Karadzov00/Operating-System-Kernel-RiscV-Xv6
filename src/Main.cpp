@@ -28,6 +28,9 @@ int main(){
 //        printString("not freed \n");
 //    }
 
+    _thread* main = _thread::createThread(nullptr, nullptr);
+    main->start();
+    _thread::running=main;
 
     _thread* ptr = _thread::createThread(workerBodyA, nullptr);
     if(ptr!= nullptr){
@@ -38,6 +41,10 @@ int main(){
     _thread::running=ptr;
 
     ptr->start();
+
+    while(!ptr->isFinished()){
+        _thread::yield();
+    }
 
     return 0;
 }
