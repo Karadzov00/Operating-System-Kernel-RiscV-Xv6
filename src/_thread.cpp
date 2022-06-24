@@ -12,18 +12,18 @@ _thread* _thread::running = nullptr;
 uint64 _thread::timeSliceCounter = 0;
 uint64 _thread::globalId=0;
 
-_thread* _thread::createThread(Body body, void* arg) {
-    return new _thread(body, DEFAULT_TIME_SLICE, arg);
+_thread* _thread::createThread(Body body, void* arg, uint64 * stack) {
+    return new _thread(body, DEFAULT_TIME_SLICE, arg, stack);
 }
 
-_thread::_thread(Body body, uint64 timeSlice, void* arg):
+_thread::_thread(Body body, uint64 timeSlice, void* arg, uint64* stack):
         body(body),
         timeSlice(timeSlice),
         finished(false)
 {
-    stack = (body!= nullptr ? (uint64*)MemoryAllocator::kmem_alloc(DEFAULT_STACK_SIZE*sizeof(uint64)): nullptr);
+    this->stack = (body!= nullptr ? stack: nullptr);
     context = {(uint64)&threadWrapper,
-            stack != nullptr ? (uint64)&stack[DEFAULT_STACK_SIZE]:0
+            this->stack != nullptr ? (uint64)&stack[DEFAULT_STACK_SIZE]:0
     };
     status = Status::NEW;
     id = globalId++;

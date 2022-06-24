@@ -9,7 +9,7 @@
 #include "../h/_thread.hpp"
 
 void userMain2(){
-    _thread* threads[3];
+
 //    if(!thread_create(&threads[0], nullptr, nullptr)){
 //        printString("thread created");
 //    }
@@ -18,6 +18,7 @@ void userMain2(){
 //    };
 //    threads[0]->start();
 //    _thread::running=threads[0];
+    _thread* threads[3];
 
     if(!thread_create(&threads[0], workerBodyA, nullptr)){
         printString("thread created");
