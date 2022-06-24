@@ -90,10 +90,14 @@ int thread_create (
     uint64* ret;
     __asm__ volatile("mv %0, a0" : "=r" (ret)); //the ret value is future handle
 
-
-    _thread* ptr = (_thread*)ret;
-    handle = &ptr;
-    return 0;
+    _thread** ptr = (_thread**)ret;
+    handle = ptr;
+    if(handle!= nullptr){
+        return 0;
+    }
+    else{
+        return -1;
+    }
 
 
 }

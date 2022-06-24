@@ -32,8 +32,8 @@ void Riscv::syscallHandler() {
     }
     else if(arg0==0x11){
         __asm__ volatile("mv %0, a1" : "=r" (arg1));    //handle (thread_t*)
-        __asm__ volatile("mv %0, a1" : "=r" (arg2));    //start routine
-        __asm__ volatile("mv %0, a1" : "=r" (arg3));    //argument of start routine
+        __asm__ volatile("mv %0, a2" : "=r" (arg2));    //start routine
+        __asm__ volatile("mv %0, a3" : "=r" (arg3));    //argument of start routine
 
         //make new thread object using overloaded new operator for that function
         _thread* t = _thread::createThread((void (*)(void*))arg2,  (void*)arg3);    //t je thread_t

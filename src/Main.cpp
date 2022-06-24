@@ -3,11 +3,10 @@
 //
 
 #include "../h/Riscv.hpp"
-#include "../h/List.hpp"
-#include "../h/syscall_c.h"
-#include "../h/Print.hpp"
-#include "../h/workers.hpp"
-#include "../h/_thread.hpp"
+
+
+//extern void userMain1();
+extern void userMain2();
 
 int main(){
 
@@ -28,44 +27,16 @@ int main(){
 //        printString("not freed \n");
 //    }
 
-    _thread* main = _thread::createThread(nullptr, nullptr);
-    main->start();
-    _thread::running=main;
-
-    _thread* t1 = _thread::createThread(workerBodyA, nullptr);
-    if(t1 != nullptr){
-        printString("thread created \n");
-    } else{
-        printString("error \n");
-    }
-
-
-    t1->start();
-
-    _thread* t2 = _thread::createThread(workerBodyB, nullptr);
-    if(t2 != nullptr){
-        printString("thread created \n");
-    } else{
-        printString("error \n");
-    }
-    t2->start();
-
-//    thread_dispatch();
-//    int ret = thread_exit();
-//    if(!ret){
-//        printString("thread exited");
-//    }
-
-    while(!(t1->isFinished() && t2->isFinished())){
-        _thread::yield();
-    }
 
     //memory leak without delete
-//    delete main;
-//    delete t1;
-//    delete t2;
+//    for (auto &thread: threads)
+//    {
+//        delete thread;
+//    }
 
-    printString("finished \n");
+
+    userMain2();
+
 
     return 0;
 }
