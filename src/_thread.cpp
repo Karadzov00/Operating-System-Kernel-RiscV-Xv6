@@ -65,7 +65,7 @@ void _thread::dispatch() {
 
 void _thread::threadWrapper() {
 //    Riscv::popSppSpie();    //pop privileges, go back to user mode and allow interrupts
-    running->body(&running->arg);   //call the function with argument arg
+    running->body(running->arg);   //call the function with argument arg
     running->setFinished(true);
     _thread::yield();   //after the thread finished, explicitly call yield
 }

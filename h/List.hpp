@@ -29,9 +29,17 @@ public:
 
     List<T> &operator=(const List<T> &) = delete;
 
+    void* operator new(size_t n){
+        return MemoryAllocator::kmem_alloc(n);
+    }
+
+    void operator delete(void* p){
+        MemoryAllocator::kmem_free(p);
+    }
+
     void addFirst(T *data)
     {
-        Elem *elem = MemoryAllocator::kmem_alloc(sizeof (Elem));
+        Elem *elem = (Elem*)MemoryAllocator::kmem_alloc(sizeof (Elem));
         elem->data=data;
         elem->next=head;
         head = elem;
@@ -40,7 +48,7 @@ public:
 
     void addLast(T *data)
     {
-        Elem *elem = MemoryAllocator::kmem_alloc(sizeof (Elem));
+        Elem *elem = (Elem*)MemoryAllocator::kmem_alloc(sizeof (Elem));
         elem->data=data;
         elem->next=0;
         if (tail)

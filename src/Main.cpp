@@ -50,10 +50,17 @@ int main(){
     }
     t2->start();
 
+//    thread_dispatch();
+//    int ret = thread_exit();
+//    if(!ret){
+//        printString("thread exited");
+//    }
+
     while(!(t1->isFinished() && t2->isFinished())){
         _thread::yield();
     }
 
+    //memory leak without delete
 //    delete main;
 //    delete t1;
 //    delete t2;

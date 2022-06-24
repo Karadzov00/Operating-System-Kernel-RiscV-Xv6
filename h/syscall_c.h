@@ -98,6 +98,26 @@ int thread_create (
 
 }
 
+int thread_exit (){
+    args myArgs;
+    myArgs.a0=0x12;
+
+    syscall(&myArgs);
+
+    return 0;
+}
+
+
+void thread_dispatch (){
+    args myArgs;
+    myArgs.a0=0x13;
+
+    syscall(&myArgs);
+
+
+}
+
+
 class _sem;
 typedef _sem* sem_t;
 int sem_open (

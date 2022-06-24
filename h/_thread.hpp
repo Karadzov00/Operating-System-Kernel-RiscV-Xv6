@@ -11,7 +11,9 @@
 
 class _thread {
 public:
-    ~_thread() { MemoryAllocator::kmem_free(stack); }
+    ~_thread() {
+        MemoryAllocator::kmem_free(stack);
+    }
 
     bool isFinished() const { return finished; }
 

@@ -44,7 +44,15 @@ void Riscv::syscallHandler() {
         uint64 ret = (uint64)t;
         __asm__ volatile("mv a0, %0" : : "r" (ret));
 
+    }
+    else if(arg0==0x12){
+        _thread::running->finished=true;
+        _thread::dispatch();
 
+
+    }
+    else if(arg0 == 0x13){
+        _thread::dispatch();
 
     }
 
