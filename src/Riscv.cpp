@@ -113,6 +113,7 @@ void Riscv::handleSupervisorTrap(){
             uint64 sepc = r_sepc() + 4;
             uint64 sstatus = r_sstatus();
 
+            _thread::timeSliceCounter = 0;
             _thread::yield();
 
             w_sstatus(sstatus);
