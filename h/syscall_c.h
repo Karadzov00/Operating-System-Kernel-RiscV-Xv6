@@ -17,6 +17,7 @@ struct args{
     uint64 a1;
     uint64 a2;
     uint64 a3;
+    uint64 a4;
 
 };
 
@@ -29,12 +30,14 @@ void syscall(args* arg){
     uint64 arg1 = arg->a1;
     uint64 arg2 = arg->a2;
     uint64 arg3 = arg->a3;
+    uint64 arg4 = arg->a4;
 
     //lock this section?
     __asm__ volatile("mv a0, %0" : : "r" (arg0));
     __asm__ volatile("mv a1, %0" : : "r" (arg1));
     __asm__ volatile("mv a2, %0" : : "r" (arg2));
     __asm__ volatile("mv a3, %0" : : "r" (arg3));
+    __asm__ volatile("mv a4, %0" : : "r" (arg4));
 
 
 
@@ -80,11 +83,14 @@ int thread_create (
         void(*start_routine)(void*),
         void* arg
 ){
+
+    uint64* stack = (uint64*)MemoryAllocator::kmem_alloc(DEFAULT_STACK_SIZE*sizeof(uint64));
     args myArgs;
     myArgs.a0=0x11;
     myArgs.a1=(uint64)handle;   //on address handle there is thread_t adress
     myArgs.a2=(uint64)start_routine;
     myArgs.a3=(uint64)arg;
+    myArgs.a4=(uint64)stack;
 
     syscall(&myArgs);
     uint64 ret;

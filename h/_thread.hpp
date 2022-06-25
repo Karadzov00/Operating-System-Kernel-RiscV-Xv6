@@ -23,7 +23,7 @@ public:
 
     using Body = void (*)(void*);   //Body is a pointer to a funtion that takes one argument
 
-    static _thread *createThread(Body body, void* arg);
+    static _thread *createThread(Body body, void* arg, uint64* stek);
 
     static void yield();
 
@@ -44,7 +44,7 @@ public:
     void operator delete[](void *p) noexcept;
 
 private:
-    _thread(Body body, uint64 timeSlice, void* arg);
+    _thread(Body body, uint64 timeSlice, void* arg, uint64* stek);
 
     struct Context {
         uint64 ra;

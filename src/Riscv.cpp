@@ -88,7 +88,7 @@ void Riscv::handleSupervisorTrap(){
             __asm__ volatile("mv %0, a4" : "=r" (arg4));    //stack
 
             //make new thread object using overloaded new operator for that function
-            _thread* t = _thread::createThread(arg2,  (void*)arg3);    //t je thread_t
+            _thread* t = _thread::createThread(arg2,  (void*)arg3, arg4);    //t je thread_t
             *arg1=t;
 
             uint64 ret;
