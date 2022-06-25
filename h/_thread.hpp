@@ -31,6 +31,8 @@ public:
 
     static _thread *running;
 
+    typedef _thread* thread_t;
+
     enum Status{READY, NEW, FINISHED, BLOCKED};
 
     uint64 getId(){return id; }

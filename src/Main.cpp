@@ -11,59 +11,31 @@
 
 int main(){
 
-//    Riscv::w_stvec((uint64)&supervisorTrap);
-//    Riscv::ms_sstatus(Riscv::SSTATUS_SIE);
-//    __asm__ volatile ("ecall");
+
     Riscv::w_stvec((uint64)&Riscv::supervisorTrap);
 
-//    void* t1;
-//    t1 = mem_alloc(300);
-//    if(t1!=nullptr){
-//        printString("allocated \n");
-//    }
-//    if(!mem_free(t1)){
-//        printString("successfully freed \n");
-//    }
-//    else{
-//        printString("not freed \n");
-//    }
+    _thread* threads[3];
 
-    _thread* main = _thread::createThread(nullptr, nullptr);
-    main->start();
-    _thread::running=main;
-
-    _thread* t1 = _thread::createThread(workerBodyA, nullptr);
-    if(t1 != nullptr){
-        printString("thread created \n");
-    } else{
-        printString("error \n");
+    if(!thread_create(&threads[0], nullptr, nullptr)){
+        printString("thread created");
     }
+    threads[0]->start();
+    _thread::running=threads[0];
 
-
-    t1->start();
-
-    _thread* t2 = _thread::createThread(workerBodyB, nullptr);
-    if(t2 != nullptr){
-        printString("thread created \n");
-    } else{
-        printString("error \n");
+    if(!thread_create(&threads[1], workerBodyA, nullptr)){
+        printString("thread created");
     }
-    t2->start();
+    threads[1]->start();
 
-//    thread_dispatch();
-//    int ret = thread_exit();
-//    if(!ret){
-//        printString("thread exited");
-//    }
+    if(!thread_create(&threads[2], workerBodyB, nullptr)){
+        printString("thread created");
+    }
+    threads[2]->start();
 
-    while(!(t1->isFinished() && t2->isFinished())){
+    while(!(threads[1]->isFinished() && threads[2]->isFinished())){
         _thread::yield();
     }
 
-    //memory leak without delete
-//    delete main;
-//    delete t1;
-//    delete t2;
 
     printString("finished \n");
 

@@ -87,13 +87,10 @@ int thread_create (
     myArgs.a3=(uint64)arg;
 
     syscall(&myArgs);
-    uint64* ret;
+    uint64 ret;
     __asm__ volatile("mv %0, a0" : "=r" (ret)); //the ret value is future handle
 
-
-    _thread* ptr = (_thread*)ret;
-    handle = &ptr;
-    return 0;
+    return ret;
 
 
 }
