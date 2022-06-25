@@ -16,18 +16,18 @@ _thread* _thread::createThread(Body body, void* arg, uint64* stek) {
     return new _thread(body, DEFAULT_TIME_SLICE, arg, stek);
 }
 
-_thread::_thread(Body body, uint64 timeSlice, void* arg, uint64* stek):
-        body(body),
-        timeSlice(timeSlice),
-        finished(false)
+_thread::_thread(Body body, uint64 timeSlice, void* arg, uint64* stek)
 {
-    stack = (body!= nullptr ? stek: nullptr);
-    context = {(uint64)&threadWrapper,
-            stack != nullptr ? (uint64)&stack[DEFAULT_STACK_SIZE]:0
-    };
+    this->body=body;
+    this->timeSlice=timeSlice;
+    this->finished=false;
+    this->stack = (body!= nullptr) ? stek: nullptr;
+    this->context.ra=(uint64)&threadWrapper;
+    this->context.sp= (this->stack!= nullptr)?(uint64)&stack[DEFAULT_STACK_SIZE]:0;
     status = Status::NEW;
     id = globalId++;
     this->arg=arg;
+    this->start();
 }
 
 void _thread::start() {
@@ -36,14 +36,14 @@ void _thread::start() {
 
     //set thread to ready and put it to scheduler
 //    status=Status::READY;
-    if(body!= nullptr)
+    if(this->body!= nullptr)
         Scheduler::put(this);
 }
 
 void _thread::yield() {
     //save current value of a0 for later to restore
-    uint64 a0reg;
-    __asm__ volatile("mv %0, a0" : "=r" (a0reg));
+//    uint64 a0reg;
+//    __asm__ volatile("mv %0, a0" : "=r" (a0reg));
 
     uint64 flag = 0x04;
     //write flag to a0 so that the trapHandler knows to do dispatch, not syscall
@@ -51,7 +51,7 @@ void _thread::yield() {
     __asm__ volatile ("ecall");
 
     //restore a0 value
-    __asm__ volatile("mv a0, %0" : : "r" (a0reg));
+//    __asm__ volatile("mv a0, %0" : : "r" (a0reg));
 
 }
 

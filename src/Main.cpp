@@ -19,18 +19,18 @@ int main(){
     if(!thread_create(&threads[0], nullptr, nullptr)){
         printString("thread created");
     }
-    threads[0]->start();
+//    threads[0]->start();
     _thread::running=threads[0];
 
     if(!thread_create(&threads[1], workerBodyA, nullptr)){
         printString("thread created");
     }
-    threads[1]->start();
+//    threads[1]->start();
 
     if(!thread_create(&threads[2], workerBodyB, nullptr)){
         printString("thread created");
     }
-    threads[2]->start();
+//    threads[2]->start();
 
     while(!(threads[1]->isFinished() && threads[2]->isFinished())){
         _thread::yield();
