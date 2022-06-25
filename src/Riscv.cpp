@@ -26,17 +26,8 @@ void Riscv::handleSupervisorTrap(){
         // interrupt: no; cause code: environment call from U-mode(8) or S-mode(9)
 
         //call from yield
-        if(a0reg==0x04){
-            uint64 sepc = r_sepc() + 4;
-            uint64 sstatus = r_sstatus();
 
-            _thread::timeSliceCounter = 0;
-            _thread::dispatch();
-
-            w_sstatus(sstatus);
-            w_sepc(sepc);
-        }
-        else if(a0reg==0x11){
+        if(a0reg==0x11){
             uint64 sepc = r_sepc() + 4;
             uint64 sstatus = r_sstatus();
 
@@ -102,7 +93,7 @@ void Riscv::handleSupervisorTrap(){
             uint64 sstatus = r_sstatus();
 
             _thread::running->finished=true;
-            _thread::yield();
+            _thread::dispatch();
 
             w_sstatus(sstatus);
             w_sepc(sepc);
@@ -113,8 +104,19 @@ void Riscv::handleSupervisorTrap(){
             uint64 sepc = r_sepc() + 4;
             uint64 sstatus = r_sstatus();
 
+
+            _thread::dispatch();
+
+            w_sstatus(sstatus);
+            w_sepc(sepc);
+        }
+
+        else if(a0reg==0x04){
+            uint64 sepc = r_sepc() + 4;
+            uint64 sstatus = r_sstatus();
+
             _thread::timeSliceCounter = 0;
-            _thread::yield();
+            _thread::dispatch();
 
             w_sstatus(sstatus);
             w_sepc(sepc);
