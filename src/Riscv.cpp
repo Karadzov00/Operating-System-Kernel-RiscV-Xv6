@@ -7,39 +7,7 @@
 #include "../h/_thread.hpp"
 
 
-void Riscv::syscallHandler() {
-    //read syscall code from register a0
 
-    uint64 arg0;
-    uint64 arg1;
-
-    __asm__ volatile("mv %0, a0" : "=r" (arg0));    //read system call code
-    if(arg0== 0x01 ){
-        //kmem_alloc
-        __asm__ volatile("mv %0, a1" : "=r" (arg1));    //read size from a1 and move it to arg1 local variable
-        uint64 ptr= (uint64) MemoryAllocator::kmem_alloc(arg1);
-
-        //write return value to a0 register
-        __asm__ volatile("mv a0, %0" : : "r" (ptr));
-    }
-    else if(arg0==0x02){
-        __asm__ volatile("mv %0, a1" : "=r" (arg1));    //read pointer to free from a1 and move it to arg1 local variable
-        int ret = MemoryAllocator::kmem_free((void *) arg1);
-        __asm__ volatile("mv a0, %0" : : "r" (ret));
-    }
-
-    else if(arg0==0x12){
-        _thread::running->finished=true;
-        _thread::dispatch();
-
-
-    }
-    else if(arg0 == 0x13){
-        _thread::dispatch();
-
-    }
-
-}
 
 void Riscv::popSppSpie()    //pop supervisor previous privilege, supervisor previous interrupt enable
 {
@@ -50,6 +18,8 @@ void Riscv::popSppSpie()    //pop supervisor previous privilege, supervisor prev
 void Riscv::handleSupervisorTrap(){
     uint scause = r_scause();
     uint64 a0reg;
+//    uint64 arg0;
+    uint64 arg1;
     __asm__ volatile("mv %0, a0" : "=r" (a0reg));
 
     if (scause == 0x0000000000000008UL || scause==0x0000000000000009UL){
@@ -102,12 +72,48 @@ void Riscv::handleSupervisorTrap(){
             w_sstatus(sstatus);
             w_sepc(sepc);
         }
-        else {
+        if(a0reg== 0x01 ){
+            uint64 sepc = r_sepc() + 4;
+            uint64 sstatus = r_sstatus();
+            //kmem_alloc
+            __asm__ volatile("mv %0, a1" : "=r" (arg1));    //read size from a1 and move it to arg1 local variable
+            uint64 ptr= (uint64) MemoryAllocator::kmem_alloc(arg1*MEM_BLOCK_SIZE);
+
+            //write return value to a0 register
+            __asm__ volatile("mv a0, %0" : : "r" (ptr));
+
+            w_sstatus(sstatus);
+            w_sepc(sepc);
+        }
+        else if(a0reg==0x02){
             uint64 sepc = r_sepc() + 4;
             uint64 sstatus = r_sstatus();
 
-            //jump to syscall handler
-            syscallHandler();
+            __asm__ volatile("mv %0, a1" : "=r" (arg1));    //read pointer to free from a1 and move it to arg1 local variable
+            int ret = MemoryAllocator::kmem_free((void *) arg1);
+            __asm__ volatile("mv a0, %0" : : "r" (ret));
+
+            w_sstatus(sstatus);
+            w_sepc(sepc);
+        }
+
+        else if(a0reg==0x12){
+            uint64 sepc = r_sepc() + 4;
+            uint64 sstatus = r_sstatus();
+
+            _thread::running->finished=true;
+            _thread::dispatch();
+
+            w_sstatus(sstatus);
+            w_sepc(sepc);
+
+
+        }
+        else if(a0reg == 0x13){
+            uint64 sepc = r_sepc() + 4;
+            uint64 sstatus = r_sstatus();
+
+            _thread::dispatch();
 
             w_sstatus(sstatus);
             w_sepc(sepc);

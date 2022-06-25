@@ -85,7 +85,7 @@ private:
     // supervisor trap handler
     static void handleSupervisorTrap();
 
-    static void syscallHandler();
+//    static void syscallHandler();
 
 };
 

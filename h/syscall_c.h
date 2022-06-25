@@ -84,7 +84,7 @@ int thread_create (
         void* arg
 ){
 
-    uint64* stack = (uint64*)MemoryAllocator::kmem_alloc(DEFAULT_STACK_SIZE*sizeof(uint64));
+    uint64* stack =(uint64*) mem_alloc(DEFAULT_STACK_SIZE* sizeof(uint64));
     args myArgs;
     myArgs.a0=0x11;
     myArgs.a1=(uint64)handle;   //on address handle there is thread_t adress
