@@ -5,6 +5,7 @@
 #include "../h/Riscv.hpp"
 #include "../h/MemoryAllocator.hpp"
 #include "../h/_thread.hpp"
+#include "../h/Semaphore.hpp"
 
 
 
@@ -117,6 +118,24 @@ void Riscv::handleSupervisorTrap(){
 
             _thread::timeSliceCounter = 0;
             _thread::dispatch();
+
+            w_sstatus(sstatus);
+            w_sepc(sepc);
+        }
+        else if(a0reg==0x21){
+            uint64 sepc = r_sepc() + 4;
+            uint64 sstatus = r_sstatus();
+
+           Semaphore::sem_t *arg1;
+           uint64 arg2;
+
+            __asm__ volatile("ld a1, 11*8(fp)"); //a1
+            __asm__ volatile("ld a2, 12*8(fp)"); //a2
+
+            __asm__ volatile("mv %0, a1" : "=r" (arg1));    //handle (sem_t*)
+            __asm__ volatile("mv %0, a2" : "=r" (arg2));    //start routine
+
+
 
             w_sstatus(sstatus);
             w_sepc(sepc);

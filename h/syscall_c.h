@@ -121,12 +121,21 @@ void thread_dispatch (){
 }
 
 
-class _sem;
-typedef _sem* sem_t;
+class Semaphore;
+typedef Semaphore* sem_t;
 int sem_open (
         sem_t* handle,
         unsigned init
-);
+){
+    args myArgs;
+    myArgs.a0 = 0x21;
+    myArgs.a1 = (uint64)handle;
+    myArgs.a2 = (uint64)init;
+
+    syscall(&myArgs);
+
+
+}
 
 
 

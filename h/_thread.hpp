@@ -59,6 +59,7 @@ private:
     void* arg; //argument for body function
 
     friend class Riscv;
+    friend class Semaphore;
 
     static void threadWrapper();
 
