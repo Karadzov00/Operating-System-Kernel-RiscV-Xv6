@@ -102,7 +102,7 @@ void Riscv::handleSupervisorTrap(){
             uint64 sstatus = r_sstatus();
 
             _thread::running->finished=true;
-            _thread::dispatch();
+            _thread::yield();
 
             w_sstatus(sstatus);
             w_sepc(sepc);
@@ -113,7 +113,7 @@ void Riscv::handleSupervisorTrap(){
             uint64 sepc = r_sepc() + 4;
             uint64 sstatus = r_sstatus();
 
-            _thread::dispatch();
+            _thread::yield();
 
             w_sstatus(sstatus);
             w_sepc(sepc);

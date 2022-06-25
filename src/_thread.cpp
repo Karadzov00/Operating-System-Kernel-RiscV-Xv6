@@ -42,8 +42,8 @@ void _thread::start() {
 
 void _thread::yield() {
     //save current value of a0 for later to restore
-//    uint64 a0reg;
-//    __asm__ volatile("mv %0, a0" : "=r" (a0reg));
+    uint64 a0reg;
+    __asm__ volatile("mv %0, a0" : "=r" (a0reg));
 
     uint64 flag = 0x04;
     //write flag to a0 so that the trapHandler knows to do dispatch, not syscall
@@ -51,7 +51,7 @@ void _thread::yield() {
     __asm__ volatile ("ecall");
 
     //restore a0 value
-//    __asm__ volatile("mv a0, %0" : : "r" (a0reg));
+    __asm__ volatile("mv a0, %0" : : "r" (a0reg));
 
 }
 
