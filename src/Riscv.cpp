@@ -133,9 +133,82 @@ void Riscv::handleSupervisorTrap(){
             __asm__ volatile("ld a2, 12*8(fp)"); //a2
 
             __asm__ volatile("mv %0, a1" : "=r" (arg1));    //handle (sem_t*)
-            __asm__ volatile("mv %0, a2" : "=r" (arg2));    //start routine
+            __asm__ volatile("mv %0, a2" : "=r" (arg2));    //init val
+
+            Semaphore* sem = new Semaphore(arg2);
+            *arg1=sem;
+
+            uint64 ret=0;
+            if(sem!= nullptr)ret=0;
+            else ret=-1;
+
+            __asm__ volatile("mv a0, %0" : : "r" (ret));
+
+            w_sstatus(sstatus);
+            w_sepc(sepc);
+        }
+        else if(a0reg==0x22){
+            uint64 sepc = r_sepc() + 4;
+            uint64 sstatus = r_sstatus();
+
+            Semaphore::sem_t *arg1; //handle
 
 
+            __asm__ volatile("ld a1, 11*8(fp)"); //a1
+
+            __asm__ volatile("mv %0, a1" : "=r" (arg1));    //handle (sem_t*)
+
+            Semaphore* sem = *arg1;
+
+            //deblock all blocked threads on this semaphore
+            while(sem->blocked.peekFirst()!=0){
+                _thread* t = sem->blocked.removeFirst();
+                t->deblocked=true;
+                sem->val++;
+                Scheduler::put(t);
+            }
+
+            delete sem;
+
+            w_sstatus(sstatus);
+            w_sepc(sepc);
+        }
+        else if(a0reg==0x23){
+            uint64 sepc = r_sepc() + 4;
+            uint64 sstatus = r_sstatus();
+
+            Semaphore::sem_t *arg1; //handle
+
+            __asm__ volatile("ld a1, 11*8(fp)"); //a1
+
+            __asm__ volatile("mv %0, a1" : "=r" (arg1));    //handle (sem_t*)
+
+            Semaphore* sem = *arg1;
+
+            uint64 ret = sem->wait();
+
+            __asm__ volatile("mv a0, %0" : : "r" (ret));
+
+            w_sstatus(sstatus);
+            w_sepc(sepc);
+        }
+        else if(a0reg==0x24){
+            uint64 sepc = r_sepc() + 4;
+            uint64 sstatus = r_sstatus();
+
+            Semaphore::sem_t *arg1; //handle
+
+            __asm__ volatile("ld a1, 11*8(fp)"); //a1
+
+            __asm__ volatile("mv %0, a1" : "=r" (arg1));    //handle (sem_t*)
+
+            Semaphore* sem = *arg1;
+
+            sem->signal();
+
+            uint64 ret = 0;
+
+            __asm__ volatile("mv a0, %0" : : "r" (ret));
 
             w_sstatus(sstatus);
             w_sepc(sepc);

@@ -94,8 +94,7 @@ int thread_create (
 
     syscall(&myArgs);
     uint64 ret;
-    __asm__ volatile("mv %0, a0" : "=r" (ret)); //the ret value is future handle
-
+    __asm__ volatile("mv %0, a0" : "=r" (ret));
     return ret;
 
 
@@ -120,7 +119,6 @@ void thread_dispatch (){
 
 }
 
-
 class Semaphore;
 typedef Semaphore* sem_t;
 int sem_open (
@@ -133,11 +131,46 @@ int sem_open (
     myArgs.a2 = (uint64)init;
 
     syscall(&myArgs);
-
+    uint64 ret;
+    __asm__ volatile("mv %0, a0" : "=r" (ret));
+    return ret;
 
 }
 
+int sem_close (sem_t handle){
+    args myArgs;
+    myArgs.a0 = 0x22;
+    myArgs.a1 = (uint64)handle;
 
+    syscall(&myArgs);
+
+    return 0;
+}
+
+int sem_wait (sem_t id){
+    args myArgs;
+    myArgs.a0 = 0x23;
+    myArgs.a1 = (uint64)id;
+
+    syscall(&myArgs);
+
+    uint64 ret;
+    __asm__ volatile("mv %0, a0" : "=r" (ret));
+    return ret;
+
+}
+
+int sem_signal (sem_t id){
+    args myArgs;
+    myArgs.a0 = 0x24;
+    myArgs.a1 = (uint64)id;
+
+    syscall(&myArgs);
+
+    uint64 ret;
+    __asm__ volatile("mv %0, a0" : "=r" (ret));
+    return ret;
+}
 
 
 #endif //PROJECT_BASE_V1_1_SYSCALL_C_H

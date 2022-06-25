@@ -5,14 +5,14 @@
 #ifndef PROJECT_BASE_V1_1_SEMAPHORE_HPP
 #define PROJECT_BASE_V1_1_SEMAPHORE_HPP
 
-#include "List.hpp"
+
 #include "_thread.hpp"
 
 class Semaphore {
 public:
     Semaphore(uint64 init=1):val(init){}
 
-    void wait();
+    int wait();
     void signal();
 
     int value() const{return val;}
@@ -29,7 +29,7 @@ public:
 private:
     int val;
     static List<_thread> blocked;
-
+    friend class Riscv;
 };
 
 

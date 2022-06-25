@@ -58,6 +58,8 @@ private:
     bool finished;
     void* arg; //argument for body function
 
+    bool deblocked=false;
+
     friend class Riscv;
     friend class Semaphore;
 
