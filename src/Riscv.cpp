@@ -177,15 +177,15 @@ void Riscv::handleSupervisorTrap(){
             uint64 sepc = r_sepc() + 4;
             uint64 sstatus = r_sstatus();
 
-            Semaphore::sem_t *arg1; //handle
+            Semaphore::sem_t arg1; //handle
 
             __asm__ volatile("ld a1, 11*8(fp)"); //a1
 
             __asm__ volatile("mv %0, a1" : "=r" (arg1));    //handle (sem_t*)
 
-            Semaphore* sem = *arg1;
+//            Semaphore* sem = *arg1;
 
-            uint64 ret = sem->wait();
+            uint64 ret = arg1->wait();
 
             __asm__ volatile("mv a0, %0" : : "r" (ret));
 
@@ -196,15 +196,14 @@ void Riscv::handleSupervisorTrap(){
             uint64 sepc = r_sepc() + 4;
             uint64 sstatus = r_sstatus();
 
-            Semaphore::sem_t *arg1; //handle
+            Semaphore::sem_t arg1; //handle
 
             __asm__ volatile("ld a1, 11*8(fp)"); //a1
 
             __asm__ volatile("mv %0, a1" : "=r" (arg1));    //handle (sem_t*)
 
-            Semaphore* sem = *arg1;
 
-            sem->signal();
+            arg1->signal();
 
             uint64 ret = 0;
 

@@ -6,7 +6,7 @@
 
 
 int Semaphore::wait() {
-    if(--val < 0){
+    if(--(this->val) < 0){
 
         _thread* old = _thread::running;
         if(!old->isFinished()) { this->blocked.addLast(old); }
@@ -20,7 +20,7 @@ int Semaphore::wait() {
 }
 
 void Semaphore::signal() {
-    if(++val <=0){
+    if(++(this->val) <=0){
         if(this->blocked.peekFirst()!= 0){
             _thread* thread = blocked.removeFirst();
             Scheduler::put(thread);
