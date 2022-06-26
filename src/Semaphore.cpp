@@ -9,19 +9,19 @@ int Semaphore::wait() {
     if(--val < 0){
 
         _thread* old = _thread::running;
-        if(!old->isFinished()) { blocked.addLast(old); }
+        if(!old->isFinished()) { this->blocked.addLast(old); }
         _thread::running = Scheduler::get();
         _thread::contextSwitch(&old->context, &_thread::running->context);
-
 
         if(_thread::running->deblocked==true)return -1;
         else return 0;
     }
+    return 0;
 }
 
 void Semaphore::signal() {
     if(++val <=0){
-        if(blocked.peekFirst()!= 0){
+        if(this->blocked.peekFirst()!= 0){
             _thread* thread = blocked.removeFirst();
             Scheduler::put(thread);
         }

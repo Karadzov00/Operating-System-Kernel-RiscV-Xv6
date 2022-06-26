@@ -7,6 +7,7 @@
 
 
 #include "_thread.hpp"
+#include "List.hpp"
 
 class Semaphore {
 public:
@@ -22,13 +23,13 @@ public:
 
     void* operator new[](size_t n);
 
-    void operator delete(void* p);
+    void operator delete(void* p)noexcept;
 
-    void operator delete[] (void* p);
+    void operator delete[] (void* p)noexcept;
 
 private:
     int val;
-    static List<_thread> blocked;
+    List<_thread> blocked;
     friend class Riscv;
 };
 
