@@ -1,4 +1,4 @@
-GAS LISTING /tmp/cc17R1Av.s 			page 1
+GAS LISTING /tmp/ccVof8aY.s 			page 1
 
 
    1              		.file	"MemoryAllocator.cpp"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/cc17R1Av.s 			page 1
   45              		.cfi_startproc
   46              	.LVL2:
   47 0028 130101FF 		addi	sp,sp,-16
-GAS LISTING /tmp/cc17R1Av.s 			page 2
+GAS LISTING /tmp/ccVof8aY.s 			page 2
 
 
   48              		.cfi_def_cfa_offset 16
@@ -90,94 +90,94 @@ GAS LISTING /tmp/cc17R1Av.s 			page 1
   72              		.file 2 "src/../h/../lib/hw.h"
   73              		.file 3 "src/../h/MemoryAllocator.hpp"
   74              		.file 4 "src/../h/../lib/mem.h"
-GAS LISTING /tmp/cc17R1Av.s 			page 3
+GAS LISTING /tmp/ccVof8aY.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 MemoryAllocator.cpp
-     /tmp/cc17R1Av.s:9      .text:0000000000000000 _ZN15MemoryAllocator10kmem_allocEm
-     /tmp/cc17R1Av.s:13     .text:0000000000000000 .L0 
-     /tmp/cc17R1Av.s:15     .text:0000000000000000 .L0 
-     /tmp/cc17R1Av.s:16     .text:0000000000000004 .L0 
-     /tmp/cc17R1Av.s:19     .text:000000000000000c .L0 
-     /tmp/cc17R1Av.s:20     .text:000000000000000c .L0 
-     /tmp/cc17R1Av.s:22     .text:0000000000000010 .L0 
-     /tmp/cc17R1Av.s:24     .text:0000000000000010 .L0 
-     /tmp/cc17R1Av.s:25     .text:0000000000000010 .L0 
-     /tmp/cc17R1Av.s:28     .text:0000000000000018 .L0 
-     /tmp/cc17R1Av.s:29     .text:000000000000001c .L0 
-     /tmp/cc17R1Av.s:31     .text:0000000000000020 .L0 
-     /tmp/cc17R1Av.s:32     .text:0000000000000020 .L0 
-     /tmp/cc17R1Av.s:34     .text:0000000000000024 .L0 
-     /tmp/cc17R1Av.s:36     .text:0000000000000028 .L0 
-     /tmp/cc17R1Av.s:42     .text:0000000000000028 _ZN15MemoryAllocator9kmem_freeEPv
-     /tmp/cc17R1Av.s:45     .text:0000000000000028 .L0 
-     /tmp/cc17R1Av.s:47     .text:0000000000000028 .L0 
-     /tmp/cc17R1Av.s:48     .text:000000000000002c .L0 
-     /tmp/cc17R1Av.s:51     .text:0000000000000034 .L0 
-     /tmp/cc17R1Av.s:52     .text:0000000000000034 .L0 
-     /tmp/cc17R1Av.s:54     .text:0000000000000038 .L0 
-     /tmp/cc17R1Av.s:56     .text:0000000000000038 .L0 
-     /tmp/cc17R1Av.s:57     .text:0000000000000038 .L0 
-     /tmp/cc17R1Av.s:60     .text:0000000000000040 .L0 
-     /tmp/cc17R1Av.s:61     .text:0000000000000044 .L0 
-     /tmp/cc17R1Av.s:63     .text:0000000000000048 .L0 
-     /tmp/cc17R1Av.s:64     .text:0000000000000048 .L0 
-     /tmp/cc17R1Av.s:66     .text:000000000000004c .L0 
-     /tmp/cc17R1Av.s:68     .text:0000000000000050 .L0 
-     /tmp/cc17R1Av.s:75     .text:0000000000000050 .L0 
-     /tmp/cc17R1Av.s:365    .debug_abbrev:0000000000000000 .Ldebug_abbrev0
-     /tmp/cc17R1Av.s:858    .debug_str:00000000000001b1 .LASF28
-     /tmp/cc17R1Av.s:850    .debug_str:0000000000000157 .LASF29
-     /tmp/cc17R1Av.s:862    .debug_str:0000000000000284 .LASF30
-     /tmp/cc17R1Av.s:5      .text:0000000000000000 .Ltext0
-     /tmp/cc17R1Av.s:71     .text:0000000000000050 .Letext0
-     /tmp/cc17R1Av.s:804    .debug_line:0000000000000000 .Ldebug_line0
-     /tmp/cc17R1Av.s:810    .debug_str:0000000000000017 .LASF0
-     /tmp/cc17R1Av.s:856    .debug_str:000000000000019e .LASF1
-     /tmp/cc17R1Av.s:840    .debug_str:000000000000010e .LASF2
-     /tmp/cc17R1Av.s:832    .debug_str:00000000000000c8 .LASF4
-     /tmp/cc17R1Av.s:826    .debug_str:0000000000000099 .LASF3
-     /tmp/cc17R1Av.s:820    .debug_str:0000000000000066 .LASF5
-     /tmp/cc17R1Av.s:830    .debug_str:00000000000000b5 .LASF6
-     /tmp/cc17R1Av.s:854    .debug_str:000000000000018b .LASF7
-     /tmp/cc17R1Av.s:868    .debug_str:00000000000002fa .LASF8
-     /tmp/cc17R1Av.s:816    .debug_str:0000000000000049 .LASF9
-     /tmp/cc17R1Av.s:818    .debug_str:0000000000000057 .LASF10
-     /tmp/cc17R1Av.s:860    .debug_str:0000000000000275 .LASF11
-     /tmp/cc17R1Av.s:822    .debug_str:000000000000006d .LASF12
-     /tmp/cc17R1Av.s:870    .debug_str:000000000000030a .LASF13
-     /tmp/cc17R1Av.s:838    .debug_str:0000000000000102 .LASF14
-     /tmp/cc17R1Av.s:848    .debug_str:0000000000000141 .LASF15
-     /tmp/cc17R1Av.s:846    .debug_str:000000000000012b .LASF16
-GAS LISTING /tmp/cc17R1Av.s 			page 4
+     /tmp/ccVof8aY.s:9      .text:0000000000000000 _ZN15MemoryAllocator10kmem_allocEm
+     /tmp/ccVof8aY.s:13     .text:0000000000000000 .L0 
+     /tmp/ccVof8aY.s:15     .text:0000000000000000 .L0 
+     /tmp/ccVof8aY.s:16     .text:0000000000000004 .L0 
+     /tmp/ccVof8aY.s:19     .text:000000000000000c .L0 
+     /tmp/ccVof8aY.s:20     .text:000000000000000c .L0 
+     /tmp/ccVof8aY.s:22     .text:0000000000000010 .L0 
+     /tmp/ccVof8aY.s:24     .text:0000000000000010 .L0 
+     /tmp/ccVof8aY.s:25     .text:0000000000000010 .L0 
+     /tmp/ccVof8aY.s:28     .text:0000000000000018 .L0 
+     /tmp/ccVof8aY.s:29     .text:000000000000001c .L0 
+     /tmp/ccVof8aY.s:31     .text:0000000000000020 .L0 
+     /tmp/ccVof8aY.s:32     .text:0000000000000020 .L0 
+     /tmp/ccVof8aY.s:34     .text:0000000000000024 .L0 
+     /tmp/ccVof8aY.s:36     .text:0000000000000028 .L0 
+     /tmp/ccVof8aY.s:42     .text:0000000000000028 _ZN15MemoryAllocator9kmem_freeEPv
+     /tmp/ccVof8aY.s:45     .text:0000000000000028 .L0 
+     /tmp/ccVof8aY.s:47     .text:0000000000000028 .L0 
+     /tmp/ccVof8aY.s:48     .text:000000000000002c .L0 
+     /tmp/ccVof8aY.s:51     .text:0000000000000034 .L0 
+     /tmp/ccVof8aY.s:52     .text:0000000000000034 .L0 
+     /tmp/ccVof8aY.s:54     .text:0000000000000038 .L0 
+     /tmp/ccVof8aY.s:56     .text:0000000000000038 .L0 
+     /tmp/ccVof8aY.s:57     .text:0000000000000038 .L0 
+     /tmp/ccVof8aY.s:60     .text:0000000000000040 .L0 
+     /tmp/ccVof8aY.s:61     .text:0000000000000044 .L0 
+     /tmp/ccVof8aY.s:63     .text:0000000000000048 .L0 
+     /tmp/ccVof8aY.s:64     .text:0000000000000048 .L0 
+     /tmp/ccVof8aY.s:66     .text:000000000000004c .L0 
+     /tmp/ccVof8aY.s:68     .text:0000000000000050 .L0 
+     /tmp/ccVof8aY.s:75     .text:0000000000000050 .L0 
+     /tmp/ccVof8aY.s:365    .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+     /tmp/ccVof8aY.s:858    .debug_str:00000000000001b1 .LASF28
+     /tmp/ccVof8aY.s:850    .debug_str:0000000000000157 .LASF29
+     /tmp/ccVof8aY.s:862    .debug_str:0000000000000284 .LASF30
+     /tmp/ccVof8aY.s:5      .text:0000000000000000 .Ltext0
+     /tmp/ccVof8aY.s:71     .text:0000000000000050 .Letext0
+     /tmp/ccVof8aY.s:804    .debug_line:0000000000000000 .Ldebug_line0
+     /tmp/ccVof8aY.s:810    .debug_str:0000000000000017 .LASF0
+     /tmp/ccVof8aY.s:856    .debug_str:000000000000019e .LASF1
+     /tmp/ccVof8aY.s:840    .debug_str:000000000000010e .LASF2
+     /tmp/ccVof8aY.s:832    .debug_str:00000000000000c8 .LASF4
+     /tmp/ccVof8aY.s:826    .debug_str:0000000000000099 .LASF3
+     /tmp/ccVof8aY.s:820    .debug_str:0000000000000066 .LASF5
+     /tmp/ccVof8aY.s:830    .debug_str:00000000000000b5 .LASF6
+     /tmp/ccVof8aY.s:854    .debug_str:000000000000018b .LASF7
+     /tmp/ccVof8aY.s:868    .debug_str:00000000000002fa .LASF8
+     /tmp/ccVof8aY.s:816    .debug_str:0000000000000049 .LASF9
+     /tmp/ccVof8aY.s:818    .debug_str:0000000000000057 .LASF10
+     /tmp/ccVof8aY.s:860    .debug_str:0000000000000275 .LASF11
+     /tmp/ccVof8aY.s:822    .debug_str:000000000000006d .LASF12
+     /tmp/ccVof8aY.s:870    .debug_str:000000000000030a .LASF13
+     /tmp/ccVof8aY.s:838    .debug_str:0000000000000102 .LASF14
+     /tmp/ccVof8aY.s:848    .debug_str:0000000000000141 .LASF15
+     /tmp/ccVof8aY.s:846    .debug_str:000000000000012b .LASF16
+GAS LISTING /tmp/ccVof8aY.s 			page 4
 
 
-     /tmp/cc17R1Av.s:836    .debug_str:00000000000000f2 .LASF21
-     /tmp/cc17R1Av.s:814    .debug_str:000000000000003d .LASF31
-     /tmp/cc17R1Av.s:866    .debug_str:00000000000002d6 .LASF32
-     /tmp/cc17R1Av.s:872    .debug_str:000000000000031a .LASF17
-     /tmp/cc17R1Av.s:834    .debug_str:00000000000000cf .LASF19
-     /tmp/cc17R1Av.s:828    .debug_str:00000000000000ab .LASF18
-     /tmp/cc17R1Av.s:864    .debug_str:00000000000002b4 .LASF20
-     /tmp/cc17R1Av.s:824    .debug_str:000000000000007d .LASF23
-     /tmp/cc17R1Av.s:844    .debug_str:0000000000000121 .LASF22
-     /tmp/cc17R1Av.s:852    .debug_str:000000000000016f .LASF24
-     /tmp/cc17R1Av.s:812    .debug_str:0000000000000024 .LASF33
-     /tmp/cc17R1Av.s:43     .text:0000000000000028 .LFB5
-     /tmp/cc17R1Av.s:69     .text:0000000000000050 .LFE5
-     /tmp/cc17R1Av.s:763    .debug_loc:0000000000000000 .LLST1
-     /tmp/cc17R1Av.s:58     .text:0000000000000040 .LVL3
-     /tmp/cc17R1Av.s:10     .text:0000000000000000 .LFB4
-     /tmp/cc17R1Av.s:37     .text:0000000000000028 .LFE4
-     /tmp/cc17R1Av.s:842    .debug_str:000000000000011c .LASF25
-     /tmp/cc17R1Av.s:777    .debug_loc:0000000000000039 .LLST0
-     /tmp/cc17R1Av.s:26     .text:0000000000000018 .LVL1
-     /tmp/cc17R1Av.s:806    .debug_str:0000000000000000 .LASF26
-     /tmp/cc17R1Av.s:808    .debug_str:000000000000000b .LASF27
-     /tmp/cc17R1Av.s:46     .text:0000000000000028 .LVL2
-     /tmp/cc17R1Av.s:14     .text:0000000000000000 .LVL0
-     /tmp/cc17R1Av.s:76     .debug_info:0000000000000000 .Ldebug_info0
+     /tmp/ccVof8aY.s:836    .debug_str:00000000000000f2 .LASF21
+     /tmp/ccVof8aY.s:814    .debug_str:000000000000003d .LASF31
+     /tmp/ccVof8aY.s:866    .debug_str:00000000000002d6 .LASF32
+     /tmp/ccVof8aY.s:872    .debug_str:000000000000031a .LASF17
+     /tmp/ccVof8aY.s:834    .debug_str:00000000000000cf .LASF19
+     /tmp/ccVof8aY.s:828    .debug_str:00000000000000ab .LASF18
+     /tmp/ccVof8aY.s:864    .debug_str:00000000000002b4 .LASF20
+     /tmp/ccVof8aY.s:824    .debug_str:000000000000007d .LASF23
+     /tmp/ccVof8aY.s:844    .debug_str:0000000000000121 .LASF22
+     /tmp/ccVof8aY.s:852    .debug_str:000000000000016f .LASF24
+     /tmp/ccVof8aY.s:812    .debug_str:0000000000000024 .LASF33
+     /tmp/ccVof8aY.s:43     .text:0000000000000028 .LFB5
+     /tmp/ccVof8aY.s:69     .text:0000000000000050 .LFE5
+     /tmp/ccVof8aY.s:763    .debug_loc:0000000000000000 .LLST1
+     /tmp/ccVof8aY.s:58     .text:0000000000000040 .LVL3
+     /tmp/ccVof8aY.s:10     .text:0000000000000000 .LFB4
+     /tmp/ccVof8aY.s:37     .text:0000000000000028 .LFE4
+     /tmp/ccVof8aY.s:842    .debug_str:000000000000011c .LASF25
+     /tmp/ccVof8aY.s:777    .debug_loc:0000000000000039 .LLST0
+     /tmp/ccVof8aY.s:26     .text:0000000000000018 .LVL1
+     /tmp/ccVof8aY.s:806    .debug_str:0000000000000000 .LASF26
+     /tmp/ccVof8aY.s:808    .debug_str:000000000000000b .LASF27
+     /tmp/ccVof8aY.s:46     .text:0000000000000028 .LVL2
+     /tmp/ccVof8aY.s:14     .text:0000000000000000 .LVL0
+     /tmp/ccVof8aY.s:76     .debug_info:0000000000000000 .Ldebug_info0
 
 UNDEFINED SYMBOLS
 __mem_alloc

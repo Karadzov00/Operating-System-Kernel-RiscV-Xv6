@@ -20,7 +20,7 @@ public:
     }
     virtual ~Thread (){
         myHandle=0;
-        thread_exit();
+
     }
     int start (){
         if(!myHandle) { thread_create(&myHandle, &wrapper, this); }
@@ -68,8 +68,12 @@ protected:
 
 class Console {
 public:
-    static char getc ();
-    static void putc (char);
+    static char getc (){
+        return ::getc();
+    }
+    static void putc (char c){
+        ::putc(c);
+    }
 };
 
 
