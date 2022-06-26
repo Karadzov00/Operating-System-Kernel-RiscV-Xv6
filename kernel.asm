@@ -541,6 +541,7 @@ void Semaphore::signal() {
     8000152c:	00001097          	auipc	ra,0x1
     80001530:	f00080e7          	jalr	-256(ra) # 8000242c <_ZN15MemoryAllocator9kmem_freeEPv>
             _thread* thread = blocked.removeFirst();
+//            _thread* thread = blocked.peekFirst();
             Scheduler::put(thread);
     80001534:	00048513          	mv	a0,s1
     80001538:	00001097          	auipc	ra,0x1

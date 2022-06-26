@@ -172,5 +172,25 @@ int sem_signal (sem_t id){
     return ret;
 }
 
+const int EOF = -1;
+char getc (){
+    args myArgs;
+    myArgs.a0 = 0x41;
+
+    syscall(&myArgs);
+
+    char c;
+    __asm__ volatile("mv %0, a0" : "=r" (c));
+    return c;
+
+}
+
+void putc (char c){
+    args myArgs;
+    myArgs.a0 = 0x42;
+    myArgs.a1=(uint64)c;
+
+    syscall(&myArgs);
+}
 
 #endif //PROJECT_BASE_V1_1_SYSCALL_C_H

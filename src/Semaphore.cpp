@@ -23,6 +23,7 @@ void Semaphore::signal() {
     if(++(this->val) <=0){
         if(this->blocked.peekFirst()!= 0){
             _thread* thread = blocked.removeFirst();
+//            _thread* thread = blocked.peekFirst();
             Scheduler::put(thread);
         }
     }

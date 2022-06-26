@@ -6,6 +6,7 @@
 #include "../h/MemoryAllocator.hpp"
 #include "../h/_thread.hpp"
 #include "../h/Semaphore.hpp"
+#include "../h/KConsole.hpp"
 
 
 
@@ -212,7 +213,33 @@ void Riscv::handleSupervisorTrap(){
             w_sstatus(sstatus);
             w_sepc(sepc);
         }
+        else if(a0reg==0x41){
+            uint64 sepc = r_sepc() + 4;
+            uint64 sstatus = r_sstatus();
 
+            //call method from kernel Console class
+            char c = KConsole::getc();
+
+            __asm__ volatile("mv a0, %0" : : "r" (c));
+
+
+            w_sstatus(sstatus);
+            w_sepc(sepc);
+        }
+        else if(a0reg==0x42){
+            uint64 sepc = r_sepc() + 4;
+            uint64 sstatus = r_sstatus();
+
+            char c;
+            __asm__ volatile("ld a1, 11*8(fp)"); //a1
+
+            __asm__ volatile("mv %0, a1" : "=r" (c));
+
+            KConsole::putc(c);
+
+            w_sstatus(sstatus);
+            w_sepc(sepc);
+        }
 
 
     }

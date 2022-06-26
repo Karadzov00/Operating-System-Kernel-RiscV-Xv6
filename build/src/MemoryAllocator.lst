@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccAgAtNk.s 			page 1
+GAS LISTING /tmp/ccpgYZDN.s 			page 1
 
 
    1              		.file	"MemoryAllocator.cpp"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccAgAtNk.s 			page 1
   45              		.cfi_startproc
   46              	.LVL2:
   47 0028 130101FF 		addi	sp,sp,-16
-GAS LISTING /tmp/ccAgAtNk.s 			page 2
+GAS LISTING /tmp/ccpgYZDN.s 			page 2
 
 
   48              		.cfi_def_cfa_offset 16
@@ -90,94 +90,94 @@ GAS LISTING /tmp/ccAgAtNk.s 			page 1
   72              		.file 2 "src/../h/../lib/hw.h"
   73              		.file 3 "src/../h/MemoryAllocator.hpp"
   74              		.file 4 "src/../h/../lib/mem.h"
-GAS LISTING /tmp/ccAgAtNk.s 			page 3
+GAS LISTING /tmp/ccpgYZDN.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 MemoryAllocator.cpp
-     /tmp/ccAgAtNk.s:9      .text:0000000000000000 _ZN15MemoryAllocator10kmem_allocEm
-     /tmp/ccAgAtNk.s:13     .text:0000000000000000 .L0 
-     /tmp/ccAgAtNk.s:15     .text:0000000000000000 .L0 
-     /tmp/ccAgAtNk.s:16     .text:0000000000000004 .L0 
-     /tmp/ccAgAtNk.s:19     .text:000000000000000c .L0 
-     /tmp/ccAgAtNk.s:20     .text:000000000000000c .L0 
-     /tmp/ccAgAtNk.s:22     .text:0000000000000010 .L0 
-     /tmp/ccAgAtNk.s:24     .text:0000000000000010 .L0 
-     /tmp/ccAgAtNk.s:25     .text:0000000000000010 .L0 
-     /tmp/ccAgAtNk.s:28     .text:0000000000000018 .L0 
-     /tmp/ccAgAtNk.s:29     .text:000000000000001c .L0 
-     /tmp/ccAgAtNk.s:31     .text:0000000000000020 .L0 
-     /tmp/ccAgAtNk.s:32     .text:0000000000000020 .L0 
-     /tmp/ccAgAtNk.s:34     .text:0000000000000024 .L0 
-     /tmp/ccAgAtNk.s:36     .text:0000000000000028 .L0 
-     /tmp/ccAgAtNk.s:42     .text:0000000000000028 _ZN15MemoryAllocator9kmem_freeEPv
-     /tmp/ccAgAtNk.s:45     .text:0000000000000028 .L0 
-     /tmp/ccAgAtNk.s:47     .text:0000000000000028 .L0 
-     /tmp/ccAgAtNk.s:48     .text:000000000000002c .L0 
-     /tmp/ccAgAtNk.s:51     .text:0000000000000034 .L0 
-     /tmp/ccAgAtNk.s:52     .text:0000000000000034 .L0 
-     /tmp/ccAgAtNk.s:54     .text:0000000000000038 .L0 
-     /tmp/ccAgAtNk.s:56     .text:0000000000000038 .L0 
-     /tmp/ccAgAtNk.s:57     .text:0000000000000038 .L0 
-     /tmp/ccAgAtNk.s:60     .text:0000000000000040 .L0 
-     /tmp/ccAgAtNk.s:61     .text:0000000000000044 .L0 
-     /tmp/ccAgAtNk.s:63     .text:0000000000000048 .L0 
-     /tmp/ccAgAtNk.s:64     .text:0000000000000048 .L0 
-     /tmp/ccAgAtNk.s:66     .text:000000000000004c .L0 
-     /tmp/ccAgAtNk.s:68     .text:0000000000000050 .L0 
-     /tmp/ccAgAtNk.s:75     .text:0000000000000050 .L0 
-     /tmp/ccAgAtNk.s:365    .debug_abbrev:0000000000000000 .Ldebug_abbrev0
-     /tmp/ccAgAtNk.s:858    .debug_str:00000000000001b1 .LASF28
-     /tmp/ccAgAtNk.s:850    .debug_str:0000000000000157 .LASF29
-     /tmp/ccAgAtNk.s:862    .debug_str:0000000000000284 .LASF30
-     /tmp/ccAgAtNk.s:5      .text:0000000000000000 .Ltext0
-     /tmp/ccAgAtNk.s:71     .text:0000000000000050 .Letext0
-     /tmp/ccAgAtNk.s:804    .debug_line:0000000000000000 .Ldebug_line0
-     /tmp/ccAgAtNk.s:810    .debug_str:0000000000000017 .LASF0
-     /tmp/ccAgAtNk.s:856    .debug_str:000000000000019e .LASF1
-     /tmp/ccAgAtNk.s:840    .debug_str:000000000000010e .LASF2
-     /tmp/ccAgAtNk.s:832    .debug_str:00000000000000c8 .LASF4
-     /tmp/ccAgAtNk.s:826    .debug_str:0000000000000099 .LASF3
-     /tmp/ccAgAtNk.s:820    .debug_str:0000000000000066 .LASF5
-     /tmp/ccAgAtNk.s:830    .debug_str:00000000000000b5 .LASF6
-     /tmp/ccAgAtNk.s:854    .debug_str:000000000000018b .LASF7
-     /tmp/ccAgAtNk.s:868    .debug_str:00000000000002fa .LASF8
-     /tmp/ccAgAtNk.s:816    .debug_str:0000000000000049 .LASF9
-     /tmp/ccAgAtNk.s:818    .debug_str:0000000000000057 .LASF10
-     /tmp/ccAgAtNk.s:860    .debug_str:0000000000000275 .LASF11
-     /tmp/ccAgAtNk.s:822    .debug_str:000000000000006d .LASF12
-     /tmp/ccAgAtNk.s:870    .debug_str:000000000000030a .LASF13
-     /tmp/ccAgAtNk.s:838    .debug_str:0000000000000102 .LASF14
-     /tmp/ccAgAtNk.s:848    .debug_str:0000000000000141 .LASF15
-     /tmp/ccAgAtNk.s:846    .debug_str:000000000000012b .LASF16
-GAS LISTING /tmp/ccAgAtNk.s 			page 4
+     /tmp/ccpgYZDN.s:9      .text:0000000000000000 _ZN15MemoryAllocator10kmem_allocEm
+     /tmp/ccpgYZDN.s:13     .text:0000000000000000 .L0 
+     /tmp/ccpgYZDN.s:15     .text:0000000000000000 .L0 
+     /tmp/ccpgYZDN.s:16     .text:0000000000000004 .L0 
+     /tmp/ccpgYZDN.s:19     .text:000000000000000c .L0 
+     /tmp/ccpgYZDN.s:20     .text:000000000000000c .L0 
+     /tmp/ccpgYZDN.s:22     .text:0000000000000010 .L0 
+     /tmp/ccpgYZDN.s:24     .text:0000000000000010 .L0 
+     /tmp/ccpgYZDN.s:25     .text:0000000000000010 .L0 
+     /tmp/ccpgYZDN.s:28     .text:0000000000000018 .L0 
+     /tmp/ccpgYZDN.s:29     .text:000000000000001c .L0 
+     /tmp/ccpgYZDN.s:31     .text:0000000000000020 .L0 
+     /tmp/ccpgYZDN.s:32     .text:0000000000000020 .L0 
+     /tmp/ccpgYZDN.s:34     .text:0000000000000024 .L0 
+     /tmp/ccpgYZDN.s:36     .text:0000000000000028 .L0 
+     /tmp/ccpgYZDN.s:42     .text:0000000000000028 _ZN15MemoryAllocator9kmem_freeEPv
+     /tmp/ccpgYZDN.s:45     .text:0000000000000028 .L0 
+     /tmp/ccpgYZDN.s:47     .text:0000000000000028 .L0 
+     /tmp/ccpgYZDN.s:48     .text:000000000000002c .L0 
+     /tmp/ccpgYZDN.s:51     .text:0000000000000034 .L0 
+     /tmp/ccpgYZDN.s:52     .text:0000000000000034 .L0 
+     /tmp/ccpgYZDN.s:54     .text:0000000000000038 .L0 
+     /tmp/ccpgYZDN.s:56     .text:0000000000000038 .L0 
+     /tmp/ccpgYZDN.s:57     .text:0000000000000038 .L0 
+     /tmp/ccpgYZDN.s:60     .text:0000000000000040 .L0 
+     /tmp/ccpgYZDN.s:61     .text:0000000000000044 .L0 
+     /tmp/ccpgYZDN.s:63     .text:0000000000000048 .L0 
+     /tmp/ccpgYZDN.s:64     .text:0000000000000048 .L0 
+     /tmp/ccpgYZDN.s:66     .text:000000000000004c .L0 
+     /tmp/ccpgYZDN.s:68     .text:0000000000000050 .L0 
+     /tmp/ccpgYZDN.s:75     .text:0000000000000050 .L0 
+     /tmp/ccpgYZDN.s:365    .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+     /tmp/ccpgYZDN.s:858    .debug_str:00000000000001b1 .LASF28
+     /tmp/ccpgYZDN.s:850    .debug_str:0000000000000157 .LASF29
+     /tmp/ccpgYZDN.s:862    .debug_str:0000000000000284 .LASF30
+     /tmp/ccpgYZDN.s:5      .text:0000000000000000 .Ltext0
+     /tmp/ccpgYZDN.s:71     .text:0000000000000050 .Letext0
+     /tmp/ccpgYZDN.s:804    .debug_line:0000000000000000 .Ldebug_line0
+     /tmp/ccpgYZDN.s:810    .debug_str:0000000000000017 .LASF0
+     /tmp/ccpgYZDN.s:856    .debug_str:000000000000019e .LASF1
+     /tmp/ccpgYZDN.s:840    .debug_str:000000000000010e .LASF2
+     /tmp/ccpgYZDN.s:832    .debug_str:00000000000000c8 .LASF4
+     /tmp/ccpgYZDN.s:826    .debug_str:0000000000000099 .LASF3
+     /tmp/ccpgYZDN.s:820    .debug_str:0000000000000066 .LASF5
+     /tmp/ccpgYZDN.s:830    .debug_str:00000000000000b5 .LASF6
+     /tmp/ccpgYZDN.s:854    .debug_str:000000000000018b .LASF7
+     /tmp/ccpgYZDN.s:868    .debug_str:00000000000002fa .LASF8
+     /tmp/ccpgYZDN.s:816    .debug_str:0000000000000049 .LASF9
+     /tmp/ccpgYZDN.s:818    .debug_str:0000000000000057 .LASF10
+     /tmp/ccpgYZDN.s:860    .debug_str:0000000000000275 .LASF11
+     /tmp/ccpgYZDN.s:822    .debug_str:000000000000006d .LASF12
+     /tmp/ccpgYZDN.s:870    .debug_str:000000000000030a .LASF13
+     /tmp/ccpgYZDN.s:838    .debug_str:0000000000000102 .LASF14
+     /tmp/ccpgYZDN.s:848    .debug_str:0000000000000141 .LASF15
+     /tmp/ccpgYZDN.s:846    .debug_str:000000000000012b .LASF16
+GAS LISTING /tmp/ccpgYZDN.s 			page 4
 
 
-     /tmp/ccAgAtNk.s:836    .debug_str:00000000000000f2 .LASF21
-     /tmp/ccAgAtNk.s:814    .debug_str:000000000000003d .LASF31
-     /tmp/ccAgAtNk.s:866    .debug_str:00000000000002d6 .LASF32
-     /tmp/ccAgAtNk.s:872    .debug_str:000000000000031a .LASF17
-     /tmp/ccAgAtNk.s:834    .debug_str:00000000000000cf .LASF19
-     /tmp/ccAgAtNk.s:828    .debug_str:00000000000000ab .LASF18
-     /tmp/ccAgAtNk.s:864    .debug_str:00000000000002b4 .LASF20
-     /tmp/ccAgAtNk.s:824    .debug_str:000000000000007d .LASF23
-     /tmp/ccAgAtNk.s:844    .debug_str:0000000000000121 .LASF22
-     /tmp/ccAgAtNk.s:852    .debug_str:000000000000016f .LASF24
-     /tmp/ccAgAtNk.s:812    .debug_str:0000000000000024 .LASF33
-     /tmp/ccAgAtNk.s:43     .text:0000000000000028 .LFB5
-     /tmp/ccAgAtNk.s:69     .text:0000000000000050 .LFE5
-     /tmp/ccAgAtNk.s:763    .debug_loc:0000000000000000 .LLST1
-     /tmp/ccAgAtNk.s:58     .text:0000000000000040 .LVL3
-     /tmp/ccAgAtNk.s:10     .text:0000000000000000 .LFB4
-     /tmp/ccAgAtNk.s:37     .text:0000000000000028 .LFE4
-     /tmp/ccAgAtNk.s:842    .debug_str:000000000000011c .LASF25
-     /tmp/ccAgAtNk.s:777    .debug_loc:0000000000000039 .LLST0
-     /tmp/ccAgAtNk.s:26     .text:0000000000000018 .LVL1
-     /tmp/ccAgAtNk.s:806    .debug_str:0000000000000000 .LASF26
-     /tmp/ccAgAtNk.s:808    .debug_str:000000000000000b .LASF27
-     /tmp/ccAgAtNk.s:46     .text:0000000000000028 .LVL2
-     /tmp/ccAgAtNk.s:14     .text:0000000000000000 .LVL0
-     /tmp/ccAgAtNk.s:76     .debug_info:0000000000000000 .Ldebug_info0
+     /tmp/ccpgYZDN.s:836    .debug_str:00000000000000f2 .LASF21
+     /tmp/ccpgYZDN.s:814    .debug_str:000000000000003d .LASF31
+     /tmp/ccpgYZDN.s:866    .debug_str:00000000000002d6 .LASF32
+     /tmp/ccpgYZDN.s:872    .debug_str:000000000000031a .LASF17
+     /tmp/ccpgYZDN.s:834    .debug_str:00000000000000cf .LASF19
+     /tmp/ccpgYZDN.s:828    .debug_str:00000000000000ab .LASF18
+     /tmp/ccpgYZDN.s:864    .debug_str:00000000000002b4 .LASF20
+     /tmp/ccpgYZDN.s:824    .debug_str:000000000000007d .LASF23
+     /tmp/ccpgYZDN.s:844    .debug_str:0000000000000121 .LASF22
+     /tmp/ccpgYZDN.s:852    .debug_str:000000000000016f .LASF24
+     /tmp/ccpgYZDN.s:812    .debug_str:0000000000000024 .LASF33
+     /tmp/ccpgYZDN.s:43     .text:0000000000000028 .LFB5
+     /tmp/ccpgYZDN.s:69     .text:0000000000000050 .LFE5
+     /tmp/ccpgYZDN.s:763    .debug_loc:0000000000000000 .LLST1
+     /tmp/ccpgYZDN.s:58     .text:0000000000000040 .LVL3
+     /tmp/ccpgYZDN.s:10     .text:0000000000000000 .LFB4
+     /tmp/ccpgYZDN.s:37     .text:0000000000000028 .LFE4
+     /tmp/ccpgYZDN.s:842    .debug_str:000000000000011c .LASF25
+     /tmp/ccpgYZDN.s:777    .debug_loc:0000000000000039 .LLST0
+     /tmp/ccpgYZDN.s:26     .text:0000000000000018 .LVL1
+     /tmp/ccpgYZDN.s:806    .debug_str:0000000000000000 .LASF26
+     /tmp/ccpgYZDN.s:808    .debug_str:000000000000000b .LASF27
+     /tmp/ccpgYZDN.s:46     .text:0000000000000028 .LVL2
+     /tmp/ccpgYZDN.s:14     .text:0000000000000000 .LVL0
+     /tmp/ccpgYZDN.s:76     .debug_info:0000000000000000 .Ldebug_info0
 
 UNDEFINED SYMBOLS
 __mem_alloc
