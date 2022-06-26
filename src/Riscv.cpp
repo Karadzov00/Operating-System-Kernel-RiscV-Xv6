@@ -5,7 +5,7 @@
 #include "../h/Riscv.hpp"
 #include "../h/MemoryAllocator.hpp"
 #include "../h/_thread.hpp"
-#include "../h/Semaphore.hpp"
+#include "../h/KSemaphore.hpp"
 #include "../h/KConsole.hpp"
 
 
@@ -127,7 +127,7 @@ void Riscv::handleSupervisorTrap(){
             uint64 sepc = r_sepc() + 4;
             uint64 sstatus = r_sstatus();
 
-           Semaphore::sem_t *arg1;
+           KSemaphore::sem_t *arg1;
            uint64 arg2;
 
             __asm__ volatile("ld a1, 11*8(fp)"); //a1
@@ -136,7 +136,7 @@ void Riscv::handleSupervisorTrap(){
             __asm__ volatile("mv %0, a1" : "=r" (arg1));    //handle (sem_t*)
             __asm__ volatile("mv %0, a2" : "=r" (arg2));    //init val
 
-            Semaphore* sem = new Semaphore(arg2);
+            KSemaphore* sem = new KSemaphore(arg2);
             *arg1=sem;
 
             uint64 ret=0;
@@ -152,14 +152,14 @@ void Riscv::handleSupervisorTrap(){
             uint64 sepc = r_sepc() + 4;
             uint64 sstatus = r_sstatus();
 
-            Semaphore::sem_t *arg1; //handle
+            KSemaphore::sem_t *arg1; //handle
 
 
             __asm__ volatile("ld a1, 11*8(fp)"); //a1
 
             __asm__ volatile("mv %0, a1" : "=r" (arg1));    //handle (sem_t*)
 
-            Semaphore* sem = *arg1;
+            KSemaphore* sem = *arg1;
 
             //deblock all blocked threads on this semaphore
             while(sem->blocked.peekFirst()!=0){
@@ -178,13 +178,13 @@ void Riscv::handleSupervisorTrap(){
             uint64 sepc = r_sepc() + 4;
             uint64 sstatus = r_sstatus();
 
-            Semaphore::sem_t arg1; //handle
+            KSemaphore::sem_t arg1; //handle
 
             __asm__ volatile("ld a1, 11*8(fp)"); //a1
 
             __asm__ volatile("mv %0, a1" : "=r" (arg1));    //handle (sem_t*)
 
-//            Semaphore* sem = *arg1;
+//            KSemaphore* sem = *arg1;
 
             uint64 ret = arg1->wait();
 
@@ -197,7 +197,7 @@ void Riscv::handleSupervisorTrap(){
             uint64 sepc = r_sepc() + 4;
             uint64 sstatus = r_sstatus();
 
-            Semaphore::sem_t arg1; //handle
+            KSemaphore::sem_t arg1; //handle
 
             __asm__ volatile("ld a1, 11*8(fp)"); //a1
 

@@ -2,8 +2,8 @@
 // Created by os on 6/19/22.
 //
 
-#ifndef PROJECT_BASE_V1_1_SYSCALL_C_H
-#define PROJECT_BASE_V1_1_SYSCALL_C_H
+#ifndef PROJECT_BASE_V1_1_SYSCALL_C_HPP
+#define PROJECT_BASE_V1_1_SYSCALL_C_HPP
 
 
 #include "../h/MemoryAllocator.hpp"
@@ -119,8 +119,8 @@ void thread_dispatch (){
 
 }
 
-class Semaphore;
-typedef Semaphore* sem_t;
+class KSemaphore;
+typedef KSemaphore* sem_t;
 int sem_open (
         sem_t* handle,
         unsigned init
@@ -193,4 +193,4 @@ void putc (char c){
     syscall(&myArgs);
 }
 
-#endif //PROJECT_BASE_V1_1_SYSCALL_C_H
+#endif //PROJECT_BASE_V1_1_SYSCALL_C_HPP

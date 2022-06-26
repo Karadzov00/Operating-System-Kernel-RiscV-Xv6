@@ -3,10 +3,7 @@
 //
 
 #include "../h/Riscv.hpp"
-//#include "../h/List.hpp"
-//#include "../h/syscall_c.h"
-//#include "../h/Print.hpp"
-//#include "../h/workers.hpp"
+
 #include "../h/_thread.hpp"
 
 

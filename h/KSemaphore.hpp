@@ -2,22 +2,22 @@
 // Created by os on 6/25/22.
 //
 
-#ifndef PROJECT_BASE_V1_1_SEMAPHORE_HPP
-#define PROJECT_BASE_V1_1_SEMAPHORE_HPP
+#ifndef PROJECT_BASE_V1_1_KSEMAPHORE_HPP
+#define PROJECT_BASE_V1_1_KSEMAPHORE_HPP
 
 
 #include "_thread.hpp"
 #include "List.hpp"
 
-class Semaphore {
+class KSemaphore {
 public:
-    Semaphore(uint64 init=1):val(init){}
+    KSemaphore(uint64 init=1): val(init){}
 
     int wait();
     void signal();
 
     int value() const{return val;}
-    typedef Semaphore* sem_t;
+    typedef KSemaphore* sem_t;
 
     void* operator new(size_t n);
 
@@ -34,4 +34,4 @@ private:
 };
 
 
-#endif //PROJECT_BASE_V1_1_SEMAPHORE_HPP
+#endif //PROJECT_BASE_V1_1_KSEMAPHORE_HPP

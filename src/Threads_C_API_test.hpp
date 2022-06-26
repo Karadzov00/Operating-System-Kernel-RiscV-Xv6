@@ -1,10 +1,10 @@
 #ifndef XV6_THREADS_C_API_TEST_HPP
 #define XV6_THREADS_C_API_TEST_HPP
 
-#include "../h/syscall_c.h"
+#include "../h/syscall_c.hpp"
 
 #include "../h/Print.hpp"
-//#include"../h/Semaphore.hpp"
+//#include"../h/KSemaphore.hpp"
 #include "../h/_thread.hpp"
 
 bool finishedA = false;

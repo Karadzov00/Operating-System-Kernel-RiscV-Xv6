@@ -2,10 +2,10 @@
 // Created by os on 6/25/22.
 //
 
-#include "../h/Semaphore.hpp"
+#include "../h/KSemaphore.hpp"
 
 
-int Semaphore::wait() {
+int KSemaphore::wait() {
     if(--(this->val) < 0){
 
         _thread* old = _thread::running;
@@ -19,7 +19,7 @@ int Semaphore::wait() {
     return 0;
 }
 
-void Semaphore::signal() {
+void KSemaphore::signal() {
     if(++(this->val) <=0){
         if(this->blocked.peekFirst()!= 0){
             _thread* thread = blocked.removeFirst();
@@ -29,19 +29,19 @@ void Semaphore::signal() {
     }
 }
 
-void* Semaphore::operator new(size_t n) {
+void* KSemaphore::operator new(size_t n) {
     return MemoryAllocator::kmem_alloc(n);
 }
 
-void* Semaphore::operator new[](size_t n) {
+void* KSemaphore::operator new[](size_t n) {
     return MemoryAllocator::kmem_alloc(n);
 }
 
-void Semaphore::operator delete(void *p) noexcept {
+void KSemaphore::operator delete(void *p) noexcept {
     MemoryAllocator::kmem_free(p);
 }
 
-void Semaphore::operator delete[](void *p) noexcept {
+void KSemaphore::operator delete[](void *p) noexcept {
     MemoryAllocator::kmem_free(p);
 }
 

@@ -61,7 +61,7 @@ private:
     bool deblocked=false;
 
     friend class Riscv;
-    friend class Semaphore;
+    friend class KSemaphore;
 
     static void threadWrapper();
 
