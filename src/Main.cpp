@@ -9,6 +9,7 @@
 //#include "../h/workers.hpp"
 #include "../h/_thread.hpp"
 
+
 extern void userMain();
 extern int thread_create (
         _thread::thread_t * handle,
@@ -46,11 +47,13 @@ int main(){
 //
 //    printString("finished \n");
 
-    _thread* idle;
-    if(!thread_create(&idle, nullptr, nullptr)){
+//    _thread* idle;
+//    if(!thread_create(&idle, nullptr, nullptr)){
 //            printString("thread created");
-        }
-    _thread::running=idle;
+//        }
+//    _thread::running=idle;
+
+
     userMain();
 
     return 0;

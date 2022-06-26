@@ -3,13 +3,23 @@
 
 #include "../h/syscall_c.h"
 
-extern void printString(char const *string);
-extern void printInteger(uint64 integer);
+#include "../h/Print.hpp"
+//#include"../h/Semaphore.hpp"
+#include "../h/_thread.hpp"
 
 bool finishedA = false;
 bool finishedB = false;
 bool finishedC = false;
 bool finishedD = false;
+
+sem_t mutex;
+
+void createMutex(){
+    int a = sem_open(&mutex, 0);
+    if(!a){
+        printString("Mutex created\n");
+    }
+}
 
 uint64 fibonacci(uint64 n) {
     if (n == 0 || n == 1) { return n; }
@@ -43,6 +53,7 @@ void workerBodyB(void* arg) {
 }
 
 void workerBodyC(void* arg) {
+    sem_wait(mutex);
     uint8 i = 0;
     for (; i < 3; i++) {
         printString("C: i="); printInteger(i); printString("\n");
@@ -50,23 +61,23 @@ void workerBodyC(void* arg) {
 
     printString("C: dispatch\n");
     __asm__ ("li t1, 7");
-    thread_dispatch();
+    //thread_dispatch();
 
     uint64 t1 = 0;
     __asm__ ("mv %[t1], t1" : [t1] "=r"(t1));
 
     printString("C: t1="); printInteger(t1); printString("\n");
 
-    uint64 result = fibonacci(12);
-    printString("C: fibonaci="); printInteger(result); printString("\n");
+    /*uint64 result = fibonacci(12);
+    printString("C: fibonaci="); printInteger(result); printString("\n");*/
 
     for (; i < 6; i++) {
         printString("C: i="); printInteger(i); printString("\n");
     }
 
-    printString("A finished!\n");
+    printString("C finished!\n");
     finishedC = true;
-    thread_dispatch();
+    //thread_dispatch();
 }
 
 void workerBodyD(void* arg) {
@@ -77,10 +88,10 @@ void workerBodyD(void* arg) {
 
     printString("D: dispatch\n");
     __asm__ ("li t1, 5");
-    thread_dispatch();
+    //thread_dispatch();
 
-    uint64 result = fibonacci(16);
-    printString("D: fibonaci="); printInteger(result); printString("\n");
+    /*   uint64 result = fibonacci(16);
+       printString("D: fibonaci="); printInteger(result); printString("\n");*/
 
     for (; i < 16; i++) {
         printString("D: i="); printInteger(i); printString("\n");
@@ -88,25 +99,34 @@ void workerBodyD(void* arg) {
 
     printString("D finished!\n");
     finishedD = true;
-    thread_dispatch();
+    //thread_dispatch();
+    sem_signal(mutex);
 }
 
 
 void Threads_C_API_test() {
-    thread_t threads[4];
-    thread_create(&threads[0], workerBodyA, nullptr);
+    thread_t threads[5];
+
+    createMutex();
+
+    thread_create(&threads[0], nullptr, nullptr);
+    _thread::running = threads[0];
+
+    /*thread_create(&threads[1], workerBodyA, nullptr);
     printString("ThreadA created\n");
 
-    thread_create(&threads[1], workerBodyB, nullptr);
-    printString("ThreadB created\n");
+    thread_create(&threads[2], workerBodyB, nullptr);
+    printString("ThreadB created\n");*/
 
-    thread_create(&threads[2], workerBodyC, nullptr);
+    thread_create(&threads[3], workerBodyC, nullptr);
     printString("ThreadC created\n");
 
-    thread_create(&threads[3], workerBodyD, nullptr);
+    thread_create(&threads[4], workerBodyD, nullptr);
     printString("ThreadD created\n");
 
-    while (!(finishedA && finishedB && finishedC && finishedD)) {
+    thread_dispatch();
+
+    while (!(finishedC && finishedD)) {
         thread_dispatch();
     }
 
