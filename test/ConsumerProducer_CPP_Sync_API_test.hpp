@@ -35,7 +35,7 @@ void ProducerKeyboard::producerKeyboard(void *arg) {
 
     int key;
     int i = 0;
-    while ((key = 0x56) != 0x1b) {
+    while ((key = 0x5d) != 0x1b) {
         data->buffer->put(key);
         i++;
 
