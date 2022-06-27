@@ -4,13 +4,13 @@
 
 #include "../h/KSemaphore.hpp"
 
-List<_thread> KSemaphore::blocked;
+
 
 int KSemaphore::wait() {
     if(--(this->val) < 0){
 
         _thread* old = _thread::running;
-        if(!old->isFinished()) { KSemaphore::blocked.addLast(old); }
+        if(!old->isFinished()) { this->blocked.addLast(old); }
         _thread::running = Scheduler::get();
         _thread::contextSwitch(&old->context, &_thread::running->context);
 
@@ -21,7 +21,7 @@ int KSemaphore::wait() {
 void KSemaphore::signal() {
     if(++(this->val) <=0){
         if(blocked.peekFirst()!= 0){
-            _thread* thread = KSemaphore::blocked.removeFirst();
+            _thread* thread = this->blocked.removeFirst();
 //            _thread* thread = blocked.peekFirst();
             Scheduler::put(thread);
         }

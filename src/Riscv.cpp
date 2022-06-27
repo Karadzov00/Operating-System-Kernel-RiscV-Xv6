@@ -152,18 +152,18 @@ void Riscv::handleSupervisorTrap(){
             uint64 sepc = r_sepc() + 4;
             uint64 sstatus = r_sstatus();
 
-            KSemaphore::sem_t *arg1; //handle
+            KSemaphore::sem_t arg1; //handle
 
 
             __asm__ volatile("ld a1, 11*8(fp)"); //a1
 
             __asm__ volatile("mv %0, a1" : "=r" (arg1));    //handle (sem_t*)
 
-            KSemaphore* sem = *arg1;
+            KSemaphore* sem = arg1;
 
             //deblock all blocked threads on this semaphore
-            while(KSemaphore::blocked.peekFirst()!=0){
-                _thread* t = KSemaphore::blocked.removeFirst();
+            while(sem->blocked.peekFirst()!=0){
+                _thread* t = sem->blocked.removeFirst();
                 t->deblocked=true;
                 sem->val++;
                 Scheduler::put(t);

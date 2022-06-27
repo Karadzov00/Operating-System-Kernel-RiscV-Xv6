@@ -31,7 +31,7 @@ public:
 
 private:
     int val;
-    static List<_thread> blocked;
+    List<_thread> blocked;
     friend class Riscv;
 };
 
