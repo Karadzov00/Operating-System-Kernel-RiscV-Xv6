@@ -13,6 +13,8 @@ void syscall(args* arg);
 
 void* mem_alloc (size_t size);
 
+int mem_free (void* p);
+
 class _thread;
 typedef _thread* thread_t;
 extern int thread_create (

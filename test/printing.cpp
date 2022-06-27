@@ -3,11 +3,6 @@
 //
 
 #include "printing.hpp"
-#include "../lib/hw.h"
-
-
-extern void putc (char c);
-extern char getc ();
 
 uint64 lockPrint = 0;
 

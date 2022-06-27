@@ -2,9 +2,9 @@
 // Created by os on 6/22/22.
 //
 
-#ifndef PROJECT_BASE_V1_1_SYSCALL_CPP_H
-#define PROJECT_BASE_V1_1_SYSCALL_CPP_H
-#include "syscall_c.cpp"
+#ifndef PROJECT_BASE_V1_1_SYSCALL_CPP_HPP
+#define PROJECT_BASE_V1_1_SYSCALL_CPP_HPP
+#include "syscall_c.h"
 
 
 class Thread {
@@ -72,4 +72,4 @@ public:
 };
 
 
-#endif //PROJECT_BASE_V1_1_SYSCALL_CPP_H
+#endif //PROJECT_BASE_V1_1_SYSCALL_CPP_HPP

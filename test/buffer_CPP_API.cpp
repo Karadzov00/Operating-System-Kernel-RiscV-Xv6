@@ -1,7 +1,5 @@
 #include "buffer_CPP_API.hpp"
 
-
-
 BufferCPP::BufferCPP(int _cap) : cap(_cap + 1), head(0), tail(0) {
     buffer = (int *)mem_alloc(sizeof(int) * cap);
     itemAvailable = new Semaphore(0);
