@@ -7,25 +7,20 @@
 List<_thread> KSemaphore::blocked;
 
 int KSemaphore::wait() {
-    if(--(this->val) < 0){
-
-        _thread* old = _thread::running;
-        if(!old->isFinished()) { KSemaphore::blocked.addLast(old); }
+    if(--val < 0){
+        _thread *old = _thread::running;
+        if (!old->isFinished()) { blocked.addLast(old); }
         _thread::running = Scheduler::get();
-        _thread::contextSwitch(&old->context, &_thread::running->context);
 
-        if(_thread::running->deblocked)return -1;
-        else return 0;
+        _thread::contextSwitch(&old->context, &_thread::running->context);
     }
     return 0;
 }
 
 void KSemaphore::signal() {
-    if(++(this->val) <=0){
-
-            _thread* thread = KSemaphore::blocked.removeFirst();
-            Scheduler::put(thread);
-
+    if (++val <= 0) {
+        _thread *p = blocked.removeFirst();
+        Scheduler::put(p);
     }
 }
 
