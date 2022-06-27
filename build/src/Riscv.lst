@@ -1,4 +1,4 @@
-GAS LISTING /tmp/cclffJOB.s 			page 1
+GAS LISTING /tmp/ccDhTiyf.s 			page 1
 
 
    1              		.file	"Riscv.cpp"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
   38 001c 67800000 		jr	ra
   39              		.cfi_endproc
   40              	.LFE50:
-GAS LISTING /tmp/cclffJOB.s 			page 2
+GAS LISTING /tmp/ccDhTiyf.s 			page 2
 
 
   42              		.align	2
@@ -118,7 +118,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
   26:src/../h/Riscv.hpp **** 
   27:src/../h/Riscv.hpp ****     // write register sepc
   28:src/../h/Riscv.hpp ****     static void w_sepc(uint64 sepc);
-GAS LISTING /tmp/cclffJOB.s 			page 3
+GAS LISTING /tmp/ccDhTiyf.s 			page 3
 
 
   29:src/../h/Riscv.hpp **** 
@@ -178,7 +178,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
   83:src/../h/Riscv.hpp **** private:
   84:src/../h/Riscv.hpp **** 
   85:src/../h/Riscv.hpp ****     // supervisor trap handler
-GAS LISTING /tmp/cclffJOB.s 			page 4
+GAS LISTING /tmp/ccDhTiyf.s 			page 4
 
 
   86:src/../h/Riscv.hpp ****     static void handleSupervisorTrap();
@@ -238,7 +238,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  106              	.LBE142:
   28:src/Riscv.cpp ****         // interrupt: no; cause code: environment call from U-mode(8) or S-mode(9)
   29:src/Riscv.cpp **** 
-GAS LISTING /tmp/cclffJOB.s 			page 5
+GAS LISTING /tmp/ccDhTiyf.s 			page 5
 
 
   30:src/Riscv.cpp ****         //call from yield
@@ -298,7 +298,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
   84:src/Riscv.cpp **** 
   85:src/Riscv.cpp ****             __asm__ volatile("mv %0, a1" : "=r" (arg1));    //read pointer to free from a1 and move
   86:src/Riscv.cpp ****             int ret = MemoryAllocator::kmem_free((void *) arg1);
-GAS LISTING /tmp/cclffJOB.s 			page 6
+GAS LISTING /tmp/ccDhTiyf.s 			page 6
 
 
   87:src/Riscv.cpp ****             __asm__ volatile("mv a0, %0" : : "r" (ret));
@@ -358,7 +358,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  141:src/Riscv.cpp **** 
  142:src/Riscv.cpp ****             uint64 ret=0;
  143:src/Riscv.cpp ****             if(sem!= nullptr)ret=0;
-GAS LISTING /tmp/cclffJOB.s 			page 7
+GAS LISTING /tmp/ccDhTiyf.s 			page 7
 
 
  144:src/Riscv.cpp ****             else ret=-1;
@@ -418,7 +418,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  198:src/Riscv.cpp ****             uint64 sstatus = r_sstatus();
  199:src/Riscv.cpp **** 
  200:src/Riscv.cpp ****             KSemaphore::sem_t arg1; //handle
-GAS LISTING /tmp/cclffJOB.s 			page 8
+GAS LISTING /tmp/ccDhTiyf.s 			page 8
 
 
  201:src/Riscv.cpp **** 
@@ -478,7 +478,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  255:src/Riscv.cpp ****     else{
  256:src/Riscv.cpp ****         // unexpected trap cause
  257:src/Riscv.cpp ****         //print(scause)
-GAS LISTING /tmp/cclffJOB.s 			page 9
+GAS LISTING /tmp/ccDhTiyf.s 			page 9
 
 
  258:src/Riscv.cpp ****         //print(sepc)
@@ -538,7 +538,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
   93:src/Riscv.cpp ****             uint64 sepc = r_sepc() + 4;
  152              		.loc 1 93 14
  153              	.LBB344:
-GAS LISTING /tmp/cclffJOB.s 			page 10
+GAS LISTING /tmp/ccDhTiyf.s 			page 10
 
 
  154              	.LBB330:
@@ -598,7 +598,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  205              	.LBE313:
  206              	.LBE333:
  207              	.LBE347:
-GAS LISTING /tmp/cclffJOB.s 			page 11
+GAS LISTING /tmp/ccDhTiyf.s 			page 11
 
 
  151:src/Riscv.cpp ****             uint64 sepc = r_sepc() + 4;
@@ -658,7 +658,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  259 00c8 93074002 		li	a5,36
  260 00cc 638CF430 		beq	s1,a5,.L35
  261              	.LBE161:
-GAS LISTING /tmp/cclffJOB.s 			page 12
+GAS LISTING /tmp/ccDhTiyf.s 			page 12
 
 
  262              	.LBE205:
@@ -718,7 +718,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  313              	.LBB165:
  314              	.LBB166:
   97:src/../h/Riscv.hpp **** }
-GAS LISTING /tmp/cclffJOB.s 			page 13
+GAS LISTING /tmp/ccDhTiyf.s 			page 13
 
 
   98:src/../h/Riscv.hpp **** 
@@ -778,7 +778,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  129:src/../h/Riscv.hpp **** {
  130:src/../h/Riscv.hpp ****     uint64 volatile stval;
  131:src/../h/Riscv.hpp ****     __asm__ volatile ("csrr %[stval], stval" : [stval] "=r"(stval));
-GAS LISTING /tmp/cclffJOB.s 			page 14
+GAS LISTING /tmp/ccDhTiyf.s 			page 14
 
 
  132:src/../h/Riscv.hpp ****     return stval;
@@ -838,7 +838,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  343              	#NO_APP
  344 00f4 2330F4FC 		sd	a5,-64(s0)
  345              		.loc 2 178 5 is_stmt 1
-GAS LISTING /tmp/cclffJOB.s 			page 15
+GAS LISTING /tmp/ccDhTiyf.s 			page 15
 
 
  346              		.loc 2 178 12 is_stmt 0
@@ -898,7 +898,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  384              	.LBB171:
  385              	.LBB172:
  113:src/../h/Riscv.hpp **** }
-GAS LISTING /tmp/cclffJOB.s 			page 16
+GAS LISTING /tmp/ccDhTiyf.s 			page 16
 
 
  386              		.loc 2 113 5
@@ -958,7 +958,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
   33:src/Riscv.cpp ****             uint64 sstatus = r_sstatus();
  433              		.loc 1 33 38
  434 0128 13094900 		addi	s2,s2,4
-GAS LISTING /tmp/cclffJOB.s 			page 17
+GAS LISTING /tmp/ccDhTiyf.s 			page 17
 
 
  435              	.LVL13:
@@ -1018,7 +1018,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  472              		ld a3, 13*8(fp)
  473              	# 0 "" 2
  474              		.loc 1 45 13 is_stmt 1
-GAS LISTING /tmp/cclffJOB.s 			page 18
+GAS LISTING /tmp/ccDhTiyf.s 			page 18
 
 
   45:src/Riscv.cpp **** 
@@ -1078,7 +1078,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  513 0164 630C0500 		beqz	a0,.L22
   58:src/Riscv.cpp ****             else ret =-1;
  514              		.loc 1 58 31 is_stmt 0
-GAS LISTING /tmp/cclffJOB.s 			page 19
+GAS LISTING /tmp/ccDhTiyf.s 			page 19
 
 
  515 0168 93070000 		li	a5,0
@@ -1138,7 +1138,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  559              	.L27:
  560              	.LBE144:
  561              	.LBE339:
-GAS LISTING /tmp/cclffJOB.s 			page 20
+GAS LISTING /tmp/ccDhTiyf.s 			page 20
 
 
  562              	.LBB340:
@@ -1198,7 +1198,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
   72:src/Riscv.cpp ****             uint64 ptr= (uint64) MemoryAllocator::kmem_alloc(arg1*MEM_BLOCK_SIZE);
  603              		.loc 1 72 13 is_stmt 1
   72:src/Riscv.cpp ****             uint64 ptr= (uint64) MemoryAllocator::kmem_alloc(arg1*MEM_BLOCK_SIZE);
-GAS LISTING /tmp/cclffJOB.s 			page 21
+GAS LISTING /tmp/ccDhTiyf.s 			page 21
 
 
  604              		.loc 1 72 56 is_stmt 0
@@ -1258,7 +1258,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  646              	# 0 "" 2
  647              		.loc 2 114 1
  648              	#NO_APP
-GAS LISTING /tmp/cclffJOB.s 			page 22
+GAS LISTING /tmp/ccDhTiyf.s 			page 22
 
 
  649 01bc 6FF05FEA 		j	.L3
@@ -1318,7 +1318,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  178:src/../h/Riscv.hpp **** }
  691              		.loc 2 178 12 is_stmt 0
  692 01d8 033904F3 		ld	s2,-208(s0)
-GAS LISTING /tmp/cclffJOB.s 			page 23
+GAS LISTING /tmp/ccDhTiyf.s 			page 23
 
 
  693              	.LVL36:
@@ -1378,7 +1378,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  734              	#APP
  735              	# 113 "src/../h/Riscv.hpp" 1
  114:src/../h/Riscv.hpp **** 
-GAS LISTING /tmp/cclffJOB.s 			page 24
+GAS LISTING /tmp/ccDhTiyf.s 			page 24
 
 
  736              		csrw sepc, s1
@@ -1438,7 +1438,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  779              	#NO_APP
  780 020c 2330F4F4 		sd	a5,-192(s0)
  178:src/../h/Riscv.hpp **** }
-GAS LISTING /tmp/cclffJOB.s 			page 25
+GAS LISTING /tmp/ccDhTiyf.s 			page 25
 
 
  781              		.loc 2 178 5 is_stmt 1
@@ -1498,7 +1498,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  820              		.loc 2 114 1
  821              	#NO_APP
  822 0238 6FF09FE2 		j	.L3
-GAS LISTING /tmp/cclffJOB.s 			page 26
+GAS LISTING /tmp/ccDhTiyf.s 			page 26
 
 
  823              	.LVL47:
@@ -1558,7 +1558,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  864              		.loc 2 178 12 is_stmt 0
  865 0254 033904F5 		ld	s2,-176(s0)
  866              	.LVL50:
-GAS LISTING /tmp/cclffJOB.s 			page 27
+GAS LISTING /tmp/ccDhTiyf.s 			page 27
 
 
  867              	.LBE269:
@@ -1618,7 +1618,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  107:src/../h/Riscv.hpp ****     return sepc;
  909              		.loc 2 107 5
  107:src/../h/Riscv.hpp ****     return sepc;
-GAS LISTING /tmp/cclffJOB.s 			page 28
+GAS LISTING /tmp/ccDhTiyf.s 			page 28
 
 
  910              		.loc 2 107 64 is_stmt 0
@@ -1678,7 +1678,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  950 0294 97000000 		call	_ZN7_thread8dispatchEv@plt
  950      E7800000 
  951              	.LVL57:
-GAS LISTING /tmp/cclffJOB.s 			page 29
+GAS LISTING /tmp/ccDhTiyf.s 			page 29
 
 
  123:src/Riscv.cpp ****             w_sepc(sepc);
@@ -1738,7 +1738,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  995 02ac 233CF4F6 		sd	a5,-136(s0)
  108:src/../h/Riscv.hpp **** }
  996              		.loc 2 108 5 is_stmt 1
-GAS LISTING /tmp/cclffJOB.s 			page 30
+GAS LISTING /tmp/ccDhTiyf.s 			page 30
 
 
  108:src/../h/Riscv.hpp **** }
@@ -1798,7 +1798,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  1036              		.loc 1 136 13 is_stmt 1
  136:src/Riscv.cpp ****             __asm__ volatile("mv %0, a2" : "=r" (arg2));    //init val
  1037              		.loc 1 136 56 is_stmt 0
-GAS LISTING /tmp/cclffJOB.s 			page 31
+GAS LISTING /tmp/ccDhTiyf.s 			page 31
 
 
  1038              	# 136 "src/Riscv.cpp" 1
@@ -1858,7 +1858,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
   11:src/../h/List.hpp **** class List
   12:src/../h/List.hpp **** {
   13:src/../h/List.hpp **** private:
-GAS LISTING /tmp/cclffJOB.s 			page 32
+GAS LISTING /tmp/ccDhTiyf.s 			page 32
 
 
   14:src/../h/List.hpp ****     struct Elem
@@ -1918,7 +1918,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  1094              		.loc 2 183 77 is_stmt 0
  1095              	#APP
  1096              	# 183 "src/../h/Riscv.hpp" 1
-GAS LISTING /tmp/cclffJOB.s 			page 33
+GAS LISTING /tmp/ccDhTiyf.s 			page 33
 
 
  1097              		csrw sstatus, s2
@@ -1978,7 +1978,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  1140              		.loc 2 108 12 is_stmt 0
  1141 0318 833984F8 		ld	s3,-120(s0)
  1142              	.LBE210:
-GAS LISTING /tmp/cclffJOB.s 			page 34
+GAS LISTING /tmp/ccDhTiyf.s 			page 34
 
 
  1143              	.LBE209:
@@ -2038,7 +2038,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  1183 0338 6F000003 		j	.L17
  1184              	.LVL78:
  1185              	.L16:
-GAS LISTING /tmp/cclffJOB.s 			page 35
+GAS LISTING /tmp/ccDhTiyf.s 			page 35
 
 
  1186              	.LBB213:
@@ -2098,7 +2098,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  1193 0340 97000000 		call	_ZN15MemoryAllocator9kmem_freeEPv@plt
  1193      E7800000 
  1194              	.LVL80:
-GAS LISTING /tmp/cclffJOB.s 			page 36
+GAS LISTING /tmp/ccDhTiyf.s 			page 36
 
 
  1195              	.LBE215:
@@ -2158,7 +2158,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  1230              		.loc 1 166 17 is_stmt 1
  1231              	.LVL83:
  1232              	.LBB217:
-GAS LISTING /tmp/cclffJOB.s 			page 37
+GAS LISTING /tmp/ccDhTiyf.s 			page 37
 
 
  1233              	.LBB216:
@@ -2218,7 +2218,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  1273              		.loc 2 113 65 is_stmt 0
  1274              	#APP
  1275              	# 113 "src/../h/Riscv.hpp" 1
-GAS LISTING /tmp/cclffJOB.s 			page 38
+GAS LISTING /tmp/ccDhTiyf.s 			page 38
 
 
  114:src/../h/Riscv.hpp **** 
@@ -2278,7 +2278,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  1318              	# 0 "" 2
  1319              	#NO_APP
  1320 03bc 2338F4F8 		sd	a5,-112(s0)
-GAS LISTING /tmp/cclffJOB.s 			page 39
+GAS LISTING /tmp/ccDhTiyf.s 			page 39
 
 
  178:src/../h/Riscv.hpp **** }
@@ -2338,7 +2338,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  1360              		csrw sstatus, s2
  1361              	# 0 "" 2
  1362              	.LVL94:
-GAS LISTING /tmp/cclffJOB.s 			page 40
+GAS LISTING /tmp/ccDhTiyf.s 			page 40
 
 
  1363              	#NO_APP
@@ -2398,7 +2398,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  198:src/Riscv.cpp **** 
  1406              		.loc 1 198 13 is_stmt 1
  1407              	.LBB186:
-GAS LISTING /tmp/cclffJOB.s 			page 41
+GAS LISTING /tmp/ccDhTiyf.s 			page 41
 
 
  1408              	.LBB187:
@@ -2458,7 +2458,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  1446              	#APP
  1447              	# 211 "src/Riscv.cpp" 1
  213:src/Riscv.cpp ****             w_sepc(sepc);
-GAS LISTING /tmp/cclffJOB.s 			page 42
+GAS LISTING /tmp/ccDhTiyf.s 			page 42
 
 
  1448              		mv a0, a5
@@ -2518,7 +2518,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  1492              		csrr a5, sepc
  1493              	# 0 "" 2
  1494              	#NO_APP
-GAS LISTING /tmp/cclffJOB.s 			page 43
+GAS LISTING /tmp/ccDhTiyf.s 			page 43
 
 
  1495 0428 233CF4FA 		sd	a5,-72(s0)
@@ -2578,7 +2578,7 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  1534              	.LVL108:
  1535              	#NO_APP
  1536              	.LBB178:
-GAS LISTING /tmp/cclffJOB.s 			page 44
+GAS LISTING /tmp/ccDhTiyf.s 			page 44
 
 
  1537              	.LBB179:
@@ -2632,1050 +2632,1050 @@ GAS LISTING /tmp/cclffJOB.s 			page 1
  1580              		.file 7 "src/../h/Scheduler.hpp"
  1581              		.file 8 "src/../h/_thread.hpp"
  1582              		.file 9 "src/../h/KConsole.hpp"
-GAS LISTING /tmp/cclffJOB.s 			page 45
+GAS LISTING /tmp/ccDhTiyf.s 			page 45
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 Riscv.cpp
-     /tmp/cclffJOB.s:9      .text:0000000000000000 _ZN5Riscv10popSppSpieEv
-     /tmp/cclffJOB.s:13     .text:0000000000000000 .L0 
-     /tmp/cclffJOB.s:14     .text:0000000000000000 .L0 
-     /tmp/cclffJOB.s:15     .text:0000000000000004 .L0 
-     /tmp/cclffJOB.s:17     .text:0000000000000008 .L0 
-     /tmp/cclffJOB.s:19     .text:000000000000000c .L0 
-     /tmp/cclffJOB.s:21     .text:000000000000000c .L0 
+     /tmp/ccDhTiyf.s:9      .text:0000000000000000 _ZN5Riscv10popSppSpieEv
+     /tmp/ccDhTiyf.s:13     .text:0000000000000000 .L0 
+     /tmp/ccDhTiyf.s:14     .text:0000000000000000 .L0 
+     /tmp/ccDhTiyf.s:15     .text:0000000000000004 .L0 
+     /tmp/ccDhTiyf.s:17     .text:0000000000000008 .L0 
+     /tmp/ccDhTiyf.s:19     .text:000000000000000c .L0 
+     /tmp/ccDhTiyf.s:21     .text:000000000000000c .L0 
        src/Riscv.cpp:16     .text:000000000000000c .L0 
-     /tmp/cclffJOB.s:27     .text:0000000000000010 .L0 
+     /tmp/ccDhTiyf.s:27     .text:0000000000000010 .L0 
        src/Riscv.cpp:17     .text:0000000000000010 .L0 
-     /tmp/cclffJOB.s:33     .text:0000000000000014 .L0 
-     /tmp/cclffJOB.s:34     .text:0000000000000018 .L0 
-     /tmp/cclffJOB.s:35     .text:0000000000000018 .L0 
-     /tmp/cclffJOB.s:37     .text:000000000000001c .L0 
-     /tmp/cclffJOB.s:39     .text:0000000000000020 .L0 
-     /tmp/cclffJOB.s:45     .text:0000000000000020 _ZN5Riscv20handleSupervisorTrapEv
-     /tmp/cclffJOB.s:48     .text:0000000000000020 .L0 
-     /tmp/cclffJOB.s:49     .text:0000000000000020 .L0 
-     /tmp/cclffJOB.s:50     .text:0000000000000024 .L0 
-     /tmp/cclffJOB.s:57     .text:000000000000003c .L0 
-     /tmp/cclffJOB.s:58     .text:000000000000003c .L0 
-     /tmp/cclffJOB.s:59     .text:000000000000003c .L0 
-     /tmp/cclffJOB.s:60     .text:000000000000003c .L0 
-     /tmp/cclffJOB.s:61     .text:000000000000003c .L0 
-     /tmp/cclffJOB.s:62     .text:000000000000003c .L0 
-     /tmp/cclffJOB.s:64     .text:0000000000000040 .L0 
-     /tmp/cclffJOB.s:69     .text:0000000000000040 .L0 
-     /tmp/cclffJOB.s:70     .text:0000000000000040 .L0 
-     /tmp/cclffJOB.s:71     .text:0000000000000040 .L0 
+     /tmp/ccDhTiyf.s:33     .text:0000000000000014 .L0 
+     /tmp/ccDhTiyf.s:34     .text:0000000000000018 .L0 
+     /tmp/ccDhTiyf.s:35     .text:0000000000000018 .L0 
+     /tmp/ccDhTiyf.s:37     .text:000000000000001c .L0 
+     /tmp/ccDhTiyf.s:39     .text:0000000000000020 .L0 
+     /tmp/ccDhTiyf.s:45     .text:0000000000000020 _ZN5Riscv20handleSupervisorTrapEv
+     /tmp/ccDhTiyf.s:48     .text:0000000000000020 .L0 
+     /tmp/ccDhTiyf.s:49     .text:0000000000000020 .L0 
+     /tmp/ccDhTiyf.s:50     .text:0000000000000024 .L0 
+     /tmp/ccDhTiyf.s:57     .text:000000000000003c .L0 
+     /tmp/ccDhTiyf.s:58     .text:000000000000003c .L0 
+     /tmp/ccDhTiyf.s:59     .text:000000000000003c .L0 
+     /tmp/ccDhTiyf.s:60     .text:000000000000003c .L0 
+     /tmp/ccDhTiyf.s:61     .text:000000000000003c .L0 
+     /tmp/ccDhTiyf.s:62     .text:000000000000003c .L0 
+     /tmp/ccDhTiyf.s:64     .text:0000000000000040 .L0 
+     /tmp/ccDhTiyf.s:69     .text:0000000000000040 .L0 
+     /tmp/ccDhTiyf.s:70     .text:0000000000000040 .L0 
+     /tmp/ccDhTiyf.s:71     .text:0000000000000040 .L0 
   src/../h/Riscv.hpp:95     .text:0000000000000040 .L0 
-     /tmp/cclffJOB.s:79     .text:0000000000000048 .L0 
-     /tmp/cclffJOB.s:80     .text:0000000000000048 .L0 
-     /tmp/cclffJOB.s:84     .text:000000000000004c .L0 
-     /tmp/cclffJOB.s:87     .text:0000000000000050 .L0 
-     /tmp/cclffJOB.s:88     .text:0000000000000050 .L0 
-     /tmp/cclffJOB.s:89     .text:0000000000000050 .L0 
+     /tmp/ccDhTiyf.s:79     .text:0000000000000048 .L0 
+     /tmp/ccDhTiyf.s:80     .text:0000000000000048 .L0 
+     /tmp/ccDhTiyf.s:84     .text:000000000000004c .L0 
+     /tmp/ccDhTiyf.s:87     .text:0000000000000050 .L0 
+     /tmp/ccDhTiyf.s:88     .text:0000000000000050 .L0 
+     /tmp/ccDhTiyf.s:89     .text:0000000000000050 .L0 
        src/Riscv.cpp:25     .text:0000000000000050 .L0 
-     /tmp/cclffJOB.s:98     .text:0000000000000054 .L0 
-     /tmp/cclffJOB.s:99     .text:0000000000000054 .L0 
-     /tmp/cclffJOB.s:102    .text:0000000000000058 .L0 
-     /tmp/cclffJOB.s:108    .text:0000000000000060 .L0 
-     /tmp/cclffJOB.s:109    .text:0000000000000064 .L0 
-     /tmp/cclffJOB.s:110    .text:0000000000000064 .L0 
-     /tmp/cclffJOB.s:112    .text:0000000000000068 .L0 
-     /tmp/cclffJOB.s:113    .text:0000000000000068 .L0 
-     /tmp/cclffJOB.s:115    .text:000000000000006c .L0 
-     /tmp/cclffJOB.s:117    .text:0000000000000070 .L0 
-     /tmp/cclffJOB.s:119    .text:0000000000000074 .L0 
-     /tmp/cclffJOB.s:121    .text:0000000000000078 .L0 
-     /tmp/cclffJOB.s:123    .text:000000000000007c .L0 
-     /tmp/cclffJOB.s:127    .text:0000000000000080 .L0 
-     /tmp/cclffJOB.s:131    .text:0000000000000080 .L0 
-     /tmp/cclffJOB.s:139    .text:0000000000000088 .L0 
-     /tmp/cclffJOB.s:147    .text:0000000000000090 .L0 
-     /tmp/cclffJOB.s:157    .text:0000000000000098 .L0 
-GAS LISTING /tmp/cclffJOB.s 			page 46
+     /tmp/ccDhTiyf.s:98     .text:0000000000000054 .L0 
+     /tmp/ccDhTiyf.s:99     .text:0000000000000054 .L0 
+     /tmp/ccDhTiyf.s:102    .text:0000000000000058 .L0 
+     /tmp/ccDhTiyf.s:108    .text:0000000000000060 .L0 
+     /tmp/ccDhTiyf.s:109    .text:0000000000000064 .L0 
+     /tmp/ccDhTiyf.s:110    .text:0000000000000064 .L0 
+     /tmp/ccDhTiyf.s:112    .text:0000000000000068 .L0 
+     /tmp/ccDhTiyf.s:113    .text:0000000000000068 .L0 
+     /tmp/ccDhTiyf.s:115    .text:000000000000006c .L0 
+     /tmp/ccDhTiyf.s:117    .text:0000000000000070 .L0 
+     /tmp/ccDhTiyf.s:119    .text:0000000000000074 .L0 
+     /tmp/ccDhTiyf.s:121    .text:0000000000000078 .L0 
+     /tmp/ccDhTiyf.s:123    .text:000000000000007c .L0 
+     /tmp/ccDhTiyf.s:127    .text:0000000000000080 .L0 
+     /tmp/ccDhTiyf.s:131    .text:0000000000000080 .L0 
+     /tmp/ccDhTiyf.s:139    .text:0000000000000088 .L0 
+     /tmp/ccDhTiyf.s:147    .text:0000000000000090 .L0 
+     /tmp/ccDhTiyf.s:157    .text:0000000000000098 .L0 
+GAS LISTING /tmp/ccDhTiyf.s 			page 46
 
 
-     /tmp/cclffJOB.s:169    .text:00000000000000a0 .L0 
-     /tmp/cclffJOB.s:183    .text:00000000000000a8 .L0 
-     /tmp/cclffJOB.s:199    .text:00000000000000b0 .L0 
-     /tmp/cclffJOB.s:217    .text:00000000000000b8 .L0 
-     /tmp/cclffJOB.s:237    .text:00000000000000c0 .L0 
-     /tmp/cclffJOB.s:259    .text:00000000000000c8 .L0 
-     /tmp/cclffJOB.s:283    .text:00000000000000d0 .L0 
-     /tmp/cclffJOB.s:309    .text:00000000000000d8 .L0 
-     /tmp/cclffJOB.s:315    .text:00000000000000e0 .L0 
-     /tmp/cclffJOB.s:316    .text:00000000000000e0 .L0 
-     /tmp/cclffJOB.s:317    .text:00000000000000e0 .L0 
+     /tmp/ccDhTiyf.s:169    .text:00000000000000a0 .L0 
+     /tmp/ccDhTiyf.s:183    .text:00000000000000a8 .L0 
+     /tmp/ccDhTiyf.s:199    .text:00000000000000b0 .L0 
+     /tmp/ccDhTiyf.s:217    .text:00000000000000b8 .L0 
+     /tmp/ccDhTiyf.s:237    .text:00000000000000c0 .L0 
+     /tmp/ccDhTiyf.s:259    .text:00000000000000c8 .L0 
+     /tmp/ccDhTiyf.s:283    .text:00000000000000d0 .L0 
+     /tmp/ccDhTiyf.s:309    .text:00000000000000d8 .L0 
+     /tmp/ccDhTiyf.s:315    .text:00000000000000e0 .L0 
+     /tmp/ccDhTiyf.s:316    .text:00000000000000e0 .L0 
+     /tmp/ccDhTiyf.s:317    .text:00000000000000e0 .L0 
   src/../h/Riscv.hpp:107    .text:00000000000000e0 .L0 
-     /tmp/cclffJOB.s:325    .text:00000000000000e8 .L0 
-     /tmp/cclffJOB.s:326    .text:00000000000000e8 .L0 
-     /tmp/cclffJOB.s:331    .text:00000000000000ec .L0 
-     /tmp/cclffJOB.s:336    .text:00000000000000f0 .L0 
-     /tmp/cclffJOB.s:337    .text:00000000000000f0 .L0 
-     /tmp/cclffJOB.s:338    .text:00000000000000f0 .L0 
+     /tmp/ccDhTiyf.s:325    .text:00000000000000e8 .L0 
+     /tmp/ccDhTiyf.s:326    .text:00000000000000e8 .L0 
+     /tmp/ccDhTiyf.s:331    .text:00000000000000ec .L0 
+     /tmp/ccDhTiyf.s:336    .text:00000000000000f0 .L0 
+     /tmp/ccDhTiyf.s:337    .text:00000000000000f0 .L0 
+     /tmp/ccDhTiyf.s:338    .text:00000000000000f0 .L0 
   src/../h/Riscv.hpp:177    .text:00000000000000f0 .L0 
-     /tmp/cclffJOB.s:346    .text:00000000000000f8 .L0 
-     /tmp/cclffJOB.s:347    .text:00000000000000f8 .L0 
-     /tmp/cclffJOB.s:352    .text:00000000000000fc .L0 
-     /tmp/cclffJOB.s:353    .text:00000000000000fc .L0 
+     /tmp/ccDhTiyf.s:346    .text:00000000000000f8 .L0 
+     /tmp/ccDhTiyf.s:347    .text:00000000000000f8 .L0 
+     /tmp/ccDhTiyf.s:352    .text:00000000000000fc .L0 
+     /tmp/ccDhTiyf.s:353    .text:00000000000000fc .L0 
        src/Riscv.cpp:234    .text:00000000000000fc .L0 
-     /tmp/cclffJOB.s:359    .text:0000000000000100 .L0 
+     /tmp/ccDhTiyf.s:359    .text:0000000000000100 .L0 
        src/Riscv.cpp:236    .text:0000000000000100 .L0 
-     /tmp/cclffJOB.s:365    .text:0000000000000104 .L0 
-     /tmp/cclffJOB.s:367    .text:0000000000000104 .L0 
-     /tmp/cclffJOB.s:373    .text:0000000000000110 .L0 
-     /tmp/cclffJOB.s:374    .text:0000000000000110 .L0 
+     /tmp/ccDhTiyf.s:365    .text:0000000000000104 .L0 
+     /tmp/ccDhTiyf.s:367    .text:0000000000000104 .L0 
+     /tmp/ccDhTiyf.s:373    .text:0000000000000110 .L0 
+     /tmp/ccDhTiyf.s:374    .text:0000000000000110 .L0 
   src/../h/Riscv.hpp:183    .text:0000000000000110 .L0 
-     /tmp/cclffJOB.s:386    .text:0000000000000114 .L0 
-     /tmp/cclffJOB.s:387    .text:0000000000000114 .L0 
+     /tmp/ccDhTiyf.s:386    .text:0000000000000114 .L0 
+     /tmp/ccDhTiyf.s:387    .text:0000000000000114 .L0 
   src/../h/Riscv.hpp:113    .text:0000000000000114 .L0 
-     /tmp/cclffJOB.s:410    .text:0000000000000118 .L0 
-     /tmp/cclffJOB.s:419    .text:000000000000011c .L0 
-     /tmp/cclffJOB.s:420    .text:000000000000011c .L0 
-     /tmp/cclffJOB.s:421    .text:000000000000011c .L0 
+     /tmp/ccDhTiyf.s:410    .text:0000000000000118 .L0 
+     /tmp/ccDhTiyf.s:419    .text:000000000000011c .L0 
+     /tmp/ccDhTiyf.s:420    .text:000000000000011c .L0 
+     /tmp/ccDhTiyf.s:421    .text:000000000000011c .L0 
   src/../h/Riscv.hpp:107    .text:000000000000011c .L0 
-     /tmp/cclffJOB.s:429    .text:0000000000000124 .L0 
-     /tmp/cclffJOB.s:430    .text:0000000000000124 .L0 
-     /tmp/cclffJOB.s:434    .text:0000000000000128 .L0 
-     /tmp/cclffJOB.s:439    .text:000000000000012c .L0 
-     /tmp/cclffJOB.s:440    .text:000000000000012c .L0 
-     /tmp/cclffJOB.s:441    .text:000000000000012c .L0 
+     /tmp/ccDhTiyf.s:429    .text:0000000000000124 .L0 
+     /tmp/ccDhTiyf.s:430    .text:0000000000000124 .L0 
+     /tmp/ccDhTiyf.s:434    .text:0000000000000128 .L0 
+     /tmp/ccDhTiyf.s:439    .text:000000000000012c .L0 
+     /tmp/ccDhTiyf.s:440    .text:000000000000012c .L0 
+     /tmp/ccDhTiyf.s:441    .text:000000000000012c .L0 
   src/../h/Riscv.hpp:177    .text:000000000000012c .L0 
-     /tmp/cclffJOB.s:449    .text:0000000000000134 .L0 
-     /tmp/cclffJOB.s:450    .text:0000000000000134 .L0 
-     /tmp/cclffJOB.s:455    .text:0000000000000138 .L0 
-     /tmp/cclffJOB.s:456    .text:0000000000000138 .L0 
-     /tmp/cclffJOB.s:457    .text:0000000000000138 .L0 
-     /tmp/cclffJOB.s:458    .text:0000000000000138 .L0 
-     /tmp/cclffJOB.s:459    .text:0000000000000138 .L0 
+     /tmp/ccDhTiyf.s:449    .text:0000000000000134 .L0 
+     /tmp/ccDhTiyf.s:450    .text:0000000000000134 .L0 
+     /tmp/ccDhTiyf.s:455    .text:0000000000000138 .L0 
+     /tmp/ccDhTiyf.s:456    .text:0000000000000138 .L0 
+     /tmp/ccDhTiyf.s:457    .text:0000000000000138 .L0 
+     /tmp/ccDhTiyf.s:458    .text:0000000000000138 .L0 
+     /tmp/ccDhTiyf.s:459    .text:0000000000000138 .L0 
        src/Riscv.cpp:42     .text:0000000000000138 .L0 
-     /tmp/cclffJOB.s:465    .text:000000000000013c .L0 
+     /tmp/ccDhTiyf.s:465    .text:000000000000013c .L0 
        src/Riscv.cpp:43     .text:000000000000013c .L0 
-     /tmp/cclffJOB.s:470    .text:0000000000000140 .L0 
-GAS LISTING /tmp/cclffJOB.s 			page 47
+     /tmp/ccDhTiyf.s:470    .text:0000000000000140 .L0 
+GAS LISTING /tmp/ccDhTiyf.s 			page 47
 
 
        src/Riscv.cpp:44     .text:0000000000000140 .L0 
-     /tmp/cclffJOB.s:475    .text:0000000000000144 .L0 
+     /tmp/ccDhTiyf.s:475    .text:0000000000000144 .L0 
        src/Riscv.cpp:45     .text:0000000000000144 .L0 
-     /tmp/cclffJOB.s:480    .text:0000000000000148 .L0 
+     /tmp/ccDhTiyf.s:480    .text:0000000000000148 .L0 
        src/Riscv.cpp:48     .text:0000000000000148 .L0 
-     /tmp/cclffJOB.s:486    .text:000000000000014c .L0 
+     /tmp/ccDhTiyf.s:486    .text:000000000000014c .L0 
        src/Riscv.cpp:49     .text:000000000000014c .L0 
-     /tmp/cclffJOB.s:492    .text:0000000000000150 .L0 
+     /tmp/ccDhTiyf.s:492    .text:0000000000000150 .L0 
        src/Riscv.cpp:50     .text:0000000000000150 .L0 
-     /tmp/cclffJOB.s:498    .text:0000000000000154 .L0 
+     /tmp/ccDhTiyf.s:498    .text:0000000000000154 .L0 
        src/Riscv.cpp:51     .text:0000000000000154 .L0 
-     /tmp/cclffJOB.s:504    .text:0000000000000158 .L0 
-     /tmp/cclffJOB.s:506    .text:0000000000000158 .L0 
-     /tmp/cclffJOB.s:509    .text:0000000000000160 .L0 
-     /tmp/cclffJOB.s:510    .text:0000000000000160 .L0 
-     /tmp/cclffJOB.s:512    .text:0000000000000164 .L0 
-     /tmp/cclffJOB.s:513    .text:0000000000000164 .L0 
-     /tmp/cclffJOB.s:515    .text:0000000000000168 .L0 
-     /tmp/cclffJOB.s:519    .text:000000000000016c .L0 
+     /tmp/ccDhTiyf.s:504    .text:0000000000000158 .L0 
+     /tmp/ccDhTiyf.s:506    .text:0000000000000158 .L0 
+     /tmp/ccDhTiyf.s:509    .text:0000000000000160 .L0 
+     /tmp/ccDhTiyf.s:510    .text:0000000000000160 .L0 
+     /tmp/ccDhTiyf.s:512    .text:0000000000000164 .L0 
+     /tmp/ccDhTiyf.s:513    .text:0000000000000164 .L0 
+     /tmp/ccDhTiyf.s:515    .text:0000000000000168 .L0 
+     /tmp/ccDhTiyf.s:519    .text:000000000000016c .L0 
        src/Riscv.cpp:63     .text:000000000000016c .L0 
-     /tmp/cclffJOB.s:529    .text:0000000000000170 .L0 
-     /tmp/cclffJOB.s:530    .text:0000000000000170 .L0 
+     /tmp/ccDhTiyf.s:529    .text:0000000000000170 .L0 
+     /tmp/ccDhTiyf.s:530    .text:0000000000000170 .L0 
   src/../h/Riscv.hpp:183    .text:0000000000000170 .L0 
-     /tmp/cclffJOB.s:542    .text:0000000000000174 .L0 
-     /tmp/cclffJOB.s:543    .text:0000000000000174 .L0 
+     /tmp/ccDhTiyf.s:542    .text:0000000000000174 .L0 
+     /tmp/ccDhTiyf.s:543    .text:0000000000000174 .L0 
   src/../h/Riscv.hpp:113    .text:0000000000000174 .L0 
-     /tmp/cclffJOB.s:550    .text:0000000000000178 .L0 
-     /tmp/cclffJOB.s:556    .text:000000000000017c .L0 
-     /tmp/cclffJOB.s:567    .text:0000000000000184 .L0 
-     /tmp/cclffJOB.s:568    .text:0000000000000184 .L0 
-     /tmp/cclffJOB.s:569    .text:0000000000000184 .L0 
+     /tmp/ccDhTiyf.s:550    .text:0000000000000178 .L0 
+     /tmp/ccDhTiyf.s:556    .text:000000000000017c .L0 
+     /tmp/ccDhTiyf.s:567    .text:0000000000000184 .L0 
+     /tmp/ccDhTiyf.s:568    .text:0000000000000184 .L0 
+     /tmp/ccDhTiyf.s:569    .text:0000000000000184 .L0 
   src/../h/Riscv.hpp:107    .text:0000000000000184 .L0 
-     /tmp/cclffJOB.s:577    .text:000000000000018c .L0 
-     /tmp/cclffJOB.s:578    .text:000000000000018c .L0 
-     /tmp/cclffJOB.s:583    .text:0000000000000190 .L0 
-     /tmp/cclffJOB.s:588    .text:0000000000000194 .L0 
-     /tmp/cclffJOB.s:589    .text:0000000000000194 .L0 
-     /tmp/cclffJOB.s:590    .text:0000000000000194 .L0 
+     /tmp/ccDhTiyf.s:577    .text:000000000000018c .L0 
+     /tmp/ccDhTiyf.s:578    .text:000000000000018c .L0 
+     /tmp/ccDhTiyf.s:583    .text:0000000000000190 .L0 
+     /tmp/ccDhTiyf.s:588    .text:0000000000000194 .L0 
+     /tmp/ccDhTiyf.s:589    .text:0000000000000194 .L0 
+     /tmp/ccDhTiyf.s:590    .text:0000000000000194 .L0 
   src/../h/Riscv.hpp:177    .text:0000000000000194 .L0 
-     /tmp/cclffJOB.s:598    .text:000000000000019c .L0 
-     /tmp/cclffJOB.s:599    .text:000000000000019c .L0 
-     /tmp/cclffJOB.s:604    .text:00000000000001a0 .L0 
+     /tmp/ccDhTiyf.s:598    .text:000000000000019c .L0 
+     /tmp/ccDhTiyf.s:599    .text:000000000000019c .L0 
+     /tmp/ccDhTiyf.s:604    .text:00000000000001a0 .L0 
        src/Riscv.cpp:72     .text:00000000000001a0 .L0 
-     /tmp/cclffJOB.s:611    .text:00000000000001a4 .L0 
-     /tmp/cclffJOB.s:613    .text:00000000000001a4 .L0 
-     /tmp/cclffJOB.s:618    .text:00000000000001b0 .L0 
+     /tmp/ccDhTiyf.s:611    .text:00000000000001a4 .L0 
+     /tmp/ccDhTiyf.s:613    .text:00000000000001a4 .L0 
+     /tmp/ccDhTiyf.s:618    .text:00000000000001b0 .L0 
        src/Riscv.cpp:76     .text:00000000000001b0 .L0 
-     /tmp/cclffJOB.s:628    .text:00000000000001b4 .L0 
-     /tmp/cclffJOB.s:629    .text:00000000000001b4 .L0 
+     /tmp/ccDhTiyf.s:628    .text:00000000000001b4 .L0 
+     /tmp/ccDhTiyf.s:629    .text:00000000000001b4 .L0 
   src/../h/Riscv.hpp:183    .text:00000000000001b4 .L0 
-     /tmp/cclffJOB.s:641    .text:00000000000001b8 .L0 
-     /tmp/cclffJOB.s:642    .text:00000000000001b8 .L0 
+     /tmp/ccDhTiyf.s:641    .text:00000000000001b8 .L0 
+     /tmp/ccDhTiyf.s:642    .text:00000000000001b8 .L0 
   src/../h/Riscv.hpp:113    .text:00000000000001b8 .L0 
-     /tmp/cclffJOB.s:649    .text:00000000000001bc .L0 
-     /tmp/cclffJOB.s:660    .text:00000000000001c0 .L0 
-     /tmp/cclffJOB.s:661    .text:00000000000001c0 .L0 
-     /tmp/cclffJOB.s:662    .text:00000000000001c0 .L0 
-GAS LISTING /tmp/cclffJOB.s 			page 48
+     /tmp/ccDhTiyf.s:649    .text:00000000000001bc .L0 
+     /tmp/ccDhTiyf.s:660    .text:00000000000001c0 .L0 
+     /tmp/ccDhTiyf.s:661    .text:00000000000001c0 .L0 
+     /tmp/ccDhTiyf.s:662    .text:00000000000001c0 .L0 
+GAS LISTING /tmp/ccDhTiyf.s 			page 48
 
 
   src/../h/Riscv.hpp:107    .text:00000000000001c0 .L0 
-     /tmp/cclffJOB.s:670    .text:00000000000001c8 .L0 
-     /tmp/cclffJOB.s:671    .text:00000000000001c8 .L0 
-     /tmp/cclffJOB.s:676    .text:00000000000001cc .L0 
-     /tmp/cclffJOB.s:681    .text:00000000000001d0 .L0 
-     /tmp/cclffJOB.s:682    .text:00000000000001d0 .L0 
-     /tmp/cclffJOB.s:683    .text:00000000000001d0 .L0 
+     /tmp/ccDhTiyf.s:670    .text:00000000000001c8 .L0 
+     /tmp/ccDhTiyf.s:671    .text:00000000000001c8 .L0 
+     /tmp/ccDhTiyf.s:676    .text:00000000000001cc .L0 
+     /tmp/ccDhTiyf.s:681    .text:00000000000001d0 .L0 
+     /tmp/ccDhTiyf.s:682    .text:00000000000001d0 .L0 
+     /tmp/ccDhTiyf.s:683    .text:00000000000001d0 .L0 
   src/../h/Riscv.hpp:177    .text:00000000000001d0 .L0 
-     /tmp/cclffJOB.s:691    .text:00000000000001d8 .L0 
-     /tmp/cclffJOB.s:692    .text:00000000000001d8 .L0 
-     /tmp/cclffJOB.s:697    .text:00000000000001dc .L0 
+     /tmp/ccDhTiyf.s:691    .text:00000000000001d8 .L0 
+     /tmp/ccDhTiyf.s:692    .text:00000000000001d8 .L0 
+     /tmp/ccDhTiyf.s:697    .text:00000000000001dc .L0 
        src/Riscv.cpp:85     .text:00000000000001dc .L0 
-     /tmp/cclffJOB.s:704    .text:00000000000001e0 .L0 
-     /tmp/cclffJOB.s:706    .text:00000000000001e0 .L0 
-     /tmp/cclffJOB.s:709    .text:00000000000001e8 .L0 
+     /tmp/ccDhTiyf.s:704    .text:00000000000001e0 .L0 
+     /tmp/ccDhTiyf.s:706    .text:00000000000001e0 .L0 
+     /tmp/ccDhTiyf.s:709    .text:00000000000001e8 .L0 
        src/Riscv.cpp:87     .text:00000000000001e8 .L0 
-     /tmp/cclffJOB.s:719    .text:00000000000001ec .L0 
-     /tmp/cclffJOB.s:720    .text:00000000000001ec .L0 
+     /tmp/ccDhTiyf.s:719    .text:00000000000001ec .L0 
+     /tmp/ccDhTiyf.s:720    .text:00000000000001ec .L0 
   src/../h/Riscv.hpp:183    .text:00000000000001ec .L0 
-     /tmp/cclffJOB.s:732    .text:00000000000001f0 .L0 
-     /tmp/cclffJOB.s:733    .text:00000000000001f0 .L0 
+     /tmp/ccDhTiyf.s:732    .text:00000000000001f0 .L0 
+     /tmp/ccDhTiyf.s:733    .text:00000000000001f0 .L0 
   src/../h/Riscv.hpp:113    .text:00000000000001f0 .L0 
-     /tmp/cclffJOB.s:740    .text:00000000000001f4 .L0 
-     /tmp/cclffJOB.s:751    .text:00000000000001f8 .L0 
-     /tmp/cclffJOB.s:752    .text:00000000000001f8 .L0 
-     /tmp/cclffJOB.s:753    .text:00000000000001f8 .L0 
+     /tmp/ccDhTiyf.s:740    .text:00000000000001f4 .L0 
+     /tmp/ccDhTiyf.s:751    .text:00000000000001f8 .L0 
+     /tmp/ccDhTiyf.s:752    .text:00000000000001f8 .L0 
+     /tmp/ccDhTiyf.s:753    .text:00000000000001f8 .L0 
   src/../h/Riscv.hpp:107    .text:00000000000001f8 .L0 
-     /tmp/cclffJOB.s:761    .text:0000000000000200 .L0 
-     /tmp/cclffJOB.s:762    .text:0000000000000200 .L0 
-     /tmp/cclffJOB.s:767    .text:0000000000000204 .L0 
-     /tmp/cclffJOB.s:772    .text:0000000000000208 .L0 
-     /tmp/cclffJOB.s:773    .text:0000000000000208 .L0 
-     /tmp/cclffJOB.s:774    .text:0000000000000208 .L0 
+     /tmp/ccDhTiyf.s:761    .text:0000000000000200 .L0 
+     /tmp/ccDhTiyf.s:762    .text:0000000000000200 .L0 
+     /tmp/ccDhTiyf.s:767    .text:0000000000000204 .L0 
+     /tmp/ccDhTiyf.s:772    .text:0000000000000208 .L0 
+     /tmp/ccDhTiyf.s:773    .text:0000000000000208 .L0 
+     /tmp/ccDhTiyf.s:774    .text:0000000000000208 .L0 
   src/../h/Riscv.hpp:177    .text:0000000000000208 .L0 
-     /tmp/cclffJOB.s:782    .text:0000000000000210 .L0 
-     /tmp/cclffJOB.s:783    .text:0000000000000210 .L0 
-     /tmp/cclffJOB.s:788    .text:0000000000000214 .L0 
-     /tmp/cclffJOB.s:789    .text:0000000000000214 .L0 
-     /tmp/cclffJOB.s:792    .text:0000000000000220 .L0 
-     /tmp/cclffJOB.s:795    .text:0000000000000228 .L0 
-     /tmp/cclffJOB.s:796    .text:0000000000000228 .L0 
-     /tmp/cclffJOB.s:801    .text:0000000000000230 .L0 
-     /tmp/cclffJOB.s:802    .text:0000000000000230 .L0 
+     /tmp/ccDhTiyf.s:782    .text:0000000000000210 .L0 
+     /tmp/ccDhTiyf.s:783    .text:0000000000000210 .L0 
+     /tmp/ccDhTiyf.s:788    .text:0000000000000214 .L0 
+     /tmp/ccDhTiyf.s:789    .text:0000000000000214 .L0 
+     /tmp/ccDhTiyf.s:792    .text:0000000000000220 .L0 
+     /tmp/ccDhTiyf.s:795    .text:0000000000000228 .L0 
+     /tmp/ccDhTiyf.s:796    .text:0000000000000228 .L0 
+     /tmp/ccDhTiyf.s:801    .text:0000000000000230 .L0 
+     /tmp/ccDhTiyf.s:802    .text:0000000000000230 .L0 
   src/../h/Riscv.hpp:183    .text:0000000000000230 .L0 
-     /tmp/cclffJOB.s:814    .text:0000000000000234 .L0 
-     /tmp/cclffJOB.s:815    .text:0000000000000234 .L0 
+     /tmp/ccDhTiyf.s:814    .text:0000000000000234 .L0 
+     /tmp/ccDhTiyf.s:815    .text:0000000000000234 .L0 
   src/../h/Riscv.hpp:113    .text:0000000000000234 .L0 
-     /tmp/cclffJOB.s:822    .text:0000000000000238 .L0 
-     /tmp/cclffJOB.s:833    .text:000000000000023c .L0 
-     /tmp/cclffJOB.s:834    .text:000000000000023c .L0 
-     /tmp/cclffJOB.s:835    .text:000000000000023c .L0 
+     /tmp/ccDhTiyf.s:822    .text:0000000000000238 .L0 
+     /tmp/ccDhTiyf.s:833    .text:000000000000023c .L0 
+     /tmp/ccDhTiyf.s:834    .text:000000000000023c .L0 
+     /tmp/ccDhTiyf.s:835    .text:000000000000023c .L0 
   src/../h/Riscv.hpp:107    .text:000000000000023c .L0 
-     /tmp/cclffJOB.s:843    .text:0000000000000244 .L0 
-     /tmp/cclffJOB.s:844    .text:0000000000000244 .L0 
-     /tmp/cclffJOB.s:849    .text:0000000000000248 .L0 
-     /tmp/cclffJOB.s:854    .text:000000000000024c .L0 
-     /tmp/cclffJOB.s:855    .text:000000000000024c .L0 
-GAS LISTING /tmp/cclffJOB.s 			page 49
+     /tmp/ccDhTiyf.s:843    .text:0000000000000244 .L0 
+     /tmp/ccDhTiyf.s:844    .text:0000000000000244 .L0 
+     /tmp/ccDhTiyf.s:849    .text:0000000000000248 .L0 
+     /tmp/ccDhTiyf.s:854    .text:000000000000024c .L0 
+     /tmp/ccDhTiyf.s:855    .text:000000000000024c .L0 
+GAS LISTING /tmp/ccDhTiyf.s 			page 49
 
 
-     /tmp/cclffJOB.s:856    .text:000000000000024c .L0 
+     /tmp/ccDhTiyf.s:856    .text:000000000000024c .L0 
   src/../h/Riscv.hpp:177    .text:000000000000024c .L0 
-     /tmp/cclffJOB.s:864    .text:0000000000000254 .L0 
-     /tmp/cclffJOB.s:865    .text:0000000000000254 .L0 
-     /tmp/cclffJOB.s:870    .text:0000000000000258 .L0 
-     /tmp/cclffJOB.s:871    .text:0000000000000258 .L0 
-     /tmp/cclffJOB.s:876    .text:0000000000000260 .L0 
-     /tmp/cclffJOB.s:877    .text:0000000000000260 .L0 
+     /tmp/ccDhTiyf.s:864    .text:0000000000000254 .L0 
+     /tmp/ccDhTiyf.s:865    .text:0000000000000254 .L0 
+     /tmp/ccDhTiyf.s:870    .text:0000000000000258 .L0 
+     /tmp/ccDhTiyf.s:871    .text:0000000000000258 .L0 
+     /tmp/ccDhTiyf.s:876    .text:0000000000000260 .L0 
+     /tmp/ccDhTiyf.s:877    .text:0000000000000260 .L0 
   src/../h/Riscv.hpp:183    .text:0000000000000260 .L0 
-     /tmp/cclffJOB.s:889    .text:0000000000000264 .L0 
-     /tmp/cclffJOB.s:890    .text:0000000000000264 .L0 
+     /tmp/ccDhTiyf.s:889    .text:0000000000000264 .L0 
+     /tmp/ccDhTiyf.s:890    .text:0000000000000264 .L0 
   src/../h/Riscv.hpp:113    .text:0000000000000264 .L0 
-     /tmp/cclffJOB.s:897    .text:0000000000000268 .L0 
-     /tmp/cclffJOB.s:908    .text:000000000000026c .L0 
-     /tmp/cclffJOB.s:909    .text:000000000000026c .L0 
-     /tmp/cclffJOB.s:910    .text:000000000000026c .L0 
+     /tmp/ccDhTiyf.s:897    .text:0000000000000268 .L0 
+     /tmp/ccDhTiyf.s:908    .text:000000000000026c .L0 
+     /tmp/ccDhTiyf.s:909    .text:000000000000026c .L0 
+     /tmp/ccDhTiyf.s:910    .text:000000000000026c .L0 
   src/../h/Riscv.hpp:107    .text:000000000000026c .L0 
-     /tmp/cclffJOB.s:918    .text:0000000000000274 .L0 
-     /tmp/cclffJOB.s:919    .text:0000000000000274 .L0 
-     /tmp/cclffJOB.s:924    .text:0000000000000278 .L0 
-     /tmp/cclffJOB.s:929    .text:000000000000027c .L0 
-     /tmp/cclffJOB.s:930    .text:000000000000027c .L0 
-     /tmp/cclffJOB.s:931    .text:000000000000027c .L0 
+     /tmp/ccDhTiyf.s:918    .text:0000000000000274 .L0 
+     /tmp/ccDhTiyf.s:919    .text:0000000000000274 .L0 
+     /tmp/ccDhTiyf.s:924    .text:0000000000000278 .L0 
+     /tmp/ccDhTiyf.s:929    .text:000000000000027c .L0 
+     /tmp/ccDhTiyf.s:930    .text:000000000000027c .L0 
+     /tmp/ccDhTiyf.s:931    .text:000000000000027c .L0 
   src/../h/Riscv.hpp:177    .text:000000000000027c .L0 
-     /tmp/cclffJOB.s:939    .text:0000000000000284 .L0 
-     /tmp/cclffJOB.s:940    .text:0000000000000284 .L0 
-     /tmp/cclffJOB.s:945    .text:0000000000000288 .L0 
-     /tmp/cclffJOB.s:946    .text:0000000000000288 .L0 
-     /tmp/cclffJOB.s:949    .text:0000000000000294 .L0 
-     /tmp/cclffJOB.s:950    .text:0000000000000294 .L0 
-     /tmp/cclffJOB.s:955    .text:000000000000029c .L0 
-     /tmp/cclffJOB.s:956    .text:000000000000029c .L0 
+     /tmp/ccDhTiyf.s:939    .text:0000000000000284 .L0 
+     /tmp/ccDhTiyf.s:940    .text:0000000000000284 .L0 
+     /tmp/ccDhTiyf.s:945    .text:0000000000000288 .L0 
+     /tmp/ccDhTiyf.s:946    .text:0000000000000288 .L0 
+     /tmp/ccDhTiyf.s:949    .text:0000000000000294 .L0 
+     /tmp/ccDhTiyf.s:950    .text:0000000000000294 .L0 
+     /tmp/ccDhTiyf.s:955    .text:000000000000029c .L0 
+     /tmp/ccDhTiyf.s:956    .text:000000000000029c .L0 
   src/../h/Riscv.hpp:183    .text:000000000000029c .L0 
-     /tmp/cclffJOB.s:968    .text:00000000000002a0 .L0 
-     /tmp/cclffJOB.s:969    .text:00000000000002a0 .L0 
+     /tmp/ccDhTiyf.s:968    .text:00000000000002a0 .L0 
+     /tmp/ccDhTiyf.s:969    .text:00000000000002a0 .L0 
   src/../h/Riscv.hpp:113    .text:00000000000002a0 .L0 
-     /tmp/cclffJOB.s:976    .text:00000000000002a4 .L0 
-     /tmp/cclffJOB.s:987    .text:00000000000002a8 .L0 
-     /tmp/cclffJOB.s:988    .text:00000000000002a8 .L0 
-     /tmp/cclffJOB.s:989    .text:00000000000002a8 .L0 
+     /tmp/ccDhTiyf.s:976    .text:00000000000002a4 .L0 
+     /tmp/ccDhTiyf.s:987    .text:00000000000002a8 .L0 
+     /tmp/ccDhTiyf.s:988    .text:00000000000002a8 .L0 
+     /tmp/ccDhTiyf.s:989    .text:00000000000002a8 .L0 
   src/../h/Riscv.hpp:107    .text:00000000000002a8 .L0 
-     /tmp/cclffJOB.s:997    .text:00000000000002b0 .L0 
-     /tmp/cclffJOB.s:998    .text:00000000000002b0 .L0 
-     /tmp/cclffJOB.s:1003   .text:00000000000002b4 .L0 
-     /tmp/cclffJOB.s:1008   .text:00000000000002b8 .L0 
-     /tmp/cclffJOB.s:1009   .text:00000000000002b8 .L0 
-     /tmp/cclffJOB.s:1010   .text:00000000000002b8 .L0 
+     /tmp/ccDhTiyf.s:997    .text:00000000000002b0 .L0 
+     /tmp/ccDhTiyf.s:998    .text:00000000000002b0 .L0 
+     /tmp/ccDhTiyf.s:1003   .text:00000000000002b4 .L0 
+     /tmp/ccDhTiyf.s:1008   .text:00000000000002b8 .L0 
+     /tmp/ccDhTiyf.s:1009   .text:00000000000002b8 .L0 
+     /tmp/ccDhTiyf.s:1010   .text:00000000000002b8 .L0 
   src/../h/Riscv.hpp:177    .text:00000000000002b8 .L0 
-     /tmp/cclffJOB.s:1018   .text:00000000000002c0 .L0 
-     /tmp/cclffJOB.s:1019   .text:00000000000002c0 .L0 
-     /tmp/cclffJOB.s:1024   .text:00000000000002c4 .L0 
-     /tmp/cclffJOB.s:1025   .text:00000000000002c4 .L0 
-     /tmp/cclffJOB.s:1026   .text:00000000000002c4 .L0 
+     /tmp/ccDhTiyf.s:1018   .text:00000000000002c0 .L0 
+     /tmp/ccDhTiyf.s:1019   .text:00000000000002c0 .L0 
+     /tmp/ccDhTiyf.s:1024   .text:00000000000002c4 .L0 
+     /tmp/ccDhTiyf.s:1025   .text:00000000000002c4 .L0 
+     /tmp/ccDhTiyf.s:1026   .text:00000000000002c4 .L0 
        src/Riscv.cpp:133    .text:00000000000002c4 .L0 
-     /tmp/cclffJOB.s:1032   .text:00000000000002c8 .L0 
+     /tmp/ccDhTiyf.s:1032   .text:00000000000002c8 .L0 
        src/Riscv.cpp:134    .text:00000000000002c8 .L0 
-     /tmp/cclffJOB.s:1037   .text:00000000000002cc .L0 
-GAS LISTING /tmp/cclffJOB.s 			page 50
+     /tmp/ccDhTiyf.s:1037   .text:00000000000002cc .L0 
+GAS LISTING /tmp/ccDhTiyf.s 			page 50
 
 
        src/Riscv.cpp:136    .text:00000000000002cc .L0 
-     /tmp/cclffJOB.s:1043   .text:00000000000002d0 .L0 
+     /tmp/ccDhTiyf.s:1043   .text:00000000000002d0 .L0 
        src/Riscv.cpp:137    .text:00000000000002d0 .L0 
-     /tmp/cclffJOB.s:1049   .text:00000000000002d4 .L0 
-     /tmp/cclffJOB.s:1051   .text:00000000000002d4 .L0 
-     /tmp/cclffJOB.s:1058   .text:00000000000002e0 .L0 
-     /tmp/cclffJOB.s:1064   .text:00000000000002e4 .L0 
-     /tmp/cclffJOB.s:1072   .text:00000000000002ec .L0 
-     /tmp/cclffJOB.s:1073   .text:00000000000002ec .L0 
-     /tmp/cclffJOB.s:1076   .text:00000000000002f0 .L0 
-     /tmp/cclffJOB.s:1077   .text:00000000000002f0 .L0 
-     /tmp/cclffJOB.s:1079   .text:00000000000002f4 .L0 
-     /tmp/cclffJOB.s:1083   .text:00000000000002f8 .L0 
+     /tmp/ccDhTiyf.s:1049   .text:00000000000002d4 .L0 
+     /tmp/ccDhTiyf.s:1051   .text:00000000000002d4 .L0 
+     /tmp/ccDhTiyf.s:1058   .text:00000000000002e0 .L0 
+     /tmp/ccDhTiyf.s:1064   .text:00000000000002e4 .L0 
+     /tmp/ccDhTiyf.s:1072   .text:00000000000002ec .L0 
+     /tmp/ccDhTiyf.s:1073   .text:00000000000002ec .L0 
+     /tmp/ccDhTiyf.s:1076   .text:00000000000002f0 .L0 
+     /tmp/ccDhTiyf.s:1077   .text:00000000000002f0 .L0 
+     /tmp/ccDhTiyf.s:1079   .text:00000000000002f4 .L0 
+     /tmp/ccDhTiyf.s:1083   .text:00000000000002f8 .L0 
        src/Riscv.cpp:146    .text:00000000000002f8 .L0 
-     /tmp/cclffJOB.s:1093   .text:00000000000002fc .L0 
-     /tmp/cclffJOB.s:1094   .text:00000000000002fc .L0 
+     /tmp/ccDhTiyf.s:1093   .text:00000000000002fc .L0 
+     /tmp/ccDhTiyf.s:1094   .text:00000000000002fc .L0 
   src/../h/Riscv.hpp:183    .text:00000000000002fc .L0 
-     /tmp/cclffJOB.s:1106   .text:0000000000000300 .L0 
-     /tmp/cclffJOB.s:1107   .text:0000000000000300 .L0 
+     /tmp/ccDhTiyf.s:1106   .text:0000000000000300 .L0 
+     /tmp/ccDhTiyf.s:1107   .text:0000000000000300 .L0 
   src/../h/Riscv.hpp:113    .text:0000000000000300 .L0 
-     /tmp/cclffJOB.s:1114   .text:0000000000000304 .L0 
-     /tmp/cclffJOB.s:1120   .text:0000000000000308 .L0 
-     /tmp/cclffJOB.s:1130   .text:0000000000000310 .L0 
-     /tmp/cclffJOB.s:1131   .text:0000000000000310 .L0 
-     /tmp/cclffJOB.s:1132   .text:0000000000000310 .L0 
+     /tmp/ccDhTiyf.s:1114   .text:0000000000000304 .L0 
+     /tmp/ccDhTiyf.s:1120   .text:0000000000000308 .L0 
+     /tmp/ccDhTiyf.s:1130   .text:0000000000000310 .L0 
+     /tmp/ccDhTiyf.s:1131   .text:0000000000000310 .L0 
+     /tmp/ccDhTiyf.s:1132   .text:0000000000000310 .L0 
   src/../h/Riscv.hpp:107    .text:0000000000000310 .L0 
-     /tmp/cclffJOB.s:1140   .text:0000000000000318 .L0 
-     /tmp/cclffJOB.s:1141   .text:0000000000000318 .L0 
-     /tmp/cclffJOB.s:1145   .text:000000000000031c .L0 
-     /tmp/cclffJOB.s:1150   .text:0000000000000320 .L0 
-     /tmp/cclffJOB.s:1151   .text:0000000000000320 .L0 
-     /tmp/cclffJOB.s:1152   .text:0000000000000320 .L0 
+     /tmp/ccDhTiyf.s:1140   .text:0000000000000318 .L0 
+     /tmp/ccDhTiyf.s:1141   .text:0000000000000318 .L0 
+     /tmp/ccDhTiyf.s:1145   .text:000000000000031c .L0 
+     /tmp/ccDhTiyf.s:1150   .text:0000000000000320 .L0 
+     /tmp/ccDhTiyf.s:1151   .text:0000000000000320 .L0 
+     /tmp/ccDhTiyf.s:1152   .text:0000000000000320 .L0 
   src/../h/Riscv.hpp:177    .text:0000000000000320 .L0 
-     /tmp/cclffJOB.s:1160   .text:0000000000000328 .L0 
-     /tmp/cclffJOB.s:1161   .text:0000000000000328 .L0 
-     /tmp/cclffJOB.s:1166   .text:000000000000032c .L0 
-     /tmp/cclffJOB.s:1167   .text:000000000000032c .L0 
+     /tmp/ccDhTiyf.s:1160   .text:0000000000000328 .L0 
+     /tmp/ccDhTiyf.s:1161   .text:0000000000000328 .L0 
+     /tmp/ccDhTiyf.s:1166   .text:000000000000032c .L0 
+     /tmp/ccDhTiyf.s:1167   .text:000000000000032c .L0 
        src/Riscv.cpp:158    .text:000000000000032c .L0 
-     /tmp/cclffJOB.s:1173   .text:0000000000000330 .L0 
+     /tmp/ccDhTiyf.s:1173   .text:0000000000000330 .L0 
        src/Riscv.cpp:160    .text:0000000000000330 .L0 
-     /tmp/cclffJOB.s:1179   .text:0000000000000334 .L0 
-     /tmp/cclffJOB.s:1181   .text:0000000000000334 .L0 
-     /tmp/cclffJOB.s:1190   .text:000000000000033c .L0 
-     /tmp/cclffJOB.s:1193   .text:0000000000000340 .L0 
-     /tmp/cclffJOB.s:1198   .text:0000000000000348 .L0 
-     /tmp/cclffJOB.s:1199   .text:0000000000000348 .L0 
-     /tmp/cclffJOB.s:1202   .text:0000000000000350 .L0 
-     /tmp/cclffJOB.s:1203   .text:0000000000000350 .L0 
-     /tmp/cclffJOB.s:1205   .text:0000000000000354 .L0 
-     /tmp/cclffJOB.s:1208   .text:000000000000035c .L0 
-     /tmp/cclffJOB.s:1209   .text:000000000000035c .L0 
-     /tmp/cclffJOB.s:1215   .text:0000000000000368 .L0 
-     /tmp/cclffJOB.s:1218   .text:0000000000000368 .L0 
-     /tmp/cclffJOB.s:1219   .text:0000000000000368 .L0 
-     /tmp/cclffJOB.s:1221   .text:000000000000036c .L0 
-     /tmp/cclffJOB.s:1223   .text:0000000000000370 .L0 
-     /tmp/cclffJOB.s:1228   .text:0000000000000374 .L0 
-GAS LISTING /tmp/cclffJOB.s 			page 51
+     /tmp/ccDhTiyf.s:1179   .text:0000000000000334 .L0 
+     /tmp/ccDhTiyf.s:1181   .text:0000000000000334 .L0 
+     /tmp/ccDhTiyf.s:1190   .text:000000000000033c .L0 
+     /tmp/ccDhTiyf.s:1193   .text:0000000000000340 .L0 
+     /tmp/ccDhTiyf.s:1198   .text:0000000000000348 .L0 
+     /tmp/ccDhTiyf.s:1199   .text:0000000000000348 .L0 
+     /tmp/ccDhTiyf.s:1202   .text:0000000000000350 .L0 
+     /tmp/ccDhTiyf.s:1203   .text:0000000000000350 .L0 
+     /tmp/ccDhTiyf.s:1205   .text:0000000000000354 .L0 
+     /tmp/ccDhTiyf.s:1208   .text:000000000000035c .L0 
+     /tmp/ccDhTiyf.s:1209   .text:000000000000035c .L0 
+     /tmp/ccDhTiyf.s:1215   .text:0000000000000368 .L0 
+     /tmp/ccDhTiyf.s:1218   .text:0000000000000368 .L0 
+     /tmp/ccDhTiyf.s:1219   .text:0000000000000368 .L0 
+     /tmp/ccDhTiyf.s:1221   .text:000000000000036c .L0 
+     /tmp/ccDhTiyf.s:1223   .text:0000000000000370 .L0 
+     /tmp/ccDhTiyf.s:1228   .text:0000000000000374 .L0 
+GAS LISTING /tmp/ccDhTiyf.s 			page 51
 
 
-     /tmp/cclffJOB.s:1234   .text:0000000000000378 .L0 
-     /tmp/cclffJOB.s:1235   .text:0000000000000378 .L0 
-     /tmp/cclffJOB.s:1237   .text:000000000000037c .L0 
-     /tmp/cclffJOB.s:1239   .text:0000000000000380 .L0 
-     /tmp/cclffJOB.s:1241   .text:0000000000000384 .L0 
-     /tmp/cclffJOB.s:1249   .text:000000000000038c .L0 
-     /tmp/cclffJOB.s:1250   .text:000000000000038c .L0 
-     /tmp/cclffJOB.s:1252   .text:0000000000000390 .L0 
-     /tmp/cclffJOB.s:1259   .text:000000000000039c .L0 
-     /tmp/cclffJOB.s:1260   .text:000000000000039c .L0 
+     /tmp/ccDhTiyf.s:1234   .text:0000000000000378 .L0 
+     /tmp/ccDhTiyf.s:1235   .text:0000000000000378 .L0 
+     /tmp/ccDhTiyf.s:1237   .text:000000000000037c .L0 
+     /tmp/ccDhTiyf.s:1239   .text:0000000000000380 .L0 
+     /tmp/ccDhTiyf.s:1241   .text:0000000000000384 .L0 
+     /tmp/ccDhTiyf.s:1249   .text:000000000000038c .L0 
+     /tmp/ccDhTiyf.s:1250   .text:000000000000038c .L0 
+     /tmp/ccDhTiyf.s:1252   .text:0000000000000390 .L0 
+     /tmp/ccDhTiyf.s:1259   .text:000000000000039c .L0 
+     /tmp/ccDhTiyf.s:1260   .text:000000000000039c .L0 
   src/../h/Riscv.hpp:183    .text:000000000000039c .L0 
-     /tmp/cclffJOB.s:1272   .text:00000000000003a0 .L0 
-     /tmp/cclffJOB.s:1273   .text:00000000000003a0 .L0 
+     /tmp/ccDhTiyf.s:1272   .text:00000000000003a0 .L0 
+     /tmp/ccDhTiyf.s:1273   .text:00000000000003a0 .L0 
   src/../h/Riscv.hpp:113    .text:00000000000003a0 .L0 
-     /tmp/cclffJOB.s:1280   .text:00000000000003a4 .L0 
-     /tmp/cclffJOB.s:1291   .text:00000000000003a8 .L0 
-     /tmp/cclffJOB.s:1292   .text:00000000000003a8 .L0 
-     /tmp/cclffJOB.s:1293   .text:00000000000003a8 .L0 
+     /tmp/ccDhTiyf.s:1280   .text:00000000000003a4 .L0 
+     /tmp/ccDhTiyf.s:1291   .text:00000000000003a8 .L0 
+     /tmp/ccDhTiyf.s:1292   .text:00000000000003a8 .L0 
+     /tmp/ccDhTiyf.s:1293   .text:00000000000003a8 .L0 
   src/../h/Riscv.hpp:107    .text:00000000000003a8 .L0 
-     /tmp/cclffJOB.s:1301   .text:00000000000003b0 .L0 
-     /tmp/cclffJOB.s:1302   .text:00000000000003b0 .L0 
-     /tmp/cclffJOB.s:1307   .text:00000000000003b4 .L0 
-     /tmp/cclffJOB.s:1312   .text:00000000000003b8 .L0 
-     /tmp/cclffJOB.s:1313   .text:00000000000003b8 .L0 
-     /tmp/cclffJOB.s:1314   .text:00000000000003b8 .L0 
+     /tmp/ccDhTiyf.s:1301   .text:00000000000003b0 .L0 
+     /tmp/ccDhTiyf.s:1302   .text:00000000000003b0 .L0 
+     /tmp/ccDhTiyf.s:1307   .text:00000000000003b4 .L0 
+     /tmp/ccDhTiyf.s:1312   .text:00000000000003b8 .L0 
+     /tmp/ccDhTiyf.s:1313   .text:00000000000003b8 .L0 
+     /tmp/ccDhTiyf.s:1314   .text:00000000000003b8 .L0 
   src/../h/Riscv.hpp:177    .text:00000000000003b8 .L0 
-     /tmp/cclffJOB.s:1322   .text:00000000000003c0 .L0 
-     /tmp/cclffJOB.s:1323   .text:00000000000003c0 .L0 
-     /tmp/cclffJOB.s:1328   .text:00000000000003c4 .L0 
-     /tmp/cclffJOB.s:1329   .text:00000000000003c4 .L0 
+     /tmp/ccDhTiyf.s:1322   .text:00000000000003c0 .L0 
+     /tmp/ccDhTiyf.s:1323   .text:00000000000003c0 .L0 
+     /tmp/ccDhTiyf.s:1328   .text:00000000000003c4 .L0 
+     /tmp/ccDhTiyf.s:1329   .text:00000000000003c4 .L0 
        src/Riscv.cpp:183    .text:00000000000003c4 .L0 
-     /tmp/cclffJOB.s:1335   .text:00000000000003c8 .L0 
+     /tmp/ccDhTiyf.s:1335   .text:00000000000003c8 .L0 
        src/Riscv.cpp:185    .text:00000000000003c8 .L0 
-     /tmp/cclffJOB.s:1341   .text:00000000000003cc .L0 
-     /tmp/cclffJOB.s:1343   .text:00000000000003cc .L0 
-     /tmp/cclffJOB.s:1346   .text:00000000000003d4 .L0 
+     /tmp/ccDhTiyf.s:1341   .text:00000000000003cc .L0 
+     /tmp/ccDhTiyf.s:1343   .text:00000000000003cc .L0 
+     /tmp/ccDhTiyf.s:1346   .text:00000000000003d4 .L0 
        src/Riscv.cpp:191    .text:00000000000003d4 .L0 
-     /tmp/cclffJOB.s:1356   .text:00000000000003d8 .L0 
-     /tmp/cclffJOB.s:1357   .text:00000000000003d8 .L0 
+     /tmp/ccDhTiyf.s:1356   .text:00000000000003d8 .L0 
+     /tmp/ccDhTiyf.s:1357   .text:00000000000003d8 .L0 
   src/../h/Riscv.hpp:183    .text:00000000000003d8 .L0 
-     /tmp/cclffJOB.s:1369   .text:00000000000003dc .L0 
-     /tmp/cclffJOB.s:1370   .text:00000000000003dc .L0 
+     /tmp/ccDhTiyf.s:1369   .text:00000000000003dc .L0 
+     /tmp/ccDhTiyf.s:1370   .text:00000000000003dc .L0 
   src/../h/Riscv.hpp:113    .text:00000000000003dc .L0 
-     /tmp/cclffJOB.s:1377   .text:00000000000003e0 .L0 
-     /tmp/cclffJOB.s:1388   .text:00000000000003e4 .L0 
-     /tmp/cclffJOB.s:1389   .text:00000000000003e4 .L0 
-     /tmp/cclffJOB.s:1390   .text:00000000000003e4 .L0 
+     /tmp/ccDhTiyf.s:1377   .text:00000000000003e0 .L0 
+     /tmp/ccDhTiyf.s:1388   .text:00000000000003e4 .L0 
+     /tmp/ccDhTiyf.s:1389   .text:00000000000003e4 .L0 
+     /tmp/ccDhTiyf.s:1390   .text:00000000000003e4 .L0 
   src/../h/Riscv.hpp:107    .text:00000000000003e4 .L0 
-     /tmp/cclffJOB.s:1398   .text:00000000000003ec .L0 
-     /tmp/cclffJOB.s:1399   .text:00000000000003ec .L0 
-     /tmp/cclffJOB.s:1404   .text:00000000000003f0 .L0 
-     /tmp/cclffJOB.s:1409   .text:00000000000003f4 .L0 
-     /tmp/cclffJOB.s:1410   .text:00000000000003f4 .L0 
-     /tmp/cclffJOB.s:1411   .text:00000000000003f4 .L0 
+     /tmp/ccDhTiyf.s:1398   .text:00000000000003ec .L0 
+     /tmp/ccDhTiyf.s:1399   .text:00000000000003ec .L0 
+     /tmp/ccDhTiyf.s:1404   .text:00000000000003f0 .L0 
+     /tmp/ccDhTiyf.s:1409   .text:00000000000003f4 .L0 
+     /tmp/ccDhTiyf.s:1410   .text:00000000000003f4 .L0 
+     /tmp/ccDhTiyf.s:1411   .text:00000000000003f4 .L0 
   src/../h/Riscv.hpp:177    .text:00000000000003f4 .L0 
-     /tmp/cclffJOB.s:1419   .text:00000000000003fc .L0 
-     /tmp/cclffJOB.s:1420   .text:00000000000003fc .L0 
-GAS LISTING /tmp/cclffJOB.s 			page 52
+     /tmp/ccDhTiyf.s:1419   .text:00000000000003fc .L0 
+     /tmp/ccDhTiyf.s:1420   .text:00000000000003fc .L0 
+GAS LISTING /tmp/ccDhTiyf.s 			page 52
 
 
-     /tmp/cclffJOB.s:1425   .text:0000000000000400 .L0 
-     /tmp/cclffJOB.s:1426   .text:0000000000000400 .L0 
+     /tmp/ccDhTiyf.s:1425   .text:0000000000000400 .L0 
+     /tmp/ccDhTiyf.s:1426   .text:0000000000000400 .L0 
        src/Riscv.cpp:202    .text:0000000000000400 .L0 
-     /tmp/cclffJOB.s:1432   .text:0000000000000404 .L0 
+     /tmp/ccDhTiyf.s:1432   .text:0000000000000404 .L0 
        src/Riscv.cpp:204    .text:0000000000000404 .L0 
-     /tmp/cclffJOB.s:1438   .text:0000000000000408 .L0 
-     /tmp/cclffJOB.s:1440   .text:0000000000000408 .L0 
-     /tmp/cclffJOB.s:1443   .text:0000000000000410 .L0 
-     /tmp/cclffJOB.s:1444   .text:0000000000000410 .L0 
-     /tmp/cclffJOB.s:1445   .text:0000000000000410 .L0 
-     /tmp/cclffJOB.s:1455   .text:0000000000000418 .L0 
-     /tmp/cclffJOB.s:1456   .text:0000000000000418 .L0 
+     /tmp/ccDhTiyf.s:1438   .text:0000000000000408 .L0 
+     /tmp/ccDhTiyf.s:1440   .text:0000000000000408 .L0 
+     /tmp/ccDhTiyf.s:1443   .text:0000000000000410 .L0 
+     /tmp/ccDhTiyf.s:1444   .text:0000000000000410 .L0 
+     /tmp/ccDhTiyf.s:1445   .text:0000000000000410 .L0 
+     /tmp/ccDhTiyf.s:1455   .text:0000000000000418 .L0 
+     /tmp/ccDhTiyf.s:1456   .text:0000000000000418 .L0 
   src/../h/Riscv.hpp:183    .text:0000000000000418 .L0 
-     /tmp/cclffJOB.s:1468   .text:000000000000041c .L0 
-     /tmp/cclffJOB.s:1469   .text:000000000000041c .L0 
+     /tmp/ccDhTiyf.s:1468   .text:000000000000041c .L0 
+     /tmp/ccDhTiyf.s:1469   .text:000000000000041c .L0 
   src/../h/Riscv.hpp:113    .text:000000000000041c .L0 
-     /tmp/cclffJOB.s:1476   .text:0000000000000420 .L0 
-     /tmp/cclffJOB.s:1487   .text:0000000000000424 .L0 
-     /tmp/cclffJOB.s:1488   .text:0000000000000424 .L0 
-     /tmp/cclffJOB.s:1489   .text:0000000000000424 .L0 
+     /tmp/ccDhTiyf.s:1476   .text:0000000000000420 .L0 
+     /tmp/ccDhTiyf.s:1487   .text:0000000000000424 .L0 
+     /tmp/ccDhTiyf.s:1488   .text:0000000000000424 .L0 
+     /tmp/ccDhTiyf.s:1489   .text:0000000000000424 .L0 
   src/../h/Riscv.hpp:107    .text:0000000000000424 .L0 
-     /tmp/cclffJOB.s:1497   .text:000000000000042c .L0 
-     /tmp/cclffJOB.s:1498   .text:000000000000042c .L0 
-     /tmp/cclffJOB.s:1503   .text:0000000000000430 .L0 
-     /tmp/cclffJOB.s:1508   .text:0000000000000434 .L0 
-     /tmp/cclffJOB.s:1509   .text:0000000000000434 .L0 
-     /tmp/cclffJOB.s:1510   .text:0000000000000434 .L0 
+     /tmp/ccDhTiyf.s:1497   .text:000000000000042c .L0 
+     /tmp/ccDhTiyf.s:1498   .text:000000000000042c .L0 
+     /tmp/ccDhTiyf.s:1503   .text:0000000000000430 .L0 
+     /tmp/ccDhTiyf.s:1508   .text:0000000000000434 .L0 
+     /tmp/ccDhTiyf.s:1509   .text:0000000000000434 .L0 
+     /tmp/ccDhTiyf.s:1510   .text:0000000000000434 .L0 
   src/../h/Riscv.hpp:177    .text:0000000000000434 .L0 
-     /tmp/cclffJOB.s:1518   .text:000000000000043c .L0 
-     /tmp/cclffJOB.s:1519   .text:000000000000043c .L0 
-     /tmp/cclffJOB.s:1524   .text:0000000000000440 .L0 
-     /tmp/cclffJOB.s:1525   .text:0000000000000440 .L0 
-     /tmp/cclffJOB.s:1528   .text:0000000000000448 .L0 
+     /tmp/ccDhTiyf.s:1518   .text:000000000000043c .L0 
+     /tmp/ccDhTiyf.s:1519   .text:000000000000043c .L0 
+     /tmp/ccDhTiyf.s:1524   .text:0000000000000440 .L0 
+     /tmp/ccDhTiyf.s:1525   .text:0000000000000440 .L0 
+     /tmp/ccDhTiyf.s:1528   .text:0000000000000448 .L0 
        src/Riscv.cpp:223    .text:0000000000000448 .L0 
-     /tmp/cclffJOB.s:1538   .text:000000000000044c .L0 
-     /tmp/cclffJOB.s:1539   .text:000000000000044c .L0 
+     /tmp/ccDhTiyf.s:1538   .text:000000000000044c .L0 
+     /tmp/ccDhTiyf.s:1539   .text:000000000000044c .L0 
   src/../h/Riscv.hpp:183    .text:000000000000044c .L0 
-     /tmp/cclffJOB.s:1551   .text:0000000000000450 .L0 
-     /tmp/cclffJOB.s:1552   .text:0000000000000450 .L0 
+     /tmp/ccDhTiyf.s:1551   .text:0000000000000450 .L0 
+     /tmp/ccDhTiyf.s:1552   .text:0000000000000450 .L0 
   src/../h/Riscv.hpp:113    .text:0000000000000450 .L0 
-     /tmp/cclffJOB.s:1559   .text:0000000000000454 .L0 
-     /tmp/cclffJOB.s:1574   .text:0000000000000458 .L0 
-     /tmp/cclffJOB.s:1583   .text:0000000000000458 .L0 
-     /tmp/cclffJOB.s:789    .text:0000000000000214 .L0 
-     /tmp/cclffJOB.s:946    .text:0000000000000288 .L0 
-     /tmp/cclffJOB.s:126    .text:0000000000000080 .L25
-     /tmp/cclffJOB.s:412    .text:000000000000011c .L26
-     /tmp/cclffJOB.s:559    .text:0000000000000184 .L27
-     /tmp/cclffJOB.s:651    .text:00000000000001c0 .L28
-     /tmp/cclffJOB.s:742    .text:00000000000001f8 .L29
-     /tmp/cclffJOB.s:824    .text:000000000000023c .L30
-     /tmp/cclffJOB.s:899    .text:000000000000026c .L31
-     /tmp/cclffJOB.s:978    .text:00000000000002a8 .L32
-     /tmp/cclffJOB.s:1123   .text:0000000000000310 .L33
-     /tmp/cclffJOB.s:1282   .text:00000000000003a8 .L34
-     /tmp/cclffJOB.s:1379   .text:00000000000003e4 .L35
-     /tmp/cclffJOB.s:1478   .text:0000000000000424 .L36
-GAS LISTING /tmp/cclffJOB.s 			page 53
+     /tmp/ccDhTiyf.s:1559   .text:0000000000000454 .L0 
+     /tmp/ccDhTiyf.s:1574   .text:0000000000000458 .L0 
+     /tmp/ccDhTiyf.s:1583   .text:0000000000000458 .L0 
+     /tmp/ccDhTiyf.s:789    .text:0000000000000214 .L0 
+     /tmp/ccDhTiyf.s:946    .text:0000000000000288 .L0 
+     /tmp/ccDhTiyf.s:126    .text:0000000000000080 .L25
+     /tmp/ccDhTiyf.s:412    .text:000000000000011c .L26
+     /tmp/ccDhTiyf.s:559    .text:0000000000000184 .L27
+     /tmp/ccDhTiyf.s:651    .text:00000000000001c0 .L28
+     /tmp/ccDhTiyf.s:742    .text:00000000000001f8 .L29
+     /tmp/ccDhTiyf.s:824    .text:000000000000023c .L30
+     /tmp/ccDhTiyf.s:899    .text:000000000000026c .L31
+     /tmp/ccDhTiyf.s:978    .text:00000000000002a8 .L32
+     /tmp/ccDhTiyf.s:1123   .text:0000000000000310 .L33
+     /tmp/ccDhTiyf.s:1282   .text:00000000000003a8 .L34
+     /tmp/ccDhTiyf.s:1379   .text:00000000000003e4 .L35
+     /tmp/ccDhTiyf.s:1478   .text:0000000000000424 .L36
+GAS LISTING /tmp/ccDhTiyf.s 			page 53
 
 
-     /tmp/cclffJOB.s:105    .text:0000000000000060 .L3
-     /tmp/cclffJOB.s:552    .text:000000000000017c .L22
-     /tmp/cclffJOB.s:133    .text:0000000000000088 .L5
-     /tmp/cclffJOB.s:516    .text:000000000000016c .L6
-     /tmp/cclffJOB.s:1116   .text:0000000000000308 .L23
-     /tmp/cclffJOB.s:1080   .text:00000000000002f8 .L13
-     /tmp/cclffJOB.s:1212   .text:0000000000000368 .L17
-     /tmp/cclffJOB.s:1244   .text:000000000000038c .L15
-     /tmp/cclffJOB.s:1185   .text:000000000000033c .L16
-     /tmp/cclffJOB.s:1255   .text:000000000000039c .L18
-     /tmp/cclffJOB.s:4237   .debug_abbrev:0000000000000000 .Ldebug_abbrev0
-     /tmp/cclffJOB.s:6246   .debug_str:0000000000000970 .LASF187
-     /tmp/cclffJOB.s:6004   .debug_str:000000000000018c .LASF188
-     /tmp/cclffJOB.s:6120   .debug_str:0000000000000593 .LASF189
-     /tmp/cclffJOB.s:5      .text:0000000000000000 .Ltext0
-     /tmp/cclffJOB.s:1577   .text:0000000000000458 .Letext0
-     /tmp/cclffJOB.s:5948   .debug_line:0000000000000000 .Ldebug_line0
-     /tmp/cclffJOB.s:6170   .debug_str:000000000000074f .LASF3
-     /tmp/cclffJOB.s:6062   .debug_str:0000000000000389 .LASF0
-     /tmp/cclffJOB.s:6098   .debug_str:00000000000004fe .LASF1
-     /tmp/cclffJOB.s:6184   .debug_str:00000000000007a5 .LASF2
-     /tmp/cclffJOB.s:6196   .debug_str:000000000000081a .LASF4
-     /tmp/cclffJOB.s:6074   .debug_str:00000000000003d4 .LASF5
-     /tmp/cclffJOB.s:5962   .debug_str:0000000000000057 .LASF6
-     /tmp/cclffJOB.s:6146   .debug_str:0000000000000674 .LASF7
-     /tmp/cclffJOB.s:6088   .debug_str:00000000000004a1 .LASF8
-     /tmp/cclffJOB.s:6038   .debug_str:00000000000002ab .LASF9
-     /tmp/cclffJOB.s:6044   .debug_str:00000000000002dd .LASF10
-     /tmp/cclffJOB.s:5994   .debug_str:000000000000013a .LASF11
-     /tmp/cclffJOB.s:6028   .debug_str:0000000000000261 .LASF12
-     /tmp/cclffJOB.s:6006   .debug_str:000000000000019a .LASF13
-     /tmp/cclffJOB.s:5992   .debug_str:000000000000012a .LASF14
-     /tmp/cclffJOB.s:6222   .debug_str:00000000000008d7 .LASF15
-     /tmp/cclffJOB.s:6022   .debug_str:0000000000000212 .LASF16
-     /tmp/cclffJOB.s:6212   .debug_str:00000000000008a1 .LASF17
-     /tmp/cclffJOB.s:6294   .debug_str:0000000000000b8f .LASF54
-     /tmp/cclffJOB.s:6054   .debug_str:000000000000034e .LASF50
-     /tmp/cclffJOB.s:6060   .debug_str:0000000000000371 .LASF52
-     /tmp/cclffJOB.s:6274   .debug_str:0000000000000ae4 .LASF18
-     /tmp/cclffJOB.s:6262   .debug_str:0000000000000aa4 .LASF20
-     /tmp/cclffJOB.s:6180   .debug_str:0000000000000791 .LASF22
-     /tmp/cclffJOB.s:6138   .debug_str:000000000000063e .LASF24
-     /tmp/cclffJOB.s:6158   .debug_str:00000000000006e0 .LASF19
-     /tmp/cclffJOB.s:6160   .debug_str:00000000000006e7 .LASF21
-     /tmp/cclffJOB.s:6134   .debug_str:0000000000000623 .LASF23
-     /tmp/cclffJOB.s:6092   .debug_str:00000000000004d6 .LASF25
-     /tmp/cclffJOB.s:6306   .debug_str:0000000000000bc5 .LASF26
-     /tmp/cclffJOB.s:6252   .debug_str:0000000000000a4e .LASF27
-     /tmp/cclffJOB.s:6130   .debug_str:0000000000000616 .LASF28
-     /tmp/cclffJOB.s:6136   .debug_str:000000000000062a .LASF29
-     /tmp/cclffJOB.s:6104   .debug_str:0000000000000524 .LASF30
-     /tmp/cclffJOB.s:6164   .debug_str:0000000000000715 .LASF31
-     /tmp/cclffJOB.s:6334   .debug_str:0000000000000ca3 .LASF32
-     /tmp/cclffJOB.s:6068   .debug_str:00000000000003a1 .LASF33
-     /tmp/cclffJOB.s:6218   .debug_str:00000000000008c3 .LASF34
-     /tmp/cclffJOB.s:6200   .debug_str:0000000000000847 .LASF35
-     /tmp/cclffJOB.s:6202   .debug_str:000000000000085a .LASF36
-GAS LISTING /tmp/cclffJOB.s 			page 54
+     /tmp/ccDhTiyf.s:105    .text:0000000000000060 .L3
+     /tmp/ccDhTiyf.s:552    .text:000000000000017c .L22
+     /tmp/ccDhTiyf.s:133    .text:0000000000000088 .L5
+     /tmp/ccDhTiyf.s:516    .text:000000000000016c .L6
+     /tmp/ccDhTiyf.s:1116   .text:0000000000000308 .L23
+     /tmp/ccDhTiyf.s:1080   .text:00000000000002f8 .L13
+     /tmp/ccDhTiyf.s:1212   .text:0000000000000368 .L17
+     /tmp/ccDhTiyf.s:1244   .text:000000000000038c .L15
+     /tmp/ccDhTiyf.s:1185   .text:000000000000033c .L16
+     /tmp/ccDhTiyf.s:1255   .text:000000000000039c .L18
+     /tmp/ccDhTiyf.s:4237   .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+     /tmp/ccDhTiyf.s:6246   .debug_str:0000000000000970 .LASF187
+     /tmp/ccDhTiyf.s:6004   .debug_str:000000000000018c .LASF188
+     /tmp/ccDhTiyf.s:6120   .debug_str:0000000000000593 .LASF189
+     /tmp/ccDhTiyf.s:5      .text:0000000000000000 .Ltext0
+     /tmp/ccDhTiyf.s:1577   .text:0000000000000458 .Letext0
+     /tmp/ccDhTiyf.s:5948   .debug_line:0000000000000000 .Ldebug_line0
+     /tmp/ccDhTiyf.s:6170   .debug_str:000000000000074f .LASF3
+     /tmp/ccDhTiyf.s:6062   .debug_str:0000000000000389 .LASF0
+     /tmp/ccDhTiyf.s:6098   .debug_str:00000000000004fe .LASF1
+     /tmp/ccDhTiyf.s:6184   .debug_str:00000000000007a5 .LASF2
+     /tmp/ccDhTiyf.s:6196   .debug_str:000000000000081a .LASF4
+     /tmp/ccDhTiyf.s:6074   .debug_str:00000000000003d4 .LASF5
+     /tmp/ccDhTiyf.s:5962   .debug_str:0000000000000057 .LASF6
+     /tmp/ccDhTiyf.s:6146   .debug_str:0000000000000674 .LASF7
+     /tmp/ccDhTiyf.s:6088   .debug_str:00000000000004a1 .LASF8
+     /tmp/ccDhTiyf.s:6038   .debug_str:00000000000002ab .LASF9
+     /tmp/ccDhTiyf.s:6044   .debug_str:00000000000002dd .LASF10
+     /tmp/ccDhTiyf.s:5994   .debug_str:000000000000013a .LASF11
+     /tmp/ccDhTiyf.s:6028   .debug_str:0000000000000261 .LASF12
+     /tmp/ccDhTiyf.s:6006   .debug_str:000000000000019a .LASF13
+     /tmp/ccDhTiyf.s:5992   .debug_str:000000000000012a .LASF14
+     /tmp/ccDhTiyf.s:6222   .debug_str:00000000000008d7 .LASF15
+     /tmp/ccDhTiyf.s:6022   .debug_str:0000000000000212 .LASF16
+     /tmp/ccDhTiyf.s:6212   .debug_str:00000000000008a1 .LASF17
+     /tmp/ccDhTiyf.s:6294   .debug_str:0000000000000b8f .LASF54
+     /tmp/ccDhTiyf.s:6054   .debug_str:000000000000034e .LASF50
+     /tmp/ccDhTiyf.s:6060   .debug_str:0000000000000371 .LASF52
+     /tmp/ccDhTiyf.s:6274   .debug_str:0000000000000ae4 .LASF18
+     /tmp/ccDhTiyf.s:6262   .debug_str:0000000000000aa4 .LASF20
+     /tmp/ccDhTiyf.s:6180   .debug_str:0000000000000791 .LASF22
+     /tmp/ccDhTiyf.s:6138   .debug_str:000000000000063e .LASF24
+     /tmp/ccDhTiyf.s:6158   .debug_str:00000000000006e0 .LASF19
+     /tmp/ccDhTiyf.s:6160   .debug_str:00000000000006e7 .LASF21
+     /tmp/ccDhTiyf.s:6134   .debug_str:0000000000000623 .LASF23
+     /tmp/ccDhTiyf.s:6092   .debug_str:00000000000004d6 .LASF25
+     /tmp/ccDhTiyf.s:6306   .debug_str:0000000000000bc5 .LASF26
+     /tmp/ccDhTiyf.s:6252   .debug_str:0000000000000a4e .LASF27
+     /tmp/ccDhTiyf.s:6130   .debug_str:0000000000000616 .LASF28
+     /tmp/ccDhTiyf.s:6136   .debug_str:000000000000062a .LASF29
+     /tmp/ccDhTiyf.s:6104   .debug_str:0000000000000524 .LASF30
+     /tmp/ccDhTiyf.s:6164   .debug_str:0000000000000715 .LASF31
+     /tmp/ccDhTiyf.s:6334   .debug_str:0000000000000ca3 .LASF32
+     /tmp/ccDhTiyf.s:6068   .debug_str:00000000000003a1 .LASF33
+     /tmp/ccDhTiyf.s:6218   .debug_str:00000000000008c3 .LASF34
+     /tmp/ccDhTiyf.s:6200   .debug_str:0000000000000847 .LASF35
+     /tmp/ccDhTiyf.s:6202   .debug_str:000000000000085a .LASF36
+GAS LISTING /tmp/ccDhTiyf.s 			page 54
 
 
-     /tmp/cclffJOB.s:5998   .debug_str:000000000000014e .LASF37
-     /tmp/cclffJOB.s:6020   .debug_str:000000000000020c .LASF38
-     /tmp/cclffJOB.s:6058   .debug_str:000000000000035f .LASF39
-     /tmp/cclffJOB.s:6066   .debug_str:000000000000039b .LASF40
-     /tmp/cclffJOB.s:6012   .debug_str:00000000000001cf .LASF41
-     /tmp/cclffJOB.s:5964   .debug_str:000000000000005e .LASF42
-     /tmp/cclffJOB.s:6190   .debug_str:00000000000007d2 .LASF43
-     /tmp/cclffJOB.s:6182   .debug_str:000000000000079a .LASF44
-     /tmp/cclffJOB.s:6328   .debug_str:0000000000000c75 .LASF45
-     /tmp/cclffJOB.s:6298   .debug_str:0000000000000b9a .LASF46
-     /tmp/cclffJOB.s:6310   .debug_str:0000000000000bd9 .LASF47
-     /tmp/cclffJOB.s:6292   .debug_str:0000000000000b85 .LASF48
-     /tmp/cclffJOB.s:6122   .debug_str:00000000000005c3 .LASF49
-     /tmp/cclffJOB.s:6304   .debug_str:0000000000000bb6 .LASF51
-     /tmp/cclffJOB.s:6042   .debug_str:00000000000002c1 .LASF53
-     /tmp/cclffJOB.s:6148   .debug_str:0000000000000687 .LASF133
-     /tmp/cclffJOB.s:6084   .debug_str:0000000000000462 .LASF135
-     /tmp/cclffJOB.s:6142   .debug_str:0000000000000658 .LASF55
-     /tmp/cclffJOB.s:6308   .debug_str:0000000000000bcd .LASF56
-     /tmp/cclffJOB.s:6124   .debug_str:00000000000005d9 .LASF57
-     /tmp/cclffJOB.s:6228   .debug_str:00000000000008f3 .LASF58
-     /tmp/cclffJOB.s:5986   .debug_str:00000000000000ec .LASF60
-     /tmp/cclffJOB.s:6276   .debug_str:0000000000000aed .LASF59
-     /tmp/cclffJOB.s:6024   .debug_str:0000000000000228 .LASF61
-     /tmp/cclffJOB.s:6078   .debug_str:0000000000000412 .LASF63
-     /tmp/cclffJOB.s:6188   .debug_str:00000000000007c8 .LASF62
-     /tmp/cclffJOB.s:6280   .debug_str:0000000000000afc .LASF64
-     /tmp/cclffJOB.s:5966   .debug_str:0000000000000069 .LASF74
-     /tmp/cclffJOB.s:6036   .debug_str:00000000000002a1 .LASF65
-     /tmp/cclffJOB.s:6208   .debug_str:000000000000087d .LASF141
-     /tmp/cclffJOB.s:6316   .debug_str:0000000000000c1b .LASF66
-     /tmp/cclffJOB.s:6322   .debug_str:0000000000000c3a .LASF190
-     /tmp/cclffJOB.s:6082   .debug_str:0000000000000446 .LASF191
-     /tmp/cclffJOB.s:6086   .debug_str:0000000000000484 .LASF67
-     /tmp/cclffJOB.s:5990   .debug_str:0000000000000115 .LASF68
-     /tmp/cclffJOB.s:6194   .debug_str:0000000000000805 .LASF69
-     /tmp/cclffJOB.s:6336   .debug_str:0000000000000cab .LASF70
-     /tmp/cclffJOB.s:6278   .debug_str:0000000000000af7 .LASF73
-     /tmp/cclffJOB.s:6096   .debug_str:00000000000004f9 .LASF71
-     /tmp/cclffJOB.s:5996   .debug_str:0000000000000149 .LASF72
-     /tmp/cclffJOB.s:6244   .debug_str:000000000000094d .LASF75
-     /tmp/cclffJOB.s:6216   .debug_str:00000000000008be .LASF76
-     /tmp/cclffJOB.s:6132   .debug_str:000000000000061e .LASF77
-     /tmp/cclffJOB.s:6128   .debug_str:0000000000000611 .LASF78
-     /tmp/cclffJOB.s:6286   .debug_str:0000000000000b47 .LASF79
-     /tmp/cclffJOB.s:6162   .debug_str:00000000000006fa .LASF80
-     /tmp/cclffJOB.s:6052   .debug_str:0000000000000333 .LASF192
-     /tmp/cclffJOB.s:6330   .debug_str:0000000000000c8d .LASF81
-     /tmp/cclffJOB.s:5956   .debug_str:000000000000002b .LASF82
-     /tmp/cclffJOB.s:5960   .debug_str:0000000000000047 .LASF83
-     /tmp/cclffJOB.s:6080   .debug_str:000000000000042e .LASF84
-     /tmp/cclffJOB.s:6178   .debug_str:0000000000000788 .LASF85
-     /tmp/cclffJOB.s:6326   .debug_str:0000000000000c54 .LASF86
-     /tmp/cclffJOB.s:6108   .debug_str:0000000000000540 .LASF87
-     /tmp/cclffJOB.s:6290   .debug_str:0000000000000b65 .LASF88
-     /tmp/cclffJOB.s:6144   .debug_str:0000000000000668 .LASF89
-     /tmp/cclffJOB.s:6090   .debug_str:00000000000004b4 .LASF90
-GAS LISTING /tmp/cclffJOB.s 			page 55
+     /tmp/ccDhTiyf.s:5998   .debug_str:000000000000014e .LASF37
+     /tmp/ccDhTiyf.s:6020   .debug_str:000000000000020c .LASF38
+     /tmp/ccDhTiyf.s:6058   .debug_str:000000000000035f .LASF39
+     /tmp/ccDhTiyf.s:6066   .debug_str:000000000000039b .LASF40
+     /tmp/ccDhTiyf.s:6012   .debug_str:00000000000001cf .LASF41
+     /tmp/ccDhTiyf.s:5964   .debug_str:000000000000005e .LASF42
+     /tmp/ccDhTiyf.s:6190   .debug_str:00000000000007d2 .LASF43
+     /tmp/ccDhTiyf.s:6182   .debug_str:000000000000079a .LASF44
+     /tmp/ccDhTiyf.s:6328   .debug_str:0000000000000c75 .LASF45
+     /tmp/ccDhTiyf.s:6298   .debug_str:0000000000000b9a .LASF46
+     /tmp/ccDhTiyf.s:6310   .debug_str:0000000000000bd9 .LASF47
+     /tmp/ccDhTiyf.s:6292   .debug_str:0000000000000b85 .LASF48
+     /tmp/ccDhTiyf.s:6122   .debug_str:00000000000005c3 .LASF49
+     /tmp/ccDhTiyf.s:6304   .debug_str:0000000000000bb6 .LASF51
+     /tmp/ccDhTiyf.s:6042   .debug_str:00000000000002c1 .LASF53
+     /tmp/ccDhTiyf.s:6148   .debug_str:0000000000000687 .LASF133
+     /tmp/ccDhTiyf.s:6084   .debug_str:0000000000000462 .LASF135
+     /tmp/ccDhTiyf.s:6142   .debug_str:0000000000000658 .LASF55
+     /tmp/ccDhTiyf.s:6308   .debug_str:0000000000000bcd .LASF56
+     /tmp/ccDhTiyf.s:6124   .debug_str:00000000000005d9 .LASF57
+     /tmp/ccDhTiyf.s:6228   .debug_str:00000000000008f3 .LASF58
+     /tmp/ccDhTiyf.s:5986   .debug_str:00000000000000ec .LASF60
+     /tmp/ccDhTiyf.s:6276   .debug_str:0000000000000aed .LASF59
+     /tmp/ccDhTiyf.s:6024   .debug_str:0000000000000228 .LASF61
+     /tmp/ccDhTiyf.s:6078   .debug_str:0000000000000412 .LASF63
+     /tmp/ccDhTiyf.s:6188   .debug_str:00000000000007c8 .LASF62
+     /tmp/ccDhTiyf.s:6280   .debug_str:0000000000000afc .LASF64
+     /tmp/ccDhTiyf.s:5966   .debug_str:0000000000000069 .LASF74
+     /tmp/ccDhTiyf.s:6036   .debug_str:00000000000002a1 .LASF65
+     /tmp/ccDhTiyf.s:6208   .debug_str:000000000000087d .LASF141
+     /tmp/ccDhTiyf.s:6316   .debug_str:0000000000000c1b .LASF66
+     /tmp/ccDhTiyf.s:6322   .debug_str:0000000000000c3a .LASF190
+     /tmp/ccDhTiyf.s:6082   .debug_str:0000000000000446 .LASF191
+     /tmp/ccDhTiyf.s:6086   .debug_str:0000000000000484 .LASF67
+     /tmp/ccDhTiyf.s:5990   .debug_str:0000000000000115 .LASF68
+     /tmp/ccDhTiyf.s:6194   .debug_str:0000000000000805 .LASF69
+     /tmp/ccDhTiyf.s:6336   .debug_str:0000000000000cab .LASF70
+     /tmp/ccDhTiyf.s:6278   .debug_str:0000000000000af7 .LASF73
+     /tmp/ccDhTiyf.s:6096   .debug_str:00000000000004f9 .LASF71
+     /tmp/ccDhTiyf.s:5996   .debug_str:0000000000000149 .LASF72
+     /tmp/ccDhTiyf.s:6244   .debug_str:000000000000094d .LASF75
+     /tmp/ccDhTiyf.s:6216   .debug_str:00000000000008be .LASF76
+     /tmp/ccDhTiyf.s:6132   .debug_str:000000000000061e .LASF77
+     /tmp/ccDhTiyf.s:6128   .debug_str:0000000000000611 .LASF78
+     /tmp/ccDhTiyf.s:6286   .debug_str:0000000000000b47 .LASF79
+     /tmp/ccDhTiyf.s:6162   .debug_str:00000000000006fa .LASF80
+     /tmp/ccDhTiyf.s:6052   .debug_str:0000000000000333 .LASF192
+     /tmp/ccDhTiyf.s:6330   .debug_str:0000000000000c8d .LASF81
+     /tmp/ccDhTiyf.s:5956   .debug_str:000000000000002b .LASF82
+     /tmp/ccDhTiyf.s:5960   .debug_str:0000000000000047 .LASF83
+     /tmp/ccDhTiyf.s:6080   .debug_str:000000000000042e .LASF84
+     /tmp/ccDhTiyf.s:6178   .debug_str:0000000000000788 .LASF85
+     /tmp/ccDhTiyf.s:6326   .debug_str:0000000000000c54 .LASF86
+     /tmp/ccDhTiyf.s:6108   .debug_str:0000000000000540 .LASF87
+     /tmp/ccDhTiyf.s:6290   .debug_str:0000000000000b65 .LASF88
+     /tmp/ccDhTiyf.s:6144   .debug_str:0000000000000668 .LASF89
+     /tmp/ccDhTiyf.s:6090   .debug_str:00000000000004b4 .LASF90
+GAS LISTING /tmp/ccDhTiyf.s 			page 55
 
 
-     /tmp/cclffJOB.s:6338   .debug_str:0000000000000cb9 .LASF91
-     /tmp/cclffJOB.s:6176   .debug_str:0000000000000769 .LASF92
-     /tmp/cclffJOB.s:6206   .debug_str:0000000000000872 .LASF93
-     /tmp/cclffJOB.s:6030   .debug_str:0000000000000270 .LASF94
-     /tmp/cclffJOB.s:6166   .debug_str:0000000000000729 .LASF95
-     /tmp/cclffJOB.s:6000   .debug_str:0000000000000161 .LASF96
-     /tmp/cclffJOB.s:5968   .debug_str:0000000000000082 .LASF97
-     /tmp/cclffJOB.s:6318   .debug_str:0000000000000c2d .LASF193
-     /tmp/cclffJOB.s:5988   .debug_str:000000000000010f .LASF98
-     /tmp/cclffJOB.s:5980   .debug_str:00000000000000c5 .LASF99
-     /tmp/cclffJOB.s:6114   .debug_str:0000000000000572 .LASF100
-     /tmp/cclffJOB.s:6232   .debug_str:0000000000000907 .LASF101
-     /tmp/cclffJOB.s:6224   .debug_str:00000000000008e3 .LASF102
-     /tmp/cclffJOB.s:6094   .debug_str:00000000000004e9 .LASF103
-     /tmp/cclffJOB.s:6234   .debug_str:000000000000090f .LASF104
-     /tmp/cclffJOB.s:6192   .debug_str:00000000000007ea .LASF105
-     /tmp/cclffJOB.s:5974   .debug_str:00000000000000a3 .LASF106
-     /tmp/cclffJOB.s:6284   .debug_str:0000000000000b2c .LASF107
-     /tmp/cclffJOB.s:6102   .debug_str:0000000000000517 .LASF108
-     /tmp/cclffJOB.s:6014   .debug_str:00000000000001e1 .LASF109
-     /tmp/cclffJOB.s:6220   .debug_str:00000000000008ca .LASF110
-     /tmp/cclffJOB.s:6198   .debug_str:0000000000000821 .LASF111
-     /tmp/cclffJOB.s:6140   .debug_str:0000000000000653 .LASF145
-     /tmp/cclffJOB.s:6100   .debug_str:0000000000000511 .LASF112
-     /tmp/cclffJOB.s:5952   .debug_str:0000000000000011 .LASF113
-     /tmp/cclffJOB.s:6320   .debug_str:0000000000000c34 .LASF114
-     /tmp/cclffJOB.s:6154   .debug_str:00000000000006b8 .LASF115
-     /tmp/cclffJOB.s:6242   .debug_str:0000000000000945 .LASF194
-     /tmp/cclffJOB.s:6070   .debug_str:00000000000003b5 .LASF116
-     /tmp/cclffJOB.s:6282   .debug_str:0000000000000b18 .LASF117
-     /tmp/cclffJOB.s:6002   .debug_str:000000000000017f .LASF118
-     /tmp/cclffJOB.s:6258   .debug_str:0000000000000a80 .LASF119
-     /tmp/cclffJOB.s:6174   .debug_str:0000000000000759 .LASF120
-     /tmp/cclffJOB.s:5984   .debug_str:00000000000000dc .LASF121
-     /tmp/cclffJOB.s:6314   .debug_str:0000000000000c0b .LASF122
-     /tmp/cclffJOB.s:6250   .debug_str:0000000000000a3d .LASF123
-     /tmp/cclffJOB.s:6210   .debug_str:000000000000088e .LASF124
-     /tmp/cclffJOB.s:5950   .debug_str:0000000000000000 .LASF125
-     /tmp/cclffJOB.s:6050   .debug_str:0000000000000318 .LASF126
-     /tmp/cclffJOB.s:5958   .debug_str:0000000000000042 .LASF127
-     /tmp/cclffJOB.s:6324   .debug_str:0000000000000c4e .LASF128
-     /tmp/cclffJOB.s:6260   .debug_str:0000000000000a9c .LASF129
-     /tmp/cclffJOB.s:6256   .debug_str:0000000000000a76 .LASF130
-     /tmp/cclffJOB.s:6230   .debug_str:00000000000008fe .LASF131
-     /tmp/cclffJOB.s:6302   .debug_str:0000000000000bac .LASF132
-     /tmp/cclffJOB.s:5982   .debug_str:00000000000000ce .LASF134
-     /tmp/cclffJOB.s:6168   .debug_str:0000000000000732 .LASF136
-     /tmp/cclffJOB.s:6008   .debug_str:00000000000001aa .LASF137
-     /tmp/cclffJOB.s:6076   .debug_str:00000000000003e6 .LASF138
-     /tmp/cclffJOB.s:6016   .debug_str:00000000000001fe .LASF139
-     /tmp/cclffJOB.s:6010   .debug_str:00000000000001b8 .LASF140
-     /tmp/cclffJOB.s:6204   .debug_str:0000000000000861 .LASF142
-     /tmp/cclffJOB.s:6248   .debug_str:0000000000000a34 .LASF143
-     /tmp/cclffJOB.s:6288   .debug_str:0000000000000b5e .LASF144
-     /tmp/cclffJOB.s:6332   .debug_str:0000000000000c9a .LASF146
-     /tmp/cclffJOB.s:6172   .debug_str:0000000000000754 .LASF147
-     /tmp/cclffJOB.s:6034   .debug_str:0000000000000296 .LASF148
-GAS LISTING /tmp/cclffJOB.s 			page 56
+     /tmp/ccDhTiyf.s:6338   .debug_str:0000000000000cb9 .LASF91
+     /tmp/ccDhTiyf.s:6176   .debug_str:0000000000000769 .LASF92
+     /tmp/ccDhTiyf.s:6206   .debug_str:0000000000000872 .LASF93
+     /tmp/ccDhTiyf.s:6030   .debug_str:0000000000000270 .LASF94
+     /tmp/ccDhTiyf.s:6166   .debug_str:0000000000000729 .LASF95
+     /tmp/ccDhTiyf.s:6000   .debug_str:0000000000000161 .LASF96
+     /tmp/ccDhTiyf.s:5968   .debug_str:0000000000000082 .LASF97
+     /tmp/ccDhTiyf.s:6318   .debug_str:0000000000000c2d .LASF193
+     /tmp/ccDhTiyf.s:5988   .debug_str:000000000000010f .LASF98
+     /tmp/ccDhTiyf.s:5980   .debug_str:00000000000000c5 .LASF99
+     /tmp/ccDhTiyf.s:6114   .debug_str:0000000000000572 .LASF100
+     /tmp/ccDhTiyf.s:6232   .debug_str:0000000000000907 .LASF101
+     /tmp/ccDhTiyf.s:6224   .debug_str:00000000000008e3 .LASF102
+     /tmp/ccDhTiyf.s:6094   .debug_str:00000000000004e9 .LASF103
+     /tmp/ccDhTiyf.s:6234   .debug_str:000000000000090f .LASF104
+     /tmp/ccDhTiyf.s:6192   .debug_str:00000000000007ea .LASF105
+     /tmp/ccDhTiyf.s:5974   .debug_str:00000000000000a3 .LASF106
+     /tmp/ccDhTiyf.s:6284   .debug_str:0000000000000b2c .LASF107
+     /tmp/ccDhTiyf.s:6102   .debug_str:0000000000000517 .LASF108
+     /tmp/ccDhTiyf.s:6014   .debug_str:00000000000001e1 .LASF109
+     /tmp/ccDhTiyf.s:6220   .debug_str:00000000000008ca .LASF110
+     /tmp/ccDhTiyf.s:6198   .debug_str:0000000000000821 .LASF111
+     /tmp/ccDhTiyf.s:6140   .debug_str:0000000000000653 .LASF145
+     /tmp/ccDhTiyf.s:6100   .debug_str:0000000000000511 .LASF112
+     /tmp/ccDhTiyf.s:5952   .debug_str:0000000000000011 .LASF113
+     /tmp/ccDhTiyf.s:6320   .debug_str:0000000000000c34 .LASF114
+     /tmp/ccDhTiyf.s:6154   .debug_str:00000000000006b8 .LASF115
+     /tmp/ccDhTiyf.s:6242   .debug_str:0000000000000945 .LASF194
+     /tmp/ccDhTiyf.s:6070   .debug_str:00000000000003b5 .LASF116
+     /tmp/ccDhTiyf.s:6282   .debug_str:0000000000000b18 .LASF117
+     /tmp/ccDhTiyf.s:6002   .debug_str:000000000000017f .LASF118
+     /tmp/ccDhTiyf.s:6258   .debug_str:0000000000000a80 .LASF119
+     /tmp/ccDhTiyf.s:6174   .debug_str:0000000000000759 .LASF120
+     /tmp/ccDhTiyf.s:5984   .debug_str:00000000000000dc .LASF121
+     /tmp/ccDhTiyf.s:6314   .debug_str:0000000000000c0b .LASF122
+     /tmp/ccDhTiyf.s:6250   .debug_str:0000000000000a3d .LASF123
+     /tmp/ccDhTiyf.s:6210   .debug_str:000000000000088e .LASF124
+     /tmp/ccDhTiyf.s:5950   .debug_str:0000000000000000 .LASF125
+     /tmp/ccDhTiyf.s:6050   .debug_str:0000000000000318 .LASF126
+     /tmp/ccDhTiyf.s:5958   .debug_str:0000000000000042 .LASF127
+     /tmp/ccDhTiyf.s:6324   .debug_str:0000000000000c4e .LASF128
+     /tmp/ccDhTiyf.s:6260   .debug_str:0000000000000a9c .LASF129
+     /tmp/ccDhTiyf.s:6256   .debug_str:0000000000000a76 .LASF130
+     /tmp/ccDhTiyf.s:6230   .debug_str:00000000000008fe .LASF131
+     /tmp/ccDhTiyf.s:6302   .debug_str:0000000000000bac .LASF132
+     /tmp/ccDhTiyf.s:5982   .debug_str:00000000000000ce .LASF134
+     /tmp/ccDhTiyf.s:6168   .debug_str:0000000000000732 .LASF136
+     /tmp/ccDhTiyf.s:6008   .debug_str:00000000000001aa .LASF137
+     /tmp/ccDhTiyf.s:6076   .debug_str:00000000000003e6 .LASF138
+     /tmp/ccDhTiyf.s:6016   .debug_str:00000000000001fe .LASF139
+     /tmp/ccDhTiyf.s:6010   .debug_str:00000000000001b8 .LASF140
+     /tmp/ccDhTiyf.s:6204   .debug_str:0000000000000861 .LASF142
+     /tmp/ccDhTiyf.s:6248   .debug_str:0000000000000a34 .LASF143
+     /tmp/ccDhTiyf.s:6288   .debug_str:0000000000000b5e .LASF144
+     /tmp/ccDhTiyf.s:6332   .debug_str:0000000000000c9a .LASF146
+     /tmp/ccDhTiyf.s:6172   .debug_str:0000000000000754 .LASF147
+     /tmp/ccDhTiyf.s:6034   .debug_str:0000000000000296 .LASF148
+GAS LISTING /tmp/ccDhTiyf.s 			page 56
 
 
-     /tmp/cclffJOB.s:6046   .debug_str:00000000000002eb .LASF149
-     /tmp/cclffJOB.s:6018   .debug_str:0000000000000207 .LASF150
-     /tmp/cclffJOB.s:6264   .debug_str:0000000000000ab9 .LASF151
-     /tmp/cclffJOB.s:6226   .debug_str:00000000000008ec .LASF152
-     /tmp/cclffJOB.s:6072   .debug_str:00000000000003bb .LASF153
-     /tmp/cclffJOB.s:6056   .debug_str:0000000000000359 .LASF154
-     /tmp/cclffJOB.s:6048   .debug_str:00000000000002ff .LASF155
-     /tmp/cclffJOB.s:6116   .debug_str:000000000000057a .LASF156
-     /tmp/cclffJOB.s:6106   .debug_str:000000000000052c .LASF157
-     /tmp/cclffJOB.s:6186   .debug_str:00000000000007b3 .LASF158
-     /tmp/cclffJOB.s:6236   .debug_str:000000000000091a .LASF159
-     /tmp/cclffJOB.s:6152   .debug_str:00000000000006b0 .LASF160
-     /tmp/cclffJOB.s:6040   .debug_str:00000000000002bb .LASF161
-     /tmp/cclffJOB.s:6110   .debug_str:0000000000000548 .LASF162
-     /tmp/cclffJOB.s:6312   .debug_str:0000000000000bef .LASF163
-     /tmp/cclffJOB.s:6118   .debug_str:000000000000058e .LASF164
-     /tmp/cclffJOB.s:6126   .debug_str:00000000000005fd .LASF165
-     /tmp/cclffJOB.s:6064   .debug_str:0000000000000396 .LASF166
-     /tmp/cclffJOB.s:5970   .debug_str:000000000000008a .LASF167
-     /tmp/cclffJOB.s:5978   .debug_str:00000000000000b4 .LASF168
-     /tmp/cclffJOB.s:6112   .debug_str:0000000000000551 .LASF169
-     /tmp/cclffJOB.s:6254   .debug_str:0000000000000a62 .LASF170
-     /tmp/cclffJOB.s:6150   .debug_str:000000000000069c .LASF171
-     /tmp/cclffJOB.s:6240   .debug_str:0000000000000934 .LASF172
-     /tmp/cclffJOB.s:6238   .debug_str:000000000000092f .LASF173
-     /tmp/cclffJOB.s:6032   .debug_str:0000000000000291 .LASF175
-     /tmp/cclffJOB.s:5976   .debug_str:00000000000000af .LASF174
-     /tmp/cclffJOB.s:6026   .debug_str:000000000000024a .LASF184
-     /tmp/cclffJOB.s:46     .text:0000000000000020 .LFB51
-     /tmp/cclffJOB.s:1575   .text:0000000000000458 .LFE51
-     /tmp/cclffJOB.s:6214   .debug_str:00000000000008b7 .LASF176
-     /tmp/cclffJOB.s:5321   .debug_loc:0000000000000000 .LLST0
-     /tmp/cclffJOB.s:5954   .debug_str:0000000000000025 .LASF177
-     /tmp/cclffJOB.s:5328   .debug_loc:0000000000000023 .LLST1
-     /tmp/cclffJOB.s:6266   .debug_str:0000000000000ad0 .LASF178
-     /tmp/cclffJOB.s:5379   .debug_loc:0000000000000117 .LLST2
-     /tmp/cclffJOB.s:415    .text:000000000000011c .LBB144
-     /tmp/cclffJOB.s:560    .text:0000000000000184 .LBE144
-     /tmp/cclffJOB.s:6296   .debug_str:0000000000000b95 .LASF179
-     /tmp/cclffJOB.s:5390   .debug_loc:000000000000014d .LLST3
-     /tmp/cclffJOB.s:6300   .debug_str:0000000000000ba4 .LASF180
-     /tmp/cclffJOB.s:5397   .debug_loc:0000000000000170 .LLST4
-     /tmp/cclffJOB.s:5404   .debug_loc:0000000000000193 .LLST5
-     /tmp/cclffJOB.s:6268   .debug_str:0000000000000ad5 .LASF181
-     /tmp/cclffJOB.s:5411   .debug_loc:00000000000001b6 .LLST6
-     /tmp/cclffJOB.s:6270   .debug_str:0000000000000ada .LASF182
-     /tmp/cclffJOB.s:5418   .debug_loc:00000000000001d9 .LLST7
-     /tmp/cclffJOB.s:6272   .debug_str:0000000000000adf .LASF183
-     /tmp/cclffJOB.s:5425   .debug_loc:00000000000001fc .LLST8
-     /tmp/cclffJOB.s:5432   .debug_loc:000000000000021f .LLST9
-     /tmp/cclffJOB.s:5439   .debug_loc:0000000000000242 .LLST10
-     /tmp/cclffJOB.s:417    .text:000000000000011c .LBB145
-     /tmp/cclffJOB.s:432    .text:0000000000000128 .LBE145
-     /tmp/cclffJOB.s:437    .text:000000000000012c .LBB147
-     /tmp/cclffJOB.s:453    .text:0000000000000138 .LBE147
-     /tmp/cclffJOB.s:527    .text:0000000000000170 .LBB149
-     /tmp/cclffJOB.s:538    .text:0000000000000174 .LBE149
-GAS LISTING /tmp/cclffJOB.s 			page 57
+     /tmp/ccDhTiyf.s:6046   .debug_str:00000000000002eb .LASF149
+     /tmp/ccDhTiyf.s:6018   .debug_str:0000000000000207 .LASF150
+     /tmp/ccDhTiyf.s:6264   .debug_str:0000000000000ab9 .LASF151
+     /tmp/ccDhTiyf.s:6226   .debug_str:00000000000008ec .LASF152
+     /tmp/ccDhTiyf.s:6072   .debug_str:00000000000003bb .LASF153
+     /tmp/ccDhTiyf.s:6056   .debug_str:0000000000000359 .LASF154
+     /tmp/ccDhTiyf.s:6048   .debug_str:00000000000002ff .LASF155
+     /tmp/ccDhTiyf.s:6116   .debug_str:000000000000057a .LASF156
+     /tmp/ccDhTiyf.s:6106   .debug_str:000000000000052c .LASF157
+     /tmp/ccDhTiyf.s:6186   .debug_str:00000000000007b3 .LASF158
+     /tmp/ccDhTiyf.s:6236   .debug_str:000000000000091a .LASF159
+     /tmp/ccDhTiyf.s:6152   .debug_str:00000000000006b0 .LASF160
+     /tmp/ccDhTiyf.s:6040   .debug_str:00000000000002bb .LASF161
+     /tmp/ccDhTiyf.s:6110   .debug_str:0000000000000548 .LASF162
+     /tmp/ccDhTiyf.s:6312   .debug_str:0000000000000bef .LASF163
+     /tmp/ccDhTiyf.s:6118   .debug_str:000000000000058e .LASF164
+     /tmp/ccDhTiyf.s:6126   .debug_str:00000000000005fd .LASF165
+     /tmp/ccDhTiyf.s:6064   .debug_str:0000000000000396 .LASF166
+     /tmp/ccDhTiyf.s:5970   .debug_str:000000000000008a .LASF167
+     /tmp/ccDhTiyf.s:5978   .debug_str:00000000000000b4 .LASF168
+     /tmp/ccDhTiyf.s:6112   .debug_str:0000000000000551 .LASF169
+     /tmp/ccDhTiyf.s:6254   .debug_str:0000000000000a62 .LASF170
+     /tmp/ccDhTiyf.s:6150   .debug_str:000000000000069c .LASF171
+     /tmp/ccDhTiyf.s:6240   .debug_str:0000000000000934 .LASF172
+     /tmp/ccDhTiyf.s:6238   .debug_str:000000000000092f .LASF173
+     /tmp/ccDhTiyf.s:6032   .debug_str:0000000000000291 .LASF175
+     /tmp/ccDhTiyf.s:5976   .debug_str:00000000000000af .LASF174
+     /tmp/ccDhTiyf.s:6026   .debug_str:000000000000024a .LASF184
+     /tmp/ccDhTiyf.s:46     .text:0000000000000020 .LFB51
+     /tmp/ccDhTiyf.s:1575   .text:0000000000000458 .LFE51
+     /tmp/ccDhTiyf.s:6214   .debug_str:00000000000008b7 .LASF176
+     /tmp/ccDhTiyf.s:5321   .debug_loc:0000000000000000 .LLST0
+     /tmp/ccDhTiyf.s:5954   .debug_str:0000000000000025 .LASF177
+     /tmp/ccDhTiyf.s:5328   .debug_loc:0000000000000023 .LLST1
+     /tmp/ccDhTiyf.s:6266   .debug_str:0000000000000ad0 .LASF178
+     /tmp/ccDhTiyf.s:5379   .debug_loc:0000000000000117 .LLST2
+     /tmp/ccDhTiyf.s:415    .text:000000000000011c .LBB144
+     /tmp/ccDhTiyf.s:560    .text:0000000000000184 .LBE144
+     /tmp/ccDhTiyf.s:6296   .debug_str:0000000000000b95 .LASF179
+     /tmp/ccDhTiyf.s:5390   .debug_loc:000000000000014d .LLST3
+     /tmp/ccDhTiyf.s:6300   .debug_str:0000000000000ba4 .LASF180
+     /tmp/ccDhTiyf.s:5397   .debug_loc:0000000000000170 .LLST4
+     /tmp/ccDhTiyf.s:5404   .debug_loc:0000000000000193 .LLST5
+     /tmp/ccDhTiyf.s:6268   .debug_str:0000000000000ad5 .LASF181
+     /tmp/ccDhTiyf.s:5411   .debug_loc:00000000000001b6 .LLST6
+     /tmp/ccDhTiyf.s:6270   .debug_str:0000000000000ada .LASF182
+     /tmp/ccDhTiyf.s:5418   .debug_loc:00000000000001d9 .LLST7
+     /tmp/ccDhTiyf.s:6272   .debug_str:0000000000000adf .LASF183
+     /tmp/ccDhTiyf.s:5425   .debug_loc:00000000000001fc .LLST8
+     /tmp/ccDhTiyf.s:5432   .debug_loc:000000000000021f .LLST9
+     /tmp/ccDhTiyf.s:5439   .debug_loc:0000000000000242 .LLST10
+     /tmp/ccDhTiyf.s:417    .text:000000000000011c .LBB145
+     /tmp/ccDhTiyf.s:432    .text:0000000000000128 .LBE145
+     /tmp/ccDhTiyf.s:437    .text:000000000000012c .LBB147
+     /tmp/ccDhTiyf.s:453    .text:0000000000000138 .LBE147
+     /tmp/ccDhTiyf.s:527    .text:0000000000000170 .LBB149
+     /tmp/ccDhTiyf.s:538    .text:0000000000000174 .LBE149
+GAS LISTING /tmp/ccDhTiyf.s 			page 57
 
 
-     /tmp/cclffJOB.s:5446   .debug_loc:0000000000000265 .LLST11
-     /tmp/cclffJOB.s:540    .text:0000000000000174 .LBB151
-     /tmp/cclffJOB.s:554    .text:000000000000017c .LBE151
-     /tmp/cclffJOB.s:5453   .debug_loc:0000000000000288 .LLST12
-     /tmp/cclffJOB.s:507    .text:0000000000000160 .LVL19
-     /tmp/cclffJOB.s:563    .text:0000000000000184 .LBB319
-     /tmp/cclffJOB.s:654    .text:00000000000001c0 .LBE319
-     /tmp/cclffJOB.s:5460   .debug_loc:00000000000002ab .LLST70
-     /tmp/cclffJOB.s:5467   .debug_loc:00000000000002ce .LLST71
-     /tmp/cclffJOB.s:5474   .debug_loc:00000000000002f1 .LLST72
-     /tmp/cclffJOB.s:565    .text:0000000000000184 .LBB320
-     /tmp/cclffJOB.s:581    .text:0000000000000190 .LBE320
-     /tmp/cclffJOB.s:586    .text:0000000000000194 .LBB322
-     /tmp/cclffJOB.s:602    .text:00000000000001a0 .LBE322
-     /tmp/cclffJOB.s:626    .text:00000000000001b4 .LBB324
-     /tmp/cclffJOB.s:637    .text:00000000000001b8 .LBE324
-     /tmp/cclffJOB.s:5481   .debug_loc:0000000000000314 .LLST73
-     /tmp/cclffJOB.s:639    .text:00000000000001b8 .LBB326
-     /tmp/cclffJOB.s:653    .text:00000000000001c0 .LBE326
-     /tmp/cclffJOB.s:5488   .debug_loc:0000000000000337 .LLST74
-     /tmp/cclffJOB.s:616    .text:00000000000001b0 .LVL30
-     /tmp/cclffJOB.s:656    .text:00000000000001c0 .LBB300
-     /tmp/cclffJOB.s:745    .text:00000000000001f8 .LBE300
-     /tmp/cclffJOB.s:5495   .debug_loc:000000000000035a .LLST65
-     /tmp/cclffJOB.s:5502   .debug_loc:000000000000037d .LLST66
-     /tmp/cclffJOB.s:5509   .debug_loc:00000000000003a0 .LLST67
-     /tmp/cclffJOB.s:658    .text:00000000000001c0 .LBB301
-     /tmp/cclffJOB.s:674    .text:00000000000001cc .LBE301
-     /tmp/cclffJOB.s:679    .text:00000000000001d0 .LBB303
-     /tmp/cclffJOB.s:695    .text:00000000000001dc .LBE303
-     /tmp/cclffJOB.s:717    .text:00000000000001ec .LBB305
-     /tmp/cclffJOB.s:728    .text:00000000000001f0 .LBE305
-     /tmp/cclffJOB.s:5516   .debug_loc:00000000000003c3 .LLST68
-     /tmp/cclffJOB.s:730    .text:00000000000001f0 .LBB307
-     /tmp/cclffJOB.s:744    .text:00000000000001f8 .LBE307
-     /tmp/cclffJOB.s:5523   .debug_loc:00000000000003e6 .LLST69
-     /tmp/cclffJOB.s:707    .text:00000000000001e8 .LVL38
-     /tmp/cclffJOB.s:747    .text:00000000000001f8 .LBB282
-     /tmp/cclffJOB.s:827    .text:000000000000023c .LBE282
-     /tmp/cclffJOB.s:5530   .debug_loc:0000000000000409 .LLST61
-     /tmp/cclffJOB.s:5537   .debug_loc:000000000000042c .LLST62
-     /tmp/cclffJOB.s:749    .text:00000000000001f8 .LBB283
-     /tmp/cclffJOB.s:765    .text:0000000000000204 .LBE283
-     /tmp/cclffJOB.s:770    .text:0000000000000208 .LBB285
-     /tmp/cclffJOB.s:786    .text:0000000000000214 .LBE285
-     /tmp/cclffJOB.s:799    .text:0000000000000230 .LBB287
-     /tmp/cclffJOB.s:810    .text:0000000000000234 .LBE287
-     /tmp/cclffJOB.s:5544   .debug_loc:000000000000044f .LLST63
-     /tmp/cclffJOB.s:812    .text:0000000000000234 .LBB289
-     /tmp/cclffJOB.s:826    .text:000000000000023c .LBE289
-     /tmp/cclffJOB.s:5551   .debug_loc:0000000000000472 .LLST64
-     /tmp/cclffJOB.s:797    .text:0000000000000230 .LVL45
-     /tmp/cclffJOB.s:829    .text:000000000000023c .LBB265
-     /tmp/cclffJOB.s:902    .text:000000000000026c .LBE265
-     /tmp/cclffJOB.s:5558   .debug_loc:0000000000000495 .LLST57
-     /tmp/cclffJOB.s:5565   .debug_loc:00000000000004b8 .LLST58
-     /tmp/cclffJOB.s:831    .text:000000000000023c .LBB266
-GAS LISTING /tmp/cclffJOB.s 			page 58
+     /tmp/ccDhTiyf.s:5446   .debug_loc:0000000000000265 .LLST11
+     /tmp/ccDhTiyf.s:540    .text:0000000000000174 .LBB151
+     /tmp/ccDhTiyf.s:554    .text:000000000000017c .LBE151
+     /tmp/ccDhTiyf.s:5453   .debug_loc:0000000000000288 .LLST12
+     /tmp/ccDhTiyf.s:507    .text:0000000000000160 .LVL19
+     /tmp/ccDhTiyf.s:563    .text:0000000000000184 .LBB319
+     /tmp/ccDhTiyf.s:654    .text:00000000000001c0 .LBE319
+     /tmp/ccDhTiyf.s:5460   .debug_loc:00000000000002ab .LLST70
+     /tmp/ccDhTiyf.s:5467   .debug_loc:00000000000002ce .LLST71
+     /tmp/ccDhTiyf.s:5474   .debug_loc:00000000000002f1 .LLST72
+     /tmp/ccDhTiyf.s:565    .text:0000000000000184 .LBB320
+     /tmp/ccDhTiyf.s:581    .text:0000000000000190 .LBE320
+     /tmp/ccDhTiyf.s:586    .text:0000000000000194 .LBB322
+     /tmp/ccDhTiyf.s:602    .text:00000000000001a0 .LBE322
+     /tmp/ccDhTiyf.s:626    .text:00000000000001b4 .LBB324
+     /tmp/ccDhTiyf.s:637    .text:00000000000001b8 .LBE324
+     /tmp/ccDhTiyf.s:5481   .debug_loc:0000000000000314 .LLST73
+     /tmp/ccDhTiyf.s:639    .text:00000000000001b8 .LBB326
+     /tmp/ccDhTiyf.s:653    .text:00000000000001c0 .LBE326
+     /tmp/ccDhTiyf.s:5488   .debug_loc:0000000000000337 .LLST74
+     /tmp/ccDhTiyf.s:616    .text:00000000000001b0 .LVL30
+     /tmp/ccDhTiyf.s:656    .text:00000000000001c0 .LBB300
+     /tmp/ccDhTiyf.s:745    .text:00000000000001f8 .LBE300
+     /tmp/ccDhTiyf.s:5495   .debug_loc:000000000000035a .LLST65
+     /tmp/ccDhTiyf.s:5502   .debug_loc:000000000000037d .LLST66
+     /tmp/ccDhTiyf.s:5509   .debug_loc:00000000000003a0 .LLST67
+     /tmp/ccDhTiyf.s:658    .text:00000000000001c0 .LBB301
+     /tmp/ccDhTiyf.s:674    .text:00000000000001cc .LBE301
+     /tmp/ccDhTiyf.s:679    .text:00000000000001d0 .LBB303
+     /tmp/ccDhTiyf.s:695    .text:00000000000001dc .LBE303
+     /tmp/ccDhTiyf.s:717    .text:00000000000001ec .LBB305
+     /tmp/ccDhTiyf.s:728    .text:00000000000001f0 .LBE305
+     /tmp/ccDhTiyf.s:5516   .debug_loc:00000000000003c3 .LLST68
+     /tmp/ccDhTiyf.s:730    .text:00000000000001f0 .LBB307
+     /tmp/ccDhTiyf.s:744    .text:00000000000001f8 .LBE307
+     /tmp/ccDhTiyf.s:5523   .debug_loc:00000000000003e6 .LLST69
+     /tmp/ccDhTiyf.s:707    .text:00000000000001e8 .LVL38
+     /tmp/ccDhTiyf.s:747    .text:00000000000001f8 .LBB282
+     /tmp/ccDhTiyf.s:827    .text:000000000000023c .LBE282
+     /tmp/ccDhTiyf.s:5530   .debug_loc:0000000000000409 .LLST61
+     /tmp/ccDhTiyf.s:5537   .debug_loc:000000000000042c .LLST62
+     /tmp/ccDhTiyf.s:749    .text:00000000000001f8 .LBB283
+     /tmp/ccDhTiyf.s:765    .text:0000000000000204 .LBE283
+     /tmp/ccDhTiyf.s:770    .text:0000000000000208 .LBB285
+     /tmp/ccDhTiyf.s:786    .text:0000000000000214 .LBE285
+     /tmp/ccDhTiyf.s:799    .text:0000000000000230 .LBB287
+     /tmp/ccDhTiyf.s:810    .text:0000000000000234 .LBE287
+     /tmp/ccDhTiyf.s:5544   .debug_loc:000000000000044f .LLST63
+     /tmp/ccDhTiyf.s:812    .text:0000000000000234 .LBB289
+     /tmp/ccDhTiyf.s:826    .text:000000000000023c .LBE289
+     /tmp/ccDhTiyf.s:5551   .debug_loc:0000000000000472 .LLST64
+     /tmp/ccDhTiyf.s:797    .text:0000000000000230 .LVL45
+     /tmp/ccDhTiyf.s:829    .text:000000000000023c .LBB265
+     /tmp/ccDhTiyf.s:902    .text:000000000000026c .LBE265
+     /tmp/ccDhTiyf.s:5558   .debug_loc:0000000000000495 .LLST57
+     /tmp/ccDhTiyf.s:5565   .debug_loc:00000000000004b8 .LLST58
+     /tmp/ccDhTiyf.s:831    .text:000000000000023c .LBB266
+GAS LISTING /tmp/ccDhTiyf.s 			page 58
 
 
-     /tmp/cclffJOB.s:847    .text:0000000000000248 .LBE266
-     /tmp/cclffJOB.s:852    .text:000000000000024c .LBB268
-     /tmp/cclffJOB.s:868    .text:0000000000000258 .LBE268
-     /tmp/cclffJOB.s:874    .text:0000000000000260 .LBB270
-     /tmp/cclffJOB.s:885    .text:0000000000000264 .LBE270
-     /tmp/cclffJOB.s:5572   .debug_loc:00000000000004db .LLST59
-     /tmp/cclffJOB.s:887    .text:0000000000000264 .LBB272
-     /tmp/cclffJOB.s:901    .text:000000000000026c .LBE272
-     /tmp/cclffJOB.s:5579   .debug_loc:00000000000004fe .LLST60
-     /tmp/cclffJOB.s:872    .text:0000000000000260 .LVL51
-     /tmp/cclffJOB.s:904    .text:000000000000026c .LBB249
-     /tmp/cclffJOB.s:981    .text:00000000000002a8 .LBE249
-     /tmp/cclffJOB.s:5586   .debug_loc:0000000000000521 .LLST53
-     /tmp/cclffJOB.s:5593   .debug_loc:0000000000000544 .LLST54
-     /tmp/cclffJOB.s:906    .text:000000000000026c .LBB250
-     /tmp/cclffJOB.s:922    .text:0000000000000278 .LBE250
-     /tmp/cclffJOB.s:927    .text:000000000000027c .LBB252
-     /tmp/cclffJOB.s:943    .text:0000000000000288 .LBE252
-     /tmp/cclffJOB.s:953    .text:000000000000029c .LBB254
-     /tmp/cclffJOB.s:964    .text:00000000000002a0 .LBE254
-     /tmp/cclffJOB.s:5600   .debug_loc:0000000000000567 .LLST55
-     /tmp/cclffJOB.s:966    .text:00000000000002a0 .LBB256
-     /tmp/cclffJOB.s:980    .text:00000000000002a8 .LBE256
-     /tmp/cclffJOB.s:5607   .debug_loc:000000000000058a .LLST56
-     /tmp/cclffJOB.s:951    .text:000000000000029c .LVL57
-     /tmp/cclffJOB.s:983    .text:00000000000002a8 .LBB230
-     /tmp/cclffJOB.s:1124   .text:0000000000000310 .LBE230
-     /tmp/cclffJOB.s:5614   .debug_loc:00000000000005ad .LLST42
-     /tmp/cclffJOB.s:5621   .debug_loc:00000000000005d0 .LLST43
-     /tmp/cclffJOB.s:5628   .debug_loc:00000000000005f3 .LLST44
-     /tmp/cclffJOB.s:5635   .debug_loc:0000000000000616 .LLST45
-     /tmp/cclffJOB.s:5642   .debug_loc:0000000000000639 .LLST46
-     /tmp/cclffJOB.s:5649   .debug_loc:000000000000065c .LLST47
-     /tmp/cclffJOB.s:985    .text:00000000000002a8 .LBB231
-     /tmp/cclffJOB.s:1001   .text:00000000000002b4 .LBE231
-     /tmp/cclffJOB.s:1006   .text:00000000000002b8 .LBB233
-     /tmp/cclffJOB.s:1022   .text:00000000000002c4 .LBE233
-     /tmp/cclffJOB.s:1054   .text:00000000000002e0 .LBB235
-     /tmp/cclffJOB.s:1070   .text:00000000000002ec .LBE235
-     /tmp/cclffJOB.s:5666   .debug_loc:00000000000006a7 .LLST48
-     /tmp/cclffJOB.s:5673   .debug_loc:00000000000006ca .LLST49
-     /tmp/cclffJOB.s:1060   .text:00000000000002e4 .LBB237
-     /tmp/cclffJOB.s:1068   .text:00000000000002ec .LBE237
-     /tmp/cclffJOB.s:5680   .debug_loc:00000000000006ed .LLST50
-     /tmp/cclffJOB.s:1091   .text:00000000000002fc .LBB239
-     /tmp/cclffJOB.s:1102   .text:0000000000000300 .LBE239
-     /tmp/cclffJOB.s:5689   .debug_loc:0000000000000712 .LLST51
-     /tmp/cclffJOB.s:1104   .text:0000000000000300 .LBB241
-     /tmp/cclffJOB.s:1118   .text:0000000000000308 .LBE241
-     /tmp/cclffJOB.s:5696   .debug_loc:0000000000000735 .LLST52
-     /tmp/cclffJOB.s:1053   .text:00000000000002e0 .LVL65
-     /tmp/cclffJOB.s:1126   .text:0000000000000310 .LBB208
-     /tmp/cclffJOB.s:1285   .text:00000000000003a8 .LBE208
-     /tmp/cclffJOB.s:5703   .debug_loc:0000000000000758 .LLST31
-     /tmp/cclffJOB.s:5710   .debug_loc:000000000000077b .LLST32
-     /tmp/cclffJOB.s:5717   .debug_loc:000000000000079e .LLST33
-     /tmp/cclffJOB.s:5724   .debug_loc:00000000000007c1 .LLST34
-GAS LISTING /tmp/cclffJOB.s 			page 59
+     /tmp/ccDhTiyf.s:847    .text:0000000000000248 .LBE266
+     /tmp/ccDhTiyf.s:852    .text:000000000000024c .LBB268
+     /tmp/ccDhTiyf.s:868    .text:0000000000000258 .LBE268
+     /tmp/ccDhTiyf.s:874    .text:0000000000000260 .LBB270
+     /tmp/ccDhTiyf.s:885    .text:0000000000000264 .LBE270
+     /tmp/ccDhTiyf.s:5572   .debug_loc:00000000000004db .LLST59
+     /tmp/ccDhTiyf.s:887    .text:0000000000000264 .LBB272
+     /tmp/ccDhTiyf.s:901    .text:000000000000026c .LBE272
+     /tmp/ccDhTiyf.s:5579   .debug_loc:00000000000004fe .LLST60
+     /tmp/ccDhTiyf.s:872    .text:0000000000000260 .LVL51
+     /tmp/ccDhTiyf.s:904    .text:000000000000026c .LBB249
+     /tmp/ccDhTiyf.s:981    .text:00000000000002a8 .LBE249
+     /tmp/ccDhTiyf.s:5586   .debug_loc:0000000000000521 .LLST53
+     /tmp/ccDhTiyf.s:5593   .debug_loc:0000000000000544 .LLST54
+     /tmp/ccDhTiyf.s:906    .text:000000000000026c .LBB250
+     /tmp/ccDhTiyf.s:922    .text:0000000000000278 .LBE250
+     /tmp/ccDhTiyf.s:927    .text:000000000000027c .LBB252
+     /tmp/ccDhTiyf.s:943    .text:0000000000000288 .LBE252
+     /tmp/ccDhTiyf.s:953    .text:000000000000029c .LBB254
+     /tmp/ccDhTiyf.s:964    .text:00000000000002a0 .LBE254
+     /tmp/ccDhTiyf.s:5600   .debug_loc:0000000000000567 .LLST55
+     /tmp/ccDhTiyf.s:966    .text:00000000000002a0 .LBB256
+     /tmp/ccDhTiyf.s:980    .text:00000000000002a8 .LBE256
+     /tmp/ccDhTiyf.s:5607   .debug_loc:000000000000058a .LLST56
+     /tmp/ccDhTiyf.s:951    .text:000000000000029c .LVL57
+     /tmp/ccDhTiyf.s:983    .text:00000000000002a8 .LBB230
+     /tmp/ccDhTiyf.s:1124   .text:0000000000000310 .LBE230
+     /tmp/ccDhTiyf.s:5614   .debug_loc:00000000000005ad .LLST42
+     /tmp/ccDhTiyf.s:5621   .debug_loc:00000000000005d0 .LLST43
+     /tmp/ccDhTiyf.s:5628   .debug_loc:00000000000005f3 .LLST44
+     /tmp/ccDhTiyf.s:5635   .debug_loc:0000000000000616 .LLST45
+     /tmp/ccDhTiyf.s:5642   .debug_loc:0000000000000639 .LLST46
+     /tmp/ccDhTiyf.s:5649   .debug_loc:000000000000065c .LLST47
+     /tmp/ccDhTiyf.s:985    .text:00000000000002a8 .LBB231
+     /tmp/ccDhTiyf.s:1001   .text:00000000000002b4 .LBE231
+     /tmp/ccDhTiyf.s:1006   .text:00000000000002b8 .LBB233
+     /tmp/ccDhTiyf.s:1022   .text:00000000000002c4 .LBE233
+     /tmp/ccDhTiyf.s:1054   .text:00000000000002e0 .LBB235
+     /tmp/ccDhTiyf.s:1070   .text:00000000000002ec .LBE235
+     /tmp/ccDhTiyf.s:5666   .debug_loc:00000000000006a7 .LLST48
+     /tmp/ccDhTiyf.s:5673   .debug_loc:00000000000006ca .LLST49
+     /tmp/ccDhTiyf.s:1060   .text:00000000000002e4 .LBB237
+     /tmp/ccDhTiyf.s:1068   .text:00000000000002ec .LBE237
+     /tmp/ccDhTiyf.s:5680   .debug_loc:00000000000006ed .LLST50
+     /tmp/ccDhTiyf.s:1091   .text:00000000000002fc .LBB239
+     /tmp/ccDhTiyf.s:1102   .text:0000000000000300 .LBE239
+     /tmp/ccDhTiyf.s:5689   .debug_loc:0000000000000712 .LLST51
+     /tmp/ccDhTiyf.s:1104   .text:0000000000000300 .LBB241
+     /tmp/ccDhTiyf.s:1118   .text:0000000000000308 .LBE241
+     /tmp/ccDhTiyf.s:5696   .debug_loc:0000000000000735 .LLST52
+     /tmp/ccDhTiyf.s:1053   .text:00000000000002e0 .LVL65
+     /tmp/ccDhTiyf.s:1126   .text:0000000000000310 .LBB208
+     /tmp/ccDhTiyf.s:1285   .text:00000000000003a8 .LBE208
+     /tmp/ccDhTiyf.s:5703   .debug_loc:0000000000000758 .LLST31
+     /tmp/ccDhTiyf.s:5710   .debug_loc:000000000000077b .LLST32
+     /tmp/ccDhTiyf.s:5717   .debug_loc:000000000000079e .LLST33
+     /tmp/ccDhTiyf.s:5724   .debug_loc:00000000000007c1 .LLST34
+GAS LISTING /tmp/ccDhTiyf.s 			page 59
 
 
-     /tmp/cclffJOB.s:5934   .debug_ranges:0000000000000000 .Ldebug_ranges0
-     /tmp/cclffJOB.s:5731   .debug_loc:00000000000007e4 .LLST35
-     /tmp/cclffJOB.s:1187   .text:000000000000033c .LBB214
-     /tmp/cclffJOB.s:5738   .debug_loc:0000000000000807 .LLST36
-     /tmp/cclffJOB.s:5753   .debug_loc:0000000000000841 .LLST37
-     /tmp/cclffJOB.s:5764   .debug_loc:0000000000000877 .LLST38
-     /tmp/cclffJOB.s:1194   .text:0000000000000348 .LVL80
-     /tmp/cclffJOB.s:1211   .text:0000000000000368 .LVL81
-     /tmp/cclffJOB.s:1128   .text:0000000000000310 .LBB209
-     /tmp/cclffJOB.s:1143   .text:000000000000031c .LBE209
-     /tmp/cclffJOB.s:1148   .text:0000000000000320 .LBB211
-     /tmp/cclffJOB.s:1164   .text:000000000000032c .LBE211
-     /tmp/cclffJOB.s:1216   .text:0000000000000368 .LBB218
-     /tmp/cclffJOB.s:1226   .text:0000000000000374 .LBE218
-     /tmp/cclffJOB.s:5771   .debug_loc:000000000000089a .LLST39
-     /tmp/cclffJOB.s:1257   .text:000000000000039c .LBB221
-     /tmp/cclffJOB.s:1268   .text:00000000000003a0 .LBE221
-     /tmp/cclffJOB.s:5780   .debug_loc:00000000000008bf .LLST40
-     /tmp/cclffJOB.s:1270   .text:00000000000003a0 .LBB223
-     /tmp/cclffJOB.s:1284   .text:00000000000003a8 .LBE223
-     /tmp/cclffJOB.s:5787   .debug_loc:00000000000008e2 .LLST41
-     /tmp/cclffJOB.s:1254   .text:000000000000039c .LVL85
-     /tmp/cclffJOB.s:1287   .text:00000000000003a8 .LBB195
-     /tmp/cclffJOB.s:1382   .text:00000000000003e4 .LBE195
-     /tmp/cclffJOB.s:5794   .debug_loc:0000000000000905 .LLST25
-     /tmp/cclffJOB.s:5801   .debug_loc:0000000000000928 .LLST26
-     /tmp/cclffJOB.s:5808   .debug_loc:000000000000094b .LLST27
-     /tmp/cclffJOB.s:5815   .debug_loc:000000000000096e .LLST28
-     /tmp/cclffJOB.s:1289   .text:00000000000003a8 .LBB196
-     /tmp/cclffJOB.s:1305   .text:00000000000003b4 .LBE196
-     /tmp/cclffJOB.s:1310   .text:00000000000003b8 .LBB198
-     /tmp/cclffJOB.s:1326   .text:00000000000003c4 .LBE198
-     /tmp/cclffJOB.s:1354   .text:00000000000003d8 .LBB200
-     /tmp/cclffJOB.s:1365   .text:00000000000003dc .LBE200
-     /tmp/cclffJOB.s:5822   .debug_loc:0000000000000991 .LLST29
-     /tmp/cclffJOB.s:1367   .text:00000000000003dc .LBB202
-     /tmp/cclffJOB.s:1381   .text:00000000000003e4 .LBE202
-     /tmp/cclffJOB.s:5829   .debug_loc:00000000000009b4 .LLST30
-     /tmp/cclffJOB.s:1344   .text:00000000000003d4 .LVL92
-     /tmp/cclffJOB.s:1384   .text:00000000000003e4 .LBB183
-     /tmp/cclffJOB.s:1481   .text:0000000000000424 .LBE183
-     /tmp/cclffJOB.s:5836   .debug_loc:00000000000009d7 .LLST19
-     /tmp/cclffJOB.s:5843   .debug_loc:00000000000009fa .LLST20
-     /tmp/cclffJOB.s:5850   .debug_loc:0000000000000a1d .LLST21
-     /tmp/cclffJOB.s:5857   .debug_loc:0000000000000a40 .LLST22
-     /tmp/cclffJOB.s:1386   .text:00000000000003e4 .LBB184
-     /tmp/cclffJOB.s:1402   .text:00000000000003f0 .LBE184
-     /tmp/cclffJOB.s:1407   .text:00000000000003f4 .LBB186
-     /tmp/cclffJOB.s:1423   .text:0000000000000400 .LBE186
-     /tmp/cclffJOB.s:1453   .text:0000000000000418 .LBB188
-     /tmp/cclffJOB.s:1464   .text:000000000000041c .LBE188
-     /tmp/cclffJOB.s:5865   .debug_loc:0000000000000a64 .LLST23
-     /tmp/cclffJOB.s:1466   .text:000000000000041c .LBB190
-     /tmp/cclffJOB.s:1480   .text:0000000000000424 .LBE190
-     /tmp/cclffJOB.s:5872   .debug_loc:0000000000000a87 .LLST24
-     /tmp/cclffJOB.s:1441   .text:0000000000000410 .LVL100
-     /tmp/cclffJOB.s:1483   .text:0000000000000424 .LBB173
-GAS LISTING /tmp/cclffJOB.s 			page 60
+     /tmp/ccDhTiyf.s:5934   .debug_ranges:0000000000000000 .Ldebug_ranges0
+     /tmp/ccDhTiyf.s:5731   .debug_loc:00000000000007e4 .LLST35
+     /tmp/ccDhTiyf.s:1187   .text:000000000000033c .LBB214
+     /tmp/ccDhTiyf.s:5738   .debug_loc:0000000000000807 .LLST36
+     /tmp/ccDhTiyf.s:5753   .debug_loc:0000000000000841 .LLST37
+     /tmp/ccDhTiyf.s:5764   .debug_loc:0000000000000877 .LLST38
+     /tmp/ccDhTiyf.s:1194   .text:0000000000000348 .LVL80
+     /tmp/ccDhTiyf.s:1211   .text:0000000000000368 .LVL81
+     /tmp/ccDhTiyf.s:1128   .text:0000000000000310 .LBB209
+     /tmp/ccDhTiyf.s:1143   .text:000000000000031c .LBE209
+     /tmp/ccDhTiyf.s:1148   .text:0000000000000320 .LBB211
+     /tmp/ccDhTiyf.s:1164   .text:000000000000032c .LBE211
+     /tmp/ccDhTiyf.s:1216   .text:0000000000000368 .LBB218
+     /tmp/ccDhTiyf.s:1226   .text:0000000000000374 .LBE218
+     /tmp/ccDhTiyf.s:5771   .debug_loc:000000000000089a .LLST39
+     /tmp/ccDhTiyf.s:1257   .text:000000000000039c .LBB221
+     /tmp/ccDhTiyf.s:1268   .text:00000000000003a0 .LBE221
+     /tmp/ccDhTiyf.s:5780   .debug_loc:00000000000008bf .LLST40
+     /tmp/ccDhTiyf.s:1270   .text:00000000000003a0 .LBB223
+     /tmp/ccDhTiyf.s:1284   .text:00000000000003a8 .LBE223
+     /tmp/ccDhTiyf.s:5787   .debug_loc:00000000000008e2 .LLST41
+     /tmp/ccDhTiyf.s:1254   .text:000000000000039c .LVL85
+     /tmp/ccDhTiyf.s:1287   .text:00000000000003a8 .LBB195
+     /tmp/ccDhTiyf.s:1382   .text:00000000000003e4 .LBE195
+     /tmp/ccDhTiyf.s:5794   .debug_loc:0000000000000905 .LLST25
+     /tmp/ccDhTiyf.s:5801   .debug_loc:0000000000000928 .LLST26
+     /tmp/ccDhTiyf.s:5808   .debug_loc:000000000000094b .LLST27
+     /tmp/ccDhTiyf.s:5815   .debug_loc:000000000000096e .LLST28
+     /tmp/ccDhTiyf.s:1289   .text:00000000000003a8 .LBB196
+     /tmp/ccDhTiyf.s:1305   .text:00000000000003b4 .LBE196
+     /tmp/ccDhTiyf.s:1310   .text:00000000000003b8 .LBB198
+     /tmp/ccDhTiyf.s:1326   .text:00000000000003c4 .LBE198
+     /tmp/ccDhTiyf.s:1354   .text:00000000000003d8 .LBB200
+     /tmp/ccDhTiyf.s:1365   .text:00000000000003dc .LBE200
+     /tmp/ccDhTiyf.s:5822   .debug_loc:0000000000000991 .LLST29
+     /tmp/ccDhTiyf.s:1367   .text:00000000000003dc .LBB202
+     /tmp/ccDhTiyf.s:1381   .text:00000000000003e4 .LBE202
+     /tmp/ccDhTiyf.s:5829   .debug_loc:00000000000009b4 .LLST30
+     /tmp/ccDhTiyf.s:1344   .text:00000000000003d4 .LVL92
+     /tmp/ccDhTiyf.s:1384   .text:00000000000003e4 .LBB183
+     /tmp/ccDhTiyf.s:1481   .text:0000000000000424 .LBE183
+     /tmp/ccDhTiyf.s:5836   .debug_loc:00000000000009d7 .LLST19
+     /tmp/ccDhTiyf.s:5843   .debug_loc:00000000000009fa .LLST20
+     /tmp/ccDhTiyf.s:5850   .debug_loc:0000000000000a1d .LLST21
+     /tmp/ccDhTiyf.s:5857   .debug_loc:0000000000000a40 .LLST22
+     /tmp/ccDhTiyf.s:1386   .text:00000000000003e4 .LBB184
+     /tmp/ccDhTiyf.s:1402   .text:00000000000003f0 .LBE184
+     /tmp/ccDhTiyf.s:1407   .text:00000000000003f4 .LBB186
+     /tmp/ccDhTiyf.s:1423   .text:0000000000000400 .LBE186
+     /tmp/ccDhTiyf.s:1453   .text:0000000000000418 .LBB188
+     /tmp/ccDhTiyf.s:1464   .text:000000000000041c .LBE188
+     /tmp/ccDhTiyf.s:5865   .debug_loc:0000000000000a64 .LLST23
+     /tmp/ccDhTiyf.s:1466   .text:000000000000041c .LBB190
+     /tmp/ccDhTiyf.s:1480   .text:0000000000000424 .LBE190
+     /tmp/ccDhTiyf.s:5872   .debug_loc:0000000000000a87 .LLST24
+     /tmp/ccDhTiyf.s:1441   .text:0000000000000410 .LVL100
+     /tmp/ccDhTiyf.s:1483   .text:0000000000000424 .LBB173
+GAS LISTING /tmp/ccDhTiyf.s 			page 60
 
 
-     /tmp/cclffJOB.s:1562   .text:0000000000000458 .LBE173
-     /tmp/cclffJOB.s:1485   .text:0000000000000424 .LBB174
-     /tmp/cclffJOB.s:1501   .text:0000000000000430 .LBE174
-     /tmp/cclffJOB.s:1506   .text:0000000000000434 .LBB176
-     /tmp/cclffJOB.s:1522   .text:0000000000000440 .LBE176
-     /tmp/cclffJOB.s:1536   .text:000000000000044c .LBB178
-     /tmp/cclffJOB.s:1547   .text:0000000000000450 .LBE178
-     /tmp/cclffJOB.s:5879   .debug_loc:0000000000000aaa .LLST18
-     /tmp/cclffJOB.s:1549   .text:0000000000000450 .LBB180
-     /tmp/cclffJOB.s:1561   .text:0000000000000458 .LBE180
-     /tmp/cclffJOB.s:1526   .text:0000000000000448 .LVL107
-     /tmp/cclffJOB.s:311    .text:00000000000000e0 .LBB164
-     /tmp/cclffJOB.s:396    .text:0000000000000118 .LBE164
-     /tmp/cclffJOB.s:5886   .debug_loc:0000000000000acd .LLST13
-     /tmp/cclffJOB.s:5893   .debug_loc:0000000000000af0 .LLST14
-     /tmp/cclffJOB.s:5900   .debug_loc:0000000000000b13 .LLST15
-     /tmp/cclffJOB.s:313    .text:00000000000000e0 .LBB165
-     /tmp/cclffJOB.s:329    .text:00000000000000ec .LBE165
-     /tmp/cclffJOB.s:334    .text:00000000000000f0 .LBB167
-     /tmp/cclffJOB.s:350    .text:00000000000000fc .LBE167
-     /tmp/cclffJOB.s:371    .text:0000000000000110 .LBB169
-     /tmp/cclffJOB.s:382    .text:0000000000000114 .LBE169
-     /tmp/cclffJOB.s:5907   .debug_loc:0000000000000b36 .LLST16
-     /tmp/cclffJOB.s:384    .text:0000000000000114 .LBB171
-     /tmp/cclffJOB.s:395    .text:0000000000000118 .LBE171
-     /tmp/cclffJOB.s:5914   .debug_loc:0000000000000b59 .LLST17
-     /tmp/cclffJOB.s:369    .text:0000000000000110 .LVL9
-     /tmp/cclffJOB.s:66     .text:0000000000000040 .LBB140
-     /tmp/cclffJOB.s:82     .text:000000000000004c .LBE140
-     /tmp/cclffJOB.s:10     .text:0000000000000000 .LFB50
-     /tmp/cclffJOB.s:40     .text:0000000000000020 .LFE50
-     /tmp/cclffJOB.s:5972   .debug_str:000000000000009e .LASF186
-     /tmp/cclffJOB.s:6156   .debug_str:00000000000006cc .LASF185
-     /tmp/cclffJOB.s:85     .text:0000000000000050 .LVL0
-     /tmp/cclffJOB.s:100    .text:0000000000000058 .LVL2
-     /tmp/cclffJOB.s:94     .text:0000000000000054 .LVL1
-     /tmp/cclffJOB.s:104    .text:0000000000000060 .LVL3
-     /tmp/cclffJOB.s:125    .text:0000000000000080 .LVL4
-     /tmp/cclffJOB.s:327    .text:00000000000000ec .LVL5
-     /tmp/cclffJOB.s:411    .text:000000000000011c .LVL12
-     /tmp/cclffJOB.s:579    .text:0000000000000190 .LVL25
-     /tmp/cclffJOB.s:650    .text:00000000000001c0 .LVL33
-     /tmp/cclffJOB.s:672    .text:00000000000001cc .LVL34
-     /tmp/cclffJOB.s:741    .text:00000000000001f8 .LVL41
-     /tmp/cclffJOB.s:763    .text:0000000000000204 .LVL42
-     /tmp/cclffJOB.s:823    .text:000000000000023c .LVL47
-     /tmp/cclffJOB.s:845    .text:0000000000000248 .LVL48
-     /tmp/cclffJOB.s:898    .text:000000000000026c .LVL53
-     /tmp/cclffJOB.s:920    .text:0000000000000278 .LVL54
-     /tmp/cclffJOB.s:977    .text:00000000000002a8 .LVL59
-     /tmp/cclffJOB.s:999    .text:00000000000002b4 .LVL60
-     /tmp/cclffJOB.s:1122   .text:0000000000000310 .LVL73
-     /tmp/cclffJOB.s:1182   .text:0000000000000338 .LVL77
-     /tmp/cclffJOB.s:1281   .text:00000000000003a8 .LVL87
-     /tmp/cclffJOB.s:1303   .text:00000000000003b4 .LVL88
-     /tmp/cclffJOB.s:1378   .text:00000000000003e4 .LVL95
-     /tmp/cclffJOB.s:1400   .text:00000000000003f0 .LVL96
-GAS LISTING /tmp/cclffJOB.s 			page 61
+     /tmp/ccDhTiyf.s:1562   .text:0000000000000458 .LBE173
+     /tmp/ccDhTiyf.s:1485   .text:0000000000000424 .LBB174
+     /tmp/ccDhTiyf.s:1501   .text:0000000000000430 .LBE174
+     /tmp/ccDhTiyf.s:1506   .text:0000000000000434 .LBB176
+     /tmp/ccDhTiyf.s:1522   .text:0000000000000440 .LBE176
+     /tmp/ccDhTiyf.s:1536   .text:000000000000044c .LBB178
+     /tmp/ccDhTiyf.s:1547   .text:0000000000000450 .LBE178
+     /tmp/ccDhTiyf.s:5879   .debug_loc:0000000000000aaa .LLST18
+     /tmp/ccDhTiyf.s:1549   .text:0000000000000450 .LBB180
+     /tmp/ccDhTiyf.s:1561   .text:0000000000000458 .LBE180
+     /tmp/ccDhTiyf.s:1526   .text:0000000000000448 .LVL107
+     /tmp/ccDhTiyf.s:311    .text:00000000000000e0 .LBB164
+     /tmp/ccDhTiyf.s:396    .text:0000000000000118 .LBE164
+     /tmp/ccDhTiyf.s:5886   .debug_loc:0000000000000acd .LLST13
+     /tmp/ccDhTiyf.s:5893   .debug_loc:0000000000000af0 .LLST14
+     /tmp/ccDhTiyf.s:5900   .debug_loc:0000000000000b13 .LLST15
+     /tmp/ccDhTiyf.s:313    .text:00000000000000e0 .LBB165
+     /tmp/ccDhTiyf.s:329    .text:00000000000000ec .LBE165
+     /tmp/ccDhTiyf.s:334    .text:00000000000000f0 .LBB167
+     /tmp/ccDhTiyf.s:350    .text:00000000000000fc .LBE167
+     /tmp/ccDhTiyf.s:371    .text:0000000000000110 .LBB169
+     /tmp/ccDhTiyf.s:382    .text:0000000000000114 .LBE169
+     /tmp/ccDhTiyf.s:5907   .debug_loc:0000000000000b36 .LLST16
+     /tmp/ccDhTiyf.s:384    .text:0000000000000114 .LBB171
+     /tmp/ccDhTiyf.s:395    .text:0000000000000118 .LBE171
+     /tmp/ccDhTiyf.s:5914   .debug_loc:0000000000000b59 .LLST17
+     /tmp/ccDhTiyf.s:369    .text:0000000000000110 .LVL9
+     /tmp/ccDhTiyf.s:66     .text:0000000000000040 .LBB140
+     /tmp/ccDhTiyf.s:82     .text:000000000000004c .LBE140
+     /tmp/ccDhTiyf.s:10     .text:0000000000000000 .LFB50
+     /tmp/ccDhTiyf.s:40     .text:0000000000000020 .LFE50
+     /tmp/ccDhTiyf.s:5972   .debug_str:000000000000009e .LASF186
+     /tmp/ccDhTiyf.s:6156   .debug_str:00000000000006cc .LASF185
+     /tmp/ccDhTiyf.s:85     .text:0000000000000050 .LVL0
+     /tmp/ccDhTiyf.s:100    .text:0000000000000058 .LVL2
+     /tmp/ccDhTiyf.s:94     .text:0000000000000054 .LVL1
+     /tmp/ccDhTiyf.s:104    .text:0000000000000060 .LVL3
+     /tmp/ccDhTiyf.s:125    .text:0000000000000080 .LVL4
+     /tmp/ccDhTiyf.s:327    .text:00000000000000ec .LVL5
+     /tmp/ccDhTiyf.s:411    .text:000000000000011c .LVL12
+     /tmp/ccDhTiyf.s:579    .text:0000000000000190 .LVL25
+     /tmp/ccDhTiyf.s:650    .text:00000000000001c0 .LVL33
+     /tmp/ccDhTiyf.s:672    .text:00000000000001cc .LVL34
+     /tmp/ccDhTiyf.s:741    .text:00000000000001f8 .LVL41
+     /tmp/ccDhTiyf.s:763    .text:0000000000000204 .LVL42
+     /tmp/ccDhTiyf.s:823    .text:000000000000023c .LVL47
+     /tmp/ccDhTiyf.s:845    .text:0000000000000248 .LVL48
+     /tmp/ccDhTiyf.s:898    .text:000000000000026c .LVL53
+     /tmp/ccDhTiyf.s:920    .text:0000000000000278 .LVL54
+     /tmp/ccDhTiyf.s:977    .text:00000000000002a8 .LVL59
+     /tmp/ccDhTiyf.s:999    .text:00000000000002b4 .LVL60
+     /tmp/ccDhTiyf.s:1122   .text:0000000000000310 .LVL73
+     /tmp/ccDhTiyf.s:1182   .text:0000000000000338 .LVL77
+     /tmp/ccDhTiyf.s:1281   .text:00000000000003a8 .LVL87
+     /tmp/ccDhTiyf.s:1303   .text:00000000000003b4 .LVL88
+     /tmp/ccDhTiyf.s:1378   .text:00000000000003e4 .LVL95
+     /tmp/ccDhTiyf.s:1400   .text:00000000000003f0 .LVL96
+GAS LISTING /tmp/ccDhTiyf.s 			page 61
 
 
-     /tmp/cclffJOB.s:1477   .text:0000000000000424 .LVL103
-     /tmp/cclffJOB.s:1499   .text:0000000000000430 .LVL104
-     /tmp/cclffJOB.s:609    .text:00000000000001a4 .LVL28
-     /tmp/cclffJOB.s:614    .text:00000000000001a8 .LVL29
-     /tmp/cclffJOB.s:702    .text:00000000000001e0 .LVL37
-     /tmp/cclffJOB.s:435    .text:000000000000012c .LVL13
-     /tmp/cclffJOB.s:558    .text:0000000000000184 .LVL24
-     /tmp/cclffJOB.s:451    .text:0000000000000138 .LVL14
-     /tmp/cclffJOB.s:484    .text:000000000000014c .LVL15
-     /tmp/cclffJOB.s:490    .text:0000000000000150 .LVL16
-     /tmp/cclffJOB.s:496    .text:0000000000000154 .LVL17
-     /tmp/cclffJOB.s:502    .text:0000000000000158 .LVL18
-     /tmp/cclffJOB.s:517    .text:000000000000016c .LVL20
-     /tmp/cclffJOB.s:551    .text:000000000000017c .LVL23
-     /tmp/cclffJOB.s:525    .text:0000000000000170 .LVL21
-     /tmp/cclffJOB.s:535    .text:0000000000000174 .LVL22
-     /tmp/cclffJOB.s:584    .text:0000000000000194 .LVL26
-     /tmp/cclffJOB.s:600    .text:00000000000001a0 .LVL27
-     /tmp/cclffJOB.s:624    .text:00000000000001b4 .LVL31
-     /tmp/cclffJOB.s:634    .text:00000000000001b8 .LVL32
-     /tmp/cclffJOB.s:677    .text:00000000000001d0 .LVL35
-     /tmp/cclffJOB.s:693    .text:00000000000001dc .LVL36
-     /tmp/cclffJOB.s:715    .text:00000000000001ec .LVL39
-     /tmp/cclffJOB.s:725    .text:00000000000001f0 .LVL40
-     /tmp/cclffJOB.s:768    .text:0000000000000208 .LVL43
-     /tmp/cclffJOB.s:784    .text:0000000000000214 .LVL44
-     /tmp/cclffJOB.s:807    .text:0000000000000234 .LVL46
-     /tmp/cclffJOB.s:850    .text:000000000000024c .LVL49
-     /tmp/cclffJOB.s:866    .text:0000000000000258 .LVL50
-     /tmp/cclffJOB.s:882    .text:0000000000000264 .LVL52
-     /tmp/cclffJOB.s:925    .text:000000000000027c .LVL55
-     /tmp/cclffJOB.s:941    .text:0000000000000288 .LVL56
-     /tmp/cclffJOB.s:961    .text:00000000000002a0 .LVL58
-     /tmp/cclffJOB.s:1004   .text:00000000000002b8 .LVL61
-     /tmp/cclffJOB.s:1020   .text:00000000000002c4 .LVL62
-     /tmp/cclffJOB.s:1041   .text:00000000000002d0 .LVL63
-     /tmp/cclffJOB.s:1047   .text:00000000000002d4 .LVL64
-     /tmp/cclffJOB.s:1066   .text:00000000000002ec .LVL67
-     /tmp/cclffJOB.s:1075   .text:00000000000002f0 .LVL68
-     /tmp/cclffJOB.s:1081   .text:00000000000002f8 .LVL69
-     /tmp/cclffJOB.s:1115   .text:0000000000000308 .LVL72
-     /tmp/cclffJOB.s:1059   .text:00000000000002e4 .LVL66
-     /tmp/cclffJOB.s:1089   .text:00000000000002fc .LVL70
-     /tmp/cclffJOB.s:1099   .text:0000000000000300 .LVL71
-     /tmp/cclffJOB.s:1146   .text:0000000000000320 .LVL74
-     /tmp/cclffJOB.s:1162   .text:000000000000032c .LVL75
-     /tmp/cclffJOB.s:1177   .text:0000000000000334 .LVL76
-     /tmp/cclffJOB.s:1184   .text:000000000000033c .LVL78
-     /tmp/cclffJOB.s:1231   .text:0000000000000378 .LVL83
-     /tmp/cclffJOB.s:1243   .text:000000000000038c .LVL84
-     /tmp/cclffJOB.s:1191   .text:0000000000000340 .LVL79
-     /tmp/cclffJOB.s:1224   .text:0000000000000374 .LVL82
-     /tmp/cclffJOB.s:1265   .text:00000000000003a0 .LVL86
-     /tmp/cclffJOB.s:1308   .text:00000000000003b8 .LVL89
-     /tmp/cclffJOB.s:1324   .text:00000000000003c4 .LVL90
-     /tmp/cclffJOB.s:1339   .text:00000000000003cc .LVL91
-     /tmp/cclffJOB.s:1352   .text:00000000000003d8 .LVL93
-GAS LISTING /tmp/cclffJOB.s 			page 62
+     /tmp/ccDhTiyf.s:1477   .text:0000000000000424 .LVL103
+     /tmp/ccDhTiyf.s:1499   .text:0000000000000430 .LVL104
+     /tmp/ccDhTiyf.s:609    .text:00000000000001a4 .LVL28
+     /tmp/ccDhTiyf.s:614    .text:00000000000001a8 .LVL29
+     /tmp/ccDhTiyf.s:702    .text:00000000000001e0 .LVL37
+     /tmp/ccDhTiyf.s:435    .text:000000000000012c .LVL13
+     /tmp/ccDhTiyf.s:558    .text:0000000000000184 .LVL24
+     /tmp/ccDhTiyf.s:451    .text:0000000000000138 .LVL14
+     /tmp/ccDhTiyf.s:484    .text:000000000000014c .LVL15
+     /tmp/ccDhTiyf.s:490    .text:0000000000000150 .LVL16
+     /tmp/ccDhTiyf.s:496    .text:0000000000000154 .LVL17
+     /tmp/ccDhTiyf.s:502    .text:0000000000000158 .LVL18
+     /tmp/ccDhTiyf.s:517    .text:000000000000016c .LVL20
+     /tmp/ccDhTiyf.s:551    .text:000000000000017c .LVL23
+     /tmp/ccDhTiyf.s:525    .text:0000000000000170 .LVL21
+     /tmp/ccDhTiyf.s:535    .text:0000000000000174 .LVL22
+     /tmp/ccDhTiyf.s:584    .text:0000000000000194 .LVL26
+     /tmp/ccDhTiyf.s:600    .text:00000000000001a0 .LVL27
+     /tmp/ccDhTiyf.s:624    .text:00000000000001b4 .LVL31
+     /tmp/ccDhTiyf.s:634    .text:00000000000001b8 .LVL32
+     /tmp/ccDhTiyf.s:677    .text:00000000000001d0 .LVL35
+     /tmp/ccDhTiyf.s:693    .text:00000000000001dc .LVL36
+     /tmp/ccDhTiyf.s:715    .text:00000000000001ec .LVL39
+     /tmp/ccDhTiyf.s:725    .text:00000000000001f0 .LVL40
+     /tmp/ccDhTiyf.s:768    .text:0000000000000208 .LVL43
+     /tmp/ccDhTiyf.s:784    .text:0000000000000214 .LVL44
+     /tmp/ccDhTiyf.s:807    .text:0000000000000234 .LVL46
+     /tmp/ccDhTiyf.s:850    .text:000000000000024c .LVL49
+     /tmp/ccDhTiyf.s:866    .text:0000000000000258 .LVL50
+     /tmp/ccDhTiyf.s:882    .text:0000000000000264 .LVL52
+     /tmp/ccDhTiyf.s:925    .text:000000000000027c .LVL55
+     /tmp/ccDhTiyf.s:941    .text:0000000000000288 .LVL56
+     /tmp/ccDhTiyf.s:961    .text:00000000000002a0 .LVL58
+     /tmp/ccDhTiyf.s:1004   .text:00000000000002b8 .LVL61
+     /tmp/ccDhTiyf.s:1020   .text:00000000000002c4 .LVL62
+     /tmp/ccDhTiyf.s:1041   .text:00000000000002d0 .LVL63
+     /tmp/ccDhTiyf.s:1047   .text:00000000000002d4 .LVL64
+     /tmp/ccDhTiyf.s:1066   .text:00000000000002ec .LVL67
+     /tmp/ccDhTiyf.s:1075   .text:00000000000002f0 .LVL68
+     /tmp/ccDhTiyf.s:1081   .text:00000000000002f8 .LVL69
+     /tmp/ccDhTiyf.s:1115   .text:0000000000000308 .LVL72
+     /tmp/ccDhTiyf.s:1059   .text:00000000000002e4 .LVL66
+     /tmp/ccDhTiyf.s:1089   .text:00000000000002fc .LVL70
+     /tmp/ccDhTiyf.s:1099   .text:0000000000000300 .LVL71
+     /tmp/ccDhTiyf.s:1146   .text:0000000000000320 .LVL74
+     /tmp/ccDhTiyf.s:1162   .text:000000000000032c .LVL75
+     /tmp/ccDhTiyf.s:1177   .text:0000000000000334 .LVL76
+     /tmp/ccDhTiyf.s:1184   .text:000000000000033c .LVL78
+     /tmp/ccDhTiyf.s:1231   .text:0000000000000378 .LVL83
+     /tmp/ccDhTiyf.s:1243   .text:000000000000038c .LVL84
+     /tmp/ccDhTiyf.s:1191   .text:0000000000000340 .LVL79
+     /tmp/ccDhTiyf.s:1224   .text:0000000000000374 .LVL82
+     /tmp/ccDhTiyf.s:1265   .text:00000000000003a0 .LVL86
+     /tmp/ccDhTiyf.s:1308   .text:00000000000003b8 .LVL89
+     /tmp/ccDhTiyf.s:1324   .text:00000000000003c4 .LVL90
+     /tmp/ccDhTiyf.s:1339   .text:00000000000003cc .LVL91
+     /tmp/ccDhTiyf.s:1352   .text:00000000000003d8 .LVL93
+GAS LISTING /tmp/ccDhTiyf.s 			page 62
 
 
-     /tmp/cclffJOB.s:1362   .text:00000000000003dc .LVL94
-     /tmp/cclffJOB.s:1405   .text:00000000000003f4 .LVL97
-     /tmp/cclffJOB.s:1421   .text:0000000000000400 .LVL98
-     /tmp/cclffJOB.s:1436   .text:0000000000000408 .LVL99
-     /tmp/cclffJOB.s:1451   .text:0000000000000418 .LVL101
-     /tmp/cclffJOB.s:1461   .text:000000000000041c .LVL102
-     /tmp/cclffJOB.s:1534   .text:000000000000044c .LVL108
-     /tmp/cclffJOB.s:1544   .text:0000000000000450 .LVL109
-     /tmp/cclffJOB.s:332    .text:00000000000000f0 .LVL6
-     /tmp/cclffJOB.s:348    .text:00000000000000fc .LVL7
-     /tmp/cclffJOB.s:363    .text:0000000000000104 .LVL8
-     /tmp/cclffJOB.s:379    .text:0000000000000114 .LVL10
-     /tmp/cclffJOB.s:392    .text:0000000000000118 .LVL11
-     /tmp/cclffJOB.s:1584   .debug_info:0000000000000000 .Ldebug_info0
-     /tmp/cclffJOB.s:1186   .text:000000000000033c .LBB213
-     /tmp/cclffJOB.s:1213   .text:0000000000000368 .LBE213
-     /tmp/cclffJOB.s:1229   .text:0000000000000378 .LBB220
-     /tmp/cclffJOB.s:1247   .text:000000000000038c .LBE220
-     /tmp/cclffJOB.s:1196   .text:0000000000000348 .LBE214
-     /tmp/cclffJOB.s:1232   .text:0000000000000378 .LBB217
-     /tmp/cclffJOB.s:1246   .text:000000000000038c .LBE217
+     /tmp/ccDhTiyf.s:1362   .text:00000000000003dc .LVL94
+     /tmp/ccDhTiyf.s:1405   .text:00000000000003f4 .LVL97
+     /tmp/ccDhTiyf.s:1421   .text:0000000000000400 .LVL98
+     /tmp/ccDhTiyf.s:1436   .text:0000000000000408 .LVL99
+     /tmp/ccDhTiyf.s:1451   .text:0000000000000418 .LVL101
+     /tmp/ccDhTiyf.s:1461   .text:000000000000041c .LVL102
+     /tmp/ccDhTiyf.s:1534   .text:000000000000044c .LVL108
+     /tmp/ccDhTiyf.s:1544   .text:0000000000000450 .LVL109
+     /tmp/ccDhTiyf.s:332    .text:00000000000000f0 .LVL6
+     /tmp/ccDhTiyf.s:348    .text:00000000000000fc .LVL7
+     /tmp/ccDhTiyf.s:363    .text:0000000000000104 .LVL8
+     /tmp/ccDhTiyf.s:379    .text:0000000000000114 .LVL10
+     /tmp/ccDhTiyf.s:392    .text:0000000000000118 .LVL11
+     /tmp/ccDhTiyf.s:1584   .debug_info:0000000000000000 .Ldebug_info0
+     /tmp/ccDhTiyf.s:1186   .text:000000000000033c .LBB213
+     /tmp/ccDhTiyf.s:1213   .text:0000000000000368 .LBE213
+     /tmp/ccDhTiyf.s:1229   .text:0000000000000378 .LBB220
+     /tmp/ccDhTiyf.s:1247   .text:000000000000038c .LBE220
+     /tmp/ccDhTiyf.s:1196   .text:0000000000000348 .LBE214
+     /tmp/ccDhTiyf.s:1232   .text:0000000000000378 .LBB217
+     /tmp/ccDhTiyf.s:1246   .text:000000000000038c .LBE217
 
 UNDEFINED SYMBOLS
 _ZN8KConsole4putcEc
