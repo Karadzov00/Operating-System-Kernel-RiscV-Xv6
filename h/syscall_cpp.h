@@ -2,16 +2,10 @@
 // Created by os on 6/22/22.
 //
 
-#ifndef PROJECT_BASE_V1_1_SYSCALL_CPP_HPP
-#define PROJECT_BASE_V1_1_SYSCALL_CPP_HPP
-#include "syscall_c.hpp"
+#ifndef PROJECT_BASE_V1_1_SYSCALL_CPP_H
+#define PROJECT_BASE_V1_1_SYSCALL_CPP_H
+#include "syscall_c.cpp"
 
-void* ::operator new (size_t size){
-    return mem_alloc(size);
-}
-void ::operator delete (void* p){
-    mem_free(p);
-}
 
 class Thread {
 public:
@@ -23,7 +17,8 @@ public:
 
     }
     int start (){
-        if(!myHandle) { thread_create(&myHandle, &wrapper, this); }
+        if(!myHandle) { thread_create(&myHandle, &wrapper, this); return 0; }
+        else return -1;
     }
     static void dispatch (){
         thread_dispatch();
@@ -51,10 +46,10 @@ public:
         sem_close(myHandle);
     }
     int wait (){
-        sem_wait(myHandle);
+        return sem_wait(myHandle);
     }
     int signal (){
-        sem_signal(myHandle);
+        return sem_signal(myHandle);
     }
 private:
     sem_t myHandle;
@@ -77,4 +72,4 @@ public:
 };
 
 
-#endif //PROJECT_BASE_V1_1_SYSCALL_CPP_HPP
+#endif //PROJECT_BASE_V1_1_SYSCALL_CPP_H

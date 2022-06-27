@@ -2,12 +2,12 @@
 // Created by os on 6/19/22.
 //
 
-#ifndef PROJECT_BASE_V1_1_SYSCALL_C_HPP
-#define PROJECT_BASE_V1_1_SYSCALL_C_HPP
+#ifndef PROJECT_BASE_V1_1_SYSCALL_C_CPP
+#define PROJECT_BASE_V1_1_SYSCALL_C_CPP
 
 
 #include "../h/MemoryAllocator.hpp"
-
+#include "syscall_c.h"
 
 
 //extern "C" void supervisorTrap();
@@ -193,4 +193,4 @@ void putc (char c){
     syscall(&myArgs);
 }
 
-#endif //PROJECT_BASE_V1_1_SYSCALL_C_HPP
+#endif //PROJECT_BASE_V1_1_SYSCALL_C_CPP

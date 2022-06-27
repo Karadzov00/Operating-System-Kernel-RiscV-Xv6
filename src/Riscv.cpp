@@ -250,7 +250,7 @@ void Riscv::handleSupervisorTrap(){
     else if (scause == 0x8000000000000009UL)
     {
         // interrupt: yes; cause code: supervisor external interrupt (PLIC; could be keyboard)
-
+        console_handler();
     }
     else{
         // unexpected trap cause
