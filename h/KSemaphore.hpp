@@ -11,7 +11,9 @@
 
 class KSemaphore {
 public:
-    KSemaphore(uint64 init=1): val(init){}
+    KSemaphore(uint64 init=1): val(init){
+
+    }
 
     int wait();
     void signal();
@@ -29,7 +31,7 @@ public:
 
 private:
     int val;
-    List<_thread> blocked;
+    static List<_thread> blocked;
     friend class Riscv;
 };
 

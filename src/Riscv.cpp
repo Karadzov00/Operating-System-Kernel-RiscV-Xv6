@@ -162,8 +162,8 @@ void Riscv::handleSupervisorTrap(){
             KSemaphore* sem = *arg1;
 
             //deblock all blocked threads on this semaphore
-            while(sem->blocked.peekFirst()!=0){
-                _thread* t = sem->blocked.removeFirst();
+            while(KSemaphore::blocked.peekFirst()!=0){
+                _thread* t = KSemaphore::blocked.removeFirst();
                 t->deblocked=true;
                 sem->val++;
                 Scheduler::put(t);
@@ -250,7 +250,14 @@ void Riscv::handleSupervisorTrap(){
     else if (scause == 0x8000000000000009UL)
     {
         // interrupt: yes; cause code: supervisor external interrupt (PLIC; could be keyboard)
+
+        uint64 sepc = r_sepc() + 4;
+        uint64 sstatus = r_sstatus();
+
         console_handler();
+
+        w_sstatus(sstatus);
+        w_sepc(sepc);
     }
     else{
         // unexpected trap cause
