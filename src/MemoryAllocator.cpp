@@ -76,6 +76,60 @@ void* MemoryAllocator::kmem_alloc(size_t size){
     //ubaciti prvi element u listu i postaviti mu adresu na heap start adress + sizeof(freeMem)
 }
 
-int MemoryAllocator::kmem_free(void* arg){
-    return __mem_free(arg);
+//try to join cur with cur->next segment
+int MemoryAllocator::tryToJoin(FreeMem *cur) {
+    if(cur== nullptr)return 0;
+    if(cur->next && (char*)cur+cur->size==(char*)(cur->next)){
+        //remove the cur->next segment
+        cur->size+=cur->next->size;
+        cur->next = cur->next->next;
+        if(cur->next)cur->next->prev=cur;
+        return 1;
+    }
+    else return 0;
+}
+
+int MemoryAllocator::kmem_free(void* addr){
+    //find size of the process for deallocation
+    MemoryAllocator* ma = getInstance();
+
+    size_t size = -1;
+    for( FreeMem *temp = ma->pcbList.head; temp!=nullptr; temp=temp->next){
+        if(temp->address==addr)
+            size = temp->size;
+    }
+    //size not found
+    if(size<0)return -1;
+
+    //find the place where to insert the new free segment (just after cur)
+    FreeMem* cur=0;
+    if(ma->freeList.head== nullptr)
+        cur= nullptr;
+    else
+        for(cur=ma->freeList.head; cur->next!= nullptr && addr>(char*)(cur->next); cur=cur->next);
+
+    //insert seg after cur
+    FreeMem* newSeg = (FreeMem*)addr;
+    newSeg->size = size;
+    newSeg->prev= cur;
+    if(cur)newSeg->next = cur->next;
+    else ma->freeList.head = newSeg;
+
+
+    tryToJoin(newSeg);
+    tryToJoin(cur);
+
+    //delete pointer from pcb list
+    FreeMem* prev=nullptr;
+    for( FreeMem *temp = ma->pcbList.head; temp!=nullptr; temp=temp->next){
+        if(temp->address==addr){
+            if(prev== nullptr)ma->pcbList.head=temp->next;
+            else prev->next=temp->next;
+        }
+        prev = temp;
+    }
+
+
+    return 0;
+
 }
