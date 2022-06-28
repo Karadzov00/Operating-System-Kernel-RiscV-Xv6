@@ -5,6 +5,8 @@
 #include "../h/Riscv.hpp"
 
 #include "../h/_thread.hpp"
+#include "../h/syscall_c.h"
+#include "../test/printing.hpp"
 //
 //
 extern void userMain();
@@ -44,12 +46,31 @@ int main(){
 //
 //    printString("finished \n");
 
-    _thread* idle;
-    if(!thread_create(&idle, nullptr, nullptr)){}
-    _thread::running=idle;
+//    _thread* idle;
+//    if(!thread_create(&idle, nullptr, nullptr)){}
+//    _thread::running=idle;
 
+    uint64* stack =(uint64*) mem_alloc(DEFAULT_STACK_SIZE* sizeof(uint64));
+    uint64* stack1 =(uint64*) mem_alloc(DEFAULT_STACK_SIZE* sizeof(uint64));
+    uint64* stack2=(uint64*) mem_alloc(DEFAULT_STACK_SIZE* sizeof(uint64));
+    void* addr1 = mem_alloc(1000);
+    void* addr2 = mem_alloc(5000);
+    void* addr3 = mem_alloc(2000);
 
-
+    if(stack){
+        printString("allocated \n");
+    }
+    if(stack1){
+        printString("allocated 1\n");
+    }
+    if(stack2){
+        printString("allocated 2\n");
+    }
+    if(addr1){
+        printString("allocated 2\n");
+    }if(addr2 && addr3){
+        printString("allocated 2\n");
+    }
 //    userMain();
 
     return 0;
