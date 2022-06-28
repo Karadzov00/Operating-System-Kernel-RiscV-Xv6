@@ -15,11 +15,29 @@ void* MemoryAllocator::kmem_alloc(size_t size){
     for(FreeMem* cur = ma->freeList.head; cur!=nullptr; cur=cur->next){
         if(cur->size<size) continue;
         //Found
+
         if(cur->size-size<=sizeof(FreeMem)){
             //No remaining fragment
             if(cur->prev)cur->prev->next = cur->next;
             else ma->freeList.head = cur->next;
             if(cur->next)cur->next->prev = cur->prev;
+
+            //add process to the end of pcb list
+            FreeMem* proc = cur;
+            proc->size=size;
+            proc->address=cur;
+            proc->next= nullptr;
+            if (ma->pcbList.head == nullptr)
+            {
+                ma->pcbList.head = cur;
+
+            } else
+            {
+                FreeMem* temp;
+                for( temp = ma->freeList.head; temp->next!=nullptr; temp=temp->next);
+                temp->next=cur;
+            }
+
             return cur->address;
 
         }
@@ -32,6 +50,23 @@ void* MemoryAllocator::kmem_alloc(size_t size){
             newfrgm->next=cur->next;
             newfrgm->size=cur->size-size;
             newfrgm->address= (void*)((size_t)cur + size + sizeof(FreeMem));
+
+            //add process to the end of pcb list
+            FreeMem* proc = cur;
+            proc->size=size;
+            proc->address=cur;
+            proc->next= nullptr;
+            if (ma->pcbList.head == nullptr)
+            {
+                ma->pcbList.head = cur;
+
+            } else
+            {
+                FreeMem* temp;
+                for( temp = ma->freeList.head; temp->next!=nullptr; temp=temp->next);
+                temp->next=cur;
+            }
+
             return cur->address;
         }
     }

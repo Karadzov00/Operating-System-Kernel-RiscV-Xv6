@@ -35,8 +35,7 @@ public:
         head = nullptr;
     }
 
-    DoublyLinkedList(const DoublyLinkedList<T> & dll) = delete;
-    DoublyLinkedList& operator=(DoublyLinkedList const&) = delete;
+
 
     void insertFront(T val)
     {
@@ -106,7 +105,8 @@ private:
         }
         return nullptr;
     }
-
+    DoublyLinkedList(const DoublyLinkedList<T> & dll);
+    DoublyLinkedList& operator=(DoublyLinkedList const&);
     friend class MemoryAllocator;
 };
 

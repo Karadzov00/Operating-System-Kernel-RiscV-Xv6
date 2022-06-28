@@ -9,6 +9,7 @@
 #include "DoublyLinkedList.hpp"
 #include "../lib/hw.h"
 
+
 class MemoryAllocator {
 public:
     typedef DoublyLinkedList<size_t>::Node FreeMem;
@@ -19,9 +20,11 @@ public:
 
             instance->freeList.head=(FreeMem*)((size_t)HEAP_START_ADDR+sizeof(MemoryAllocator));
             instance->freeList.head->address=(void*)((size_t)HEAP_START_ADDR+sizeof(MemoryAllocator));
-            instance->freeList.head->size = (size_t)HEAP_END_ADDR-1-((size_t)HEAP_START_ADDR+sizeof(MemoryAllocator));
+            instance->freeList.head->size = (size_t)HEAP_END_ADDR-((size_t)HEAP_START_ADDR+sizeof(MemoryAllocator));
             instance->freeList.head->next= nullptr;
             instance->freeList.head->prev= nullptr;
+
+            instance->pcbList.head= nullptr;
         }
         return instance;
     }
@@ -43,7 +46,7 @@ private:
 
 
     DoublyLinkedList<size_t> freeList;
-
+    DoublyLinkedList<size_t> pcbList;
 
 };
 
