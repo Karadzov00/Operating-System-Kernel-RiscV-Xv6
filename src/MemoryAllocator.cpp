@@ -34,7 +34,7 @@ void* MemoryAllocator::kmem_alloc(size_t size){
             } else
             {
                 FreeMem* temp;
-                for( temp = ma->freeList.head; temp->next!=nullptr; temp=temp->next);
+                for( temp = ma->pcbList.head; temp->next!=nullptr; temp=temp->next);
                 temp->next=cur;
             }
 
@@ -63,7 +63,7 @@ void* MemoryAllocator::kmem_alloc(size_t size){
             } else
             {
                 FreeMem* temp;
-                for( temp = ma->freeList.head; temp->next!=nullptr; temp=temp->next);
+                for( temp = ma->pcbList.head; temp->next!=nullptr; temp=temp->next);
                 temp->next=cur;
             }
 
