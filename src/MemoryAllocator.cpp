@@ -103,8 +103,8 @@ int MemoryAllocator::kmem_free(void* addr){
 
     //find the place where to insert the new free segment (just after cur)
     FreeMem* cur=0;
-    if(ma->freeList.head== nullptr)
-        cur= nullptr;
+    if(ma->freeList.head== nullptr || addr<(char*)ma->freeList.head->address)
+        cur= nullptr;   //insert as first
     else
         for(cur=ma->freeList.head; cur->next!= nullptr && addr>(char*)(cur->next); cur=cur->next);
 
@@ -112,8 +112,13 @@ int MemoryAllocator::kmem_free(void* addr){
     FreeMem* newSeg = (FreeMem*)addr;
     newSeg->size = size;
     newSeg->prev= cur;
-    if(cur)newSeg->next = cur->next;
+    newSeg->address=addr;
+    if(cur)newSeg->next = cur->next;//link to next
+    else newSeg->next=ma->freeList.head;
+    if(newSeg->next)newSeg->next->prev=newSeg;
+    if(cur)cur->next=newSeg; //link previous
     else ma->freeList.head = newSeg;
+
 
 
     tryToJoin(newSeg);
