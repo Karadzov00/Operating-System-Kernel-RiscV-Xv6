@@ -7,14 +7,25 @@
 
 #include "../lib/mem.h"
 #include "DoublyLinkedList.hpp"
-
+#include "../lib/hw.h"
 
 class MemoryAllocator {
 public:
-    static MemoryAllocator& getInstance(){
-        static MemoryAllocator instance;
+    typedef DoublyLinkedList<size_t>::Node FreeMem;
+
+    static MemoryAllocator* getInstance(){
+        if(instance == nullptr){
+            instance = (MemoryAllocator*)HEAP_START_ADDR;
+
+            instance->freeList.head=(FreeMem*)((size_t)HEAP_START_ADDR+sizeof(MemoryAllocator));
+            instance->freeList.head->address=(void*)((size_t)HEAP_START_ADDR+sizeof(MemoryAllocator));
+            instance->freeList.head->size = (size_t)HEAP_END_ADDR-1-((size_t)HEAP_START_ADDR+sizeof(MemoryAllocator));
+            instance->freeList.head->next= nullptr;
+            instance->freeList.head->prev= nullptr;
+        }
         return instance;
     }
+
 
     static void* kmem_alloc(size_t size);
     static int kmem_free(void* arg);
@@ -22,15 +33,16 @@ public:
     void operator=(MemoryAllocator const&)=delete;
 
 private:
-    MemoryAllocator(){}
+    MemoryAllocator();
 
 //    struct Node {
 //        void* startAdress;
 //        size_t size; // Size of the free fragment
 //    };
+    static MemoryAllocator* instance;
 
-    static DoublyLinkedList<size_t> freeList;
-    static DoublyLinkedList<size_t> pcbList;
+
+    DoublyLinkedList<size_t> freeList;
 
 
 };

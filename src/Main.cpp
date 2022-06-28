@@ -49,7 +49,8 @@ int main(){
     _thread::running=idle;
 
 
-    userMain();
+
+//    userMain();
 
     return 0;
 }

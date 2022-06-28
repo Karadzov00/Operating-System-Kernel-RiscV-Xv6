@@ -4,36 +4,41 @@
 
 #include "../h/MemoryAllocator.hpp"
 
-DoublyLinkedList<size_t> MemoryAllocator::freeList;
-DoublyLinkedList<size_t> MemoryAllocator::pcbList;
 
-typedef DoublyLinkedList<size_t>::Node FreeMem;
+
+
+MemoryAllocator* MemoryAllocator::instance= nullptr;
+
 
 void* MemoryAllocator::kmem_alloc(size_t size){
-    for(FreeMem* cur = freeList.head; cur!=0; cur=cur->next){
+    MemoryAllocator* ma = getInstance();
+    for(FreeMem* cur = ma->freeList.head; cur!=nullptr; cur=cur->next){
         if(cur->size<size) continue;
         //Found
         if(cur->size-size<=sizeof(FreeMem)){
             //No remaining fragment
             if(cur->prev)cur->prev->next = cur->next;
-            else freeList.head = cur->next;
+            else ma->freeList.head = cur->next;
             if(cur->next)cur->next->prev = cur->prev;
             return cur->address;
-            //TODO initialize address at HEAP_START_ADRESS at the beginning
-            //TODO ubaciti prvi element u listu i postaviti mu adresu na heap start adress
+
         }
         else{
-            FreeMem* newfrgm = (FreeMem*)((char*)cur->address+size);
+            FreeMem* newfrgm = (FreeMem*)((size_t)cur->address+size);
             if(cur->prev)cur->prev->next = newfrgm;
-            else freeList.head = newfrgm;
+            else ma->freeList.head = newfrgm;
             if(cur->next) cur->next->prev = newfrgm;
             newfrgm->prev = cur->prev;
             newfrgm->next=cur->next;
             newfrgm->size=cur->size-size;
+            newfrgm->address= (void*)((size_t)cur->address+size);
             return cur->address;
         }
     }
     return nullptr;
+
+    //TODO initialize address at HEAP_START_ADRESS at the beginning
+    //TODO ubaciti prvi element u listu i postaviti mu adresu na heap start adress + sizeof(freeMem)
 }
 
 int MemoryAllocator::kmem_free(void* arg){
