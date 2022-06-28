@@ -23,11 +23,11 @@ SECTIONS
     *(.rodata .rodata.*)
   }
 
-  .data : {
+  .size : {
     . = ALIGN(16);
-    *(.sdata .sdata.*) /* do not need to distinguish this from .data */
+    *(.sdata .sdata.*) /* do not need to distinguish this from .size */
     . = ALIGN(16);
-    *(.data .data.*)
+    *(.size .size.*)
   }
 
   .bss : {

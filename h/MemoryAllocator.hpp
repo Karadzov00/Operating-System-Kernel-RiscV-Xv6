@@ -6,6 +6,8 @@
 #define PROJECT_BASE_V1_1_MEMORYALLOCATOR_HPP
 
 #include "../lib/mem.h"
+#include "DoublyLinkedList.hpp"
+
 
 class MemoryAllocator {
 public:
@@ -21,6 +23,15 @@ public:
 
 private:
     MemoryAllocator(){}
+
+//    struct Node {
+//        void* startAdress;
+//        size_t size; // Size of the free fragment
+//    };
+
+    static DoublyLinkedList<size_t> freeList;
+    static DoublyLinkedList<size_t> pcbList;
+
 
 };
 

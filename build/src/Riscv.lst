@@ -1870,10 +1870,10 @@ GAS LISTING /tmp/ccQhY2f6.s 			page 1
   13:src/../h/List.hpp **** private:
   14:src/../h/List.hpp ****     struct Elem
   15:src/../h/List.hpp ****     {
-  16:src/../h/List.hpp ****         T *data;
+  16:src/../h/List.hpp ****         T *size;
   17:src/../h/List.hpp ****         Elem *next;
   18:src/../h/List.hpp **** 
-  19:src/../h/List.hpp ****         Elem(T *data, Elem *next) : data(data), next(next) {}
+  19:src/../h/List.hpp ****         Elem(T *size, Elem *next) : size(size), next(next) {}
   20:src/../h/List.hpp **** 
   21:src/../h/List.hpp ****     };
   22:src/../h/List.hpp **** 
@@ -2060,19 +2060,19 @@ GAS LISTING /tmp/ccQhY2f6.s 			page 1
   37:src/../h/List.hpp ****         MemoryAllocator::kmem_free(p);
   38:src/../h/List.hpp ****     }
   39:src/../h/List.hpp **** 
-  40:src/../h/List.hpp ****     void addFirst(T *data)
+  40:src/../h/List.hpp ****     void addFirst(T *size)
   41:src/../h/List.hpp ****     {
   42:src/../h/List.hpp ****         Elem *elem = (Elem*)MemoryAllocator::kmem_alloc(sizeof (Elem));
-  43:src/../h/List.hpp ****         elem->data=data;
+  43:src/../h/List.hpp ****         elem->size=size;
   44:src/../h/List.hpp ****         elem->next=head;
   45:src/../h/List.hpp ****         head = elem;
   46:src/../h/List.hpp ****         if (!tail) { tail = head; }
   47:src/../h/List.hpp ****     }
   48:src/../h/List.hpp **** 
-  49:src/../h/List.hpp ****     void addLast(T *data)
+  49:src/../h/List.hpp ****     void addLast(T *size)
   50:src/../h/List.hpp ****     {
   51:src/../h/List.hpp ****         Elem *elem = (Elem*)MemoryAllocator::kmem_alloc(sizeof (Elem));
-  52:src/../h/List.hpp ****         elem->data=data;
+  52:src/../h/List.hpp ****         elem->size=size;
   53:src/../h/List.hpp ****         elem->next=0;
   54:src/../h/List.hpp ****         if (tail)
   55:src/../h/List.hpp ****         {
@@ -2092,7 +2092,7 @@ GAS LISTING /tmp/ccQhY2f6.s 			page 1
   69:src/../h/List.hpp ****         head = head->next;
   70:src/../h/List.hpp ****         if (!head) { tail = 0; }
   71:src/../h/List.hpp **** 
-  72:src/../h/List.hpp ****         T *ret = elem->data;
+  72:src/../h/List.hpp ****         T *ret = elem->size;
  1186              		.loc 4 72 12 is_stmt 0
  1187 0338 03390500 		ld	s2,0(a0)
  1188              	.LVL78:
@@ -2147,7 +2147,7 @@ GAS LISTING /tmp/ccQhY2f6.s 			page 1
  1216 0364 03B58400 		ld	a0,8(s1)
  1217              		.loc 4 79 9
  1218 0368 63000502 		beqz	a0,.L15
-  80:src/../h/List.hpp ****         return head->data;
+  80:src/../h/List.hpp ****         return head->size;
  1219              		.loc 4 80 22
  1220 036c 83370500 		ld	a5,0(a0)
  1221              	.LVL81:

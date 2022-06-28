@@ -2,19 +2,21 @@
 // Created by os on 6/28/22.
 //
 
-#ifndef PROJECT_BASE_V1_1_DLLIST_HPP
-#define PROJECT_BASE_V1_1_DLLIST_HPP
+#ifndef PROJECT_BASE_V1_1_DOUBLYLINKEDLIST_HPP
+#define PROJECT_BASE_V1_1_DOUBLYLINKEDLIST_HPP
 
 
 template<class T>
 class DoublyLinkedList
 {
+public:
     struct Node
     {
-        T data;
+        T size; //start adress
+        void* address;
         Node* next;
         Node* prev;
-        Node(T val): data(val), next(nullptr), prev(nullptr) {}
+        Node(T val): size(val), next(nullptr), prev(nullptr) {}
     };
     Node *head, *tail;
 
@@ -97,7 +99,7 @@ private:
         Node *node = head;
         while(node != nullptr)
         {
-            if(node->data == n)
+            if(node->size == n)
                 return node;
 
             node = node->next;
@@ -105,7 +107,8 @@ private:
         return nullptr;
     }
 
+    friend class MemoryAllocator;
 };
 
 
-#endif //PROJECT_BASE_V1_1_DLLIST_HPP
+#endif //PROJECT_BASE_V1_1_DOUBLYLINKEDLIST_HPP
