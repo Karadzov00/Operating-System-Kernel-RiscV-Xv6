@@ -48,7 +48,7 @@ void* MemoryAllocator::kmem_alloc(size_t size){
             if(cur->next) cur->next->prev = newfrgm;
             newfrgm->prev = cur->prev;
             newfrgm->next=cur->next;
-            newfrgm->size=cur->size-size;
+            newfrgm->size=cur->size-size-sizeof(FreeMem);
             newfrgm->address= (void*)((size_t)cur + size + sizeof(FreeMem));
 
             //add process to the end of pcb list
