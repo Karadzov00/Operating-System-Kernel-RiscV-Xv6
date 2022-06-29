@@ -77,9 +77,9 @@ void* MemoryAllocator::kmem_alloc(size_t size){
 //try to join cur with cur->next segment
 int MemoryAllocator::tryToJoin(FreeMem *cur) {
     if(cur== nullptr)return 0;
-    if(cur->next && (size_t)cur+cur->size==(size_t)(cur->next)){
+    if(cur->next && (size_t)cur+cur->size+ sizeof(FreeMem)==(size_t)(cur->next)){
         //remove the cur->next segment
-        cur->size+=cur->next->size;
+        cur->size+=cur->next->size+ sizeof(FreeMem);
         cur->next = cur->next->next;
         if(cur->next)cur->next->prev=cur;
         return 1;
@@ -125,7 +125,7 @@ int MemoryAllocator::kmem_free(void* addr){
         for(cur=ma->freeList.head; cur->next!= nullptr && (size_t)addr>(size_t)(cur->next); cur=cur->next);
 
     //insert seg after cur
-    FreeMem* newSeg = (FreeMem*)addr;
+    FreeMem* newSeg = (FreeMem*)((size_t)addr- sizeof(FreeMem));
     newSeg->size = size;    //check this!!
     newSeg->prev= cur;
     if(cur)newSeg->next = cur->next;//link to next
