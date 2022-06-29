@@ -73,6 +73,10 @@ int mem_free (void* p){
     syscall(&arg);
     uint64 ret;
     __asm__ volatile("mv %0, a0" : "=r" (ret));
+    p= nullptr;
+    if(!p){
+
+    }
     return (int)ret;
 }
 
