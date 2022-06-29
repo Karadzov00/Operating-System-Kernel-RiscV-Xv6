@@ -25,7 +25,6 @@ void* MemoryAllocator::kmem_alloc(size_t size){
             //add process to the end of pcb list
             FreeMem* proc = cur;
             proc->size=size;
-            proc->address=cur;
             proc->next= nullptr;
             if (ma->pcbList.head == nullptr)
             {
@@ -37,8 +36,8 @@ void* MemoryAllocator::kmem_alloc(size_t size){
                 for( temp = ma->pcbList.head; temp->next!=nullptr; temp=temp->next);
                 temp->next=cur;
             }
-
-            return cur->address;
+            void* address = (void*)((size_t)cur+ sizeof(FreeMem));
+            return address;
 
         }
         else{
@@ -48,13 +47,11 @@ void* MemoryAllocator::kmem_alloc(size_t size){
             if(cur->next) cur->next->prev = newfrgm;
             newfrgm->prev = cur->prev;
             newfrgm->next=cur->next;
-            newfrgm->size=cur->size-size-sizeof(FreeMem);
-            newfrgm->address= (void*)((size_t)cur + size + sizeof(FreeMem));
+            newfrgm->size=cur->size-size;
 
             //add process to the end of pcb list
             FreeMem* proc = cur;
             proc->size=size;
-            proc->address=cur;
             proc->next= nullptr;
             if (ma->pcbList.head == nullptr)
             {
@@ -67,7 +64,8 @@ void* MemoryAllocator::kmem_alloc(size_t size){
                 temp->next=cur;
             }
 
-            return cur->address;
+            void* address = (void*)((size_t)cur+ sizeof(FreeMem));
+            return address;
         }
     }
     return nullptr;
@@ -79,7 +77,7 @@ void* MemoryAllocator::kmem_alloc(size_t size){
 //try to join cur with cur->next segment
 int MemoryAllocator::tryToJoin(FreeMem *cur) {
     if(cur== nullptr)return 0;
-    if(cur->next && (char*)cur+cur->size==(char*)(cur->next)){
+    if(cur->next && (size_t)cur+cur->size==(size_t)(cur->next)){
         //remove the cur->next segment
         cur->size+=cur->next->size;
         cur->next = cur->next->next;
@@ -97,10 +95,11 @@ int MemoryAllocator::kmem_free(void* addr){
     bool found = false;
     FreeMem* prev=nullptr;
     for( FreeMem *temp = ma->pcbList.head; temp!=nullptr; temp=temp->next){
-        if(temp->address==addr) {
+        if((size_t)temp+ sizeof(FreeMem)==(size_t)addr) {
             size = temp->size;
             //delete pointer from pcb list
             if(prev== nullptr) {
+                //if its first
                 ma->pcbList.head = temp->next;
                 temp->next= nullptr;
                 found=true;
@@ -120,16 +119,15 @@ int MemoryAllocator::kmem_free(void* addr){
 
     //find the place where to insert the new free segment (just after cur)
     FreeMem* cur=0;
-    if(ma->freeList.head== nullptr || addr<(char*)ma->freeList.head->address)
+    if(ma->freeList.head== nullptr || (size_t)addr<(size_t)ma->freeList.head)
         cur= nullptr;   //insert as first
     else
-        for(cur=ma->freeList.head; cur->next!= nullptr && addr>(char*)(cur->next); cur=cur->next);
+        for(cur=ma->freeList.head; cur->next!= nullptr && (size_t)addr>(size_t)(cur->next); cur=cur->next);
 
     //insert seg after cur
     FreeMem* newSeg = (FreeMem*)addr;
-    newSeg->size = size;
+    newSeg->size = size;    //check this!!
     newSeg->prev= cur;
-    newSeg->address=addr;
     if(cur)newSeg->next = cur->next;//link to next
     else newSeg->next=ma->freeList.head;
     if(newSeg->next)newSeg->next->prev=newSeg;

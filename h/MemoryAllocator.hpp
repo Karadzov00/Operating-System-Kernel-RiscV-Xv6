@@ -19,7 +19,6 @@ public:
             instance = (MemoryAllocator*)HEAP_START_ADDR;
 
             instance->freeList.head=(FreeMem*)((size_t)HEAP_START_ADDR+sizeof(MemoryAllocator));
-            instance->freeList.head->address=(void*)((size_t)HEAP_START_ADDR+sizeof(MemoryAllocator));
             instance->freeList.head->size = (size_t)HEAP_END_ADDR-((size_t)HEAP_START_ADDR+sizeof(MemoryAllocator));
             instance->freeList.head->next= nullptr;
             instance->freeList.head->prev= nullptr;
