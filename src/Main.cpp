@@ -52,26 +52,41 @@ int main(){
 
 
     uint64* stack =(uint64*) mem_alloc(DEFAULT_STACK_SIZE* sizeof(uint64));
-    uint64* stack1 =(uint64*) mem_alloc(DEFAULT_STACK_SIZE* sizeof(uint64));
-    uint64* stack2=(uint64*) mem_alloc(DEFAULT_STACK_SIZE* sizeof(uint64));
+//    uint64* stack1 =(uint64*) mem_alloc(DEFAULT_STACK_SIZE* sizeof(uint64));
+//    uint64* stack2=(uint64*) mem_alloc(DEFAULT_STACK_SIZE* sizeof(uint64));
     void* addr1 = mem_alloc(1000);
     void* addr2 = mem_alloc(5000);
-    void* addr3 = mem_alloc(37);
-    void* addr4 = mem_alloc(2000);
+//    void* addr3 = mem_alloc(37);
+//    void* addr4 = mem_alloc(2000);
 
-    if(stack && addr4){
+    if(stack){
         printString("allocated \n");
-    }
-    if(stack1){
-        printString("allocated 1\n");
-    }
-    if(stack2){
-        printString("allocated 2\n");
     }
     if(addr1){
         printString("allocated 2\n");
-    }if(addr2 && addr3){
+    }if(addr2 ){
         printString("allocated 2\n");
+    }
+
+    if(!mem_free(addr1)){
+        printString("mem freed\n");
+    }
+    if(!mem_free(stack)){
+        printString("mem freed\n");
+    }
+    if(!mem_free(addr2)){
+        printString("mem freed\n");
+    }
+    if(!mem_free(addr1)){
+        printString("mem freed\n");
+    }if(!mem_free(addr2)){
+        printString("mem freed\n");
+    }if(!mem_free(stack)){
+        printString("mem freed\n");
+    }
+    void* addr3 = mem_alloc(3000);
+    if(addr3 ){
+        printString("allocated 3\n");
     }
 //    userMain();
 

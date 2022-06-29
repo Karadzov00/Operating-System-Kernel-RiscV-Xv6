@@ -94,12 +94,29 @@ int MemoryAllocator::kmem_free(void* addr){
     MemoryAllocator* ma = getInstance();
 
     size_t size = -1;
+    bool found = false;
+    FreeMem* prev=nullptr;
     for( FreeMem *temp = ma->pcbList.head; temp!=nullptr; temp=temp->next){
-        if(temp->address==addr)
+        if(temp->address==addr) {
             size = temp->size;
+            //delete pointer from pcb list
+            if(prev== nullptr) {
+                ma->pcbList.head = temp->next;
+                temp->next= nullptr;
+                found=true;
+                break;
+            }
+            else {
+                prev->next = temp->next;
+                temp->next= nullptr;
+                found=true;
+                break;
+            }
+        }
+        prev = temp;
     }
     //size not found
-    if(size<0)return -1;
+    if(found==false)return -1;
 
     //find the place where to insert the new free segment (just after cur)
     FreeMem* cur=0;
@@ -124,15 +141,7 @@ int MemoryAllocator::kmem_free(void* addr){
     tryToJoin(newSeg);
     tryToJoin(cur);
 
-    //delete pointer from pcb list
-    FreeMem* prev=nullptr;
-    for( FreeMem *temp = ma->pcbList.head; temp!=nullptr; temp=temp->next){
-        if(temp->address==addr){
-            if(prev== nullptr)ma->pcbList.head=temp->next;
-            else prev->next=temp->next;
-        }
-        prev = temp;
-    }
+
 
 
     return 0;
