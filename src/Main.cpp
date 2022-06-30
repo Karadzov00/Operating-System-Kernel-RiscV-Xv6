@@ -27,15 +27,15 @@ int main(){
 
     Riscv::mc_sstatus(Riscv::SSTATUS_SPIE);
 
-    //make system thread
-//    _thread* main = (_thread*)MemoryAllocator::kmem_alloc(sizeof(_thread));
-//    _thread::running=main;
-//    uint64 * stack = (uint64*)MemoryAllocator::kmem_alloc(DEFAULT_STACK_SIZE* sizeof(uint64));
-//    main->setStack(stack);
-//    __asm__ volatile("ecall");
+//    make system thread
+    _thread* main = (_thread*)MemoryAllocator::kmem_alloc(sizeof(_thread));
+    _thread::running=main;
+    uint64 * stack = (uint64*)MemoryAllocator::kmem_alloc(DEFAULT_STACK_SIZE* sizeof(uint64));
+    main->setStack(stack);
+    __asm__ volatile("ecall");
 
 
-    //make user thread
+//    make user thread
 //    _thread* thr;
 //    thread_create(&thr, userMain, nullptr);
 //

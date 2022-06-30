@@ -19,6 +19,7 @@ _thread* _thread::createThread(Body body, void* arg, uint64* stek) {
 _thread::_thread(Body body, uint64 timeSlice, void* arg, uint64* stek)
 {
     this->body=body;
+    this->deblocked=false;
     this->timeSlice=timeSlice;
     this->finished=false;
     this->stack = (body!= nullptr) ? stek: nullptr;

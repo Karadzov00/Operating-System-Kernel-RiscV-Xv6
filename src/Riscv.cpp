@@ -23,13 +23,7 @@ void Riscv::handleSupervisorTrap(){
     uint64 arg1;
     __asm__ volatile("mv %0, a0" : "=r" (a0reg));
 
-//    if(scause == 0x0000000000000009UL){
-//        uint64 sepc = r_sepc();
-//        uint64 sstatus = r_sstatus() & ~(SSTATUS_SPP);
-//        w_sepc(sepc + 4);
-//        w_sstatus(sstatus);
-//    }
-     if (scause == 0x0000000000000008UL || scause == 0x0000000000000009UL){
+     if (scause == 0x0000000000000008UL){
         // interrupt: no; cause code: environment call from U-mode(8) or S-mode(9)
 
         //call from yield
@@ -144,6 +138,7 @@ void Riscv::handleSupervisorTrap(){
             __asm__ volatile("mv %0, a2" : "=r" (arg2));    //init val
 
             KSemaphore* sem = new KSemaphore(arg2);
+            sem->open();
             *arg1=sem;
 
             uint64 ret=0;
@@ -167,14 +162,14 @@ void Riscv::handleSupervisorTrap(){
             __asm__ volatile("mv %0, a1" : "=r" (arg1));    //handle (sem_t*)
 
             KSemaphore* sem = arg1;
-
             //deblock all blocked threads on this semaphore
             while(sem->blocked.peekFirst()!=0){
                 _thread* t = sem->blocked.removeFirst();
-                t->deblocked=true;
+                t->setDeblocked();
                 sem->val++;
                 Scheduler::put(t);
             }
+             sem->close();
 
             delete sem;
 
@@ -191,10 +186,14 @@ void Riscv::handleSupervisorTrap(){
 
             __asm__ volatile("mv %0, a1" : "=r" (arg1));    //handle (sem_t*)
 
+            uint64 ret;
 //            KSemaphore* sem = *arg1;
-
-            uint64 ret = arg1->wait();
-
+            if(arg1->isOpened()==true) {
+                 ret = arg1->wait();
+            }
+            else{
+                ret=-1;
+            }
             __asm__ volatile("mv a0, %0" : : "r" (ret));
 
             w_sstatus(sstatus);
@@ -210,10 +209,14 @@ void Riscv::handleSupervisorTrap(){
 
             __asm__ volatile("mv %0, a1" : "=r" (arg1));    //handle (sem_t*)
 
-
-            arg1->signal();
-
-            uint64 ret = 0;
+            uint64 ret;
+            if(arg1->isOpened()) {
+                arg1->signal();
+                ret=0;
+            }
+            else{
+                ret = -1;
+            }
 
             __asm__ volatile("mv a0, %0" : : "r" (ret));
 
@@ -256,6 +259,13 @@ void Riscv::handleSupervisorTrap(){
     }
      else if(scause == 0x8000000000000001UL){
          mc_sip(SIP_SSIP);
+     }
+     else if(scause == 0x0000000000000009UL){
+         uint64 sepc = r_sepc();
+         uint64 sstatus = r_sstatus() & ~(SSTATUS_SPP);
+
+         w_sepc(sepc + 4);
+         w_sstatus(sstatus);
      }
      else if (scause == 0x8000000000000009UL){
          console_handler();

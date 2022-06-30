@@ -31,6 +31,14 @@ public:
 
     void setStack(uint64* stek);
 
+    void setDeblocked(){
+        deblocked = true;
+    }
+
+    bool checkDeblocked(){
+        return deblocked;
+    }
+
     static _thread *running;
 
     typedef _thread* thread_t;
@@ -60,7 +68,7 @@ private:
     bool finished;
     void* arg; //argument for body function
 
-    bool deblocked=false;
+    bool deblocked;
 
     friend class Riscv;
     friend class KSemaphore;
