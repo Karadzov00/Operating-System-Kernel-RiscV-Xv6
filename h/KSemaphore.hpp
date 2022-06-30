@@ -34,7 +34,7 @@ public:
     void open(){
         opened=true;
     }
-    bool close(){
+    void close(){
         opened = false;
     }
 private:
