@@ -23,36 +23,42 @@ int main(){
 
 
     Riscv::w_stvec((uint64)&Riscv::supervisorTrap);
+    Riscv::mc_sstatus(Riscv::SSTATUS_SPIE);
 
 
-//    Riscv::mc_sstatus(Riscv::SSTATUS_SPIE);
+//    make system thread
+    _thread* main = (_thread*)MemoryAllocator::kmem_alloc(sizeof(_thread));
+    _thread::running=main;
+    uint64 * stack = (uint64*)MemoryAllocator::kmem_alloc(DEFAULT_STACK_SIZE* sizeof(uint64));
+    main->setStack(stack);
+    __asm__ volatile("ecall");
+
+    char c;
+    while((c=getc())!=0x31){
+        putc(c);
+    }
+
+//    make user thread
+
+
+//    _thread* idle;
+//    thread_create(&idle, userMain, nullptr);
+//    _thread::running=idle;
 //
-////    make system thread
-//    _thread* main = (_thread*)MemoryAllocator::kmem_alloc(sizeof(_thread));
-//    _thread::running=main;
-//    uint64 * stack = (uint64*)MemoryAllocator::kmem_alloc(DEFAULT_STACK_SIZE* sizeof(uint64));
-//    main->setStack(stack);
-//    __asm__ volatile("ecall");
+//    _thread* thr;
+//    thread_create(&thr, userMain, nullptr);
 //
-//
-////    make user thread
-////    _thread* thr;
-////    thread_create(&thr, userMain, nullptr);
-////
-////    while(!thr->isFinished()){
-////        thread_dispatch();
-////    }
-//
-//    char c;
-//    while((c=getc())!=0x31){
-//        putc(c);
+//    while(!idle->isFinished()){
+//        thread_dispatch();
 //    }
-    _thread* idle;
-    if(!thread_create(&idle, nullptr, nullptr)){}
-    _thread::running=idle;
 
 
-    userMain(nullptr);
+//    _thread* idle;
+//    if(!thread_create(&idle, nullptr, nullptr)){}
+//    _thread::running=idle;
+//
+//
+//    userMain(nullptr);
 
 
     return 0;
