@@ -80,10 +80,14 @@ public:
     // supervisor trap
     static void supervisorTrap();
 
+    static void TrapConsole();
+
 private:
 
     // supervisor trap handler
     static void handleSupervisorTrap();
+
+    static void handleTrapConsole();
 
 //    static void syscallHandler();
 

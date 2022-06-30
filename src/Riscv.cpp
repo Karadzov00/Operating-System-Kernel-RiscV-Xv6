@@ -103,6 +103,7 @@ void Riscv::handleSupervisorTrap(){
 
         }
         else if(a0reg == 0x13){
+            //thread dispatch
             uint64 sepc = r_sepc() + 4;
             uint64 sstatus = r_sstatus();
 
@@ -114,6 +115,7 @@ void Riscv::handleSupervisorTrap(){
         }
 
         else if(a0reg==0x04){
+            //call from yield
             uint64 sepc = r_sepc() + 4;
             uint64 sstatus = r_sstatus();
 
@@ -218,7 +220,9 @@ void Riscv::handleSupervisorTrap(){
             uint64 sstatus = r_sstatus();
 
             //call method from kernel Console class
+            Riscv::w_stvec((uint64)&Riscv::TrapConsole);
             char c = KConsole::getc();
+            Riscv::w_stvec((uint64)&Riscv::supervisorTrap);
 
             __asm__ volatile("mv a0, %0" : : "r" (c));
 
@@ -235,7 +239,9 @@ void Riscv::handleSupervisorTrap(){
 
             __asm__ volatile("mv %0, a1" : "=r" (c));
 
+            Riscv::w_stvec((uint64)&Riscv::TrapConsole);
             KConsole::putc(c);
+            Riscv::w_stvec((uint64)&Riscv::supervisorTrap);
 
             w_sstatus(sstatus);
             w_sepc(sepc);
@@ -252,19 +258,19 @@ void Riscv::handleSupervisorTrap(){
     }
     else if (scause == 0x8000000000000001UL){
         // interrupt: yes; cause code: supervisor software interrupt (CLINT; machine timer interrupt)
-
-    }
-    else if (scause == 0x8000000000000009UL)
-    {
-        // interrupt: yes; cause code: supervisor external interrupt (PLIC; could be keyboard)
-
         uint64 sepc = r_sepc() + 4;
         uint64 sstatus = r_sstatus();
 
-        console_handler();
+        mc_sip(SIP_SSIP);
 
         w_sstatus(sstatus);
         w_sepc(sepc);
+    }
+
+    else if (scause == 0x8000000000000009UL)
+    {
+        // interrupt: yes; cause code: supervisor external interrupt (PLIC; could be keyboard)
+        console_handler();
     }
     else{
         // unexpected trap cause
@@ -273,6 +279,25 @@ void Riscv::handleSupervisorTrap(){
         //print(stval) //trap value
 
     }
+}
 
+
+void Riscv::handleTrapConsole() {
+    uint scause = r_scause();
+
+//    uint64 sepc = r_sepc() + 4;
+
+    if (scause == 0x8000000000000001UL){
+        // interrupt: yes; cause code: supervisor software interrupt (CLINT; machine timer interrupt)
+        mc_sip(SIP_SSIP);
+
+    }
+    else if (scause == 0x8000000000000009UL)
+    {
+        // interrupt: yes; cause code: supervisor external interrupt (PLIC; could be keyboard)
+        console_handler();
+        mc_sip(SIP_SEIP);
+    }
+//    w_sepc(sepc);
 }
 
