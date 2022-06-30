@@ -20,7 +20,6 @@ void Riscv::popSppSpie()    //pop supervisor previous privilege, supervisor prev
 void Riscv::handleSupervisorTrap(){
     uint scause = r_scause();
     uint64 a0reg;
-//    uint64 arg0;
     uint64 arg1;
     __asm__ volatile("mv %0, a0" : "=r" (a0reg));
 
@@ -252,8 +251,8 @@ void Riscv::handleSupervisorTrap(){
     else if(scause == 0x0000000000000009UL){
         uint64 sepc = r_sepc() + 4;
         uint64 sstatus = r_sstatus() & ~(SSTATUS_SPP);
-        w_sstatus(sstatus);
         w_sepc(sepc);
+        w_sstatus(sstatus);
 
     }
     else if (scause == 0x8000000000000001UL){

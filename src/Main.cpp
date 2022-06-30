@@ -9,7 +9,7 @@
 #include "../test/printing.hpp"
 //
 //
-#include "Workers.cpp"
+
 extern void userMain();
 extern int thread_create (
         _thread::thread_t * handle,
@@ -30,17 +30,22 @@ int main(){
     //make system thread
     _thread* main = (_thread*)MemoryAllocator::kmem_alloc(sizeof(_thread));
     _thread::running=main;
-    uint64 * stack = (uint64*)MemoryAllocator::kmem_alloc(DEFAULT_STACK_SIZE);
+    uint64 * stack = (uint64*)MemoryAllocator::kmem_alloc(DEFAULT_STACK_SIZE* sizeof(uint64));
     main->setStack(stack);
     __asm__ volatile("ecall");
 
 
     //make user thread
-    _thread* thr;
-    thread_create(&thr, userMain, nullptr);
+//    _thread* thr;
+//    thread_create(&thr, userMain, nullptr);
+//
+//    while(!thr->isFinished()){
+//        thread_dispatch();
+//    }
 
-    while(!thr->isFinished()){
-        thread_dispatch();
+    char c= getc();
+    while((c=getc())!=0x31){
+        putc(c);
     }
 
     return 0;
