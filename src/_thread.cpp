@@ -86,3 +86,7 @@ void _thread::operator delete[](void *p) noexcept {
     MemoryAllocator::kmem_free(p);
 }
 
+void _thread::setStack(uint64* stek) {
+    this->stack = stek;
+}
+

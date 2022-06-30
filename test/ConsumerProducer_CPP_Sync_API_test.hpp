@@ -122,10 +122,10 @@ void producerConsumer_CPP_Sync_API() {
 
 
 
-    threadNum = 5;
+    threadNum = 1;
 
 
-    n = 10;
+    n = 2;
 
     printString("Broj proizvodjaca "); printInt(threadNum);
     printString(" i velicina bafera "); printInt(n);

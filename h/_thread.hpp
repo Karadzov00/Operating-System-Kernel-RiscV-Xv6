@@ -29,6 +29,8 @@ public:
 
     void start();
 
+    void setStack(uint64* stek);
+
     static _thread *running;
 
     typedef _thread* thread_t;
