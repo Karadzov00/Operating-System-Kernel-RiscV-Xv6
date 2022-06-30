@@ -24,7 +24,7 @@ void Riscv::handleSupervisorTrap(){
     uint64 arg1;
     __asm__ volatile("mv %0, a0" : "=r" (a0reg));
 
-    if (scause == 0x0000000000000008UL || scause==0x0000000000000009UL){
+    if (scause == 0x0000000000000008UL){
         // interrupt: no; cause code: environment call from U-mode(8) or S-mode(9)
 
         //call from yield
@@ -241,6 +241,13 @@ void Riscv::handleSupervisorTrap(){
             w_sepc(sepc);
         }
 
+
+    }
+    else if(scause == 0x0000000000000009UL){
+        uint64 sepc = r_sepc() + 4;
+        uint64 sstatus = r_sstatus() & ~(SSTATUS_SPP);
+        w_sstatus(sstatus);
+        w_sepc(sepc);
 
     }
     else if (scause == 0x8000000000000001UL){

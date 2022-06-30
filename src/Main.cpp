@@ -10,7 +10,6 @@
 //
 //
 #include "Workers.cpp"
-#include "../test/Threads_Sems_C_API_test.hpp"
 extern void userMain();
 extern int thread_create (
         _thread::thread_t * handle,
