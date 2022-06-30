@@ -24,15 +24,15 @@ int main(){
 
     Riscv::w_stvec((uint64)&Riscv::supervisorTrap);
 
-    //set to user regime
+
     Riscv::mc_sstatus(Riscv::SSTATUS_SPIE);
 
     //make system thread
-    _thread* main = (_thread*)MemoryAllocator::kmem_alloc(sizeof(_thread));
-    _thread::running=main;
-    uint64 * stack = (uint64*)MemoryAllocator::kmem_alloc(DEFAULT_STACK_SIZE* sizeof(uint64));
-    main->setStack(stack);
-    __asm__ volatile("ecall");
+//    _thread* main = (_thread*)MemoryAllocator::kmem_alloc(sizeof(_thread));
+//    _thread::running=main;
+//    uint64 * stack = (uint64*)MemoryAllocator::kmem_alloc(DEFAULT_STACK_SIZE* sizeof(uint64));
+//    main->setStack(stack);
+//    __asm__ volatile("ecall");
 
 
     //make user thread
@@ -43,7 +43,7 @@ int main(){
 //        thread_dispatch();
 //    }
 
-    char c= getc();
+    char c;
     while((c=getc())!=0x31){
         putc(c);
     }

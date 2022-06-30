@@ -1,4 +1,4 @@
-GAS LISTING /tmp/cc72BvTi.s 			page 1
+GAS LISTING /tmp/ccy0A2j8.s 			page 1
 
 
    1              		.file	"Main.cpp"
@@ -22,7 +22,7 @@ GAS LISTING /tmp/cc72BvTi.s 			page 1
    9:src/Main.cpp  **** #include "../test/printing.hpp"
   10:src/Main.cpp  **** //
   11:src/Main.cpp  **** //
-  12:src/Main.cpp  **** #include "Workers.cpp"
+  12:src/Main.cpp  **** 
   13:src/Main.cpp  **** extern void userMain();
   14:src/Main.cpp  **** extern int thread_create (
   15:src/Main.cpp  ****         _thread::thread_t * handle,
@@ -35,34 +35,32 @@ GAS LISTING /tmp/cc72BvTi.s 			page 1
   22:src/Main.cpp  **** int main(){
   12              		.loc 1 22 11
   13              		.cfi_startproc
-  14 0000 130101FE 		addi	sp,sp,-32
-  15              		.cfi_def_cfa_offset 32
-  16 0004 233C1100 		sd	ra,24(sp)
-  17 0008 23388100 		sd	s0,16(sp)
-  18 000c 23349100 		sd	s1,8(sp)
-  19              		.cfi_offset 1, -8
-  20              		.cfi_offset 8, -16
-  21              		.cfi_offset 9, -24
-  22 0010 13040102 		addi	s0,sp,32
-  23              		.cfi_def_cfa 8, 0
+  14 0000 130101FF 		addi	sp,sp,-16
+  15              		.cfi_def_cfa_offset 16
+  16 0004 23341100 		sd	ra,8(sp)
+  17 0008 23308100 		sd	s0,0(sp)
+  18              		.cfi_offset 1, -8
+  19              		.cfi_offset 8, -16
+  20 000c 13040101 		addi	s0,sp,16
+  21              		.cfi_def_cfa 8, 0
   23:src/Main.cpp  **** 
   24:src/Main.cpp  **** 
   25:src/Main.cpp  ****     Riscv::w_stvec((uint64)&Riscv::supervisorTrap);
-  24              		.loc 1 25 5
-  25              		.loc 1 25 19 is_stmt 0
-  26 0014 97070000 		la	a5,_ZN5Riscv14supervisorTrapEv
-  26      83B70700 
-  27              	.LVL0:
-  28              	.LBB6:
-  29              	.LBB7:
-  30              		.file 2 "src/../h/Riscv.hpp"
+  22              		.loc 1 25 5
+  23              		.loc 1 25 19 is_stmt 0
+  24 0010 97070000 		la	a5,_ZN5Riscv14supervisorTrapEv
+  24      83B70700 
+  25              	.LVL0:
+  26              	.LBB6:
+  27              	.LBB7:
+  28              		.file 2 "src/../h/Riscv.hpp"
    1:src/../h/Riscv.hpp **** //
    2:src/../h/Riscv.hpp **** // Created by os on 6/17/22.
-GAS LISTING /tmp/cc72BvTi.s 			page 2
-
-
    3:src/../h/Riscv.hpp **** //
    4:src/../h/Riscv.hpp **** 
+GAS LISTING /tmp/ccy0A2j8.s 			page 2
+
+
    5:src/../h/Riscv.hpp **** #ifndef PROJECT_BASE_V1_1_RISCV_HPP
    6:src/../h/Riscv.hpp **** #define PROJECT_BASE_V1_1_RISCV_HPP
    7:src/../h/Riscv.hpp **** 
@@ -118,11 +116,11 @@ GAS LISTING /tmp/cc72BvTi.s 			page 1
   57:src/../h/Riscv.hpp **** 
   58:src/../h/Riscv.hpp ****     // write register sip
   59:src/../h/Riscv.hpp ****     static void w_sip(uint64 sip);
-GAS LISTING /tmp/cc72BvTi.s 			page 3
-
-
   60:src/../h/Riscv.hpp **** 
   61:src/../h/Riscv.hpp ****     enum BitMaskSstatus
+GAS LISTING /tmp/ccy0A2j8.s 			page 3
+
+
   62:src/../h/Riscv.hpp ****     {
   63:src/../h/Riscv.hpp ****         SSTATUS_SIE = (1 << 1),
   64:src/../h/Riscv.hpp ****         SSTATUS_SPIE = (1 << 5),
@@ -178,11 +176,11 @@ GAS LISTING /tmp/cc72BvTi.s 			page 1
  114:src/../h/Riscv.hpp **** 
  115:src/../h/Riscv.hpp **** inline void Riscv::w_sepc(uint64 sepc)
  116:src/../h/Riscv.hpp **** {
-GAS LISTING /tmp/cc72BvTi.s 			page 4
-
-
  117:src/../h/Riscv.hpp ****     __asm__ volatile ("csrw sepc, %[sepc]" : : [sepc] "r"(sepc));
  118:src/../h/Riscv.hpp **** }
+GAS LISTING /tmp/ccy0A2j8.s 			page 4
+
+
  119:src/../h/Riscv.hpp **** 
  120:src/../h/Riscv.hpp **** inline uint64 Riscv::r_stvec()
  121:src/../h/Riscv.hpp **** {
@@ -194,23 +192,23 @@ GAS LISTING /tmp/cc72BvTi.s 			page 1
  127:src/../h/Riscv.hpp **** inline void Riscv::w_stvec(uint64 stvec)
  128:src/../h/Riscv.hpp **** {
  129:src/../h/Riscv.hpp ****     __asm__ volatile ("csrw stvec, %[stvec]" : : [stvec] "r"(stvec));
-  31              		.loc 2 129 5 is_stmt 1
-  32              		.loc 2 129 69 is_stmt 0
-  33              	#APP
-  34              	# 129 "src/../h/Riscv.hpp" 1
+  29              		.loc 2 129 5 is_stmt 1
+  30              		.loc 2 129 69 is_stmt 0
+  31              	#APP
+  32              	# 129 "src/../h/Riscv.hpp" 1
  130              	}
-  35              		csrw stvec, a5
-  36              	# 0 "" 2
-  37              	.LVL1:
-  38              	#NO_APP
-  39              	.LBE7:
-  40              	.LBE6:
+  33              		csrw stvec, a5
+  34              	# 0 "" 2
+  35              	.LVL1:
+  36              	#NO_APP
+  37              	.LBE7:
+  38              	.LBE6:
   26:src/Main.cpp  **** 
-  27:src/Main.cpp  ****     //set to user regime
+  27:src/Main.cpp  **** 
   28:src/Main.cpp  ****     Riscv::mc_sstatus(Riscv::SSTATUS_SPIE);
-  41              		.loc 1 28 5 is_stmt 1
-  42              	.LBB8:
-  43              	.LBB9:
+  39              		.loc 1 28 5 is_stmt 1
+  40              	.LBB8:
+  41              	.LBB9:
  131:src/../h/Riscv.hpp **** 
  132:src/../h/Riscv.hpp **** inline uint64 Riscv::r_stval()
  133:src/../h/Riscv.hpp **** {
@@ -238,11 +236,11 @@ GAS LISTING /tmp/cc72BvTi.s 			page 1
  155:src/../h/Riscv.hpp **** {
  156:src/../h/Riscv.hpp ****     uint64 volatile sip;
  157:src/../h/Riscv.hpp ****     __asm__ volatile ("csrr %[sip], sip" : [sip] "=r"(sip));
-GAS LISTING /tmp/cc72BvTi.s 			page 5
-
-
  158:src/../h/Riscv.hpp ****     return sip;
  159:src/../h/Riscv.hpp **** }
+GAS LISTING /tmp/ccy0A2j8.s 			page 5
+
+
  160:src/../h/Riscv.hpp **** 
  161:src/../h/Riscv.hpp **** inline void Riscv::w_sip(uint64 sip)
  162:src/../h/Riscv.hpp **** {
@@ -259,61 +257,27 @@ GAS LISTING /tmp/cc72BvTi.s 			page 1
  173:src/../h/Riscv.hpp **** inline void Riscv::mc_sstatus(uint64 mask)
  174:src/../h/Riscv.hpp **** {
  175:src/../h/Riscv.hpp ****     __asm__ volatile ("csrc sstatus, %[mask]" : : [mask] "r"(mask));
-  44              		.loc 2 175 5
-  45              		.loc 2 175 68 is_stmt 0
-  46 0020 93070002 		li	a5,32
-  47              	#APP
-  48              	# 175 "src/../h/Riscv.hpp" 1
+  42              		.loc 2 175 5
+  43              		.loc 2 175 68 is_stmt 0
+  44 001c 93070002 		li	a5,32
+  45              	#APP
+  46              	# 175 "src/../h/Riscv.hpp" 1
  176              	}
-  49              		csrc sstatus, a5
-  50              	# 0 "" 2
-  51              	.LVL2:
-  52              	#NO_APP
-  53              	.LBE9:
-  54              	.LBE8:
+  47              		csrc sstatus, a5
+  48              	# 0 "" 2
+  49              	.LVL2:
+  50              	#NO_APP
+  51              	.L3:
+  52              	.LBE9:
+  53              	.LBE8:
   29:src/Main.cpp  **** 
   30:src/Main.cpp  ****     //make system thread
-  31:src/Main.cpp  ****     _thread* main = (_thread*)MemoryAllocator::kmem_alloc(sizeof(_thread));
-  55              		.loc 1 31 5 is_stmt 1
-  56              		.loc 1 31 58 is_stmt 0
-  57 0028 13050005 		li	a0,80
-  58 002c 97000000 		call	_ZN15MemoryAllocator10kmem_allocEm@plt
-  58      E7800000 
-  59              	.LVL3:
-  60 0034 93040500 		mv	s1,a0
-  61              	.LVL4:
-  32:src/Main.cpp  ****     _thread::running=main;
-  62              		.loc 1 32 5 is_stmt 1
-  63              		.loc 1 32 21 is_stmt 0
-  64 0038 97070000 		la	a5,_ZN7_thread7runningE
-  64      83B70700 
-  65 0040 23B0A700 		sd	a0,0(a5)
-  33:src/Main.cpp  ****     uint64 * stack = (uint64*)MemoryAllocator::kmem_alloc(DEFAULT_STACK_SIZE* sizeof(uint64));
-  66              		.loc 1 33 5 is_stmt 1
-  67              		.loc 1 33 58 is_stmt 0
-  68 0044 37850000 		li	a0,32768
-  69 0048 97000000 		call	_ZN15MemoryAllocator10kmem_allocEm@plt
-  69      E7800000 
-  70              	.LVL5:
-  71 0050 93050500 		mv	a1,a0
-  72              	.LVL6:
-  34:src/Main.cpp  ****     main->setStack(stack);
-GAS LISTING /tmp/cc72BvTi.s 			page 6
-
-
-  73              		.loc 1 34 5 is_stmt 1
-  74              		.loc 1 34 19 is_stmt 0
-  75 0054 13850400 		mv	a0,s1
-  76              	.LVL7:
-  77 0058 97000000 		call	_ZN7_thread8setStackEPm@plt
-  77      E7800000 
-  78              	.LVL8:
-  35:src/Main.cpp  ****     __asm__ volatile("ecall");
-  79              		.loc 1 35 5 is_stmt 1
-  80              		.loc 1 35 30 is_stmt 0
-  81              	#APP
-  82              	# 35 "src/Main.cpp" 1
-  36              	
+  31:src/Main.cpp  **** //    _thread* main = (_thread*)MemoryAllocator::kmem_alloc(sizeof(_thread));
+  32:src/Main.cpp  **** //    _thread::running=main;
+  33:src/Main.cpp  **** //    uint64 * stack = (uint64*)MemoryAllocator::kmem_alloc(DEFAULT_STACK_SIZE* sizeof(uint64));
+  34:src/Main.cpp  **** //    main->setStack(stack);
+  35:src/Main.cpp  **** //    __asm__ volatile("ecall");
+  36:src/Main.cpp  **** 
   37:src/Main.cpp  **** 
   38:src/Main.cpp  ****     //make user thread
   39:src/Main.cpp  **** //    _thread* thr;
@@ -323,322 +287,194 @@ GAS LISTING /tmp/cc72BvTi.s 			page 1
   43:src/Main.cpp  **** //        thread_dispatch();
   44:src/Main.cpp  **** //    }
   45:src/Main.cpp  **** 
-  46:src/Main.cpp  ****     char c= getc();
-  83              		ecall
-  84              	# 0 "" 2
-  85              		.loc 1 46 5 is_stmt 1
-  86              		.loc 1 46 17 is_stmt 0
-  87              	#NO_APP
-  88 0064 97000000 		call	_Z4getcv@plt
-  88      E7800000 
-  89              	.LVL9:
-  90              	.L3:
+  46:src/Main.cpp  ****     char c;
+  54              		.loc 1 46 5 is_stmt 1
   47:src/Main.cpp  ****     while((c=getc())!=0x31){
-  91              		.loc 1 47 5 is_stmt 1
-  92              		.loc 1 47 21
-  93              		.loc 1 47 18 is_stmt 0
-  94 006c 97000000 		call	_Z4getcv@plt
-  94      E7800000 
-  95              	.LVL10:
-  96              		.loc 1 47 21
-  97 0074 93071003 		li	a5,49
-  98 0078 6308F500 		beq	a0,a5,.L2
+  55              		.loc 1 47 5
+  56              		.loc 1 47 21
+  57              		.loc 1 47 18 is_stmt 0
+  58 0024 97000000 		call	_Z4getcv@plt
+  58      E7800000 
+  59              	.LVL3:
+  60              		.loc 1 47 21
+  61 002c 93071003 		li	a5,49
+GAS LISTING /tmp/ccy0A2j8.s 			page 6
+
+
+  62 0030 6308F500 		beq	a0,a5,.L2
   48:src/Main.cpp  ****         putc(c);
-  99              		.loc 1 48 9 is_stmt 1
- 100              		.loc 1 48 13 is_stmt 0
- 101 007c 97000000 		call	_Z4putcc@plt
- 101      E7800000 
- 102              	.LVL11:
+  63              		.loc 1 48 9 is_stmt 1
+  64              		.loc 1 48 13 is_stmt 0
+  65 0034 97000000 		call	_Z4putcc@plt
+  65      E7800000 
+  66              	.LVL4:
   47:src/Main.cpp  ****     while((c=getc())!=0x31){
- 103              		.loc 1 47 5
- 104 0084 6FF09FFE 		j	.L3
- 105              	.LVL12:
- 106              	.L2:
+  67              		.loc 1 47 5
+  68 003c 6FF09FFE 		j	.L3
+  69              	.LVL5:
+  70              	.L2:
   49:src/Main.cpp  ****     }
   50:src/Main.cpp  **** 
   51:src/Main.cpp  ****     return 0;
- 107              		.loc 1 51 5 is_stmt 1
-GAS LISTING /tmp/cc72BvTi.s 			page 7
-
-
+  71              		.loc 1 51 5 is_stmt 1
   52:src/Main.cpp  **** }
- 108              		.loc 1 52 1 is_stmt 0
- 109 0088 13050000 		li	a0,0
- 110              	.LVL13:
- 111 008c 83308101 		ld	ra,24(sp)
- 112              		.cfi_restore 1
- 113 0090 03340101 		ld	s0,16(sp)
- 114              		.cfi_restore 8
- 115              		.cfi_def_cfa 2, 32
- 116 0094 83348100 		ld	s1,8(sp)
- 117              		.cfi_restore 9
- 118              	.LVL14:
- 119 0098 13010102 		addi	sp,sp,32
- 120              		.cfi_def_cfa_offset 0
- 121 009c 67800000 		jr	ra
- 122              		.cfi_endproc
- 123              	.LFE41:
- 125              	.Letext0:
- 126              		.file 3 "src/../h/../lib/hw.h"
- 127              		.file 4 "src/../h/DoublyLinkedList.hpp"
- 128              		.file 5 "src/../h/MemoryAllocator.hpp"
- 129              		.file 6 "src/../h/_thread.hpp"
- 130              		.file 7 "src/../h/syscall_c.h"
-GAS LISTING /tmp/cc72BvTi.s 			page 8
+  72              		.loc 1 52 1 is_stmt 0
+  73 0040 13050000 		li	a0,0
+  74              	.LVL6:
+  75 0044 83308100 		ld	ra,8(sp)
+  76              		.cfi_restore 1
+  77 0048 03340100 		ld	s0,0(sp)
+  78              		.cfi_restore 8
+  79              		.cfi_def_cfa 2, 16
+  80 004c 13010101 		addi	sp,sp,16
+  81              		.cfi_def_cfa_offset 0
+  82 0050 67800000 		jr	ra
+  83              		.cfi_endproc
+  84              	.LFE41:
+  86              	.Letext0:
+  87              		.file 3 "src/../h/../lib/hw.h"
+  88              		.file 4 "src/../h/syscall_c.h"
+GAS LISTING /tmp/ccy0A2j8.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 Main.cpp
-     /tmp/cc72BvTi.s:9      .text:0000000000000000 main
-     /tmp/cc72BvTi.s:13     .text:0000000000000000 .L0 
-     /tmp/cc72BvTi.s:14     .text:0000000000000000 .L0 
-     /tmp/cc72BvTi.s:15     .text:0000000000000004 .L0 
-     /tmp/cc72BvTi.s:19     .text:0000000000000010 .L0 
-     /tmp/cc72BvTi.s:20     .text:0000000000000010 .L0 
-     /tmp/cc72BvTi.s:21     .text:0000000000000010 .L0 
-     /tmp/cc72BvTi.s:23     .text:0000000000000014 .L0 
-     /tmp/cc72BvTi.s:25     .text:0000000000000014 .L0 
-     /tmp/cc72BvTi.s:26     .text:0000000000000014 .L0 
-     /tmp/cc72BvTi.s:32     .text:000000000000001c .L0 
-  src/../h/Riscv.hpp:129    .text:000000000000001c .L0 
-     /tmp/cc72BvTi.s:44     .text:0000000000000020 .L0 
-     /tmp/cc72BvTi.s:45     .text:0000000000000020 .L0 
-     /tmp/cc72BvTi.s:46     .text:0000000000000020 .L0 
-     /tmp/cc72BvTi.s:56     .text:0000000000000028 .L0 
-     /tmp/cc72BvTi.s:57     .text:0000000000000028 .L0 
-     /tmp/cc72BvTi.s:63     .text:0000000000000038 .L0 
-     /tmp/cc72BvTi.s:64     .text:0000000000000038 .L0 
-     /tmp/cc72BvTi.s:67     .text:0000000000000044 .L0 
-     /tmp/cc72BvTi.s:68     .text:0000000000000044 .L0 
-     /tmp/cc72BvTi.s:74     .text:0000000000000054 .L0 
-     /tmp/cc72BvTi.s:75     .text:0000000000000054 .L0 
-     /tmp/cc72BvTi.s:80     .text:0000000000000060 .L0 
-        src/Main.cpp:35     .text:0000000000000060 .L0 
-     /tmp/cc72BvTi.s:86     .text:0000000000000064 .L0 
-     /tmp/cc72BvTi.s:88     .text:0000000000000064 .L0 
-     /tmp/cc72BvTi.s:92     .text:000000000000006c .L0 
-     /tmp/cc72BvTi.s:93     .text:000000000000006c .L0 
-     /tmp/cc72BvTi.s:94     .text:000000000000006c .L0 
-     /tmp/cc72BvTi.s:97     .text:0000000000000074 .L0 
-     /tmp/cc72BvTi.s:100    .text:000000000000007c .L0 
-     /tmp/cc72BvTi.s:101    .text:000000000000007c .L0 
-     /tmp/cc72BvTi.s:104    .text:0000000000000084 .L0 
-     /tmp/cc72BvTi.s:108    .text:0000000000000088 .L0 
-     /tmp/cc72BvTi.s:109    .text:0000000000000088 .L0 
-     /tmp/cc72BvTi.s:112    .text:0000000000000090 .L0 
-     /tmp/cc72BvTi.s:114    .text:0000000000000094 .L0 
-     /tmp/cc72BvTi.s:115    .text:0000000000000094 .L0 
-     /tmp/cc72BvTi.s:117    .text:0000000000000098 .L0 
-     /tmp/cc72BvTi.s:120    .text:000000000000009c .L0 
-     /tmp/cc72BvTi.s:122    .text:00000000000000a0 .L0 
-     /tmp/cc72BvTi.s:131    .text:00000000000000a0 .L0 
-     /tmp/cc72BvTi.s:26     .text:0000000000000014 .L0 
-     /tmp/cc72BvTi.s:64     .text:0000000000000038 .L0 
-     /tmp/cc72BvTi.s:106    .text:0000000000000088 .L2
-     /tmp/cc72BvTi.s:90     .text:000000000000006c .L3
-     /tmp/cc72BvTi.s:1252   .debug_abbrev:0000000000000000 .Ldebug_abbrev0
-     /tmp/cc72BvTi.s:2418   .debug_str:0000000000000817 .LASF152
-     /tmp/cc72BvTi.s:2280   .debug_str:0000000000000423 .LASF153
-     /tmp/cc72BvTi.s:2170   .debug_str:0000000000000096 .LASF154
-     /tmp/cc72BvTi.s:5      .text:0000000000000000 .Ltext0
-     /tmp/cc72BvTi.s:125    .text:00000000000000a0 .Letext0
-     /tmp/cc72BvTi.s:2152   .debug_line:0000000000000000 .Ldebug_line0
-     /tmp/cc72BvTi.s:2318   .debug_str:000000000000051e .LASF0
-GAS LISTING /tmp/cc72BvTi.s 			page 9
+     /tmp/ccy0A2j8.s:9      .text:0000000000000000 main
+     /tmp/ccy0A2j8.s:13     .text:0000000000000000 .L0 
+     /tmp/ccy0A2j8.s:14     .text:0000000000000000 .L0 
+     /tmp/ccy0A2j8.s:15     .text:0000000000000004 .L0 
+     /tmp/ccy0A2j8.s:18     .text:000000000000000c .L0 
+     /tmp/ccy0A2j8.s:19     .text:000000000000000c .L0 
+     /tmp/ccy0A2j8.s:21     .text:0000000000000010 .L0 
+     /tmp/ccy0A2j8.s:23     .text:0000000000000010 .L0 
+     /tmp/ccy0A2j8.s:24     .text:0000000000000010 .L0 
+     /tmp/ccy0A2j8.s:30     .text:0000000000000018 .L0 
+  src/../h/Riscv.hpp:129    .text:0000000000000018 .L0 
+     /tmp/ccy0A2j8.s:42     .text:000000000000001c .L0 
+     /tmp/ccy0A2j8.s:43     .text:000000000000001c .L0 
+     /tmp/ccy0A2j8.s:44     .text:000000000000001c .L0 
+     /tmp/ccy0A2j8.s:55     .text:0000000000000024 .L0 
+     /tmp/ccy0A2j8.s:56     .text:0000000000000024 .L0 
+     /tmp/ccy0A2j8.s:57     .text:0000000000000024 .L0 
+     /tmp/ccy0A2j8.s:58     .text:0000000000000024 .L0 
+     /tmp/ccy0A2j8.s:61     .text:000000000000002c .L0 
+     /tmp/ccy0A2j8.s:64     .text:0000000000000034 .L0 
+     /tmp/ccy0A2j8.s:65     .text:0000000000000034 .L0 
+     /tmp/ccy0A2j8.s:68     .text:000000000000003c .L0 
+     /tmp/ccy0A2j8.s:72     .text:0000000000000040 .L0 
+     /tmp/ccy0A2j8.s:73     .text:0000000000000040 .L0 
+     /tmp/ccy0A2j8.s:76     .text:0000000000000048 .L0 
+     /tmp/ccy0A2j8.s:78     .text:000000000000004c .L0 
+     /tmp/ccy0A2j8.s:79     .text:000000000000004c .L0 
+     /tmp/ccy0A2j8.s:81     .text:0000000000000050 .L0 
+     /tmp/ccy0A2j8.s:83     .text:0000000000000054 .L0 
+     /tmp/ccy0A2j8.s:89     .text:0000000000000054 .L0 
+     /tmp/ccy0A2j8.s:24     .text:0000000000000010 .L0 
+     /tmp/ccy0A2j8.s:70     .text:0000000000000040 .L2
+     /tmp/ccy0A2j8.s:51     .text:0000000000000024 .L3
+     /tmp/ccy0A2j8.s:530    .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+     /tmp/ccy0A2j8.s:1117   .debug_str:00000000000003cc .LASF70
+     /tmp/ccy0A2j8.s:1055   .debug_str:0000000000000229 .LASF71
+     /tmp/ccy0A2j8.s:995    .debug_str:0000000000000040 .LASF72
+     /tmp/ccy0A2j8.s:5      .text:0000000000000000 .Ltext0
+     /tmp/ccy0A2j8.s:86     .text:0000000000000054 .Letext0
+     /tmp/ccy0A2j8.s:985    .debug_line:0000000000000000 .Ldebug_line0
+     /tmp/ccy0A2j8.s:1071   .debug_str:0000000000000285 .LASF0
+     /tmp/ccy0A2j8.s:1077   .debug_str:000000000000029f .LASF1
+     /tmp/ccy0A2j8.s:1063   .debug_str:0000000000000255 .LASF2
+     /tmp/ccy0A2j8.s:1049   .debug_str:00000000000001f5 .LASF4
+     /tmp/ccy0A2j8.s:1101   .debug_str:000000000000034b .LASF3
+     /tmp/ccy0A2j8.s:999    .debug_str:0000000000000077 .LASF5
+     /tmp/ccy0A2j8.s:1079   .debug_str:00000000000002b2 .LASF6
+     /tmp/ccy0A2j8.s:1069   .debug_str:0000000000000272 .LASF7
+     /tmp/ccy0A2j8.s:1121   .debug_str:000000000000049f .LASF8
+     /tmp/ccy0A2j8.s:1041   .debug_str:00000000000001a7 .LASF9
+     /tmp/ccy0A2j8.s:1087   .debug_str:00000000000002d5 .LASF10
+     /tmp/ccy0A2j8.s:1119   .debug_str:0000000000000490 .LASF11
+     /tmp/ccy0A2j8.s:1003   .debug_str:000000000000008a .LASF12
+     /tmp/ccy0A2j8.s:991    .debug_str:0000000000000027 .LASF13
+     /tmp/ccy0A2j8.s:1011   .debug_str:00000000000000d4 .LASF14
+GAS LISTING /tmp/ccy0A2j8.s 			page 8
 
 
-     /tmp/cc72BvTi.s:2338   .debug_str:000000000000058d .LASF1
-     /tmp/cc72BvTi.s:2298   .debug_str:000000000000048c .LASF2
-     /tmp/cc72BvTi.s:2264   .debug_str:00000000000003b5 .LASF4
-     /tmp/cc72BvTi.s:2390   .debug_str:0000000000000737 .LASF3
-     /tmp/cc72BvTi.s:2180   .debug_str:00000000000000fe .LASF5
-     /tmp/cc72BvTi.s:2342   .debug_str:00000000000005bc .LASF6
-     /tmp/cc72BvTi.s:2316   .debug_str:000000000000050b .LASF7
-     /tmp/cc72BvTi.s:2436   .debug_str:000000000000097d .LASF8
-     /tmp/cc72BvTi.s:2248   .debug_str:0000000000000303 .LASF9
-     /tmp/cc72BvTi.s:2358   .debug_str:0000000000000630 .LASF10
-     /tmp/cc72BvTi.s:2422   .debug_str:00000000000008e7 .LASF11
-     /tmp/cc72BvTi.s:2184   .debug_str:0000000000000111 .LASF12
-     /tmp/cc72BvTi.s:2162   .debug_str:0000000000000053 .LASF13
-     /tmp/cc72BvTi.s:2194   .debug_str:0000000000000160 .LASF14
-     /tmp/cc72BvTi.s:2380   .debug_str:00000000000006e2 .LASF15
-     /tmp/cc72BvTi.s:2206   .debug_str:00000000000001df .LASF16
-     /tmp/cc72BvTi.s:2334   .debug_str:000000000000057a .LASF62
-     /tmp/cc72BvTi.s:2210   .debug_str:0000000000000209 .LASF90
-     /tmp/cc72BvTi.s:2202   .debug_str:00000000000001b2 .LASF17
-     /tmp/cc72BvTi.s:2284   .debug_str:0000000000000436 .LASF18
-     /tmp/cc72BvTi.s:2182   .debug_str:0000000000000105 .LASF19
-     /tmp/cc72BvTi.s:2376   .debug_str:00000000000006b1 .LASF52
-     /tmp/cc72BvTi.s:2454   .debug_str:00000000000009fc .LASF54
-     /tmp/cc72BvTi.s:2164   .debug_str:0000000000000063 .LASF20
-     /tmp/cc72BvTi.s:2402   .debug_str:000000000000078d .LASF22
-     /tmp/cc72BvTi.s:2224   .debug_str:0000000000000274 .LASF24
-     /tmp/cc72BvTi.s:2222   .debug_str:000000000000025f .LASF26
-     /tmp/cc72BvTi.s:2394   .debug_str:000000000000075a .LASF21
-     /tmp/cc72BvTi.s:2366   .debug_str:0000000000000671 .LASF23
-     /tmp/cc72BvTi.s:2416   .debug_str:0000000000000810 .LASF25
-     /tmp/cc72BvTi.s:2406   .debug_str:00000000000007ba .LASF27
-     /tmp/cc72BvTi.s:2242   .debug_str:00000000000002dc .LASF28
-     /tmp/cc72BvTi.s:2208   .debug_str:00000000000001f5 .LASF29
-     /tmp/cc72BvTi.s:2158   .debug_str:0000000000000028 .LASF30
-     /tmp/cc72BvTi.s:2256   .debug_str:0000000000000349 .LASF31
-     /tmp/cc72BvTi.s:2228   .debug_str:0000000000000287 .LASF32
-     /tmp/cc72BvTi.s:2186   .debug_str:0000000000000121 .LASF33
-     /tmp/cc72BvTi.s:2462   .debug_str:0000000000000a2f .LASF34
-     /tmp/cc72BvTi.s:2230   .debug_str:000000000000028f .LASF35
-     /tmp/cc72BvTi.s:2320   .debug_str:000000000000052b .LASF36
-     /tmp/cc72BvTi.s:2452   .debug_str:00000000000009e9 .LASF37
-     /tmp/cc72BvTi.s:2172   .debug_str:00000000000000c6 .LASF38
-     /tmp/cc72BvTi.s:2240   .debug_str:00000000000002c9 .LASF39
-     /tmp/cc72BvTi.s:2246   .debug_str:00000000000002fd .LASF40
-     /tmp/cc72BvTi.s:2414   .debug_str:00000000000007fe .LASF41
-     /tmp/cc72BvTi.s:2282   .debug_str:0000000000000430 .LASF42
-     /tmp/cc72BvTi.s:2466   .debug_str:0000000000000a47 .LASF43
-     /tmp/cc72BvTi.s:2460   .debug_str:0000000000000a24 .LASF44
-     /tmp/cc72BvTi.s:2386   .debug_str:0000000000000716 .LASF45
-     /tmp/cc72BvTi.s:2274   .debug_str:00000000000003ee .LASF46
-     /tmp/cc72BvTi.s:2404   .debug_str:00000000000007a2 .LASF47
-     /tmp/cc72BvTi.s:2192   .debug_str:0000000000000156 .LASF48
-     /tmp/cc72BvTi.s:2260   .debug_str:000000000000039a .LASF49
-     /tmp/cc72BvTi.s:2302   .debug_str:00000000000004a6 .LASF50
-     /tmp/cc72BvTi.s:2252   .debug_str:0000000000000316 .LASF51
-     /tmp/cc72BvTi.s:2396   .debug_str:0000000000000761 .LASF53
-     /tmp/cc72BvTi.s:2188   .debug_str:0000000000000135 .LASF55
-GAS LISTING /tmp/cc72BvTi.s 			page 10
+     /tmp/ccy0A2j8.s:1095   .debug_str:0000000000000314 .LASF15
+     /tmp/ccy0A2j8.s:1015   .debug_str:00000000000000ec .LASF16
+     /tmp/ccy0A2j8.s:1075   .debug_str:0000000000000299 .LASF73
+     /tmp/ccy0A2j8.s:1019   .debug_str:0000000000000116 .LASF74
+     /tmp/ccy0A2j8.s:1013   .debug_str:00000000000000e0 .LASF17
+     /tmp/ccy0A2j8.s:1059   .debug_str:000000000000023c .LASF18
+     /tmp/ccy0A2j8.s:1001   .debug_str:000000000000007e .LASF19
+     /tmp/ccy0A2j8.s:1093   .debug_str:0000000000000309 .LASF52
+     /tmp/ccy0A2j8.s:1129   .debug_str:00000000000004dc .LASF54
+     /tmp/ccy0A2j8.s:993    .debug_str:0000000000000037 .LASF20
+     /tmp/ccy0A2j8.s:1107   .debug_str:0000000000000373 .LASF22
+     /tmp/ccy0A2j8.s:1023   .debug_str:000000000000013a .LASF24
+     /tmp/ccy0A2j8.s:1021   .debug_str:0000000000000125 .LASF26
+     /tmp/ccy0A2j8.s:1103   .debug_str:000000000000035d .LASF21
+     /tmp/ccy0A2j8.s:1089   .debug_str:00000000000002e4 .LASF23
+     /tmp/ccy0A2j8.s:1115   .debug_str:00000000000003c5 .LASF25
+     /tmp/ccy0A2j8.s:1111   .debug_str:00000000000003a0 .LASF27
+     /tmp/ccy0A2j8.s:1035   .debug_str:0000000000000180 .LASF28
+     /tmp/ccy0A2j8.s:1017   .debug_str:0000000000000102 .LASF29
+     /tmp/ccy0A2j8.s:989    .debug_str:000000000000001f .LASF30
+     /tmp/ccy0A2j8.s:1045   .debug_str:00000000000001cb .LASF31
+     /tmp/ccy0A2j8.s:1025   .debug_str:0000000000000143 .LASF32
+     /tmp/ccy0A2j8.s:1005   .debug_str:000000000000009a .LASF33
+     /tmp/ccy0A2j8.s:1133   .debug_str:00000000000004ff .LASF34
+     /tmp/ccy0A2j8.s:1027   .debug_str:000000000000014b .LASF35
+     /tmp/ccy0A2j8.s:1073   .debug_str:0000000000000292 .LASF36
+     /tmp/ccy0A2j8.s:1127   .debug_str:00000000000004c9 .LASF37
+     /tmp/ccy0A2j8.s:997    .debug_str:0000000000000070 .LASF38
+     /tmp/ccy0A2j8.s:1033   .debug_str:000000000000016d .LASF39
+     /tmp/ccy0A2j8.s:1039   .debug_str:00000000000001a1 .LASF40
+     /tmp/ccy0A2j8.s:1113   .debug_str:00000000000003b3 .LASF41
+     /tmp/ccy0A2j8.s:1057   .debug_str:0000000000000236 .LASF42
+     /tmp/ccy0A2j8.s:1137   .debug_str:000000000000050c .LASF43
+     /tmp/ccy0A2j8.s:1131   .debug_str:00000000000004f4 .LASF44
+     /tmp/ccy0A2j8.s:1097   .debug_str:000000000000032a .LASF45
+     /tmp/ccy0A2j8.s:1051   .debug_str:00000000000001fc .LASF46
+     /tmp/ccy0A2j8.s:1109   .debug_str:0000000000000388 .LASF47
+     /tmp/ccy0A2j8.s:1009   .debug_str:00000000000000ca .LASF48
+     /tmp/ccy0A2j8.s:1047   .debug_str:00000000000001df .LASF49
+     /tmp/ccy0A2j8.s:1065   .debug_str:0000000000000263 .LASF50
+     /tmp/ccy0A2j8.s:1043   .debug_str:00000000000001b5 .LASF51
+     /tmp/ccy0A2j8.s:1105   .debug_str:0000000000000364 .LASF53
+     /tmp/ccy0A2j8.s:1007   .debug_str:00000000000000ae .LASF55
+     /tmp/ccy0A2j8.s:1061   .debug_str:0000000000000249 .LASF56
+     /tmp/ccy0A2j8.s:1037   .debug_str:0000000000000188 .LASF57
+     /tmp/ccy0A2j8.s:1123   .debug_str:00000000000004af .LASF58
+     /tmp/ccy0A2j8.s:1053   .debug_str:0000000000000207 .LASF60
+     /tmp/ccy0A2j8.s:1091   .debug_str:00000000000002f7 .LASF59
+     /tmp/ccy0A2j8.s:987    .debug_str:0000000000000000 .LASF61
+     /tmp/ccy0A2j8.s:1029   .debug_str:000000000000015f .LASF62
+     /tmp/ccy0A2j8.s:1085   .debug_str:00000000000002d0 .LASF75
+     /tmp/ccy0A2j8.s:10     .text:0000000000000000 .LFB41
+     /tmp/ccy0A2j8.s:84     .text:0000000000000054 .LFE41
+     /tmp/ccy0A2j8.s:952    .debug_loc:0000000000000000 .LLST0
+     /tmp/ccy0A2j8.s:26     .text:0000000000000018 .LBB6
+     /tmp/ccy0A2j8.s:38     .text:000000000000001c .LBE6
+     /tmp/ccy0A2j8.s:40     .text:000000000000001c .LBB8
+GAS LISTING /tmp/ccy0A2j8.s 			page 9
 
 
-     /tmp/cc72BvTi.s:2296   .debug_str:0000000000000480 .LASF56
-     /tmp/cc72BvTi.s:2244   .debug_str:00000000000002e4 .LASF57
-     /tmp/cc72BvTi.s:2440   .debug_str:0000000000000997 .LASF58
-     /tmp/cc72BvTi.s:2278   .debug_str:0000000000000401 .LASF60
-     /tmp/cc72BvTi.s:2368   .debug_str:0000000000000684 .LASF59
-     /tmp/cc72BvTi.s:2156   .debug_str:0000000000000009 .LASF61
-     /tmp/cc72BvTi.s:2434   .debug_str:0000000000000959 .LASF63
-     /tmp/cc72BvTi.s:2190   .debug_str:0000000000000151 .LASF134
-     /tmp/cc72BvTi.s:2372   .debug_str:000000000000069b .LASF64
-     /tmp/cc72BvTi.s:2308   .debug_str:00000000000004db .LASF65
-     /tmp/cc72BvTi.s:2450   .debug_str:00000000000009e4 .LASF66
-     /tmp/cc72BvTi.s:2306   .debug_str:00000000000004b9 .LASF136
-     /tmp/cc72BvTi.s:2214   .debug_str:0000000000000233 .LASF67
-     /tmp/cc72BvTi.s:2294   .debug_str:000000000000047b .LASF68
-     /tmp/cc72BvTi.s:2266   .debug_str:00000000000003bc .LASF69
-     /tmp/cc72BvTi.s:2196   .debug_str:000000000000016c .LASF72
-     /tmp/cc72BvTi.s:2204   .debug_str:00000000000001be .LASF70
-     /tmp/cc72BvTi.s:2456   .debug_str:0000000000000a14 .LASF71
-     /tmp/cc72BvTi.s:2328   .debug_str:000000000000054a .LASF73
-     /tmp/cc72BvTi.s:2310   .debug_str:00000000000004e0 .LASF74
-     /tmp/cc72BvTi.s:2420   .debug_str:00000000000008db .LASF75
-     /tmp/cc72BvTi.s:2178   .debug_str:00000000000000da .LASF76
-     /tmp/cc72BvTi.s:2430   .debug_str:0000000000000932 .LASF77
-     /tmp/cc72BvTi.s:2160   .debug_str:0000000000000030 .LASF78
-     /tmp/cc72BvTi.s:2438   .debug_str:000000000000098d .LASF79
-     /tmp/cc72BvTi.s:2168   .debug_str:0000000000000074 .LASF80
-     /tmp/cc72BvTi.s:2226   .debug_str:000000000000027d .LASF81
-     /tmp/cc72BvTi.s:2258   .debug_str:000000000000035d .LASF82
-     /tmp/cc72BvTi.s:2236   .debug_str:00000000000002b8 .LASF105
-     /tmp/cc72BvTi.s:2432   .debug_str:000000000000093d .LASF83
-     /tmp/cc72BvTi.s:2442   .debug_str:00000000000009ac .LASF84
-     /tmp/cc72BvTi.s:2220   .debug_str:0000000000000246 .LASF85
-     /tmp/cc72BvTi.s:2326   .debug_str:0000000000000541 .LASF86
-     /tmp/cc72BvTi.s:2304   .debug_str:00000000000004b0 .LASF87
-     /tmp/cc72BvTi.s:2362   .debug_str:000000000000064c .LASF88
-     /tmp/cc72BvTi.s:2174   .debug_str:00000000000000cd .LASF89
-     /tmp/cc72BvTi.s:2424   .debug_str:00000000000008f6 .LASF91
-     /tmp/cc72BvTi.s:2356   .debug_str:000000000000062a .LASF92
-     /tmp/cc72BvTi.s:2398   .debug_str:0000000000000770 .LASF93
-     /tmp/cc72BvTi.s:2218   .debug_str:000000000000023e .LASF94
-     /tmp/cc72BvTi.s:2166   .debug_str:000000000000006c .LASF155
-     /tmp/cc72BvTi.s:2428   .debug_str:0000000000000929 .LASF95
-     /tmp/cc72BvTi.s:2348   .debug_str:00000000000005f5 .LASF96
-     /tmp/cc72BvTi.s:2344   .debug_str:00000000000005cf .LASF97
-     /tmp/cc72BvTi.s:2212   .debug_str:0000000000000218 .LASF98
-     /tmp/cc72BvTi.s:2300   .debug_str:000000000000049a .LASF99
-     /tmp/cc72BvTi.s:2198   .debug_str:0000000000000189 .LASF100
-     /tmp/cc72BvTi.s:2292   .debug_str:000000000000046e .LASF101
-     /tmp/cc72BvTi.s:2364   .debug_str:0000000000000654 .LASF102
-     /tmp/cc72BvTi.s:2336   .debug_str:0000000000000580 .LASF103
-     /tmp/cc72BvTi.s:2378   .debug_str:00000000000006bc .LASF104
-     /tmp/cc72BvTi.s:2370   .debug_str:0000000000000696 .LASF106
-     /tmp/cc72BvTi.s:2382   .debug_str:00000000000006f8 .LASF107
-     /tmp/cc72BvTi.s:2412   .debug_str:00000000000007ea .LASF108
-     /tmp/cc72BvTi.s:2458   .debug_str:0000000000000a1e .LASF109
-     /tmp/cc72BvTi.s:2400   .debug_str:0000000000000779 .LASF110
-     /tmp/cc72BvTi.s:2154   .debug_str:0000000000000000 .LASF111
-GAS LISTING /tmp/cc72BvTi.s 			page 11
-
-
-     /tmp/cc72BvTi.s:2384   .debug_str:00000000000006fe .LASF112
-     /tmp/cc72BvTi.s:2332   .debug_str:0000000000000572 .LASF156
-     /tmp/cc72BvTi.s:2408   .debug_str:00000000000007cd .LASF113
-     /tmp/cc72BvTi.s:2288   .debug_str:0000000000000451 .LASF114
-     /tmp/cc72BvTi.s:2360   .debug_str:000000000000063f .LASF115
-     /tmp/cc72BvTi.s:2340   .debug_str:00000000000005a0 .LASF116
-     /tmp/cc72BvTi.s:2446   .debug_str:00000000000009d2 .LASF117
-     /tmp/cc72BvTi.s:2354   .debug_str:000000000000061a .LASF118
-     /tmp/cc72BvTi.s:2464   .debug_str:0000000000000a37 .LASF119
-     /tmp/cc72BvTi.s:2232   .debug_str:00000000000002a3 .LASF120
-     /tmp/cc72BvTi.s:2350   .debug_str:0000000000000605 .LASF121
-     /tmp/cc72BvTi.s:2374   .debug_str:00000000000006a0 .LASF122
-     /tmp/cc72BvTi.s:2268   .debug_str:00000000000003cd .LASF123
-     /tmp/cc72BvTi.s:2312   .debug_str:00000000000004f0 .LASF124
-     /tmp/cc72BvTi.s:2346   .debug_str:00000000000005da .LASF125
-     /tmp/cc72BvTi.s:2272   .debug_str:00000000000003e9 .LASF126
-     /tmp/cc72BvTi.s:2324   .debug_str:000000000000053b .LASF127
-     /tmp/cc72BvTi.s:2276   .debug_str:00000000000003f9 .LASF128
-     /tmp/cc72BvTi.s:2314   .debug_str:0000000000000501 .LASF129
-     /tmp/cc72BvTi.s:2270   .debug_str:00000000000003e0 .LASF130
-     /tmp/cc72BvTi.s:2444   .debug_str:00000000000009c8 .LASF131
-     /tmp/cc72BvTi.s:2286   .debug_str:0000000000000443 .LASF132
-     /tmp/cc72BvTi.s:2254   .debug_str:000000000000032c .LASF133
-     /tmp/cc72BvTi.s:2200   .debug_str:00000000000001a4 .LASF135
-     /tmp/cc72BvTi.s:2426   .debug_str:00000000000008fd .LASF137
-     /tmp/cc72BvTi.s:2322   .debug_str:0000000000000532 .LASF138
-     /tmp/cc72BvTi.s:2410   .debug_str:00000000000007d3 .LASF139
-     /tmp/cc72BvTi.s:2392   .debug_str:0000000000000749 .LASF140
-     /tmp/cc72BvTi.s:2290   .debug_str:0000000000000465 .LASF141
-     /tmp/cc72BvTi.s:2330   .debug_str:000000000000056b .LASF142
-     /tmp/cc72BvTi.s:2234   .debug_str:00000000000002b3 .LASF143
-     /tmp/cc72BvTi.s:2352   .debug_str:0000000000000615 .LASF144
-     /tmp/cc72BvTi.s:10     .text:0000000000000000 .LFB41
-     /tmp/cc72BvTi.s:123    .text:00000000000000a0 .LFE41
-     /tmp/cc72BvTi.s:2101   .debug_loc:0000000000000000 .LLST0
-     /tmp/cc72BvTi.s:2108   .debug_loc:0000000000000023 .LLST1
-     /tmp/cc72BvTi.s:2119   .debug_loc:0000000000000059 .LLST2
-     /tmp/cc72BvTi.s:28     .text:000000000000001c .LBB6
-     /tmp/cc72BvTi.s:40     .text:0000000000000020 .LBE6
-     /tmp/cc72BvTi.s:42     .text:0000000000000020 .LBB8
-     /tmp/cc72BvTi.s:54     .text:0000000000000028 .LBE8
-     /tmp/cc72BvTi.s:2130   .debug_loc:000000000000008f .LLST3
-     /tmp/cc72BvTi.s:59     .text:0000000000000034 .LVL3
-     /tmp/cc72BvTi.s:70     .text:0000000000000050 .LVL5
-     /tmp/cc72BvTi.s:78     .text:0000000000000060 .LVL8
-     /tmp/cc72BvTi.s:89     .text:000000000000006c .LVL9
-     /tmp/cc72BvTi.s:95     .text:0000000000000074 .LVL10
-     /tmp/cc72BvTi.s:102    .text:0000000000000084 .LVL11
-     /tmp/cc72BvTi.s:2176   .debug_str:00000000000000d5 .LASF145
-     /tmp/cc72BvTi.s:2250   .debug_str:0000000000000311 .LASF146
-     /tmp/cc72BvTi.s:2216   .debug_str:0000000000000238 .LASF147
-     /tmp/cc72BvTi.s:2388   .debug_str:000000000000072e .LASF148
-     /tmp/cc72BvTi.s:2448   .debug_str:00000000000009df .LASF150
-     /tmp/cc72BvTi.s:2238   .debug_str:00000000000002c0 .LASF149
-     /tmp/cc72BvTi.s:2262   .debug_str:00000000000003b0 .LASF151
-     /tmp/cc72BvTi.s:61     .text:0000000000000038 .LVL4
-     /tmp/cc72BvTi.s:118    .text:0000000000000098 .LVL14
-GAS LISTING /tmp/cc72BvTi.s 			page 12
-
-
-     /tmp/cc72BvTi.s:72     .text:0000000000000054 .LVL6
-     /tmp/cc72BvTi.s:76     .text:0000000000000058 .LVL7
-     /tmp/cc72BvTi.s:105    .text:0000000000000088 .LVL12
-     /tmp/cc72BvTi.s:110    .text:000000000000008c .LVL13
-     /tmp/cc72BvTi.s:37     .text:0000000000000020 .LVL1
-     /tmp/cc72BvTi.s:51     .text:0000000000000028 .LVL2
-     /tmp/cc72BvTi.s:132    .debug_info:0000000000000000 .Ldebug_info0
+     /tmp/ccy0A2j8.s:53     .text:0000000000000024 .LBE8
+     /tmp/ccy0A2j8.s:963    .debug_loc:0000000000000036 .LLST1
+     /tmp/ccy0A2j8.s:59     .text:000000000000002c .LVL3
+     /tmp/ccy0A2j8.s:66     .text:000000000000003c .LVL4
+     /tmp/ccy0A2j8.s:1081   .debug_str:00000000000002c5 .LASF63
+     /tmp/ccy0A2j8.s:1135   .debug_str:0000000000000507 .LASF64
+     /tmp/ccy0A2j8.s:1083   .debug_str:00000000000002ca .LASF65
+     /tmp/ccy0A2j8.s:1099   .debug_str:0000000000000342 .LASF66
+     /tmp/ccy0A2j8.s:1125   .debug_str:00000000000004c4 .LASF68
+     /tmp/ccy0A2j8.s:1031   .debug_str:0000000000000164 .LASF67
+     /tmp/ccy0A2j8.s:1067   .debug_str:000000000000026d .LASF69
+     /tmp/ccy0A2j8.s:69     .text:0000000000000040 .LVL5
+     /tmp/ccy0A2j8.s:74     .text:0000000000000044 .LVL6
+     /tmp/ccy0A2j8.s:35     .text:000000000000001c .LVL1
+     /tmp/ccy0A2j8.s:49     .text:0000000000000024 .LVL2
+     /tmp/ccy0A2j8.s:90     .debug_info:0000000000000000 .Ldebug_info0
 
 UNDEFINED SYMBOLS
 _ZN5Riscv14supervisorTrapEv
-_ZN15MemoryAllocator10kmem_allocEm
-_ZN7_thread7runningE
-_ZN7_thread8setStackEPm
 _Z4getcv
 _Z4putcc
