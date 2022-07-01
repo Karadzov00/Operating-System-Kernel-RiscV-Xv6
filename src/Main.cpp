@@ -34,19 +34,11 @@ int main(){
 
 //    make user thread
 
-
 //    _thread* idle;
 //    thread_create(&idle, nullptr, nullptr);
 //    _thread::running=idle;
 
-//    userMain(nullptr);
 
-
-//    _thread* idle;
-//    if(!thread_create(&idle, nullptr, nullptr)){}
-//    _thread::running=idle;
-//
-//
     userMain(nullptr);
 
 
