@@ -29,10 +29,9 @@ void Riscv::handleSupervisorTrap(){
     }
     else if(scause == 0x0000000000000009UL){
         uint64 sepc = r_sepc();
-        uint64 sstatus = r_sstatus() & ~(SSTATUS_SPP);
-
+        mc_sstatus(SSTATUS_SPP);
         w_sepc(sepc + 4);
-        w_sstatus(sstatus);
+
     }
     else if (scause == 0x8000000000000009UL){
         console_handler();
@@ -82,7 +81,9 @@ void Riscv::handleSupervisorTrap(){
             uint64 sepc = r_sepc() + 4;
             uint64 sstatus = r_sstatus();
             //kmem_alloc
-            __asm__ volatile("mv %0, a1" : "=r" (arg1));    //read size from a1 and move it to arg1 local variable
+            __asm__ volatile("ld a0, 11*8(fp)"); //a1
+
+            __asm__ volatile("mv %0, a0" : "=r" (arg1));
             uint64 ptr= (uint64) MemoryAllocator::kmem_alloc(arg1*MEM_BLOCK_SIZE);
 
             //write return value to a0 register
@@ -95,7 +96,9 @@ void Riscv::handleSupervisorTrap(){
             uint64 sepc = r_sepc() + 4;
             uint64 sstatus = r_sstatus();
 
-            __asm__ volatile("mv %0, a1" : "=r" (arg1));    //read pointer to free from a1 and move it to arg1 local variable
+            __asm__ volatile("ld a0, 11*8(fp)"); //a1
+
+            __asm__ volatile("mv %0, a0" : "=r" (arg1));
             int ret = MemoryAllocator::kmem_free((void *) arg1);
             __asm__ volatile("mv a0, %0" : : "r" (ret));
 
