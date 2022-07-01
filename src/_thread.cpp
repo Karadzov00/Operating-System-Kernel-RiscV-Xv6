@@ -28,7 +28,8 @@ _thread::_thread(Body body, uint64 timeSlice, void* arg, uint64* stek)
     status = Status::NEW;
     id = globalId++;
     this->arg=arg;
-    this->start();
+    if(this->body!= nullptr)
+        Scheduler::put(this);
 }
 
 void _thread::start() {
@@ -37,8 +38,7 @@ void _thread::start() {
 
     //set thread to ready and put it to scheduler
 //    status=Status::READY;
-    if(this->body!= nullptr)
-        Scheduler::put(this);
+
 }
 
 void _thread::yield() {

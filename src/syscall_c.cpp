@@ -7,7 +7,7 @@
 
 
 #include "../h/MemoryAllocator.hpp"
-#include "syscall_c.h"
+#include "../h/syscall_c.h"
 
 
 //extern "C" void supervisorTrap();
