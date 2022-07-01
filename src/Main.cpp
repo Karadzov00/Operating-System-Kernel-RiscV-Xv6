@@ -10,12 +10,6 @@
 //
 //
 
-extern void userMain();
-extern int thread_create (
-        _thread::thread_t * handle,
-        void(*start_routine)(void*),
-        void* arg
-);
 
 extern void userMain(void*);
 
@@ -32,25 +26,20 @@ int main(){
     uint64 * stack = (uint64*)MemoryAllocator::kmem_alloc(DEFAULT_STACK_SIZE* sizeof(uint64));
     main->setStack(stack);
     __asm__ volatile("ecall");
-
-    char c;
-    while((c=getc())!=0x31){
-        putc(c);
-    }
+//
+//    char c;
+//    while((c=getc())!=0x31){
+//        putc(c);
+//    }
 
 //    make user thread
 
 
 //    _thread* idle;
-//    thread_create(&idle, userMain, nullptr);
+//    thread_create(&idle, nullptr, nullptr);
 //    _thread::running=idle;
-//
-//    _thread* thr;
-//    thread_create(&thr, userMain, nullptr);
-//
-//    while(!idle->isFinished()){
-//        thread_dispatch();
-//    }
+
+//    userMain(nullptr);
 
 
 //    _thread* idle;
@@ -58,7 +47,7 @@ int main(){
 //    _thread::running=idle;
 //
 //
-//    userMain(nullptr);
+    userMain(nullptr);
 
 
     return 0;
