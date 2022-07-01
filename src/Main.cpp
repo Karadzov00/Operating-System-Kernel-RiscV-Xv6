@@ -21,11 +21,9 @@ int main(){
 
 
 //    make system thread
-    _thread* main = (_thread*)MemoryAllocator::kmem_alloc(sizeof(_thread));
-    _thread::running=main;
-    uint64 * stack = (uint64*)MemoryAllocator::kmem_alloc(DEFAULT_STACK_SIZE* sizeof(uint64));
-    main->setStack(stack);
-    __asm__ volatile("ecall");
+    Riscv::initKernel();
+
+
 //
 //    char c;
 //    while((c=getc())!=0x31){

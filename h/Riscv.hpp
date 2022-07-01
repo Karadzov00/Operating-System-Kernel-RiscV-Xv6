@@ -82,6 +82,8 @@ public:
 
     static void TrapConsole();
 
+    static void initKernel();
+
 private:
 
     // supervisor trap handler
