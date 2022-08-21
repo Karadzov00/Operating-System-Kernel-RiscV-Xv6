@@ -27,16 +27,18 @@ void Riscv::handleSupervisorTrap(){
     if(scause == 0x8000000000000001){
         mc_sip(SIP_SSIP);
     }
-    else if(scause == 0x0000000000000009UL){
-        uint64 sepc = r_sepc();
-        mc_sstatus(SSTATUS_SPP);
-        w_sepc(sepc + 4);
-
-    }
+//    else if(scause == 0x0000000000000009UL){
+//        uint64 sepc = r_sepc();
+//        mc_sstatus(SSTATUS_SPP);
+//
+//        w_sepc(sepc + 4);
+//
+//
+//    }
     else if (scause == 0x8000000000000009UL){
         console_handler();
     }
-    else if (scause == 0x0000000000000008UL){
+    else if (scause == 0x0000000000000008UL || scause==0x0000000000000009UL){
         // interrupt: no; cause code: environment call from U-mode(8) or S-mode(9)
 
         //call from yield
@@ -296,5 +298,5 @@ void Riscv::initKernel() {
     _thread::running=main;
     uint64 * stack = (uint64*)MemoryAllocator::kmem_alloc(DEFAULT_STACK_SIZE* sizeof(uint64));
     main->setStack(stack);
-    __asm__ volatile("ecall");
+//    __asm__ volatile("ecall");
 }
