@@ -13,9 +13,9 @@
 
 void Riscv::popSppSpie()    //pop supervisor previous privilege, supervisor previous interrupt enable
 {
-    __asm__ volatile ("csrw sepc, ra");
-    mc_sstatus(SSTATUS_SPP);
-    __asm__ volatile ("sret");  //exit privileged regime
+//    __asm__ volatile ("csrw sepc, ra");
+//    mc_sstatus(SSTATUS_SPP);
+//    __asm__ volatile ("sret");  //exit privileged regime
 }
 
 bool Riscv::privilege=false;
@@ -43,7 +43,6 @@ void Riscv::handleSupervisorTrap(){
     else if (scause == 0x0000000000000008UL || scause==0x0000000000000009UL){
         // interrupt: no; cause code: environment call from U-mode(8) or S-mode(9)
 
-        //call from yield
 
         if(a0reg==0x11){
             uint64 sepc = r_sepc() + 4;
@@ -158,7 +157,7 @@ void Riscv::handleSupervisorTrap(){
             __asm__ volatile("mv %0, a2" : "=r" (arg2));    //init val
 
             KSemaphore* sem = new KSemaphore(arg2);
-            sem->open();
+            sem->opened=true;
             *arg1=sem;
 
             uint64 ret=0;
@@ -189,7 +188,7 @@ void Riscv::handleSupervisorTrap(){
                 sem->val++;
                 Scheduler::put(t);
             }
-             sem->close();
+             sem->opened=false;
 
             delete sem;
 
@@ -208,7 +207,7 @@ void Riscv::handleSupervisorTrap(){
 
             uint64 ret;
 //            KSemaphore* sem = *arg1;
-            if(arg1->isOpened()) {
+            if(arg1->opened) {
                  ret = arg1->wait();
             }
             else{
@@ -230,13 +229,10 @@ void Riscv::handleSupervisorTrap(){
             __asm__ volatile("mv %0, a1" : "=r" (arg1));    //handle (sem_t*)
 
             uint64 ret;
-            if(arg1->isOpened()) {
+
                 arg1->signal();
                 ret=0;
-            }
-            else{
-                ret = -1;
-            }
+
 
             __asm__ volatile("mv a0, %0" : : "r" (ret));
 

@@ -48,11 +48,9 @@ void* mem_alloc (size_t size){
     size_t blocks = size/MEM_BLOCK_SIZE;
     if(size%MEM_BLOCK_SIZE!=0)blocks++;
 
-    uint64 arg0 = 0x01;
-    uint64 arg1 = blocks;
 
-    __asm__ volatile("mv a0, %0" : : "r" (arg0));
-    __asm__ volatile("mv a1, %0" : : "r" (arg1));
+    __asm__ volatile("mv a0, %0" : : "r" (0x01));
+    __asm__ volatile("mv a1, %0" : : "r" (blocks));
 
     __asm__ volatile ("ecall");
 
@@ -65,11 +63,8 @@ void* mem_alloc (size_t size){
 int mem_free (void* p){
 
 
-    uint64 arg0 = 0x02;
-    uint64 arg1 = (uint64)p;
-
-    __asm__ volatile("mv a0, %0" : : "r" (arg0));
-    __asm__ volatile("mv a1, %0" : : "r" (arg1));
+    __asm__ volatile("mv a0, %0" : : "r" (0x02));
+    __asm__ volatile("mv a1, %0" : : "r" (p));
 
     __asm__ volatile ("ecall");
 
@@ -99,6 +94,15 @@ int thread_create (
     myArgs.a4=(uint64)stack;
 
     syscall(&myArgs);
+
+
+//    __asm__ volatile("mv a0, %0" : : "r" (0x11));
+//    __asm__ volatile("mv a1, %0" : : "r" (handle));
+//    __asm__ volatile("mv a2, %0" : : "r" (start_routine));
+//    __asm__ volatile("mv a3, %0" : : "r" (arg));
+//    __asm__ volatile("mv a4, %0" : : "r" (stack));
+//
+//    __asm__ volatile ("ecall");
 
 
     uint64 ret;
@@ -141,7 +145,17 @@ int sem_open (
     myArgs.a2 = (uint64)init;
 
     syscall(&myArgs);
-
+//
+//    uint64 arg0 = 0x21;
+//    uint64 arg1 = (uint64)handle;
+//    uint64 arg2 = (uint64)init;
+//
+//
+//    __asm__ volatile("mv a0, %0" : : "r" (0x21));
+//    __asm__ volatile("mv a1, %0" : : "r" (handle));
+//    __asm__ volatile("mv a2, %0" : : "r" (init));
+//
+//    __asm__ volatile ("ecall");
 
     uint64 ret;
     __asm__ volatile("mv %0, a0" : "=r" (ret));

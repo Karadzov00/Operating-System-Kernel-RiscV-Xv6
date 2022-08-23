@@ -27,10 +27,6 @@ public:
 
     static void yield();
 
-    void start();
-
-    void setStack(uint64* stek);
-
     void setDeblocked(){
         deblocked = true;
     }

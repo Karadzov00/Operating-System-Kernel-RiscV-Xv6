@@ -29,19 +29,12 @@ public:
 
     void operator delete[] (void* p)noexcept;
 
-    bool isOpened(){return opened;}
+    bool opened;
 
-    void open(){
-        opened=true;
-    }
-    void close(){
-        opened = false;
-    }
 private:
     int val;
     List<_thread> blocked;
     friend class Riscv;
-    bool opened;
 };
 
 

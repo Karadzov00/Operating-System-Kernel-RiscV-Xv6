@@ -16,29 +16,15 @@ _thread* _thread::createThread(Body body, void* arg, uint64* stek) {
     return new _thread(body, DEFAULT_TIME_SLICE, arg, stek);
 }
 
-_thread::_thread(Body body, uint64 timeSlice, void* arg, uint64* stek)
+_thread::_thread(Body body, uint64 timeSlice, void* arg, uint64* stek):body(body),timeSlice(timeSlice),
+finished(false), arg(arg),deblocked(false),id(globalId++), status(Status::NEW)
 {
-    this->body=body;
-    this->deblocked=false;
-    this->timeSlice=timeSlice;
-    this->finished=false;
     this->stack = (body!= nullptr) ? stek: nullptr;
     this->context.ra=(uint64)&threadWrapper;
     this->context.sp= (this->stack!= nullptr)?(uint64)&stack[DEFAULT_STACK_SIZE]:0;
-    status = Status::NEW;
-    id = globalId++;
-    this->arg=arg;
+
     if(this->body!= nullptr)
         Scheduler::put(this);
-}
-
-void _thread::start() {
-//    if(status==Status::FINISHED)return;
-//    if(status==Status::READY)return;
-
-    //set thread to ready and put it to scheduler
-//    status=Status::READY;
-
 }
 
 void _thread::yield() {
@@ -87,7 +73,5 @@ void _thread::operator delete[](void *p) noexcept {
     MemoryAllocator::kmem_free(p);
 }
 
-void _thread::setStack(uint64* stek) {
-    this->stack = stek;
-}
+
 

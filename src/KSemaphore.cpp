@@ -26,6 +26,7 @@ void KSemaphore::signal() {
             Scheduler::put(thread);
         }
     }
+
 }
 
 void* KSemaphore::operator new(size_t n) {

@@ -18,11 +18,7 @@ int main(){
 
     Riscv::w_stvec((uint64)&Riscv::supervisorTrap);
 //    Riscv::mc_sstatus(Riscv::SSTATUS_SPIE);
-
-
-//    make system thread
-//    Riscv::initKernel();
-
+    __asm__ volatile ("ecall");
 
 //
 //    char c;
@@ -31,7 +27,6 @@ int main(){
 //    }
 
 //    make user thread
-
     _thread* idle;
     thread_create(&idle, nullptr, nullptr);
     _thread::running=idle;
