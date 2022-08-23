@@ -17,11 +17,11 @@ int main(){
 
 
     Riscv::w_stvec((uint64)&Riscv::supervisorTrap);
-    Riscv::mc_sstatus(Riscv::SSTATUS_SPIE);
+//    Riscv::mc_sstatus(Riscv::SSTATUS_SPIE);
 
 
 //    make system thread
-    Riscv::initKernel();
+//    Riscv::initKernel();
 
 
 //
@@ -32,13 +32,11 @@ int main(){
 
 //    make user thread
 
-//    _thread* idle;
-//    thread_create(&idle, nullptr, nullptr);
-//    _thread::running=idle;
-
+    _thread* idle;
+    thread_create(&idle, nullptr, nullptr);
+    _thread::running=idle;
 
     userMain(nullptr);
-
 
     return 0;
 }

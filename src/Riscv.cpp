@@ -17,6 +17,8 @@ void Riscv::popSppSpie()    //pop supervisor previous privilege, supervisor prev
     __asm__ volatile ("sret");  //exit privileged regime
 }
 
+bool Riscv::privilege=false;
+
 void Riscv::handleSupervisorTrap(){
     uint64 scause = r_scause();
     uint64 a0reg;
@@ -24,17 +26,16 @@ void Riscv::handleSupervisorTrap(){
     __asm__ volatile("mv %0, a0" : "=r" (a0reg));
 
 
+
     if(scause == 0x8000000000000001){
         mc_sip(SIP_SSIP);
     }
-//    else if(scause == 0x0000000000000009UL){
-//        uint64 sepc = r_sepc();
-//        mc_sstatus(SSTATUS_SPP);
-//
-//        w_sepc(sepc + 4);
-//
-//
-//    }
+    else if(privilege==false){
+        uint64 sepc = r_sepc();
+        mc_sstatus(SSTATUS_SPP);
+        privilege=true;
+        w_sepc(sepc + 4);
+    }
     else if (scause == 0x8000000000000009UL){
         console_handler();
     }
@@ -71,7 +72,6 @@ void Riscv::handleSupervisorTrap(){
             uint64 ret;
             if(t!= nullptr)ret=0;
             else ret =-1;
-
 
             //return _thread* adress through a0
             __asm__ volatile("mv a0, %0" : : "r" (ret));
@@ -293,10 +293,3 @@ void Riscv::handleTrapConsole() {
 
 }
 
-void Riscv::initKernel() {
-    _thread* main = (_thread*)MemoryAllocator::kmem_alloc(sizeof(_thread));
-    _thread::running=main;
-    uint64 * stack = (uint64*)MemoryAllocator::kmem_alloc(DEFAULT_STACK_SIZE* sizeof(uint64));
-    main->setStack(stack);
-//    __asm__ volatile("ecall");
-}

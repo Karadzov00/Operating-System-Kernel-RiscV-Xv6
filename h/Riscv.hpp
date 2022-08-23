@@ -12,6 +12,8 @@ class Riscv
 {
 public:
 
+    static bool privilege;
+
     // pop sstatus.spp and sstatus.spie bits (has to be a non inline function)
     static void popSppSpie();
 

@@ -22,8 +22,6 @@ struct args{
 };
 
 void syscall(args* arg){
-    //should prepare arguments in registers
-    //should call interrupt routine with ecall
 
 
     uint64 arg0 = arg->a0;
@@ -32,16 +30,12 @@ void syscall(args* arg){
     uint64 arg3 = arg->a3;
     uint64 arg4 = arg->a4;
 
-    //lock this section?
     __asm__ volatile("mv a0, %0" : : "r" (arg0));
     __asm__ volatile("mv a1, %0" : : "r" (arg1));
     __asm__ volatile("mv a2, %0" : : "r" (arg2));
     __asm__ volatile("mv a3, %0" : : "r" (arg3));
     __asm__ volatile("mv a4, %0" : : "r" (arg4));
 
-
-
-//    Riscv::ms_sstatus(Riscv::SSTATUS_SIE);
     __asm__ volatile ("ecall");
 
 
@@ -50,14 +44,17 @@ void syscall(args* arg){
 void* mem_alloc (size_t size){
     //prepares parameters to arguments
     //executes system call instruction
-    args arg;
-    arg.a0=0x01;
 
     size_t blocks = size/MEM_BLOCK_SIZE;
     if(size%MEM_BLOCK_SIZE!=0)blocks++;
-    arg.a1=blocks;
 
-    syscall(&arg);
+    uint64 arg0 = 0x01;
+    uint64 arg1 = blocks;
+
+    __asm__ volatile("mv a0, %0" : : "r" (arg0));
+    __asm__ volatile("mv a1, %0" : : "r" (arg1));
+
+    __asm__ volatile ("ecall");
 
     uint64 ret;
     __asm__ volatile("mv %0, a0" : "=r" (ret));
@@ -66,11 +63,16 @@ void* mem_alloc (size_t size){
 }
 
 int mem_free (void* p){
-    args arg;
-    arg.a0=0x02;
-    arg.a1=(uint64)p;
 
-    syscall(&arg);
+
+    uint64 arg0 = 0x02;
+    uint64 arg1 = (uint64)p;
+
+    __asm__ volatile("mv a0, %0" : : "r" (arg0));
+    __asm__ volatile("mv a1, %0" : : "r" (arg1));
+
+    __asm__ volatile ("ecall");
+
     uint64 ret;
     __asm__ volatile("mv %0, a0" : "=r" (ret));
     p= nullptr;
@@ -97,6 +99,8 @@ int thread_create (
     myArgs.a4=(uint64)stack;
 
     syscall(&myArgs);
+
+
     uint64 ret;
     __asm__ volatile("mv %0, a0" : "=r" (ret));
     return ret;
@@ -105,20 +109,22 @@ int thread_create (
 }
 
 int thread_exit (){
-    args myArgs;
-    myArgs.a0=0x12;
+    uint64 arg0 = 0x12;
 
-    syscall(&myArgs);
+    __asm__ volatile("mv a0, %0" : : "r" (arg0));
+
+    __asm__ volatile ("ecall");
 
     return 0;
 }
 
 
 void thread_dispatch (){
-    args myArgs;
-    myArgs.a0=0x13;
+    uint64 arg0 = 0x13;
 
-    syscall(&myArgs);
+    __asm__ volatile("mv a0, %0" : : "r" (arg0));
+
+    __asm__ volatile ("ecall");
 
 
 }
@@ -135,6 +141,18 @@ int sem_open (
     myArgs.a2 = (uint64)init;
 
     syscall(&myArgs);
+
+//    uint64 arg0 = 0x21;
+//    uint64 arg1 = (uint64)handle;
+//    uint64 arg2 = (uint64)init;
+//
+//
+//    __asm__ volatile("mv a0, %0" : : "r" (arg0));
+//    __asm__ volatile("mv a1, %0" : : "r" (arg1));
+//    __asm__ volatile("mv a2, %0" : : "r" (arg2));
+//
+//    __asm__ volatile ("ecall");
+
     uint64 ret;
     __asm__ volatile("mv %0, a0" : "=r" (ret));
     return ret;
@@ -178,10 +196,16 @@ int sem_signal (sem_t id){
 
 const int EOF = -1;
 char getc (){
-    args myArgs;
-    myArgs.a0 = 0x41;
+//    args myArgs;
+//    myArgs.a0 = 0x41;
+//
+//    syscall(&myArgs);
 
-    syscall(&myArgs);
+    uint64 arg0 = 0x41;
+
+    __asm__ volatile("mv a0, %0" : : "r" (arg0));
+
+    __asm__ volatile ("ecall");
 
     char c;
     __asm__ volatile("mv %0, a0" : "=r" (c));
@@ -195,6 +219,7 @@ void putc (char c){
     myArgs.a1=(uint64)c;
 
     syscall(&myArgs);
+
 }
 
 #endif //PROJECT_BASE_V1_1_SYSCALL_C_CPP
