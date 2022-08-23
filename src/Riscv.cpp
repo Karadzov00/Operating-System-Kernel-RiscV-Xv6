@@ -14,6 +14,7 @@
 void Riscv::popSppSpie()    //pop supervisor previous privilege, supervisor previous interrupt enable
 {
     __asm__ volatile ("csrw sepc, ra");
+    mc_sstatus(SSTATUS_SPP);
     __asm__ volatile ("sret");  //exit privileged regime
 }
 
@@ -30,7 +31,7 @@ void Riscv::handleSupervisorTrap(){
     if(scause == 0x8000000000000001){
         mc_sip(SIP_SSIP);
     }
-    else if(privilege==false){
+    else if(!privilege){
         uint64 sepc = r_sepc();
         mc_sstatus(SSTATUS_SPP);
         privilege=true;

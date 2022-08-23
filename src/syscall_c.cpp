@@ -142,16 +142,6 @@ int sem_open (
 
     syscall(&myArgs);
 
-//    uint64 arg0 = 0x21;
-//    uint64 arg1 = (uint64)handle;
-//    uint64 arg2 = (uint64)init;
-//
-//
-//    __asm__ volatile("mv a0, %0" : : "r" (arg0));
-//    __asm__ volatile("mv a1, %0" : : "r" (arg1));
-//    __asm__ volatile("mv a2, %0" : : "r" (arg2));
-//
-//    __asm__ volatile ("ecall");
 
     uint64 ret;
     __asm__ volatile("mv %0, a0" : "=r" (ret));
