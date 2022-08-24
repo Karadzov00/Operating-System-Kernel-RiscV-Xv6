@@ -17,9 +17,8 @@ int main(){
 
 
     Riscv::w_stvec((uint64)&Riscv::supervisorTrap);
-//    Riscv::mc_sstatus(Riscv::SSTATUS_SPIE);
+    Riscv::mc_sstatus(Riscv::SSTATUS_SPIE);
     __asm__ volatile ("ecall");
-
 //
 //    char c;
 //    while((c=getc())!=0x31){

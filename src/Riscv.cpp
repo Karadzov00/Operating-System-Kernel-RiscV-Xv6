@@ -26,8 +26,6 @@ void Riscv::handleSupervisorTrap(){
     uint64 arg1;
     __asm__ volatile("mv %0, a0" : "=r" (a0reg));
 
-
-
     if(scause == 0x8000000000000001){
         mc_sip(SIP_SSIP);
     }
@@ -207,12 +205,9 @@ void Riscv::handleSupervisorTrap(){
 
             uint64 ret;
 //            KSemaphore* sem = *arg1;
-            if(arg1->opened) {
+
                  ret = arg1->wait();
-            }
-            else{
-                ret=-1;
-            }
+
             __asm__ volatile("mv a0, %0" : : "r" (ret));
 
             w_sstatus(sstatus);
