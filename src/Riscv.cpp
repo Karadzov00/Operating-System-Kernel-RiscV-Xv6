@@ -242,9 +242,10 @@ void Riscv::handleSupervisorTrap(){
             uint64 sstatus = r_sstatus();
 
             //call method from kernel Console class
-            Riscv::w_stvec((uint64)&Riscv::TrapConsole);
+
+            __asm__ volatile ("csrw stvec, %[stvec]" : : [stvec] "r"((uint64)&Riscv::TrapConsole));
             char c = __getc();
-            Riscv::w_stvec((uint64)&Riscv::supervisorTrap);
+            __asm__ volatile ("csrw stvec, %[stvec]" : : [stvec] "r"((uint64)&Riscv::supervisorTrap));
 
             __asm__ volatile("mv a0, %0" : : "r" (c));
 
@@ -261,9 +262,10 @@ void Riscv::handleSupervisorTrap(){
 
             __asm__ volatile("mv %0, a1" : "=r" (c));
 
-            Riscv::w_stvec((uint64)&Riscv::TrapConsole);
+            __asm__ volatile ("csrw stvec, %[stvec]" : : [stvec] "r"((uint64)&Riscv::TrapConsole));
             __putc(c);
-            Riscv::w_stvec((uint64)&Riscv::supervisorTrap);
+            __asm__ volatile ("csrw stvec, %[stvec]" : : [stvec] "r"((uint64)&Riscv::supervisorTrap));
+
 
             w_sstatus(sstatus);
             w_sepc(sepc);
