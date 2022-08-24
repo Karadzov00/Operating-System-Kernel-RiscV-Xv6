@@ -14,18 +14,18 @@ class MemoryAllocator {
 public:
     typedef DoublyLinkedList<size_t>::Node FreeMem;
 
-    static MemoryAllocator* getInstance(){
-        if(instance == nullptr){
-            instance = (MemoryAllocator*)HEAP_START_ADDR;
+    static MemoryAllocator* getCopy(){
+        if(copy == nullptr){
+            copy = (MemoryAllocator*)HEAP_START_ADDR;
 
-            instance->freeList.head=(FreeMem*)((size_t)HEAP_START_ADDR+sizeof(MemoryAllocator));
-            instance->freeList.head->size = (size_t)HEAP_END_ADDR-((size_t)HEAP_START_ADDR+sizeof(MemoryAllocator));
-            instance->freeList.head->next= nullptr;
-            instance->freeList.head->prev= nullptr;
+            copy->freeList.head=(FreeMem*)((size_t)HEAP_START_ADDR + sizeof(MemoryAllocator));
+            copy->freeList.head->size = (size_t)HEAP_END_ADDR - ((size_t)HEAP_START_ADDR + sizeof(MemoryAllocator));
+            copy->freeList.head->next= nullptr;
+            copy->freeList.head->prev= nullptr;
 
-            instance->pcbList.head= nullptr;
+            copy->pcbList.head= nullptr;
         }
-        return instance;
+        return copy;
     }
 
 
@@ -42,7 +42,7 @@ private:
 //        void* startAdress;
 //        size_t size; // Size of the free fragment
 //    };
-    static MemoryAllocator* instance;
+    static MemoryAllocator* copy;
 
 
     DoublyLinkedList<size_t> freeList;

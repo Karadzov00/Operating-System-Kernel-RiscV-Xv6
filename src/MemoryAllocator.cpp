@@ -7,11 +7,11 @@
 
 
 
-MemoryAllocator* MemoryAllocator::instance= nullptr;
+MemoryAllocator* MemoryAllocator::copy= nullptr;
 
 
 void* MemoryAllocator::kmem_alloc(size_t size){
-    MemoryAllocator* ma = getInstance();
+    MemoryAllocator* ma = getCopy();
     for(FreeMem* cur = ma->freeList.head; cur!=nullptr; cur=cur->next){
         if(cur->size<size) continue;
         //Found
@@ -89,7 +89,7 @@ int MemoryAllocator::tryToJoin(FreeMem *cur) {
 
 int MemoryAllocator::kmem_free(void* addr){
     //find size of the process for deallocation
-    MemoryAllocator* ma = getInstance();
+    MemoryAllocator* ma = getCopy();
 
     size_t size = -1;
     bool found = false;
