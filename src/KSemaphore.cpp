@@ -8,11 +8,6 @@
 
 int KSemaphore::wait() {
     if(--(this->val) < 0){
-
-//        _thread* old = _thread::running;
-//        if(!old->isFinished()) { this->blocked.addLast(old); }
-//        _thread::running = Scheduler::get();
-//        _thread::contextSwitch(&old->context, &_thread::running->context);
             _thread* old = _thread::running;
             if(!old->isFinished()){
                 this->blocked.addLast(old);
