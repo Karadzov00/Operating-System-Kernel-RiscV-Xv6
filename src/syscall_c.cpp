@@ -85,13 +85,6 @@ int thread_create (
         void* arg
 ){
 
-//    args myArgs;
-//    myArgs.a0=0x11;
-//    myArgs.a1=(uint64)handle;   //on address handle there is thread_t adress
-//    myArgs.a2=(uint64)start_routine;
-//    myArgs.a3=(uint64)arg;
-//
-//    syscall(&myArgs);
 
     volatile uint64 code  = (uint64)0x11;
     volatile uint64 hand = (uint64)handle;
@@ -140,23 +133,22 @@ int sem_open (
         sem_t* handle,
         unsigned init
 ){
-    args myArgs;
-    myArgs.a0 = 0x21;
-    myArgs.a1 = (uint64)handle;
-    myArgs.a2 = (uint64)init;
+//    args myArgs;
+//    myArgs.a0 = 0x21;
+//    myArgs.a1 = (uint64)handle;
+//    myArgs.a2 = (uint64)init;
+//
+//    syscall(&myArgs);
+//
+    volatile uint64 arg0 = 0x21;
+    volatile uint64 arg1 = (uint64)handle;
+    volatile uint64 arg2 = (uint64)init;
 
-    syscall(&myArgs);
-//
-//    uint64 arg0 = 0x21;
-//    uint64 arg1 = (uint64)handle;
-//    uint64 arg2 = (uint64)init;
-//
-//
-//    __asm__ volatile("mv a0, %0" : : "r" (0x21));
-//    __asm__ volatile("mv a1, %0" : : "r" (handle));
-//    __asm__ volatile("mv a2, %0" : : "r" (init));
-//
-//    __asm__ volatile ("ecall");
+    __asm__ volatile("mv a0, %0" : : "r" (arg0));
+    __asm__ volatile("mv a1, %0" : : "r" (arg1));
+    __asm__ volatile("mv a2, %0" : : "r" (arg2));
+
+    __asm__ volatile ("ecall");
 
     uint64 ret;
     __asm__ volatile("mv %0, a0" : "=r" (ret));
@@ -165,11 +157,14 @@ int sem_open (
 }
 
 int sem_close (sem_t handle){
-    args myArgs;
-    myArgs.a0 = 0x22;
-    myArgs.a1 = (uint64)handle;
 
-    syscall(&myArgs);
+    volatile uint64 arg0 = 0x21;
+    volatile uint64 arg1 = (uint64)handle;
+
+    __asm__ volatile("mv a0, %0" : : "r" (arg0));
+    __asm__ volatile("mv a1, %0" : : "r" (arg1));
+
+    __asm__ volatile ("ecall");
 
     return 0;
 }
