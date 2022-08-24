@@ -157,8 +157,11 @@ int sem_open (
 }
 
 int sem_close (sem_t handle){
+//    args myArgs;
+//    myArgs.a0 = 0x22;
+//    myArgs.a1 = (uint64)handle;
 
-    volatile uint64 arg0 = 0x21;
+    volatile uint64 arg0 = 0x22;
     volatile uint64 arg1 = (uint64)handle;
 
     __asm__ volatile("mv a0, %0" : : "r" (arg0));
@@ -170,11 +173,13 @@ int sem_close (sem_t handle){
 }
 
 int sem_wait (sem_t id){
-    args myArgs;
-    myArgs.a0 = 0x23;
-    myArgs.a1 = (uint64)id;
+    volatile uint64 arg0 = 0x23;
+    volatile uint64 arg1 = (uint64)id;
 
-    syscall(&myArgs);
+    __asm__ volatile("mv a0, %0" : : "r" (arg0));
+    __asm__ volatile("mv a1, %0" : : "r" (arg1));
+
+    __asm__ volatile ("ecall");
 
     uint64 ret;
     __asm__ volatile("mv %0, a0" : "=r" (ret));
@@ -183,11 +188,13 @@ int sem_wait (sem_t id){
 }
 
 int sem_signal (sem_t id){
-    args myArgs;
-    myArgs.a0 = 0x24;
-    myArgs.a1 = (uint64)id;
+    volatile uint64 arg0 = 0x24;
+    volatile uint64 arg1 = (uint64)id;
 
-    syscall(&myArgs);
+    __asm__ volatile("mv a0, %0" : : "r" (arg0));
+    __asm__ volatile("mv a1, %0" : : "r" (arg1));
+
+    __asm__ volatile ("ecall");
 
     uint64 ret;
     __asm__ volatile("mv %0, a0" : "=r" (ret));
@@ -201,7 +208,7 @@ char getc (){
 //
 //    syscall(&myArgs);
 
-    uint64 arg0 = 0x41;
+     uint64 arg0 = 0x41;
 
     __asm__ volatile("mv a0, %0" : : "r" (arg0));
 
@@ -214,11 +221,13 @@ char getc (){
 }
 
 void putc (char c){
-    args myArgs;
-    myArgs.a0 = 0x42;
-    myArgs.a1=(uint64)c;
+     uint64 arg0 = 0x42;
+    volatile uint64 arg1 = (uint64)c;
 
-    syscall(&myArgs);
+    __asm__ volatile("mv a0, %0" : : "r" (arg0));
+    __asm__ volatile("mv a1, %0" : : "r" (arg1));
+
+    __asm__ volatile ("ecall");
 
 }
 
