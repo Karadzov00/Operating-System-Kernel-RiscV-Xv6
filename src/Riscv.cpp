@@ -13,9 +13,9 @@
 
 void Riscv::popSppSpie()    //pop supervisor previous privilege, supervisor previous interrupt enable
 {
-//    __asm__ volatile ("csrw sepc, ra");
-//    mc_sstatus(SSTATUS_SPP);
-//    __asm__ volatile ("sret");  //exit privileged regime
+    __asm__ volatile ("csrw sepc, ra");
+    mc_sstatus(SSTATUS_SPP);
+    __asm__ volatile ("sret");  //exit privileged regime
 }
 
 bool Riscv::privilege=false;

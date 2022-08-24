@@ -7,9 +7,8 @@
 
 #include "../lib/hw.h"
 
-struct args;
 
-void syscall(args* arg);
+
 
 void* mem_alloc (size_t size);
 
