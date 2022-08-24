@@ -44,7 +44,10 @@ void _thread::yield() {
 
 void _thread::dispatch() {
     _thread* old = running;
-    if(!old->isFinished()) { Scheduler::put(old); }
+    if(!old->isFinished() && old->status!=BLOCKED) {
+        old->setStatus(Status::READY);
+        Scheduler::put(old);
+    }
     running = Scheduler::get();
 
     _thread::contextSwitch(&old->context, &running->context);

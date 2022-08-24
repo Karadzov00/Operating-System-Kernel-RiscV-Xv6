@@ -75,6 +75,10 @@ private:
 
     static void dispatch();
 
+    void setStatus(Status stat){
+        this->status= stat;
+    }
+
 
     static uint64 timeSliceCounter;
     uint64 id;

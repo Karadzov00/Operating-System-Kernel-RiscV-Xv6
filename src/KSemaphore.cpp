@@ -9,11 +9,16 @@
 int KSemaphore::wait() {
     if(--(this->val) < 0){
 
-        _thread* old = _thread::running;
-        if(!old->isFinished()) { this->blocked.addLast(old); }
-        _thread::running = Scheduler::get();
-        _thread::contextSwitch(&old->context, &_thread::running->context);
-
+//        _thread* old = _thread::running;
+//        if(!old->isFinished()) { this->blocked.addLast(old); }
+//        _thread::running = Scheduler::get();
+//        _thread::contextSwitch(&old->context, &_thread::running->context);
+            _thread* old = _thread::running;
+            if(!old->isFinished()){
+                this->blocked.addLast(old);
+                old->setStatus(_thread::Status::BLOCKED);
+            }
+            _thread::dispatch();
     }
     return 0;
 }
@@ -22,7 +27,7 @@ void KSemaphore::signal() {
     if(++(this->val) <=0){
         if(blocked.peekFirst()!= 0){
             _thread* thread = this->blocked.removeFirst();
-//            _thread* thread = blocked.peekFirst();
+            thread->setStatus(_thread::Status::READY);
             Scheduler::put(thread);
         }
     }
