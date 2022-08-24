@@ -10,8 +10,8 @@ int KSemaphore::wait() {
     if(--(this->val) < 0){
             _thread* old = _thread::running;
             if(!old->isFinished()){
-                this->blocked.addLast(old);
                 old->setStatus(_thread::Status::BLOCKED);
+                this->blocked.addLast(old);
             }
             _thread::dispatch();
     }
