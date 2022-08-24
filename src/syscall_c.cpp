@@ -85,24 +85,25 @@ int thread_create (
         void* arg
 ){
 
-    uint64* stack =(uint64*) mem_alloc(DEFAULT_STACK_SIZE* sizeof(uint64));
-    args myArgs;
-    myArgs.a0=0x11;
-    myArgs.a1=(uint64)handle;   //on address handle there is thread_t adress
-    myArgs.a2=(uint64)start_routine;
-    myArgs.a3=(uint64)arg;
-    myArgs.a4=(uint64)stack;
-
-    syscall(&myArgs);
-
-
-//    __asm__ volatile("mv a0, %0" : : "r" (0x11));
-//    __asm__ volatile("mv a1, %0" : : "r" (handle));
-//    __asm__ volatile("mv a2, %0" : : "r" (start_routine));
-//    __asm__ volatile("mv a3, %0" : : "r" (arg));
-//    __asm__ volatile("mv a4, %0" : : "r" (stack));
+//    args myArgs;
+//    myArgs.a0=0x11;
+//    myArgs.a1=(uint64)handle;   //on address handle there is thread_t adress
+//    myArgs.a2=(uint64)start_routine;
+//    myArgs.a3=(uint64)arg;
 //
-//    __asm__ volatile ("ecall");
+//    syscall(&myArgs);
+
+    volatile uint64 code  = (uint64)0x11;
+    volatile uint64 hand = (uint64)handle;
+    volatile uint64 start = (uint64)start_routine;
+    volatile uint64 a = (uint64)arg;
+
+    __asm__ volatile("mv a0, %0" : : "r" (code));
+    __asm__ volatile("mv a1, %0" : : "r" (hand));
+    __asm__ volatile("mv a2, %0" : : "r" (start));
+    __asm__ volatile("mv a3, %0" : : "r" (a));
+
+    __asm__ volatile ("ecall");
 
 
     uint64 ret;

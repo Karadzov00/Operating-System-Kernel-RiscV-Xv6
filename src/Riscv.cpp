@@ -52,21 +52,21 @@ void Riscv::handleSupervisorTrap(){
             _thread::thread_t *arg1;
             _thread::Body arg2;
             uint64 arg3;
-            uint64 *arg4;
+
 
             __asm__ volatile("ld a1, 11*8(fp)"); //a1
             __asm__ volatile("ld a2, 12*8(fp)"); //a2
             __asm__ volatile("ld a3, 13*8(fp)"); //a3
-            __asm__ volatile("ld a4, 14*8(fp)"); //a4
 
 
             __asm__ volatile("mv %0, a1" : "=r" (arg1));    //handle (thread_t*)
             __asm__ volatile("mv %0, a2" : "=r" (arg2));    //start routine
             __asm__ volatile("mv %0, a3" : "=r" (arg3));    //argument of start routine
-            __asm__ volatile("mv %0, a4" : "=r" (arg4));    //stack
+
+            uint64* stack =(uint64*) MemoryAllocator::kmem_alloc(DEFAULT_STACK_SIZE* sizeof(uint64));
 
             //make new thread object using overloaded new operator for that function
-            _thread* t = _thread::createThread(arg2,  (void*)arg3, arg4);    //t je thread_t
+            _thread* t = _thread::createThread(arg2,  (void*)arg3, stack);    //t je thread_t
             *arg1=t;
 
             uint64 ret;
