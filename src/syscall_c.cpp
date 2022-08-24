@@ -12,34 +12,6 @@
 
 //extern "C" void supervisorTrap();
 
-struct args{
-    uint64 a0;
-    uint64 a1;
-    uint64 a2;
-    uint64 a3;
-    uint64 a4;
-
-};
-
-void syscall(args* arg){
-
-
-    uint64 arg0 = arg->a0;
-    uint64 arg1 = arg->a1;
-    uint64 arg2 = arg->a2;
-    uint64 arg3 = arg->a3;
-    uint64 arg4 = arg->a4;
-
-    __asm__ volatile("mv a0, %0" : : "r" (arg0));
-    __asm__ volatile("mv a1, %0" : : "r" (arg1));
-    __asm__ volatile("mv a2, %0" : : "r" (arg2));
-    __asm__ volatile("mv a3, %0" : : "r" (arg3));
-    __asm__ volatile("mv a4, %0" : : "r" (arg4));
-
-    __asm__ volatile ("ecall");
-
-
-}
 
 void* mem_alloc (size_t size){
     //prepares parameters to arguments
@@ -133,13 +105,7 @@ int sem_open (
         sem_t* handle,
         unsigned init
 ){
-//    args myArgs;
-//    myArgs.a0 = 0x21;
-//    myArgs.a1 = (uint64)handle;
-//    myArgs.a2 = (uint64)init;
-//
-//    syscall(&myArgs);
-//
+
     volatile uint64 arg0 = 0x21;
     volatile uint64 arg1 = (uint64)handle;
     volatile uint64 arg2 = (uint64)init;
@@ -157,9 +123,6 @@ int sem_open (
 }
 
 int sem_close (sem_t handle){
-//    args myArgs;
-//    myArgs.a0 = 0x22;
-//    myArgs.a1 = (uint64)handle;
 
     volatile uint64 arg0 = 0x22;
     volatile uint64 arg1 = (uint64)handle;
@@ -203,10 +166,6 @@ int sem_signal (sem_t id){
 
 const int EOF = -1;
 char getc (){
-//    args myArgs;
-//    myArgs.a0 = 0x41;
-//
-//    syscall(&myArgs);
 
      uint64 arg0 = 0x41;
 
